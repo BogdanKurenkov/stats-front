@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ru">
         <Head />
-        <body>
+        <body style={{ background: 'black', height: '200vh' }}>
           <Main />
           <NextScript />
         </body>
