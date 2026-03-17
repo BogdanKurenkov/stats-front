@@ -1,26 +1,14 @@
 import "styled-components";
+import { colors } from "./styles/colors";
+import { breakpoints } from "./styles/breakpoints";
+import { spacing } from "./styles/spacing";
+import { typography } from "./styles/typography";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    colors: {
-      primary: string;
-      secondary: string;
-      success: string;
-      error: string;
-      warning: string;
-      background?: string;
-      text?: string;
-    };
-    breakpoints: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    spacing: {
-      small: string;
-      medium: string;
-      large: string;
-      xlarge: string;
-    };
+    colors: typeof colors;
+    breakpoints: typeof breakpoints;
+    spacing: typeof spacing;
+    typography: typeof typography;
   }
 }
