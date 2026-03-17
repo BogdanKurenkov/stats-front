@@ -1,5 +1,5 @@
-import { StyledTitle } from './styled';
-import { TitleProps } from './types';
+import { StyledTitle } from "./Title.styled";
+import { TitleProps } from "./Title.types";
 
 export default function Title({
   as,

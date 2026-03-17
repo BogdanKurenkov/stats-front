@@ -1,4 +1,4 @@
-import { SpinnerType } from "./types";
+import { SpinnerType } from "./Spinner.types";
 
 export const DEFAULT_PARAMS = {
   size: 35,

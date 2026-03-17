@@ -1,8 +1,7 @@
 import { ClipLoader, PulseLoader, BeatLoader, RingLoader, ScaleLoader, MoonLoader } from 'react-spinners';
+import { SpinnerProps, SpinnerType } from './Spinner.types';
+import { DEFAULT_PARAMS } from './Spinner.contants';
 
-import { DEFAULT_PARAMS } from './contants';
-
-import { SpinnerProps, SpinnerType } from './types';
 
 const loaderMap: Record<SpinnerType, any> = {
   spinner: ClipLoader,

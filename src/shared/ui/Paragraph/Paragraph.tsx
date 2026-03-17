@@ -1,5 +1,5 @@
-import { StyledParagraph } from "./styled";
-import { ParagraphProps } from "./types";
+import { StyledParagraph } from "./Paragraph.styled";
+import { ParagraphProps } from "./Paragraph.types";
 
 export default function Paragraph({
   as = 'p',

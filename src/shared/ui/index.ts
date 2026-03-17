@@ -6,6 +6,9 @@ export { CustomLink } from "./CustomLink/CustomLink";
 export { Overlay } from "./Overlay/Overlay";
 export { Modal } from "./Modal/Modal";
 
+export { Section } from "./Section/Section";
+export { Container } from "./Container/Container";
+
 export { Button } from "./Button/Button";
 
 export { Input } from "./Input/Input";
