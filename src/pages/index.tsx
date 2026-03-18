@@ -23,7 +23,7 @@ export default function Home() {
       <div
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        123
+
       </div>
     </>
   );

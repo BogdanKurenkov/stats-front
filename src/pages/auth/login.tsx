@@ -1,10 +1,10 @@
-import { LoginForm } from '@/features';
-import { Container } from '@/shared/ui';
+import { LoginForm } from '@/features/auth/LoginForm';
+import { NextPageWithLayout } from '@/shared/types';
 
-export default function LoginPage() {
-  return (
-    <Container>
-      <LoginForm />
-    </Container>
-  );
-}
+const LoginPage: NextPageWithLayout = () => {
+  return <LoginForm />;
+};
+
+LoginPage.layout = 'auth';
+
+export default LoginPage;

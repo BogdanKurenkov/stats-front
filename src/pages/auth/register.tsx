@@ -1,10 +1,10 @@
-import { RegisterForm } from '@/features';
-import { Container } from '@/shared/ui';
+import { RegisterForm } from '@/features/auth/RegisterForm';
+import { NextPageWithLayout } from '@/shared/types';
 
-export default function RegisterPage() {
-  return (
-    <Container>
-      <RegisterForm />
-    </Container>
-  );
-}
+const RegisterPage: NextPageWithLayout = () => {
+  return <RegisterForm />;
+};
+
+RegisterPage.layout = 'auth';
+
+export default RegisterPage;
