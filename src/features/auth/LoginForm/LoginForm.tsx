@@ -39,7 +39,7 @@ export const LoginForm: FC = () => {
 
           <FormField label="Пароль" error={errors.password?.message} required>
             <PasswordInput
-              placeholder="******"
+              placeholder="Пароль"
               error={errors.password?.message}
               autoComplete="current-password"
               {...register('password')}

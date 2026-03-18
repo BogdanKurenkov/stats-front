@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Header, Footer } from '@/widgets';
+import { LayoutContainer, MainContent } from './MainLayout.styled';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -7,16 +8,12 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh'
-    }}>
+    <LayoutContainer>
       <Header />
-      <main style={{ flex: 1 }}>
+      <MainContent>
         {children}
-      </main>
+      </MainContent>
       <Footer />
-    </div>
+    </LayoutContainer>
   );
 };
