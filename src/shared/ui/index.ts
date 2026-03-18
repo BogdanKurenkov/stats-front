@@ -13,6 +13,7 @@ export { Button } from "./Button/Button";
 
 export { Textarea } from "./Textarea/Textarea";
 export { Input } from "./Input/Input";
+export { PasswordInput } from "./PasswordInput/PasswordInput";
 
 export { Form } from "./Form/Form";
 export { FormField } from "./FormField/FormField";

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormField } from '@/shared/ui';
+import { Form, FormField, PasswordInput } from '@/shared/ui';
 import { Input } from '@/shared/ui';
 import { Button } from '@/shared/ui';
 import { CustomLink } from '@/shared/ui';
@@ -16,7 +16,8 @@ export const RegisterForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: 'onBlur',
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
   });
 
   const onSubmit = async (data: RegisterFormData) => {
@@ -45,17 +46,17 @@ export const RegisterForm: FC = () => {
         </FormField>
 
         <FormField label="Пароль" error={errors.password?.message} required>
-          <Input
-            type="password"
+          <PasswordInput
             placeholder="Минимум 6 символов"
+            error={errors.password?.message}
             {...register('password')}
           />
         </FormField>
 
         <FormField label="Подтверждение пароля" error={errors.confirmPassword?.message} required>
-          <Input
-            type="password"
+          <PasswordInput
             placeholder="Повторите пароль"
+            error={errors.confirmPassword?.message}
             {...register('confirmPassword')}
           />
         </FormField>

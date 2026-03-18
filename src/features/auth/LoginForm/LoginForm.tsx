@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormField, Input, Button, CustomLink } from '@/shared/ui';
+import { Form, FormField, Input, Button, CustomLink, PasswordInput } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
 import { loginSchema, LoginFormData } from '../schemas';
 import { StyledFormWrapper, StyledTitle } from './LoginForm.styled';
@@ -13,7 +13,8 @@ export const LoginForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
-    mode: 'onBlur',
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
     defaultValues: { email: '', password: '' },
   });
 
@@ -36,8 +37,7 @@ export const LoginForm: FC = () => {
         </FormField>
 
         <FormField label="Пароль" error={errors.password?.message} required>
-          <Input
-            type="password"
+          <PasswordInput
             placeholder="******"
             error={errors.password?.message}
             {...register('password')}
