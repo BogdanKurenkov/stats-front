@@ -11,7 +11,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>((props, ref) => {
   };
 
   return (
-    <StyledForm ref={ref} onSubmit={handleSubmit} {...rest}>
+    <StyledForm ref={ref} onSubmit={handleSubmit} {...rest} autoComplete="off">
       {children}
     </StyledForm>
   );

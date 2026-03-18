@@ -8,6 +8,14 @@ export const PasswordInputContainer = styled.div`
   width: 100%;
 `;
 
+export const PasswordLabel = styled.label<{ $hasError?: boolean }>`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ theme, $hasError }) =>
+    $hasError ? theme.colors.status.error : theme.colors.gray[300]};
+  transition: color 0.2s ease;
+`;
+
 export const PasswordInputWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -65,11 +73,6 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
     caret-color: ${({ theme }) => theme.colors.gray[100]};
     border-color: ${({ theme, $hasError }) =>
       $hasError ? theme.colors.status.error : theme.colors.gray[700]};
-  }
-
-  &:autofill {
-    background-color: ${({ theme }) => theme.colors.black.secondary};
-    color: ${({ theme }) => theme.colors.gray[100]};
   }
 `;
 

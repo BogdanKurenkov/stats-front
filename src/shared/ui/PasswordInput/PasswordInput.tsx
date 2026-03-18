@@ -6,6 +6,7 @@ import {
   ToggleButton,
   EyeIcon,
   EyeOffIcon,
+  PasswordLabel,
 } from './PasswordInput.styled';
 import { PasswordInputProps } from './PasswordInput.types';
 
@@ -26,16 +27,12 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>((p
   return (
     <PasswordInputContainer className={className}>
       {label && (
-        <label
+        <PasswordLabel
           htmlFor={inputId}
-          style={{
-            fontSize: '14px',
-            fontWeight: 500,
-            color: error ? '#f44336' : '#D4D4D4',
-          }}
+          $hasError={!!error}
         >
           {label}
-        </label>
+        </PasswordLabel>
       )}
 
       <PasswordInputWrapper>
@@ -46,6 +43,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>((p
           $hasError={!!error}
           disabled={disabled}
           aria-invalid={!!error}
+          autoComplete="new-password"
           {...rest}
         />
 
@@ -58,7 +56,6 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>((p
           {showPassword ? <EyeOffIcon /> : <EyeIcon />}
         </ToggleButton>
       </PasswordInputWrapper>
-
     </PasswordInputContainer>
   );
 });

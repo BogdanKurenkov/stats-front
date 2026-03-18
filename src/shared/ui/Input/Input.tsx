@@ -36,6 +36,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         $hasError={!!error}
         disabled={disabled}
         aria-invalid={!!error}
+        autoComplete="off"
         {...rest}
       />
     </InputContainer>
