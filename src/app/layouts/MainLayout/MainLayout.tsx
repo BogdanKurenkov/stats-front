@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Header, Footer } from '@/widgets';
+import { Header, Footer, CookieConsent } from '@/widgets';
 import { LayoutContainer, MainContent } from './MainLayout.styled';
 
 interface MainLayoutProps {
@@ -14,6 +14,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         {children}
       </MainContent>
       <Footer />
+      <CookieConsent />
     </LayoutContainer>
   );
 };

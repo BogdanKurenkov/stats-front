@@ -1,4 +1,3 @@
-// shared/styles/colors.ts
 export const colors = {
   orange: {
     primary: "#F97316",
