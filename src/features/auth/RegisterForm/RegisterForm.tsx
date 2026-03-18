@@ -1,99 +1,72 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormField } from '@/shared/ui';
 import { Input } from '@/shared/ui';
 import { Button } from '@/shared/ui';
 import { CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
+import { registerSchema, RegisterFormData } from '../schemas';
 import { StyledFormWrapper, StyledTitle } from './RegisterForm.styled';
 
-interface RegisterFormData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
 export const RegisterForm: FC = () => {
-  const [formData, setFormData] = useState<RegisterFormData>({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+    mode: 'onBlur',
   });
-  const [errors, setErrors] = useState<Partial<RegisterFormData>>({});
 
-  const validateForm = () => {
-    const newErrors: Partial<RegisterFormData> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Имя обязательно';
-    }
-
-    if (!formData.email.includes('@')) {
-      newErrors.email = 'Введите корректный email';
-    }
-
-    if (formData.password.length < 6) {
-      newErrors.password = 'Пароль должен быть не менее 6 символов';
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Пароли не совпадают';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log('Register data:', formData);
-    }
+  const onSubmit = async (data: RegisterFormData) => {
+    console.log('Register data:', data);
+    await new Promise(resolve => setTimeout(resolve, 1000));
   };
 
   return (
     <StyledFormWrapper>
       <StyledTitle>Регистрация</StyledTitle>
 
-      <Form onSubmit={handleSubmit}>
-        <FormField label="Имя" error={errors.name} required>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormField label="Имя" error={errors.name?.message} required>
           <Input
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="Введите имя"
+            {...register('name')}
           />
         </FormField>
 
-        <FormField label="Email" error={errors.email} required>
+        <FormField label="Email" error={errors.email?.message} required>
           <Input
             type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             placeholder="example@mail.com"
+            {...register('email')}
           />
         </FormField>
 
-        <FormField label="Пароль" error={errors.password} required>
+        <FormField label="Пароль" error={errors.password?.message} required>
           <Input
             type="password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             placeholder="Минимум 6 символов"
+            {...register('password')}
           />
         </FormField>
 
-        <FormField label="Подтверждение пароля" error={errors.confirmPassword} required>
+        <FormField label="Подтверждение пароля" error={errors.confirmPassword?.message} required>
           <Input
             type="password"
-            value={formData.confirmPassword}
-            onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
             placeholder="Повторите пароль"
+            {...register('confirmPassword')}
           />
         </FormField>
 
-        <Button type="submit" variant="primary" size="large">
-          Зарегистрироваться
+        <Button
+          type="submit"
+          variant="primary"
+          size="large"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Регистрация...' : 'Зарегистрироваться'}
         </Button>
 
         <div style={{ textAlign: 'center', marginTop: '16px' }}>

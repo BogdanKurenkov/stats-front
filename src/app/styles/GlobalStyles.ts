@@ -9,8 +9,16 @@ const GlobalStyle = createGlobalStyle`
 
   html, body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: ${({ theme }) => theme.colors.background || "#ffffff"};
-    color: ${({ theme }) => theme.colors.text || "#333333"};
+    background-color: ${({ theme }) => theme.colors.black.background}; 
+    color: ${({ theme }) => theme.colors.gray[100]}; 
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: ${({ theme }) => theme.colors.orange.primary}40;
+    color: ${({ theme }) => theme.colors.gray[100]};
   }
 
   a {
@@ -20,6 +28,19 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 `;
 

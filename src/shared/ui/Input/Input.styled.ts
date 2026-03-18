@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const InputLabel = styled.label<{ $hasError?: boolean }>`
   font-size: 14px;
   font-weight: 500;
   color: ${({ theme, $hasError }) =>
-    $hasError ? theme.colors.error : theme.colors.gray[300]};
+    $hasError ? theme.colors.status.error : theme.colors.gray[300]};
   transition: color 0.2s ease;
 `;
 
@@ -24,7 +24,7 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 2px solid
     ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.gray[700]};
+      $hasError ? theme.colors.status.error : theme.colors.gray[700]};
   border-radius: 6px;
   outline: none;
   transition: all 0.2s ease;
@@ -35,16 +35,16 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
 
   &:hover:not(:disabled) {
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.orange.primary};
+      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
   }
 
   &:focus {
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.orange.primary};
+      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
     box-shadow: 0 0 0 3px
       ${({ theme, $hasError }) =>
         $hasError
-          ? `${theme.colors.error}20`
+          ? `${theme.colors.status.error}20`
           : `${theme.colors.orange.primary}20`};
   }
 
@@ -66,34 +66,6 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
     transition: background-color 5000s ease-in-out 0s;
     caret-color: ${({ theme }) => theme.colors.gray[100]};
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.gray[700]};
-  }
-
-  &:autofill {
-    background-color: ${({ theme }) => theme.colors.black.secondary};
-    color: ${({ theme }) => theme.colors.gray[100]};
-  }
-
-  &[type="number"] {
-    -moz-appearance: textfield;
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-`;
-
-export const ErrorMessage = styled.span`
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.error};
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-
-  &::before {
-    content: "⚠️";
-    font-size: 12px;
+      $hasError ? theme.colors.status.error : theme.colors.gray[700]};
   }
 `;

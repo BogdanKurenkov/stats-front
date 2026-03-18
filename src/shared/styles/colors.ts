@@ -1,3 +1,4 @@
+// shared/styles/colors.ts
 export const colors = {
   orange: {
     primary: "#F97316",
@@ -27,4 +28,11 @@ export const colors = {
     800: "#262626",
     900: "#171717",
   },
-};
+
+  status: {
+    success: "#00C851",
+    error: "#F44336",
+    warning: "#FFBB33",
+    info: "#33B5E5",
+  },
+} as const;

@@ -1,9 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 import {
   InputContainer,
   InputLabel,
   StyledInput,
-  ErrorMessage
 } from './Input.styled';
 import { InputProps } from './Input.types';
 
@@ -17,7 +16,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     ...rest
   } = props;
 
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id || generatedId;
 
   return (
     <InputContainer className={className}>
@@ -36,15 +36,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         $hasError={!!error}
         disabled={disabled}
         aria-invalid={!!error}
-        aria-describedby={error ? `${inputId}-error` : undefined}
         {...rest}
       />
-
-      {error && (
-        <ErrorMessage id={`${inputId}-error`} role="alert">
-          {error}
-        </ErrorMessage>
-      )}
     </InputContainer>
   );
 });
