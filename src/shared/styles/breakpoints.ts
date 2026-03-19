@@ -21,3 +21,6 @@ export const devices = {
   minXl: `@media (min-width: ${breakpoints.xl})`,
   min2xl: `@media (min-width: ${breakpoints["2xl"]})`,
 };
+
+export type Breakpoints = typeof breakpoints;
+export type Devices = typeof devices;

@@ -35,3 +35,5 @@ export const colors = {
     info: "#33B5E5",
   },
 } as const;
+
+export type Colors = typeof colors;

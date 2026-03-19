@@ -1,11 +1,11 @@
 import { colors } from "./colors";
-import { breakpoints } from "./breakpoints";
-import { spacing } from "./spacing";
 import { typography } from "./typography";
+import { breakpoints } from "./breakpoints";
 
 export const theme = {
   colors,
-  breakpoints,
-  spacing,
   typography,
-};
+  breakpoints,
+} as const;
+
+export type Theme = typeof theme;

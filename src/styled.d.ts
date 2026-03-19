@@ -1,14 +1,16 @@
 import "styled-components";
-import { colors } from "./styles/colors";
-import { breakpoints } from "./styles/breakpoints";
-import { spacing } from "./styles/spacing";
-import { typography } from "./styles/typography";
+import { colors } from "./colors";
+import { typography } from "./typography";
+import { breakpoints } from "./breakpoints";
+
+type Theme = {
+  colors: typeof colors;
+  typography: typeof typography;
+  breakpoints: typeof breakpoints;
+};
 
 declare module "styled-components" {
-  export interface DefaultTheme {
-    colors: typeof colors;
-    breakpoints: typeof breakpoints;
-    spacing: typeof spacing;
-    typography: typeof typography;
-  }
+  export interface DefaultTheme extends Theme {}
 }
+
+export type { Theme };
