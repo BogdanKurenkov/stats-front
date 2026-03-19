@@ -19,7 +19,6 @@ const variantStyles = {
 
     &:hover {
       color: ${({ theme }) => theme.colors.orange.dark};
-      text-decoration: underline;
     }
   `,
 
