@@ -17,6 +17,7 @@ export { PasswordInput } from "./PasswordInput/PasswordInput";
 export { Checkbox } from "./Checkbox/Checkbox";
 export { Radio } from "./Radio/Radio";
 export { RadioGroup } from "./RadioGroup/RadioGroup";
+export { Select } from "./Select/Select";
 
 export { Form } from "./Form/Form";
 export { FormField } from "./FormField/FormField";
