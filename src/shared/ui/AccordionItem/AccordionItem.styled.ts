@@ -29,7 +29,6 @@ export const StyledAccordionTrigger = styled(AccordionPrimitive.Trigger)`
   font-weight: 500;
   line-height: 1;
   color: ${({ theme }) => theme.colors.gray[100]};
-  background-color: ${({ theme }) => theme.colors.black.background};
   cursor: pointer;
   gap: 20px;
 
@@ -56,7 +55,7 @@ export const StyledAccordionContent = styled(AccordionPrimitive.Content)`
   overflow: hidden;
   font-size: 15px;
   color: ${({ theme }) => theme.colors.gray[400]};
-  background-color: ${({ theme }) => theme.colors.black.background};
+  background-color: transparent;
 
   &[data-state="open"] {
     animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
