@@ -1,12 +1,12 @@
 import "styled-components";
-import { colors } from "./colors";
-import { typography } from "./typography";
-import { breakpoints } from "./breakpoints";
+import type { Colors } from "@/shared/styles/colors";
+import type { Typography } from "@/shared/styles/typography";
+import type { Breakpoints } from "@/shared/styles/breakpoints";
 
 type Theme = {
-  colors: typeof colors;
-  typography: typeof typography;
-  breakpoints: typeof breakpoints;
+  colors: Colors;
+  typography: Typography;
+  breakpoints: Breakpoints;
 };
 
 declare module "styled-components" {

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { Title, Button } from "@/shared/ui";
+import { Title, Button, Paragraph } from "@/shared/ui";
 
 const slideUp = keyframes`
   from {
@@ -59,7 +59,7 @@ export const StyledTitle = styled(Title)`
   margin-bottom: 8px;
 `;
 
-export const Description = styled.p`
+export const Description = styled(Paragraph)`
   color: ${({ theme }) => theme.colors.gray[300]};
   font-size: 14px;
   line-height: 1.5;
