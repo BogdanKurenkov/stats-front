@@ -7,8 +7,10 @@ const variantStyles = {
     color: ${({ theme }) => theme.colors.gray[300]};
     text-decoration: none;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.orange.primary};
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.orange.primary};
+      }
     }
   `,
 
@@ -17,8 +19,10 @@ const variantStyles = {
     text-decoration: none;
     font-weight: 500;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.orange.dark};
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.orange.dark};
+      }
     }
   `,
 
@@ -27,8 +31,10 @@ const variantStyles = {
     text-decoration: none;
     font-weight: 500;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.gray[100]};
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.gray[100]};
+      }
     }
   `,
 
@@ -37,8 +43,10 @@ const variantStyles = {
     text-decoration: underline;
     text-underline-offset: 2px;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.orange.primary};
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.orange.primary};
+      }
     }
   `,
 };

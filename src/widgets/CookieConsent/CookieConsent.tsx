@@ -8,8 +8,7 @@ import {
   StyledTitle,
   Description,
   ButtonsContainer,
-  AcceptButton,
-  RejectButton,
+  ActionButton,
 } from './CookieConsent.styled';
 import { CookieConsentProps } from './CookieConsent.types';
 import { COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES } from './CookieConsent.constants';
@@ -45,7 +44,7 @@ export const CookieConsent: FC<CookieConsentProps> = ({
     <Overlay>
       <Container>
         <Content>
-          <StyledTitle as='h3' level='h3'>
+          <StyledTitle as="h3" level="h3">
             🍪 Мы используем куки
           </StyledTitle>
           <Description>
@@ -59,12 +58,12 @@ export const CookieConsent: FC<CookieConsentProps> = ({
         </Content>
 
         <ButtonsContainer>
-          <AcceptButton onClick={handleAccept}>
+          <ActionButton variant="primary" size="medium" onClick={handleAccept}>
             Принять все
-          </AcceptButton>
-          <RejectButton onClick={handleReject}>
+          </ActionButton>
+          <ActionButton variant="outline" size="medium" onClick={handleReject}>
             Только необходимые
-          </RejectButton>
+          </ActionButton>
         </ButtonsContainer>
       </Container>
     </Overlay>

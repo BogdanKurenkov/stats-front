@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { Title } from "@/shared";
+import { Title, Button } from "@/shared/ui";
 
 const slideUp = keyframes`
   from {
@@ -77,45 +77,6 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const AcceptButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.orange.primary};
-  color: ${({ theme }) => theme.colors.black.primary};
-  border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+export const ActionButton = styled(Button)`
   white-space: nowrap;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.orange.dark};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 100%;
-  }
-`;
-
-export const RejectButton = styled.button`
-  background-color: transparent;
-  color: ${({ theme }) => theme.colors.gray[300]};
-  border: 1px solid ${({ theme }) => theme.colors.gray[700]};
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.gray[600]};
-    color: ${({ theme }) => theme.colors.gray[100]};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 100%;
-  }
 `;
