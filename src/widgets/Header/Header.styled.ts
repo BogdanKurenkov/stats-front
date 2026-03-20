@@ -173,9 +173,9 @@ export const Overlay = styled.div<{ $isOpen: boolean }>`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   z-index: 999;
-  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+  display: none;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: none;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
   }
 `;
