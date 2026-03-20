@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "@/shared/ui";
+import { Button, Paragraph, Title } from "@/shared/ui";
 
 export const ErrorWrapper = styled.div`
   display: flex;
@@ -34,26 +34,15 @@ export const ErrorCode = styled.h1`
   }
 `;
 
-export const ErrorTitle = styled.h2`
-  font-size: 32px;
-  font-weight: 600;
+export const ErrorTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.gray[100]};
   margin: 16px 0 8px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: 24px;
-  }
 `;
 
-export const ErrorDescription = styled.p`
-  font-size: 18px;
+export const ErrorDescription = styled(Paragraph)`
   color: ${({ theme }) => theme.colors.gray[400]};
   margin-bottom: 32px;
   max-width: 500px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: 16px;
-  }
 `;
 
 export const HomeButton = styled(Button)`

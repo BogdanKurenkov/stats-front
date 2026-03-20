@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Title } from "@/shared";
 
 const slideUp = keyframes`
   from {
@@ -51,7 +52,7 @@ export const Content = styled.div`
   min-width: 280px;
 `;
 
-export const Title = styled.h3`
+export const StyledTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.orange.primary};
   font-size: 18px;
   font-weight: 600;

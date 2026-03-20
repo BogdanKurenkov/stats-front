@@ -5,7 +5,7 @@ import {
   Overlay,
   Container,
   Content,
-  Title,
+  StyledTitle,
   Description,
   ButtonsContainer,
   AcceptButton,
@@ -45,7 +45,9 @@ export const CookieConsent: FC<CookieConsentProps> = ({
     <Overlay>
       <Container>
         <Content>
-          <Title>🍪 Мы используем куки</Title>
+          <StyledTitle as='h3' level='h3'>
+            🍪 Мы используем куки
+          </StyledTitle>
           <Description>
             Мы используем файлы cookie для улучшения работы сайта, анализа трафика и персонализации контента.
             Продолжая использовать наш сайт, вы соглашаетесь с{' '}
