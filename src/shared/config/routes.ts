@@ -7,4 +7,5 @@ export const ROUTES = {
   RESULTS: "/results",
   BONUSES: "/bonuses",
   PRIVACY_POLICY: "#",
+  COOKIE_POLICY: "#",
 } as const;
