@@ -25,7 +25,9 @@ export const LoginForm: FC = () => {
   return (
     <StyledFormWrapper>
       <StyledFormContainer>
-        <StyledTitle>Вход в аккаунт</StyledTitle>
+        <StyledTitle as="h2" level="h2">
+          Вход в аккаунт
+        </StyledTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <FormField label="Email" error={errors.email?.message} required>

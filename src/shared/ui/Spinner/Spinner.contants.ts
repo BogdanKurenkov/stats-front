@@ -1,7 +1,8 @@
 import { SpinnerType } from "./Spinner.types";
+import { colors } from "@/shared/styles";
 
 export const DEFAULT_PARAMS = {
   size: 35,
   type: "spinner" as SpinnerType,
-  color: "#F97316",
+  color: colors.orange.primary,
 };

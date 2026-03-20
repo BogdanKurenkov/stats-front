@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Title } from "@/shared/ui";
 
 export const StyledFormWrapper = styled.div`
   display: flex;
@@ -25,11 +26,8 @@ export const StyledFormContainer = styled.div`
   }
 `;
 
-export const StyledTitle = styled.h2`
+export const StyledTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.orange.primary};
   margin-bottom: 32px;
   text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 `;
