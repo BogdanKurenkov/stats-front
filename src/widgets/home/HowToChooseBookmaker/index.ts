@@ -1,2 +1,1 @@
-export { MainInfo } from "./MainInfo";
 export { HowToChooseBookmaker } from "./HowToChooseBookmaker";

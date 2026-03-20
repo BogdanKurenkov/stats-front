@@ -11,7 +11,7 @@ export const TextareaLabel = styled.label<{ $hasError?: boolean }>`
   font-size: 14px;
   font-weight: 500;
   color: ${({ theme, $hasError }) =>
-    $hasError ? theme.colors.error : theme.colors.gray[300]};
+    $hasError ? theme.colors.status.error : theme.colors.gray[300]};
   transition: color 0.2s ease;
 `;
 
@@ -24,7 +24,7 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 2px solid
     ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.gray[700]};
+      $hasError ? theme.colors.status.error : theme.colors.gray[700]};
   border-radius: 6px;
   outline: none;
   transition: all 0.2s ease;
@@ -38,16 +38,16 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
 
   &:hover:not(:disabled) {
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.orange.primary};
+      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
   }
 
   &:focus {
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.orange.primary};
+      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
     box-shadow: 0 0 0 3px
       ${({ theme, $hasError }) =>
         $hasError
-          ? `${theme.colors.error}20`
+          ? `${theme.colors.status.error}20`
           : `${theme.colors.orange.primary}20`};
   }
 
@@ -69,7 +69,7 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
     transition: background-color 5000s ease-in-out 0s;
     caret-color: ${({ theme }) => theme.colors.gray[100]};
     border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.error : theme.colors.gray[700]};
+      $hasError ? theme.colors.status.error : theme.colors.gray[700]};
   }
 
   &::-webkit-scrollbar {
@@ -93,6 +93,6 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
 
 export const ErrorMessage = styled.span`
   font-size: 12px;
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.colors.status.error};
   margin-top: 2px;
 `;
