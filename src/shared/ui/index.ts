@@ -25,3 +25,5 @@ export { Form } from "./Form/Form";
 export { FormField } from "./FormField/FormField";
 
 export { Spinner } from "./Spinner/Spinner";
+
+export { Logo } from "./Logo/Logo";
