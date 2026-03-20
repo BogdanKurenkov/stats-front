@@ -6,6 +6,6 @@ export const ROUTES = {
   FORECASTS: "/forecasts",
   RESULTS: "/results",
   BONUSES: "/bonuses",
-  PRIVACY_POLICY: "#",
-  COOKIE_POLICY: "#",
+  PRIVACY_POLICY: "/legal/privacy-policy",
+  COOKIE_POLICY: "/legal/cookie-policy",
 } as const;

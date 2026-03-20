@@ -20,6 +20,7 @@ import {
   Overlay,
 } from './Header.styled';
 
+// TODO убрать моковые данные и привязаться к реальному юзеру
 const isAuthenticated = false;
 const userInitials = 'JD';
 
