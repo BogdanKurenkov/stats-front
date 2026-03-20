@@ -43,7 +43,7 @@ export const Footer: FC = () => {
 
       <FooterBottom>
         <Copyright size="sm">
-          © {currentYear} Footbal Stats. Все права защищены.
+          © {currentYear} Football Stats. Все права защищены.
         </Copyright>
       </FooterBottom>
     </FooterContainer>

@@ -1,4 +1,4 @@
-import { HowToChooseBookmaker, MainInfo } from "@/widgets";
+import { HowToChooseBookmaker, MainInfo, StepsToBet } from "@/widgets";
 import Head from "next/head";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
       >
         <MainInfo />
         <HowToChooseBookmaker />
+        <StepsToBet />
       </div>
     </>
   );
