@@ -1,49 +1,82 @@
 import { FC } from 'react';
-import { Container, Paragraph, Section, Title } from '@/shared/ui';
+import { Container, Section, Title, Paragraph, Divider } from '@/shared/ui';
 import {
   MainInfoWrapper,
-  ContentWrapper,
+  SectionBlock,
   HighlightBox,
   HighlightText,
+  StatGrid,
+  StatCard,
+  StatNumber,
+  StatLabel,
 } from './MainInfo.styled';
+import { MAIN_INFO } from './MainInfo.constants';
 
 export const MainInfo: FC = () => {
   return (
     <Section pt pb>
       <Container>
         <MainInfoWrapper>
-          <Title as="h3" level="h3">
-            Почему следует доверять нашему порталу Bookmakers.com
-          </Title>
-          <Paragraph size="lg">
-            Команда нашего проекта состоит из опытных спортивных аналитиков, которые имеют большой практический опыт в ставках на спорт. На сайте Bookmakers.com мы публикуем материалы, проходящие серьезную проверку несколькими сотрудниками. Поэтому наши читатели получают самую актуальную информацию о букмекерах и обо всем другом, что связано с беттингом.
-          </Paragraph>
 
-          <ContentWrapper>
-            <Title as="h3" level="h3">
-              Как мы оцениваем букмекерские конторы
+          <SectionBlock>
+            <Title as="h2" level="h2">
+              {MAIN_INFO.trustTitle}
             </Title>
             <Paragraph size="lg">
-              В ходе своей работы мы провели анализ более 200 сайтов, где можно делать букмекерские ставки на спорт. Свыше 90% этих ресурсов нам пришлось отсеять из-за сомнительной надежности, плохой адаптации под русскоязычных пользователей и других важных критериев. В итоге мы выбрали лучшие букмекерские конторы, в которых с уверенностью можем рекомендовать посетителям нашего портала делать ставки на спорт.
+              {MAIN_INFO.trustDescription}
             </Paragraph>
+          </SectionBlock>
 
-            <Title as="h3" level="h3">
-              Кто такой букмекер и чем он занимается
+          <Divider />
+
+          <StatGrid>
+            <StatCard>
+              <StatNumber>200+</StatNumber>
+              <StatLabel>Проанализировано БК</StatLabel>
+            </StatCard>
+            <StatCard>
+              <StatNumber>90%</StatNumber>
+              <StatLabel>Отсеяно по критериям</StatLabel>
+            </StatCard>
+            <StatCard>
+              <StatNumber>10+</StatNumber>
+              <StatLabel>Лучших БК в рейтинге</StatLabel>
+            </StatCard>
+          </StatGrid>
+
+          <Divider />
+
+          <SectionBlock>
+            <Title as="h2" level="h2">
+              {MAIN_INFO.evaluationTitle}
             </Title>
             <Paragraph size="lg">
-              Букмекерская контора – это компания, которая занимается приемом ставок на спорт у своих клиентов. Изначально букмекеры вели деятельность в наземных клубах и офисах, но с развитием интернета большинство заведений перешли в интернет. Чтобы начать играть на ставках у онлайн-букмекера, необходимо пройти регистрацию на сайте или в приложении, подтвердить свою личность (эта процедура называется идентификация или верификация) и внести депозит. В качестве платежных методов в БК используются электронные кошельки, банковские и международные карты, банковские переводы, мобильные платежи, криптовалюта, оплата через интернет-сервисы, пополнение наличными в пунктах приема ставок.
+              {MAIN_INFO.evaluationDescription}
             </Paragraph>
+          </SectionBlock>
 
-            <HighlightBox>
-              <HighlightText size="lg">
-                Стабильно зарабатывать на спортивных ставках на дистанции хотя бы в несколько месяцев удается не всем игрокам. Получать постоянную прибыль с игры в БК могут в основном профессиональные капперы с опытом в ставках от двух-трех лет и более.
-              </HighlightText>
-            </HighlightBox>
+          <Divider />
 
+          <SectionBlock>
+            <Title as="h2" level="h2">
+              {MAIN_INFO.bookmakerTitle}
+            </Title>
             <Paragraph size="lg">
-              Однако при должном подходе сегодня начать зарабатывать на ставках могут даже новички, ведь в наше время существует много вспомогательных сервисов, на которых дается подробная аналитика матчей и публикуются прогнозы на спорт от экспертов.
+              {MAIN_INFO.bookmakerDescription}
             </Paragraph>
-          </ContentWrapper>
+          </SectionBlock>
+
+          <HighlightBox>
+            <HighlightText size="lg">
+              {MAIN_INFO.highlightText}
+            </HighlightText>
+          </HighlightBox>
+
+          <SectionBlock>
+            <Paragraph size="lg">
+              {MAIN_INFO.conclusionText}
+            </Paragraph>
+          </SectionBlock>
         </MainInfoWrapper>
       </Container>
     </Section>
