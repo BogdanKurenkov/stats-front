@@ -27,3 +27,6 @@ export { FormField } from "./FormField/FormField";
 export { Spinner } from "./Spinner/Spinner";
 
 export { Logo } from "./Logo/Logo";
+
+export { Accordion } from "./Accordion/Accordion";
+export { AccordionItem } from "./AccordionItem/AccordionItem";

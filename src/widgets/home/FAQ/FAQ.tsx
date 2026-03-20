@@ -1,0 +1,33 @@
+import { FC } from 'react';
+import { Container, Section, Title } from '@/shared/ui';
+import { Accordion, AccordionItem } from '@/shared/ui/';
+import { SectionWrapper, StyledAccordion } from './FAQ.styled';
+import { FAQ_ITEMS } from './FAQ.constants';
+
+export const FAQ: FC = () => {
+  return (
+    <Section pt pb>
+      <Container>
+        <SectionWrapper>
+          <Title as="h2" level="h2">
+            Часто задаваемые вопросы
+          </Title>
+
+          <StyledAccordion>
+            <Accordion type="multiple">
+              {FAQ_ITEMS.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  trigger={item.question}
+                >
+                  {item.answer}
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </StyledAccordion>
+        </SectionWrapper>
+      </Container>
+    </Section>
+  );
+};
