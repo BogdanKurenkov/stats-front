@@ -1,5 +1,5 @@
-export { default as Title } from "./Title/Title";
-export { default as Paragraph } from "./Paragraph/Paragraph";
+export { Title } from "./Title/Title";
+export { Paragraph } from "./Paragraph/Paragraph";
 
 export { CustomLink } from "./CustomLink/CustomLink";
 
@@ -24,4 +24,4 @@ export { Tabs } from "./Tabs/Tabs";
 export { Form } from "./Form/Form";
 export { FormField } from "./FormField/FormField";
 
-export { default as Spinner } from "./Spinner/Spinner";
+export { Spinner } from "./Spinner/Spinner";

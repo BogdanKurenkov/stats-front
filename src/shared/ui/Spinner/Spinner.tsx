@@ -2,7 +2,6 @@ import { ClipLoader, PulseLoader, BeatLoader, RingLoader, ScaleLoader, MoonLoade
 import { SpinnerProps, SpinnerType } from './Spinner.types';
 import { DEFAULT_PARAMS } from './Spinner.contants';
 
-
 const loaderMap: Record<SpinnerType, any> = {
   spinner: ClipLoader,
   pulse: PulseLoader,
@@ -12,13 +11,13 @@ const loaderMap: Record<SpinnerType, any> = {
   moon: MoonLoader,
 };
 
-export default function Spinner({
+export const Spinner = ({
   size = DEFAULT_PARAMS.size,
   type = DEFAULT_PARAMS.type,
   color = DEFAULT_PARAMS.color,
   loading = true,
   ...rest
-}: SpinnerProps) {
+}: SpinnerProps) => {
   const LoaderComponent = loaderMap[type] || ClipLoader;
 
   return (
@@ -29,4 +28,6 @@ export default function Spinner({
       {...rest}
     />
   );
-}
+};
+
+Spinner.displayName = 'Spinner';

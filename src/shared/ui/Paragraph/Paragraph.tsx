@@ -1,15 +1,17 @@
 import { StyledParagraph } from "./Paragraph.styled";
 import { ParagraphProps } from "./Paragraph.types";
 
-export default function Paragraph({
+export const Paragraph = ({
   as = 'p',
   size = 'md',
   children,
   ...rest
-}: ParagraphProps) {
+}: ParagraphProps) => {
   return (
     <StyledParagraph as={as} size={size} {...rest}>
       {children}
     </StyledParagraph>
   );
-}
+};
+
+Paragraph.displayName = 'Paragraph';

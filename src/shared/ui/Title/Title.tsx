@@ -1,12 +1,12 @@
 import { StyledTitle } from "./Title.styled";
 import { TitleProps } from "./Title.types";
 
-export default function Title({
+export const Title = ({
   as,
   level = 'h1',
   children,
   ...rest
-}: TitleProps) {
+}: TitleProps) => {
   const Component = as || level;
 
   return (
@@ -14,4 +14,6 @@ export default function Title({
       {children}
     </StyledTitle>
   );
-}
+};
+
+Title.displayName = 'Title';
