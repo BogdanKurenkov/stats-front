@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { NextPageWithLayout } from "@/shared/types";
+import { AuthProvider } from "@/app/providers";
 
 import GlobalStyle from "@/app/styles/GlobalStyles";
 import { theme } from "@/shared/styles/theme";
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {getLayout()}
+      <AuthProvider>
+        {getLayout()}
+      </AuthProvider>
     </ThemeProvider>
   );
 }
