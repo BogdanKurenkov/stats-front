@@ -1,0 +1,1 @@
+export { FeaturedMatches } from "./FeaturedMatches";

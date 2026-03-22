@@ -5,6 +5,7 @@ export const ContainerWrapper = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
+  overflow-x: hidden;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 0 20px;
