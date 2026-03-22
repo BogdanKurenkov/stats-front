@@ -1,7 +1,11 @@
 import { NextPageWithLayout } from '@/shared/types';
+import { NewsList } from '@/widgets';
+import { MOCK_NEWS } from '@/widgets/NewsList';
 
 const NewsPage: NextPageWithLayout = () => {
-    return <></>;
+    return <>
+        <NewsList articles={MOCK_NEWS} />
+    </>;
 };
 
 NewsPage.layout = 'main';
