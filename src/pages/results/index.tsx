@@ -1,7 +1,10 @@
 import { NextPageWithLayout } from '@/shared/types';
+import { StandingsTable } from '@/widgets';
 
 const ResultsPage: NextPageWithLayout = () => {
-    return <></>;
+  return <>
+    <StandingsTable />
+  </>;
 };
 
 ResultsPage.layout = 'main';

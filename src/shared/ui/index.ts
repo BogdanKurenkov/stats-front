@@ -32,3 +32,7 @@ export { Accordion } from "./Accordion/Accordion";
 export { AccordionItem } from "./AccordionItem/AccordionItem";
 
 export { Divider } from "./Divider/Divider";
+
+export { Table } from "./Table/Table";
+
+export type { SelectOption } from "./Select/Select.types";
