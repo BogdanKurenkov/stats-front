@@ -18,6 +18,7 @@ export { Checkbox } from "./Checkbox/Checkbox";
 export { Radio } from "./Radio/Radio";
 export { RadioGroup } from "./RadioGroup/RadioGroup";
 export { Select } from "./Select/Select";
+export { RequiredMark } from "./RequiredMark/RequiredMark";
 export { Toggle } from "./Toggle/Toggle";
 export { Tabs } from "./Tabs/Tabs";
 
@@ -38,3 +39,5 @@ export { Table } from "./Table/Table";
 export type { SelectOption } from "./Select/Select.types";
 
 export { Pagination } from "./Pagination/Pagination";
+
+export { HighlightBox } from "./HighlightBox";

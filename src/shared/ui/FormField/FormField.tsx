@@ -3,9 +3,9 @@ import {
   FieldContainer,
   FieldLabel,
   FieldError,
-  RequiredMark
 } from './FormField.styled';
 import { FormFieldProps } from './FormField.types';
+import { RequiredMark } from '@/shared/ui';
 
 export const FormField: FC<FormFieldProps> = ({
   label,
@@ -18,7 +18,7 @@ export const FormField: FC<FormFieldProps> = ({
       {label && (
         <FieldLabel $error={!!error}>
           {label}
-          {required && <RequiredMark>*</RequiredMark>}
+          {required && <RequiredMark />}
         </FieldLabel>
       )}
 

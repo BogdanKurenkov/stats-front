@@ -1,9 +1,15 @@
 import { FC } from 'react';
-import { Container, Section, Title, Paragraph, Divider } from '@/shared/ui';
+import {
+  Container,
+  Section,
+  Title,
+  Paragraph,
+  Divider,
+  HighlightBox
+} from '@/shared/ui';
 import {
   MainInfoWrapper,
   SectionBlock,
-  HighlightBox,
   HighlightText,
   StatGrid,
   StatCard,

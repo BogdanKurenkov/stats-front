@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check } from 'lucide-react';
 import {
@@ -11,9 +11,10 @@ import {
   StyledItemIndicator,
   StyledItemText,
   StyledTrigger,
-  StyledViewport
+  StyledViewport,
 } from './Select.styled';
 import { SelectProps } from './Select.types';
+import { RequiredMark } from '@/shared/ui';
 
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(
   (
@@ -27,19 +28,35 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       error,
       disabled,
       className,
+      name,
+      required,
     },
     ref
   ) => {
+    const hiddenInputId = useId();
+
     return (
       <Container className={className}>
-        {label && <StyledLabel $hasError={!!error}>{label}</StyledLabel>}
+        {label && (
+          <StyledLabel id={`${hiddenInputId}-label`} $hasError={!!error}>
+            {label}
+            {required && <RequiredMark />}
+          </StyledLabel>
+        )}
+
         <SelectPrimitive.Root
           value={value}
           defaultValue={defaultValue}
           onValueChange={onValueChange}
           disabled={disabled}
+          name={name}
+          required={required}
         >
-          <StyledTrigger ref={ref} $hasError={!!error}>
+          <StyledTrigger
+            ref={ref}
+            $hasError={!!error}
+            aria-labelledby={label ? `${hiddenInputId}-label` : undefined}
+          >
             <SelectPrimitive.Value placeholder={placeholder} />
             <StyledIcon />
           </StyledTrigger>
@@ -64,10 +81,23 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
             </StyledContent>
           </SelectPrimitive.Portal>
         </SelectPrimitive.Root>
-        {error && <StyledError role="alert">{error}</StyledError>}
+
+        {error && (
+          <StyledError role="alert" id={`${hiddenInputId}-error`}>
+            {error}
+          </StyledError>
+        )}
+
+        {name && (
+          <input
+            type="hidden"
+            name={name}
+            value={value || ''}
+            disabled={disabled}
+          />
+        )}
       </Container>
     );
   }
 );
-
 Select.displayName = 'Select';

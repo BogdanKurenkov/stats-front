@@ -16,11 +16,6 @@ export const FieldLabel = styled.label<{ $error?: boolean }>`
   transition: color 0.2s ease;
 `;
 
-export const RequiredMark = styled.span`
-  color: ${({ theme }) => theme.colors.orange.primary};
-  margin-left: 2px;
-`;
-
 export const FieldError = styled.span`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.status.error};

@@ -14,4 +14,6 @@ export interface SelectProps {
   error?: string;
   disabled?: boolean;
   className?: string;
+  name?: string;
+  required?: boolean;
 }

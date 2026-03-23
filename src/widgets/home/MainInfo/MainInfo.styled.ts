@@ -17,23 +17,6 @@ export const SectionBlock = styled.div`
   gap: 20px;
 `;
 
-export const HighlightBox = styled.div`
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.black.secondary} 0%,
-    ${({ theme }) => theme.colors.gray[900]} 100%
-  );
-  border-left: 4px solid ${({ theme }) => theme.colors.orange.primary};
-  border-radius: 16px;
-  padding: 28px 32px;
-  margin: 8px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 20px 24px;
-  }
-`;
-
 export const HighlightText = styled(Paragraph)`
   margin: 0;
   font-weight: 500;

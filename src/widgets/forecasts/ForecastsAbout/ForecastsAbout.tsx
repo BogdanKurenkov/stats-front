@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import { Container, Section, Title, Paragraph } from '@/shared/ui';
+import { Container, Section, Title, Paragraph, HighlightBox } from '@/shared/ui';
 import {
   AboutWrapper,
   Section as SectionBlock,
-  HighlightBox,
   HighlightText,
   ApproachGrid,
   ApproachCard,
@@ -38,7 +37,6 @@ export const ForecastsAbout: FC = () => {
     <Section pt pb>
       <Container>
         <AboutWrapper>
-          {/* Введение */}
           {ABOUT_SECTIONS.map((section) => (
             <SectionBlock key={section.id}>
               {section.title && (
@@ -50,14 +48,12 @@ export const ForecastsAbout: FC = () => {
             </SectionBlock>
           ))}
 
-          {/* Выделенная цитата */}
           <HighlightBox>
             <HighlightText size="lg">
               Одно дело – разбираться в футболе и ставить на результат финала ЧМ. И совсем другое – составлять качественные прогнозы.
             </HighlightText>
           </HighlightBox>
 
-          {/* Как работают аналитики */}
           <SectionBlock>
             <Title as="h2" level="h2">
               Как работают профессиональные аналитики
@@ -67,7 +63,6 @@ export const ForecastsAbout: FC = () => {
             </Paragraph>
           </SectionBlock>
 
-          {/* Подходы */}
           <ApproachGrid>
             {APPROACH_ITEMS.map((item, idx) => (
               <ApproachCard key={idx}>
@@ -81,7 +76,6 @@ export const ForecastsAbout: FC = () => {
             ))}
           </ApproachGrid>
 
-          {/* Факторы */}
           <SectionBlock>
             <Title as="h3" level="h3">
               Что учитывают эксперты при составлении прогнозов
@@ -93,7 +87,6 @@ export const ForecastsAbout: FC = () => {
             </FactorsList>
           </SectionBlock>
 
-          {/* Преимущества */}
           {ADVANTAGE_SECTIONS.map((section, idx) => (
             <SectionBlock key={idx}>
               <Title as="h2" level="h2">
@@ -117,12 +110,10 @@ export const ForecastsAbout: FC = () => {
             ))}
           </AdvantagesGrid>
 
-          {/* Дисклеймер */}
           <DisclaimerBox>
             <DisclaimerText size="sm">{DISCLAIMER}</DisclaimerText>
           </DisclaimerBox>
 
-          {/* Особенности футбола */}
           <SectionBlock>
             <Title as="h2" level="h2">
               Особенности футбола как вида спорта для ставок
