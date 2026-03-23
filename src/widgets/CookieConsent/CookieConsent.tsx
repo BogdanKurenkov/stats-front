@@ -1,6 +1,7 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
+import { useCookieConsent } from './useCookieConsent';
 import {
   Overlay,
   Container,
@@ -11,32 +12,12 @@ import {
   ActionButton,
 } from './CookieConsent.styled';
 import { CookieConsentProps } from './CookieConsent.types';
-import { COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES } from './CookieConsent.constants';
 
 export const CookieConsent: FC<CookieConsentProps> = ({
   onAccept,
   onReject,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
-
-  const handleAccept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES.ACCEPTED);
-    setIsVisible(false);
-    onAccept?.();
-  };
-
-  const handleReject = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES.REJECTED);
-    setIsVisible(false);
-    onReject?.();
-  };
+  const { isVisible, accept, reject } = useCookieConsent(onAccept, onReject);
 
   if (!isVisible) return null;
 
@@ -58,10 +39,10 @@ export const CookieConsent: FC<CookieConsentProps> = ({
         </Content>
 
         <ButtonsContainer>
-          <ActionButton variant="primary" size="medium" onClick={handleAccept}>
+          <ActionButton variant="primary" size="medium" onClick={accept}>
             Принять все
           </ActionButton>
-          <ActionButton variant="outline" size="medium" onClick={handleReject}>
+          <ActionButton variant="outline" size="medium" onClick={reject}>
             Только необходимые
           </ActionButton>
         </ButtonsContainer>

@@ -15,13 +15,13 @@ export const FAQ: FC = () => {
 
           <StyledAccordion>
             <Accordion type="multiple">
-              {FAQ_ITEMS.map((item) => (
+              {FAQ_ITEMS.map(({ answer, id, question }) => (
                 <AccordionItem
-                  key={item.id}
-                  value={item.id}
-                  trigger={item.question}
+                  key={id}
+                  value={id}
+                  trigger={question}
                 >
-                  {item.answer}
+                  {answer}
                 </AccordionItem>
               ))}
             </Accordion>

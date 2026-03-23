@@ -1,3 +1,5 @@
+import { InternalAxiosRequestConfig } from "axios";
+
 export interface ApiError {
   message: string;
   statusCode: number;
@@ -20,4 +22,10 @@ export interface RegisterRequest {
   name: string;
   email: string;
   password: string;
+}
+
+export interface QueueItem {
+  resolve: (value: unknown) => void;
+  reject: (reason?: any) => void;
+  config: InternalAxiosRequestConfig;
 }

@@ -21,15 +21,15 @@ export const StepsToBet: FC = () => {
           </Title>
 
           <StepsGrid>
-            {STEPS.map((step) => (
-              <StepCard key={step.number}>
-                <StepNumber>{step.number}</StepNumber>
+            {STEPS.map(({ description, number, title }) => (
+              <StepCard key={number}>
+                <StepNumber>{number}</StepNumber>
                 <StepContent>
                   <StepTitle as="h3" level="h3">
-                    {step.title}
+                    {title}
                   </StepTitle>
                   <StepDescription size="md">
-                    {step.description}
+                    {description}
                   </StepDescription>
                 </StepContent>
               </StepCard>

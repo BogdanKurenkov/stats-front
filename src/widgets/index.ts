@@ -10,3 +10,5 @@ export * from "./home";
 export * from "./bonuses";
 
 export * from "./forecasts";
+
+export * from "./results";

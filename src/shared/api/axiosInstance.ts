@@ -1,12 +1,6 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { API_CONFIG } from "./api.constants";
-import { ApiError } from "./api.types";
-
-interface QueueItem {
-  resolve: (value: unknown) => void;
-  reject: (reason?: any) => void;
-  config: InternalAxiosRequestConfig;
-}
+import { ApiError, QueueItem } from "./api.types";
 
 let isRefreshing = false;
 let failedQueue: QueueItem[] = [];

@@ -36,18 +36,12 @@ export const MainInfo: FC = () => {
           <Divider />
 
           <StatGrid>
-            <StatCard>
-              <StatNumber>200+</StatNumber>
-              <StatLabel>Проанализировано БК</StatLabel>
-            </StatCard>
-            <StatCard>
-              <StatNumber>90%</StatNumber>
-              <StatLabel>Отсеяно по критериям</StatLabel>
-            </StatCard>
-            <StatCard>
-              <StatNumber>10+</StatNumber>
-              <StatLabel>Лучших БК в рейтинге</StatLabel>
-            </StatCard>
+            {MAIN_INFO.stats.map(({ label, number }) => (
+              <StatCard key={number}>
+                <StatNumber>{number}</StatNumber>
+                <StatLabel>{label}</StatLabel>
+              </StatCard>
+            ))}
           </StatGrid>
 
           <Divider />
