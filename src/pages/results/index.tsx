@@ -1,6 +1,7 @@
 import { MatchesList, StandingsTable } from '@/widgets';
 import { MOCK_MATCHES } from '@/widgets/results/MatchesList';
 import { NextPageWithLayout } from '@/shared/types';
+import { SEO } from '@/shared';
 
 const ResultsPage: NextPageWithLayout = () => {
   const upcomingMatches = MOCK_MATCHES.filter(m => m.status === 'upcoming');
@@ -8,6 +9,7 @@ const ResultsPage: NextPageWithLayout = () => {
 
   return (
     <>
+      <SEO title="Результаты" />
       <MatchesList matches={upcomingMatches} variant="upcoming" />
       <MatchesList matches={pastMatches} variant="past" />
       <StandingsTable />

@@ -1,9 +1,11 @@
+import { SEO } from '@/shared';
 import { NextPageWithLayout } from '@/shared/types';
 import { NewsList } from '@/widgets';
 import { MOCK_NEWS } from '@/widgets/NewsList';
 
 const NewsPage: NextPageWithLayout = () => {
     return <>
+        <SEO title="Новости" />
         <NewsList articles={MOCK_NEWS} />
     </>;
 };
