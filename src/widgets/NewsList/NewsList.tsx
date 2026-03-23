@@ -20,13 +20,6 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
 
   const totalPages = Math.ceil(MOCK_NEWS.length / ITEMS_PER_PAGE);
 
-  const paginatedNews = useMemo(() => {
-    const start = (page - 1) * ITEMS_PER_PAGE;
-    const end = start + ITEMS_PER_PAGE;
-    return MOCK_NEWS.slice(start, end);
-  }, [page]);
-
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleString('ru-RU', {

@@ -23,10 +23,12 @@ export const PaginationButton = styled.button`
   color: ${({ theme }) => theme.colors.gray[300]};
   transition: all 0.2s ease;
 
-  &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.colors.orange.primary};
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    color: ${({ theme }) => theme.colors.black.primary};
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: ${({ theme }) => theme.colors.orange.primary};
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      color: ${({ theme }) => theme.colors.black.primary};
+    }
   }
 
   &:disabled {

@@ -1,91 +1,73 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { Check } from 'lucide-react';
 import {
-  SelectContainer,
-  SelectLabel,
-  SelectWrapper,
-  StyledSelect,
-  SelectIcon,
-  ErrorMessage,
+  StyledLabel,
+  Container,
+  StyledContent,
+  StyledError,
+  StyledIcon,
+  StyledItem,
+  StyledItemIndicator,
+  StyledItemText,
+  StyledTrigger,
+  StyledViewport
 } from './Select.styled';
-import { SelectProps, SelectOption } from './Select.types';
+import { SelectProps } from './Select.types';
 
-export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) => {
-  const {
-    label,
-    error,
-    options,
-    placeholder,
-    className = '',
-    disabled = false,
-    id,
-    value,
-    onChange,
-    onBlur,
-    onFocus,
-    ...rest
-  } = props;
-
-  const [isOpen, setIsOpen] = useState(false);
-  const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
-
-  const handleFocus = (e: React.FocusEvent<HTMLSelectElement>) => {
-    setIsOpen(true);
-    onFocus?.(e);
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLSelectElement>) => {
-    setIsOpen(false);
-    onBlur?.(e);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e);
-  };
-
-  return (
-    <SelectContainer className={className}>
-      {label && (
-        <SelectLabel htmlFor={selectId} $hasError={!!error}>
-          {label}
-        </SelectLabel>
-      )}
-
-      <SelectWrapper>
-        <StyledSelect
-          ref={ref}
-          id={selectId}
+export const Select = forwardRef<HTMLButtonElement, SelectProps>(
+  (
+    {
+      value,
+      defaultValue,
+      onValueChange,
+      options,
+      placeholder = 'Выберите...',
+      label,
+      error,
+      disabled,
+      className,
+    },
+    ref
+  ) => {
+    return (
+      <Container className={className}>
+        {label && <StyledLabel $hasError={!!error}>{label}</StyledLabel>}
+        <SelectPrimitive.Root
           value={value}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          defaultValue={defaultValue}
+          onValueChange={onValueChange}
           disabled={disabled}
-          $hasError={!!error}
-          aria-invalid={!!error}
-          {...rest}
         >
-          {placeholder && (
-            <option value="" disabled>
-              {placeholder}
-            </option>
-          )}
+          <StyledTrigger ref={ref} $hasError={!!error}>
+            <SelectPrimitive.Value placeholder={placeholder} />
+            <StyledIcon />
+          </StyledTrigger>
 
-          {options.map((option: SelectOption) => (
-            <option
-              key={option.value}
-              value={option.value}
-              disabled={option.disabled}
-            >
-              {option.label}
-            </option>
-          ))}
-        </StyledSelect>
-
-        <SelectIcon $isOpen={isOpen} />
-      </SelectWrapper>
-
-      {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
-    </SelectContainer>
-  );
-});
+          <SelectPrimitive.Portal>
+            <StyledContent position="popper" sideOffset={4}>
+              <StyledViewport>
+                {options.map((option) => (
+                  <StyledItem
+                    key={option.value}
+                    value={option.value}
+                    disabled={option.disabled}
+                    $disabled={option.disabled}
+                  >
+                    <StyledItemText>{option.label}</StyledItemText>
+                    <StyledItemIndicator>
+                      <Check size={16} />
+                    </StyledItemIndicator>
+                  </StyledItem>
+                ))}
+              </StyledViewport>
+            </StyledContent>
+          </SelectPrimitive.Portal>
+        </SelectPrimitive.Root>
+        {error && <StyledError role="alert">{error}</StyledError>}
+      </Container>
+    );
+  }
+);
 
 Select.displayName = 'Select';

@@ -2,13 +2,19 @@ import styled from "styled-components";
 import { Title, Paragraph, CustomLink } from "@/shared/ui";
 
 export const NewsGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 export const NewsCard = styled(CustomLink)`
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-radius: 16px;
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
@@ -16,6 +22,8 @@ export const NewsCard = styled(CustomLink)`
   transition: all 0.2s ease;
   text-decoration: none;
   cursor: pointer;
+  height: 100%;
+  align-items: flex-start;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.orange.primary};
@@ -35,6 +43,10 @@ export const NewsDescription = styled(Paragraph)`
   color: ${({ theme }) => theme.colors.gray[400]};
   margin-bottom: 16px;
   line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 export const NewsMeta = styled.div`
@@ -43,6 +55,10 @@ export const NewsMeta = styled.div`
   gap: 16px;
   font-size: 12px;
   color: ${({ theme }) => theme.colors.gray[600]};
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray[800]};
+  width: 100%;
 `;
 
 export const NewsSource = styled.span`

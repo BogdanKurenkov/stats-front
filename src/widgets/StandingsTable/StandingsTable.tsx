@@ -18,6 +18,10 @@ export const StandingsTable: FC = () => {
 
   const currentData = STANDINGS_DATA_BY_LEAGUE[selectedLeague] || [];
 
+  const handleLeagueChange = (value: string) => {
+    setSelectedLeague(value);
+  };
+
   return (
     <Section pt pb>
       <Container>
@@ -30,7 +34,7 @@ export const StandingsTable: FC = () => {
               <Select
                 options={LEAGUE_OPTIONS}
                 value={selectedLeague}
-                onChange={(e) => setSelectedLeague(e.target.value)}
+                onValueChange={handleLeagueChange}
                 aria-label="Выберите лигу"
               />
             </SelectWrapper>
