@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Container, Section, Title } from '@/shared/ui';
+import { FC, useMemo, useState } from 'react';
+import { Container, Pagination, Section, Title } from '@/shared/ui';
 import {
   NewsGrid,
   NewsCard,
@@ -13,7 +13,20 @@ import {
 import { NewsListProps } from './NewsList.types';
 import { MOCK_NEWS } from './NewsList.constants';
 
+const ITEMS_PER_PAGE = 3;
+
 export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className }) => {
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(MOCK_NEWS.length / ITEMS_PER_PAGE);
+
+  const paginatedNews = useMemo(() => {
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    return MOCK_NEWS.slice(start, end);
+  }, [page]);
+
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleString('ru-RU', {
@@ -54,6 +67,11 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
             </NewsCard>
           ))}
         </NewsGrid>
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+        />
       </Container>
     </Section>
   );

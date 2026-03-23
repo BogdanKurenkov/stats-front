@@ -36,3 +36,5 @@ export { Divider } from "./Divider/Divider";
 export { Table } from "./Table/Table";
 
 export type { SelectOption } from "./Select/Select.types";
+
+export { Pagination } from "./Pagination/Pagination";
