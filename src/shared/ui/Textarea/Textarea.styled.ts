@@ -36,9 +36,11 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
     color: ${({ theme }) => theme.colors.gray[600]};
   }
 
-  &:hover:not(:disabled) {
-    border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      border-color: ${({ theme, $hasError }) =>
+        $hasError ? theme.colors.status.error : theme.colors.orange.primary};
+    }
   }
 
   &:focus {
@@ -85,8 +87,10 @@ export const StyledTextarea = styled.textarea<{ $hasError?: boolean }>`
     background: ${({ theme }) => theme.colors.gray[600]};
     border-radius: 4px;
 
-    &:hover {
-      background: ${({ theme }) => theme.colors.orange.primary};
+    @media (hover: hover) {
+      &:hover {
+        background: ${({ theme }) => theme.colors.orange.primary};
+      }
     }
   }
 `;

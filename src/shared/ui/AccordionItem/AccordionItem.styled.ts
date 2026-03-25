@@ -32,8 +32,10 @@ export const StyledAccordionTrigger = styled(AccordionPrimitive.Trigger)`
   cursor: pointer;
   gap: 20px;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 
   &[data-state="open"] {

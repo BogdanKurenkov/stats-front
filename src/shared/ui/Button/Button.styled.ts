@@ -25,8 +25,10 @@ const variantStyles = {
     color: ${({ theme }) => theme.colors.black.primary};
     border: none;
 
-    &:hover:not(:disabled) {
-      background-color: ${({ theme }) => theme.colors.orange.dark};
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        background-color: ${({ theme }) => theme.colors.orange.dark};
+      }
     }
   `,
   secondary: css`
@@ -34,9 +36,11 @@ const variantStyles = {
     color: ${({ theme }) => theme.colors.orange.primary};
     border: 1px solid ${({ theme }) => theme.colors.gray[600]};
 
-    &:hover:not(:disabled) {
-      background-color: ${({ theme }) => theme.colors.gray[700]};
-      border-color: ${({ theme }) => theme.colors.orange.primary};
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        background-color: ${({ theme }) => theme.colors.gray[700]};
+        border-color: ${({ theme }) => theme.colors.orange.primary};
+      }
     }
   `,
   outline: css`
@@ -44,8 +48,10 @@ const variantStyles = {
     color: ${({ theme }) => theme.colors.orange.primary};
     border: 2px solid ${({ theme }) => theme.colors.orange.primary};
 
-    &:hover:not(:disabled) {
-      background-color: ${({ theme }) => theme.colors.orange.primary}20;
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        background-color: ${({ theme }) => theme.colors.orange.primary}20;
+      }
     }
   `,
   borderless: css`
@@ -53,9 +59,11 @@ const variantStyles = {
     color: ${({ theme }) => theme.colors.gray[300]};
     border: none;
 
-    &:hover:not(:disabled) {
-      color: ${({ theme }) => theme.colors.orange.primary};
-      background-color: ${({ theme }) => theme.colors.gray[800]};
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        color: ${({ theme }) => theme.colors.orange.primary};
+        background-color: ${({ theme }) => theme.colors.gray[800]};
+      }
     }
   `,
 };

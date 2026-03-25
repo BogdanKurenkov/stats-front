@@ -23,9 +23,11 @@ export const StyledTrigger = styled(SelectPrimitive.Trigger)<{
   transition: all 0.2s ease;
   gap: 8px;
 
-  &:hover:not(:disabled) {
-    border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.status.error : theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      border-color: ${({ theme, $hasError }) =>
+        $hasError ? theme.colors.status.error : theme.colors.orange.primary};
+    }
   }
 
   &:focus {
@@ -76,9 +78,11 @@ export const StyledItem = styled(SelectPrimitive.Item)<{ $disabled?: boolean }>`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   outline: none;
 
-  &:hover:not([data-disabled]) {
-    background-color: ${({ theme }) => theme.colors.orange.primary}20;
-    color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: ${({ theme }) => theme.colors.orange.primary}20;
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 
   &[data-highlighted] {

@@ -11,6 +11,11 @@ export const TabsList = styled.div`
   margin-bottom: 16px;
 `;
 
+export const TabContent = styled.div`
+  padding: 16px 0;
+  color: ${({ theme }) => theme.colors.gray[200]};
+`;
+
 export const TabButton = styled.button<{
   $active: boolean;
   $disabled?: boolean;
@@ -39,8 +44,10 @@ export const TabButton = styled.button<{
             ? theme.colors.orange.primary + "20"
             : "transparent"};
 
-          &:hover:not(:disabled) {
-            background: ${theme.colors.orange.primary}20;
+          @media (hover: hover) {
+            &:hover:not(:disabled) {
+              background: ${theme.colors.orange.primary}20;
+            }
           }
         `;
 
@@ -54,10 +61,12 @@ export const TabButton = styled.button<{
             ? theme.colors.black.primary
             : theme.colors.gray[300]};
 
-          &:hover:not(:disabled) {
-            background: ${$active
-              ? theme.colors.orange.dark
-              : theme.colors.gray[700]};
+          @media (hover: hover) {
+            &:hover:not(:disabled) {
+              background: ${$active
+                ? theme.colors.orange.dark
+                : theme.colors.gray[700]};
+            }
           }
         `;
 
@@ -75,15 +84,12 @@ export const TabButton = styled.button<{
             transition: transform 0.2s ease;
           }
 
-          &:hover:not(:disabled)::after {
-            transform: scaleX(0.5);
+          @media (hover: hover) {
+            &:hover:not(:disabled)::after {
+              transform: scaleX(0.5);
+            }
           }
         `;
     }
   }}
-`;
-
-export const TabContent = styled.div`
-  padding: 16px 0;
-  color: ${({ theme }) => theme.colors.gray[200]};
 `;

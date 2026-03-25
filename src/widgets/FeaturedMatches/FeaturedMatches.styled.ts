@@ -52,17 +52,19 @@ export const SwiperContainer = styled.div`
       color: ${({ theme }) => theme.colors.gray[400]};
     }
 
-    &:hover:not(.swiper-button-disabled) {
-      background-color: ${({ theme }) => theme.colors.orange.primary};
-      border-color: ${({ theme }) => theme.colors.orange.primary};
+    @media (hover: hover) {
+      &:hover:not(.swiper-button-disabled) {
+        background-color: ${({ theme }) => theme.colors.orange.primary};
+        border-color: ${({ theme }) => theme.colors.orange.primary};
 
-      &::after {
-        color: ${({ theme }) => theme.colors.black.primary};
+        &::after {
+          color: ${({ theme }) => theme.colors.black.primary};
+        }
+
+        svg {
+          color: white;
+        }
       }
-    }
-
-    &:hover:not(.swiper-button-disabled) svg {
-      color: white;
     }
   }
 
@@ -86,12 +88,14 @@ export const SwiperContainer = styled.div`
     opacity: 0.5;
     cursor: not-allowed;
 
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.black.secondary};
-      border-color: ${({ theme }) => theme.colors.gray[700]};
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.black.secondary};
+        border-color: ${({ theme }) => theme.colors.gray[700]};
 
-      &::after {
-        color: ${({ theme }) => theme.colors.gray[400]};
+        &::after {
+          color: ${({ theme }) => theme.colors.gray[400]};
+        }
       }
     }
   }
@@ -108,9 +112,11 @@ export const MatchCard = styled.div`
   gap: 16px;
   transition: all 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 `;
 
