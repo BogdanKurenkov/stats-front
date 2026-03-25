@@ -22,6 +22,32 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.gray[100]};
   }
 
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.gray[800]};
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.gray[600]};
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.orange.primary};
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.colors.gray[600]} ${({ theme }) =>
+  theme.colors.gray[800]};
+  }
+
   a {
     color: inherit;
     text-decoration: none;
