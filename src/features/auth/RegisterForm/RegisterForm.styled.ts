@@ -8,6 +8,10 @@ export const StyledFormWrapper = styled.div`
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 0;
+  }
 `;
 
 export const StyledFormContainer = styled.div`
@@ -24,10 +28,25 @@ export const StyledFormContainer = styled.div`
     border-color: ${({ theme }) => theme.colors.gray[700]};
     box-shadow: 0 12px 48px rgba(249, 115, 22, 0.15);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 32px;
+    max-width: 450px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 20px;
+    border-radius: 12px;
+  }
 `;
 
 export const StyledTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.orange.primary};
   margin-bottom: 32px;
   text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
 `;
