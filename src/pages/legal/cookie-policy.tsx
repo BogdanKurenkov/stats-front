@@ -1,12 +1,17 @@
+import { NextPage } from 'next';
 import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
+import { CookiePolicy } from '@/widgets';
 
-const CookePolicyPage: NextPageWithLayout = () => {
-    return <>
-        <SEO title="Политика куки" />
-    </>;
+const CookiePolicyPage: NextPage = () => {
+  return (
+    <>
+      <SEO
+        title="Политика использования cookies"
+        description="Информация о cookies на сайте Stats.net"
+      />
+      <CookiePolicy />
+    </>
+  );
 };
 
-CookePolicyPage.layout = 'main';
-
-export default CookePolicyPage;
+export default CookiePolicyPage;

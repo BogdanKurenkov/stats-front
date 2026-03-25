@@ -1,12 +1,17 @@
+import { NextPage } from 'next';
 import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
+import { PrivacyPolicy } from '@/widgets';
 
-const PrivacyPolicyPage: NextPageWithLayout = () => {
-    return <>
-        <SEO title="Политика конфиденциальности" />
-    </>;
+const PrivacyPolicyPage: NextPage = () => {
+  return (
+    <>
+      <SEO
+        title="Политика конфиденциальности"
+        description="Политика обработки персональных данных на сайте Stats.net"
+      />
+      <PrivacyPolicy />
+    </>
+  );
 };
-
-PrivacyPolicyPage.layout = 'main';
 
 export default PrivacyPolicyPage;

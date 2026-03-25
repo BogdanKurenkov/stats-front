@@ -8,4 +8,5 @@ export const ROUTES = {
   BONUSES: "/bonuses",
   PRIVACY_POLICY: "/legal/privacy-policy",
   COOKIE_POLICY: "/legal/cookie-policy",
+  TERMS_OF_USE: "/legal/terms-of-use",
 } as const;

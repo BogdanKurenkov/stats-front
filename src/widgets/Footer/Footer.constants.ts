@@ -16,6 +16,7 @@ export const FOOTER_SECTIONS = [
     links: [
       { href: ROUTES.PRIVACY_POLICY, label: "Политика конфиденциальности" },
       { href: ROUTES.COOKIE_POLICY, label: "Политика cookie" },
+      { href: ROUTES.TERMS_OF_USE, label: "Пользовательское соглашение" },
     ],
   },
 ];

@@ -5,15 +5,11 @@ export default function Home() {
   return (
     <>
       <SEO title="Главная" />
-      <div
-        className=""
-      >
-        <MainInfo />
-        <FeaturedMatches />
-        <HowToChooseBookmaker />
-        <StepsToBet />
-        <FAQ />
-      </div>
+      <MainInfo />
+      <FeaturedMatches />
+      <HowToChooseBookmaker />
+      <StepsToBet />
+      <FAQ />
     </>
   );
 }

@@ -12,3 +12,5 @@ export * from "./bonuses";
 export * from "./forecasts";
 
 export * from "./results";
+
+export * from "./legal";
