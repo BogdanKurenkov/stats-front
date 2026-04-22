@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormField, Input, PasswordInput, Button, CustomLink, Title } from '@/shared/ui';
-import { ROUTES } from '@/shared/config';
+
 import { registerSchema, RegisterFormData } from '@/features/auth/schemas';
+
+import { Form, FormField, Input, PasswordInput, Button, CustomLink } from '@/shared/ui';
+import { ROUTES } from '@/shared/config';
+
 import { StyledFormWrapper, StyledFormContainer, StyledTitle } from './RegisterForm.styled';
 
 export const RegisterForm: FC = () => {

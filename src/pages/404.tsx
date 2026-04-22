@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
-import { Container } from '@/shared/ui';
+
 import { NotFound } from '@/widgets/NotFound';
+
+import { Container } from '@/shared/ui';
 
 const Custom404: NextPage = () => {
   return (

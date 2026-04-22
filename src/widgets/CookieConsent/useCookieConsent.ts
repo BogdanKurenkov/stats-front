@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import {
   COOKIE_CONSENT_KEY,
   COOKIE_CONSENT_VALUES,

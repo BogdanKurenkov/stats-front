@@ -1,4 +1,5 @@
 import "styled-components";
+
 import type { Colors } from "@/shared/styles/colors";
 import type { Typography } from "@/shared/styles/typography";
 import type { Breakpoints } from "@/shared/styles/breakpoints";

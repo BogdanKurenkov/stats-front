@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
-import { SEO } from '@/shared';
+
 import { CookiePolicy } from '@/widgets';
+
+import { SEO } from '@/shared';
 
 const CookiePolicyPage: NextPage = () => {
   return (

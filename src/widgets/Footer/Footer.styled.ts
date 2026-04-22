@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Title, Paragraph, CustomLink } from "@/shared/ui";
 
 export const FooterContainer = styled.footer`

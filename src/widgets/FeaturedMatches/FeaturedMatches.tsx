@@ -1,7 +1,11 @@
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+
 import { Container, Section, Title } from '@/shared/ui';
+
+import { FEATURED_MATCHES } from './FeaturedMatches.constants';
+
 import {
   SectionWrapper,
   SwiperContainer,
@@ -16,7 +20,6 @@ import {
   MatchDate,
   Tournament,
 } from './FeaturedMatches.styled';
-import { FEATURED_MATCHES } from './FeaturedMatches.constants';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

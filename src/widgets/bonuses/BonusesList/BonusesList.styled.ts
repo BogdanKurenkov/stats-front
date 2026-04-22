@@ -1,6 +1,7 @@
 import styled from "styled-components";
+
 import { Button, Paragraph } from "@/shared/ui";
-import { Accordion, AccordionItem } from "@/shared/ui";
+import { Accordion } from "@/shared/ui";
 
 export const BonusesWrapper = styled.div`
   display: flex;

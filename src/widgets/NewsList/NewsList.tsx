@@ -1,4 +1,9 @@
-import { FC, useMemo, useState } from 'react';
+import { FC, useState } from 'react';
+
+import { MOCK_NEWS } from './NewsList.constants';
+
+import { NewsListProps } from './NewsList.types';
+
 import { Container, Pagination, Section, Title } from '@/shared/ui';
 import {
   NewsGrid,
@@ -10,8 +15,6 @@ import {
   NewsDate,
   NewsLink,
 } from './NewsList.styled';
-import { NewsListProps } from './NewsList.types';
-import { MOCK_NEWS } from './NewsList.constants';
 
 const ITEMS_PER_PAGE = 3;
 

@@ -1,7 +1,12 @@
 import { FC } from 'react';
+
 import { CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
+
 import { useCookieConsent } from './useCookieConsent';
+
+import { CookieConsentProps } from './CookieConsent.types';
+
 import {
   Overlay,
   Container,
@@ -11,7 +16,6 @@ import {
   ButtonsContainer,
   ActionButton,
 } from './CookieConsent.styled';
-import { CookieConsentProps } from './CookieConsent.types';
 
 export const CookieConsent: FC<CookieConsentProps> = ({
   onAccept,

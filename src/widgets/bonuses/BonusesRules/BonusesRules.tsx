@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { Container, Section, Title, Paragraph, Divider } from '@/shared/ui';
+
+import { BONUSES_RULES } from './BonusesRules.constants';
+
 import {
   RulesWrapper,
   SectionBlock,
@@ -11,7 +15,6 @@ import {
   CardText,
   Note,
 } from './BonusesRules.styled';
-import { BONUSES_RULES } from './BonusesRules.constants';
 
 export const BonusesRules: FC = () => {
   return (

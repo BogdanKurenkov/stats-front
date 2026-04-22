@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
-import { SEO } from '@/shared';
+
 import { PrivacyPolicy } from '@/widgets';
+
+import { SEO } from '@/shared';
 
 const PrivacyPolicyPage: NextPage = () => {
   return (

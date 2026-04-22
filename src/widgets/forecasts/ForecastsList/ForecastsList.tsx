@@ -1,5 +1,9 @@
 import { FC, useState } from 'react';
+
 import { Container, Section, Title } from '@/shared/ui';
+
+import { FORECASTS } from './ForecastsList.constants';
+
 import {
   ForecastsGrid,
   ForecastCard,
@@ -21,7 +25,6 @@ import {
   AuthorName,
   AuthorTime,
 } from './ForecastsList.styled';
-import { FORECASTS } from './ForecastsList.constants';
 
 export const ForecastsList: FC = () => {
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());

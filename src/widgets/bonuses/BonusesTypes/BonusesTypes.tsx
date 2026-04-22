@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { Container, Divider, Section } from '@/shared/ui';
+
+import { BONUSES_TYPES } from './BonusesTypes.constants';
+
 import {
   TypesWrapper,
   TypesGrid,
@@ -10,7 +14,6 @@ import {
   LoyaltyTitle,
   LoyaltyText,
 } from './BonusesTypes.styled';
-import { BONUSES_TYPES } from './BonusesTypes.constants';
 
 export const BonusesTypes: FC = () => {
   return (

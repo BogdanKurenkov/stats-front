@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import { Container } from '@/shared/ui';
+
 import { AuthWrapper } from './AuthLayout.styled';
 
 interface AuthLayoutProps {
@@ -9,7 +11,7 @@ interface AuthLayoutProps {
 export const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <AuthWrapper>
-      <Container> 
+      <Container>
         {children}
       </Container>
     </AuthWrapper>

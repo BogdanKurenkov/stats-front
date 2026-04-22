@@ -1,6 +1,7 @@
+import { FeaturedMatches, ForecastsAbout, ForecastsHero, ForecastsList } from '@/widgets';
+
 import { SEO } from '@/shared';
 import { NextPageWithLayout } from '@/shared/types';
-import { FeaturedMatches, ForecastsAbout, ForecastsHero, ForecastsList } from '@/widgets';
 
 const ForecastsPage: NextPageWithLayout = () => {
   return <>

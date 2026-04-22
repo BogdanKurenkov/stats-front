@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { Logo } from '@/shared/ui';
+
+import { FOOTER_SECTIONS } from './Footer.constants';
+
 import {
   FooterContainer,
   FooterContent,
@@ -11,7 +15,6 @@ import {
   FooterBottom,
   Copyright,
 } from './Footer.styled';
-import { FOOTER_SECTIONS } from './Footer.constants';
 
 export const Footer: FC = () => {
   const currentYear = new Date().getFullYear();

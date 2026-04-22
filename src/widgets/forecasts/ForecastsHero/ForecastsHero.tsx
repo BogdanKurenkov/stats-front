@@ -1,7 +1,10 @@
 import { FC } from 'react';
+
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
-import { HeroWrapper } from './ForecastsHero.styled';
+
 import { FORECASTS_HERO } from './ForecastsHero.constants';
+
+import { HeroWrapper } from './ForecastsHero.styled';
 
 export const ForecastsHero: FC = () => {
   return (

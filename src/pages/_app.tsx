@@ -1,12 +1,13 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
-import { NextPageWithLayout } from "@/shared/types";
-import { AuthProvider } from "@/app/providers";
 
-import GlobalStyle from "@/app/styles/GlobalStyles";
+import GlobalStyle from "@/application/styles/GlobalStyles";
+import { MainLayout } from "@/application/layouts/MainLayout";
+import { AuthLayout } from "@/application/layouts/AuthLayout";
+import { AuthProvider } from "@/application/providers";
+
 import { theme } from "@/shared/styles/theme";
-import { MainLayout } from "@/app/layouts/MainLayout";
-import { AuthLayout } from "@/app/layouts/AuthLayout";
+import { NextPageWithLayout } from "@/shared/types";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;

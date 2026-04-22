@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Title, Paragraph } from "@/shared/ui";
 
 export const SectionWrapper = styled.div`

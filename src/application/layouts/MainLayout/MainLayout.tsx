@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import { Header, Footer, CookieConsent } from '@/widgets';
+
 import { LayoutContainer, MainContent } from './MainLayout.styled';
 
 interface MainLayoutProps {

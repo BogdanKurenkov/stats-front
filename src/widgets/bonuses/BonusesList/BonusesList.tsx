@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { AccordionItem, Container, Section, Title } from '@/shared/ui';
+
+import { BONUSES_DATA } from './BonusesList.constants';
+
 import {
   BonusesWrapper,
   BonusCard,
@@ -19,7 +23,6 @@ import {
   StyledAccordionCOntent,
   StyledParagraph,
 } from './BonusesList.styled';
-import { BONUSES_DATA } from './BonusesList.constants';
 
 export const BonusesList: FC = () => {
   return (

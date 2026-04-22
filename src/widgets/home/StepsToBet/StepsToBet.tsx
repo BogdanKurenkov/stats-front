@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { Container, Section, Title } from '@/shared/ui';
+
+import { STEPS } from './StepsToBet.constants';
+
 import {
   SectionWrapper,
   StepsGrid,
@@ -9,7 +13,6 @@ import {
   StepTitle,
   StepDescription,
 } from './StepsToBet.styled';
-import { STEPS } from './StepsToBet.constants';
 
 export const StepsToBet: FC = () => {
   return (

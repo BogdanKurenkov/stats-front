@@ -1,8 +1,11 @@
 import { FC } from 'react';
+
 import { Container, Section, Title } from '@/shared/ui';
 import { Accordion, AccordionItem } from '@/shared/ui/';
-import { SectionWrapper, StyledAccordion } from './FAQ.styled';
+
 import { FAQ_ITEMS } from './FAQ.constants';
+
+import { SectionWrapper, StyledAccordion } from './FAQ.styled';
 
 export const FAQ: FC = () => {
   return (

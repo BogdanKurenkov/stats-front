@@ -1,9 +1,12 @@
 import { FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
+
 import { Logo } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
+
 import { MENU_ITEMS } from './Header.constants';
+
 import {
   HeaderContainer,
   HeaderContent,

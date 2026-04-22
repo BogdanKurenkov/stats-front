@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+
 import { Title, Button, Paragraph } from "@/shared/ui";
 
 const slideUp = keyframes`

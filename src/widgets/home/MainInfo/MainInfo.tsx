@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import {
   Container,
   Section,
@@ -7,6 +8,9 @@ import {
   Divider,
   HighlightBox
 } from '@/shared/ui';
+
+import { MAIN_INFO } from './MainInfo.constants';
+
 import {
   MainInfoWrapper,
   SectionBlock,
@@ -16,7 +20,6 @@ import {
   StatNumber,
   StatLabel,
 } from './MainInfo.styled';
-import { MAIN_INFO } from './MainInfo.constants';
 
 export const MainInfo: FC = () => {
   return (

@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import { Paragraph } from "@/shared/ui";
+
 import "swiper/css";
 
 export const SectionWrapper = styled.div`

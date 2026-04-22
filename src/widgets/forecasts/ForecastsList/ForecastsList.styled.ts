@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Paragraph } from "@/shared/ui";
 
 export const ForecastsGrid = styled.div`

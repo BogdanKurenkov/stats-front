@@ -1,5 +1,11 @@
 import { FC, useState, useMemo } from 'react';
+
 import { Container, Section, Select } from '@/shared/ui';
+
+import { LEAGUE_OPTIONS } from './MatchesList.constants';
+
+import { MatchesListProps } from './MatchesList.types';
+
 import {
   MatchesWrapper,
   HeaderRow,
@@ -17,8 +23,7 @@ import {
   Tournament,
   EmptyState,
 } from './MatchesList.styled';
-import { MatchesListProps } from './MatchesList.types';
-import { LEAGUE_OPTIONS } from './MatchesList.constants';
+
 
 const getVariantTitle = (variant?: string): string => {
   switch (variant) {

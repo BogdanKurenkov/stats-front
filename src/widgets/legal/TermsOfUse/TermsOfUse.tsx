@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
+
 import {
   PolicyWrapper,
   SectionBlock,

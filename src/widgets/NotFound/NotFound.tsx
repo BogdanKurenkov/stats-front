@@ -1,7 +1,9 @@
-import { ROUTES } from '@/shared/config';
-import { ErrorWrapper, ErrorCode, ErrorDescription, ErrorImage, ErrorTitle, HomeButton } from './NotFound.styled';
 import { NextPage } from 'next';
+
+import { ROUTES } from '@/shared/config';
 import { CustomLink } from '@/shared';
+
+import { ErrorWrapper, ErrorCode, ErrorDescription, ErrorImage, ErrorTitle, HomeButton } from './NotFound.styled';
 
 export const NotFound: NextPage = () => {
   return (

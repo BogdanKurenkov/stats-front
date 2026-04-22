@@ -1,5 +1,9 @@
 import { FC } from 'react';
+
 import { Container, Section, Title } from '@/shared/ui';
+
+import { CRITERIA_ITEMS } from './HowToChooseBookmaker.constants';
+
 import {
   SectionWrapper,
   CriteriaGrid,
@@ -9,7 +13,6 @@ import {
   CriteriaTitle,
   CriteriaDescription,
 } from './HowToChooseBookmaker.styled';
-import { CRITERIA_ITEMS } from './HowToChooseBookmaker.constants';
 
 export const HowToChooseBookmaker: FC = () => {
   return (

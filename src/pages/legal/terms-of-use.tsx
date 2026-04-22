@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
-import { SEO } from '@/shared';
+
 import { TermsOfUse } from '@/widgets';
+
+import { SEO } from '@/shared';
 
 const TermsOfUsePage: NextPage = () => {
   return (

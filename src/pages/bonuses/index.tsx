@@ -1,6 +1,7 @@
+import { BonusesHero, BonusesList, BonusesRules, BonusesTypes } from '@/widgets';
+
 import { SEO } from '@/shared';
 import { NextPageWithLayout } from '@/shared/types';
-import { BonusesHero, BonusesList, BonusesRules, BonusesTypes } from '@/widgets';
 
 const BonusesPage: NextPageWithLayout = () => {
   return <>

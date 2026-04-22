@@ -1,5 +1,17 @@
 import { FC } from 'react';
+
 import { Container, Section, Title, Paragraph, HighlightBox } from '@/shared/ui';
+
+import {
+  ABOUT_SECTIONS,
+  APPROACH_ITEMS,
+  FACTORS_ITEMS,
+  ADVANTAGE_SECTIONS,
+  ADVANTAGE_ITEMS,
+  DISCLAIMER,
+  FOOTBALL_FEATURES,
+} from './ForecastsAbout.constants';
+
 import {
   AboutWrapper,
   Section as SectionBlock,
@@ -22,15 +34,6 @@ import {
   DisclaimerBox,
   DisclaimerText,
 } from './ForecastsAbout.styled';
-import {
-  ABOUT_SECTIONS,
-  APPROACH_ITEMS,
-  FACTORS_ITEMS,
-  ADVANTAGE_SECTIONS,
-  ADVANTAGE_ITEMS,
-  DISCLAIMER,
-  FOOTBALL_FEATURES,
-} from './ForecastsAbout.constants';
 
 export const ForecastsAbout: FC = () => {
   return (
