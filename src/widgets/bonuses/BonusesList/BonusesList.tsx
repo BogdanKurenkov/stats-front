@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 
 import { AccordionItem, Container, Section, Title } from '@/shared/ui';
 
@@ -33,7 +34,7 @@ export const BonusesList: FC = () => {
             <BonusCard key={bonus.id}>
               <BonusContent>
                 <LogoWrapper>
-                  <img src={bonus.logo} alt={`${bonus.id} logo`} />
+                  <Image src={bonus.logo} alt={`${bonus.id} logo`} width={100} height={40} />
                 </LogoWrapper>
 
                 <BonusInfo>

@@ -26,6 +26,6 @@ export interface RegisterRequest {
 
 export interface QueueItem {
   resolve: (value: unknown) => void;
-  reject: (reason?: any) => void;
+  reject: (reason?: unknown) => void;
   config: InternalAxiosRequestConfig;
 }

@@ -35,7 +35,7 @@ export const TabButton = styled.button<{
     return theme.colors.gray[400];
   }};
 
-  ${({ $variant, theme, $active, $disabled }) => {
+  ${({ $variant, theme, $active }) => {
     switch ($variant) {
       case "pills":
         return css`

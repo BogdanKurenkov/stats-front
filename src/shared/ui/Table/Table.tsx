@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { TableProps } from './Table.types';
+
 import {
   TableWrapper,
   StyledTable,

@@ -1,6 +1,8 @@
 import { SelectOption } from "@/shared/ui";
 import { TableColumn } from "@/shared/ui/Table";
 
+import { StandingsRow } from "./StandingsTable.types";
+
 export const LEAGUE_OPTIONS: SelectOption[] = [
   { value: "rpl", label: "Российская Премьер-лига" },
   { value: "epl", label: "Английская Премьер-лига" },
@@ -11,7 +13,7 @@ export const LEAGUE_OPTIONS: SelectOption[] = [
   { value: "primeira", label: "Португальская Примейра" },
 ];
 
-export const STANDINGS_DATA_BY_LEAGUE: Record<string, any[]> = {
+export const STANDINGS_DATA_BY_LEAGUE: Record<string, StandingsRow[]> = {
   rpl: [
     {
       position: 1,

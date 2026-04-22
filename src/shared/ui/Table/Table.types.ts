@@ -7,6 +7,6 @@ export interface TableColumn {
 
 export interface TableProps {
   columns: TableColumn[];
-  data: Record<string, any>[];
+  data: Record<string, string | number | boolean>[];
   className?: string;
 }

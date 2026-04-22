@@ -1,33 +1,38 @@
 import styled from "styled-components";
+
 import { TitleProps } from "./Title.types";
 
 export const StyledTitle = styled.h1<TitleProps>`
   line-height: 1.2;
   margin: 0;
   font-size: ${({ theme, as, level }) => {
-    const tag = as || level || "h1";
+    const tag = (as || level || "h1") as keyof typeof theme.typography.title;
     return theme.typography.title[tag].fontSize;
   }};
   font-weight: ${({ theme, as, level }) => {
-    const tag = as || level || "h1";
+    const tag = (as || level || "h1") as keyof typeof theme.typography.title;
     return theme.typography.title[tag].fontWeight;
   }};
   color: ${({ theme, color }) => {
     if (!color) return theme.colors.gray[100];
 
     const colorKeys = color.split(".");
-    let value: any = theme.colors;
+    let value: unknown = theme.colors;
 
     for (const key of colorKeys) {
-      value = value?.[key];
+      if (value && typeof value === "object" && key in value) {
+        value = (value as Record<string, unknown>)[key];
+      } else {
+        return color;
+      }
     }
 
-    return value || color;
+    return typeof value === "string" ? value : color;
   }};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: ${({ theme, as, level }) => {
-      const tag = as || level || "h1";
+      const tag = (as || level || "h1") as keyof typeof theme.typography.title;
       const fontSize = theme.typography.title[tag].fontSize;
 
       switch (tag) {
