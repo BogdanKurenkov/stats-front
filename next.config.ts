@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       displayName: true,
     },
   },
+  i18n: {
+    defaultLocale: "pt",
+    locales: ["pt", "en", "es"],
+  },
 };
 
 export default nextConfig;
