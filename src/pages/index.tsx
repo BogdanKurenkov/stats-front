@@ -1,7 +1,8 @@
 import dynamic from 'next/dynamic';
-import { SEO } from "@/shared";
 
 import { MainInfo, FeaturedMatches } from "@/widgets";
+
+import { SEO } from "@/shared";
 
 const HowToChooseBookmaker = dynamic(() => import("@/widgets").then(mod => mod.HowToChooseBookmaker));
 const StepsToBet = dynamic(() => import("@/widgets").then(mod => mod.StepsToBet));
