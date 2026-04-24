@@ -1,4 +1,7 @@
+import { Inter } from "next/font/google";
 import { createGlobalStyle } from "styled-components";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -8,7 +11,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${
+      inter.style.fontFamily
+    }, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: ${({ theme }) => theme.colors.black.background}; 
     color: ${({ theme }) => theme.colors.gray[100]}; 
     line-height: 1.5;

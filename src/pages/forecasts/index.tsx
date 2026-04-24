@@ -1,7 +1,13 @@
-import { FeaturedMatches, ForecastsAbout, ForecastsHero, ForecastsList } from '@/widgets';
+import dynamic from 'next/dynamic';
+
+import { ForecastsHero } from '@/widgets';
 
 import { SEO } from '@/shared';
 import { NextPageWithLayout } from '@/shared/types';
+
+const FeaturedMatches = dynamic(() => import('@/widgets').then(mod => mod.FeaturedMatches));
+const ForecastsList = dynamic(() => import('@/widgets').then(mod => mod.ForecastsList));
+const ForecastsAbout = dynamic(() => import('@/widgets').then(mod => mod.ForecastsAbout));
 
 const ForecastsPage: NextPageWithLayout = () => {
   return <>
