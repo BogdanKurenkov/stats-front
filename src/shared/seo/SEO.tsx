@@ -19,7 +19,14 @@ export const SEO: FC<SEOProps> = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+
+      <meta name="theme-color" content="#000000" />
 
       {canonical && <link rel="canonical" href={canonical} />}
       {noIndex && <meta name="robots" content="noindex, nofollow" />}
@@ -29,6 +36,7 @@ export const SEO: FC<SEOProps> = ({
       <meta property="og:type" content={ogType} />
       {canonical && <meta property="og:url" content={canonical} />}
       <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="Stats" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
