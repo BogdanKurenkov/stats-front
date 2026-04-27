@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
 
@@ -13,6 +14,8 @@ import {
 } from './CookiePolicy.styled';
 
 export const CookiePolicy: FC = () => {
+  const { cookiePolicy: cookie } = useDictionary();
+
   const currentDate = new Date().toLocaleDateString('ru-RU');
 
   return (
@@ -20,95 +23,102 @@ export const CookiePolicy: FC = () => {
       <Container>
         <PolicyWrapper>
           <Title as="h1" level="h1">
-            Политика использования cookies
+            {cookie.title}
           </Title>
-          <LastUpdate>Последнее обновление: {currentDate}</LastUpdate>
+          <LastUpdate>
+            {cookie.lastUpdate} {currentDate}
+          </LastUpdate>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Что такое cookies?</Title>
-            <Paragraph>
-              Cookies — это небольшие текстовые файлы, которые сайт сохраняет на вашем устройстве
-              для обеспечения корректной работы.
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.whatIsCookies.title}</Title>
+            <Paragraph>{cookie.whatIsCookies.text}</Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Какие cookies мы используем</Title>
-            <Paragraph>
-              На сайте Stats.net используются cookies исключительно для аутентификации пользователей.
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.whatCookiesWeUse.title}</Title>
+            <Paragraph>{cookie.whatCookiesWeUse.text}</Paragraph>
 
             <Table>
               <thead>
                 <TableRow>
-                  <TableHeader>Cookie</TableHeader>
-                  <TableHeader>Назначение</TableHeader>
+                  <TableHeader>{cookie.whatCookiesWeUse.table.cookie}</TableHeader>
+                  <TableHeader>{cookie.whatCookiesWeUse.table.purpose}</TableHeader>
                 </TableRow>
               </thead>
               <tbody>
                 <TableRow>
-                  <TableCell>access_token (httpOnly)</TableCell>
-                  <TableCell>Аутентификация пользователя в течение сессии</TableCell>
+                  <TableCell>{cookie.whatCookiesWeUse.table.accessToken}</TableCell>
+                  <TableCell>{cookie.whatCookiesWeUse.table.accessTokenPurpose}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>refresh_token (httpOnly)</TableCell>
-                  <TableCell>Автоматическое обновление токена доступа</TableCell>
+                  <TableCell>{cookie.whatCookiesWeUse.table.refreshToken}</TableCell>
+                  <TableCell>{cookie.whatCookiesWeUse.table.refreshTokenPurpose}</TableCell>
                 </TableRow>
               </tbody>
             </Table>
 
-            <Paragraph>
-              Эти cookies являются <strong>технически необходимыми</strong>. Без них вы не сможете
-              войти в свой аккаунт или использовать функции, требующие авторизации.
-            </Paragraph>
+            <Paragraph
+              dangerouslySetInnerHTML={{
+                __html: cookie.whatCookiesWeUse.table.note
+              }}
+            />
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Cookies третьих сторон</Title>
-            <Paragraph>
-              Мы не используем cookies третьих сторон, включая:
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.thirdParty.title}</Title>
+            <Paragraph>{cookie.thirdParty.text}</Paragraph>
             <ul>
-              <li>Google Analytics</li>
-              <li>Яндекс.Метрику</li>
-              <li>Рекламные пиксели</li>
-              <li>Системы отслеживания</li>
+              {cookie.thirdParty.items.map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Как управлять cookies</Title>
-            <Paragraph>
-              Вы можете отключить cookies в настройках вашего браузера. Однако обратите внимание,
-              что <strong>отключение cookies сделает невозможным вход в аккаунт</strong>.
-            </Paragraph>
-            <Paragraph>
-              Инструкции для популярных браузеров:
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.howToManage.title}</Title>
+            <Paragraph
+              dangerouslySetInnerHTML={{
+                __html: cookie.howToManage.text1
+              }}
+            />
+            <Paragraph>{cookie.howToManage.text2}</Paragraph>
             <ul>
-              <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-              <li><a href="https://support.mozilla.org/ru/kb/udalite-kuki-dlya-udaleniya-informacii-kotoruyu" target="_blank" rel="noopener noreferrer">Firefox</a></li>
-              <li><a href="https://support.apple.com/ru-ru/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
-              <li><a href="https://support.microsoft.com/ru-ru/microsoft-edge/udalite-faily-cookie-v-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+              <li>
+                <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">
+                  {cookie.howToManage.links.chrome}
+                </a>
+              </li>
+              <li>
+                <a href="https://support.mozilla.org/ru/kb/udalite-kuki-dlya-udaleniya-informacii-kotoruyu" target="_blank" rel="noopener noreferrer">
+                  {cookie.howToManage.links.firefox}
+                </a>
+              </li>
+              <li>
+                <a href="https://support.apple.com/ru-ru/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">
+                  {cookie.howToManage.links.safari}
+                </a>
+              </li>
+              <li>
+                <a href="https://support.microsoft.com/ru-ru/microsoft-edge/udalite-faily-cookie-v-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">
+                  {cookie.howToManage.links.edge}
+                </a>
+              </li>
             </ul>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Согласие</Title>
-            <Paragraph>
-              Используя наш сайт, вы соглашаетесь с использованием технически необходимых cookies.
-              Эти cookies не требуют отдельного согласия, так как обеспечивают базовую функциональность сайта.
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.consent.title}</Title>
+            <Paragraph>{cookie.consent.text}</Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">Контакты</Title>
-            <Paragraph>
-              По вопросам, связанным с cookies, вы можете связаться с нами:
-            </Paragraph>
-            <Paragraph>
-              Email: <strong>privacy@stats.net</strong>
-            </Paragraph>
+            <Title as="h2" level="h2">{cookie.contacts.title}</Title>
+            <Paragraph>{cookie.contacts.text}</Paragraph>
+            <Paragraph
+              dangerouslySetInnerHTML={{
+                __html: cookie.contacts.email
+              }}
+            />
           </SectionBlock>
         </PolicyWrapper>
       </Container>

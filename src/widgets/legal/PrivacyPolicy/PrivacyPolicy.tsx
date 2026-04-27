@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
 
@@ -13,6 +14,10 @@ import {
 } from './PrivacyPolicy.styled';
 
 export const PrivacyPolicy: FC = () => {
+  const dict = useDictionary();
+  const privacy = dict?.privacyPolicy;
+  const sections = privacy?.sections;
+
   const currentDate = new Date().toLocaleDateString('ru-RU');
 
   return (
@@ -20,110 +25,93 @@ export const PrivacyPolicy: FC = () => {
       <Container>
         <PolicyWrapper>
           <Title as="h1" level="h1">
-            Политика конфиденциальности
+            {privacy.title}
           </Title>
-          <LastUpdate>Последнее обновление: {currentDate}</LastUpdate>
+          <LastUpdate>
+            {privacy.lastUpdate} {currentDate}
+          </LastUpdate>
 
           <SectionBlock>
-            <Title as="h2" level="h2">1. Введение</Title>
-            <Paragraph>
-              Stats.net («мы», «нас» или «сайт») стремится защищать вашу конфиденциальность.
-              Настоящая Политика конфиденциальности описывает, как мы собираем, используем и защищаем ваши персональные данные
-              в соответствии с Федеральным законом «О персональных данных» № 152-ФЗ.
-            </Paragraph>
+            <Title as="h2" level="h2">{sections.intro.title}</Title>
+            <Paragraph>{sections.intro.text}</Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">2. Какие данные мы собираем</Title>
-            <Subtitle>2.1 Данные, которые вы предоставляете</Subtitle>
+            <Title as="h2" level="h2">{sections.whatWeCollect.title}</Title>
+
+            <Subtitle>{sections.whatWeCollect.subsections.userProvided.title}</Subtitle>
             <List>
-              <ListItem>Электронная почта — необходима для создания учетной записи и доступа к сервисам</ListItem>
-              <ListItem>Имя — используется для персонализации (опционально)</ListItem>
-              <ListItem>Пароль — хранится в зашифрованном виде</ListItem>
+              {sections.whatWeCollect.subsections.userProvided.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
             </List>
-            <Subtitle>2.2 Данные, собираемые автоматически</Subtitle>
+
+            <Subtitle>{sections.whatWeCollect.subsections.automatic.title}</Subtitle>
             <List>
-              <ListItem>Cookies аутентификации (httpOnly) — используются исключительно для управления сессиями</ListItem>
-              <ListItem>IP-адрес — временно собирается для обеспечения безопасности</ListItem>
-            </List>
-          </SectionBlock>
-
-          <SectionBlock>
-            <Title as="h2" level="h2">3. Как мы используем ваши данные</Title>
-            <List>
-              <ListItem>Создание и управление учетной записью</ListItem>
-              <ListItem>Обеспечение безопасности и аутентификации</ListItem>
-              <ListItem>Выполнение обязательств перед пользователями</ListItem>
-            </List>
-            <Paragraph>
-              Мы НЕ используем ваши данные для маркетинга, рекламы или передачи третьим лицам.
-            </Paragraph>
-          </SectionBlock>
-
-          <SectionBlock>
-            <Title as="h2" level="h2">4. Передача данных третьим лицам</Title>
-            <Paragraph>
-              Мы не передаем ваши персональные данные третьим лицам. Данные аутентификации обрабатываются
-              исключительно на наших серверах.
-            </Paragraph>
-          </SectionBlock>
-
-          <SectionBlock>
-            <Title as="h2" level="h2">5. Ваши права</Title>
-            <Paragraph>
-              Вы имеете право на:
-            </Paragraph>
-            <List>
-              <ListItem>Подтверждение факта обработки данных</ListItem>
-              <ListItem>Доступ к вашим данным</ListItem>
-              <ListItem>Исправление неточных данных</ListItem>
-              <ListItem>Удаление данных</ListItem>
-              <ListItem>Отзыв согласия на обработку</ListItem>
-            </List>
-            <Paragraph>
-              Чтобы воспользоваться своими правами, отправьте запрос на адрес: <strong>privacy@stats.net</strong>
-            </Paragraph>
-          </SectionBlock>
-
-          <SectionBlock>
-            <Title as="h2" level="h2">6. Срок хранения данных</Title>
-            <Paragraph>
-              Ваши данные хранятся до тех пор, пока ваша учетная запись активна. После запроса на удаление
-              данные будут уничтожены в течение 30 дней, если иное не предусмотрено законодательством.
-            </Paragraph>
-          </SectionBlock>
-
-          <SectionBlock>
-            <Title as="h2" level="h2">7. Безопасность</Title>
-            <Paragraph>
-              Мы принимаем технические и организационные меры для защиты ваших данных:
-            </Paragraph>
-            <List>
-              <ListItem>Шифрование паролей</ListItem>
-              <ListItem>httpOnly cookies — защищены от доступа через JavaScript</ListItem>
-              <ListItem>HTTPS-соединение</ListItem>
-              <ListItem>Ограниченный доступ к данным</ListItem>
+              {sections.whatWeCollect.subsections.automatic.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
             </List>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">8. Дети</Title>
+            <Title as="h2" level="h2">{sections.howWeUse.title}</Title>
+            <List>
+              {sections.howWeUse.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
+            </List>
+            <Paragraph>{sections.howWeUse.note}</Paragraph>
+          </SectionBlock>
+
+          <SectionBlock>
+            <Title as="h2" level="h2">{sections.thirdParty.title}</Title>
+            <Paragraph>{sections.thirdParty.text}</Paragraph>
+          </SectionBlock>
+
+          <SectionBlock>
+            <Title as="h2" level="h2">{sections.yourRights.title}</Title>
+            <Paragraph>{sections.yourRights.text}</Paragraph>
+            <List>
+              {sections.yourRights.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
+            </List>
             <Paragraph>
-              Наш сайт не предназначен для лиц младше 18 лет. Мы не собираем намеренно данные несовершеннолетних.
-              Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам персональные данные,
-              пожалуйста, свяжитесь с нами.
+              {sections.yourRights.contactText} <strong>{sections.yourRights.email}</strong>
             </Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">9. Контакты</Title>
+            <Title as="h2" level="h2">{sections.retention.title}</Title>
+            <Paragraph>{sections.retention.text}</Paragraph>
+          </SectionBlock>
+
+          <SectionBlock>
+            <Title as="h2" level="h2">{sections.security.title}</Title>
+            <Paragraph>{sections.security.text}</Paragraph>
+            <List>
+              {sections.security.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
+            </List>
+          </SectionBlock>
+
+          <SectionBlock>
+            <Title as="h2" level="h2">{sections.children.title}</Title>
+            <Paragraph>{sections.children.text}</Paragraph>
+          </SectionBlock>
+
+          <SectionBlock>
+            <Title as="h2" level="h2">{sections.contacts.title}</Title>
             <ContactBox>
-              <Paragraph>
-                По вопросам конфиденциальности вы можете связаться с нами:
-              </Paragraph>
+              <Paragraph>{sections.contacts.text}</Paragraph>
               <List>
-                <ListItem>Email: <strong>privacy@stats.net</strong></ListItem>
-                <ListItem>Служба поддержки: <strong>support@stats.net</strong></ListItem>
+                {sections.contacts.items.map((item: string, index: number) => (
+                  <ListItem key={index}>
+                    {item.split(':')[0]}: <strong>{item.split(':')[1]}</strong>
+                  </ListItem>
+                ))}
               </List>
             </ContactBox>
           </SectionBlock>

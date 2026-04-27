@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
+import Link from 'next/link';
 
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
 
@@ -12,6 +14,10 @@ import {
 } from './TermsOfUse.styled';
 
 export const TermsOfUse: FC = () => {
+  const dict = useDictionary();
+  const terms = dict?.termsOfUse;
+  const sections = terms?.sections;
+
   const currentDate = new Date().toLocaleDateString('ru-RU');
 
   return (
@@ -19,117 +25,78 @@ export const TermsOfUse: FC = () => {
       <Container>
         <PolicyWrapper>
           <Title as="h1" level="h1">
-            Пользовательское соглашение
+            {terms.title}
           </Title>
-          <LastUpdate>Последнее обновление: {currentDate}</LastUpdate>
+          <LastUpdate>
+            {terms.lastUpdate} {currentDate}
+          </LastUpdate>
 
           <SectionBlock>
-            <Title as="h2" level="h2">1. Общие положения</Title>
-            <Paragraph>
-              1.1. Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует отношения
-              между Stats.net (далее — «Администрация») и пользователем (далее — «Пользователь»)
-              при использовании сайта stats.net (далее — «Сайт»).
-            </Paragraph>
-            <Paragraph>
-              1.2. Используя Сайт, Пользователь подтверждает, что ознакомлен с условиями Соглашения
-              и принимает их в полном объеме.
-            </Paragraph>
-            <Paragraph>
-              1.3. Администрация оставляет за собой право изменять условия Соглашения в любое время.
-              Изменения вступают в силу с момента публикации.
-            </Paragraph>
+            <Title as="h2" level="h2">{sections.general.title}</Title>
+            {sections.general.clauses.map((clause: string, index: number) => (
+              <Paragraph key={index}>{clause}</Paragraph>
+            ))}
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">2. Регистрация и учетная запись</Title>
-            <Paragraph>
-              2.1. Для использования Сайта Пользователь может зарегистрироваться, указав свой email и пароль.
-            </Paragraph>
-            <Paragraph>
-              2.2. Пользователь несет ответственность за сохранность своих учетных данных и все действия,
-              совершенные под его учетной записью.
-            </Paragraph>
-            <Paragraph>
-              2.3. Администрация вправе заблокировать или удалить учетную запись Пользователя в случае
-              нарушения условий настоящего Соглашения.
-            </Paragraph>
+            <Title as="h2" level="h2">{sections.registration.title}</Title>
+            {sections.registration.clauses.map((clause: string, index: number) => (
+              <Paragraph key={index}>{clause}</Paragraph>
+            ))}
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">3. Права и обязанности Пользователя</Title>
-            <Subtitle>Пользователь имеет право:</Subtitle>
+            <Title as="h2" level="h2">{sections.userRightsAndDuties.title}</Title>
+
+            <Subtitle>{sections.userRightsAndDuties.rights.title}</Subtitle>
             <List>
-              <ListItem>Использовать Сайт в соответствии с его назначением</ListItem>
-              <ListItem>Просматривать бесплатный контент Сайта</ListItem>
-              <ListItem>Обращаться в службу поддержки по вопросам работы Сайта</ListItem>
-              <ListItem>В любое время удалить свою учетную запись</ListItem>
+              {sections.userRightsAndDuties.rights.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
             </List>
 
-            <Subtitle>Пользователь обязуется:</Subtitle>
+            <Subtitle>{sections.userRightsAndDuties.duties.title}</Subtitle>
             <List>
-              <ListItem>Предоставлять достоверную информацию при регистрации</ListItem>
-              <ListItem>Не нарушать работу Сайта и не использовать вредоносное ПО</ListItem>
-              <ListItem>Не использовать Сайт для незаконной деятельности</ListItem>
-              <ListItem>Не размещать материалы, нарушающие законодательство РФ или Бразилии</ListItem>
-              <ListItem>Не пытаться получить несанкционированный доступ к данным других пользователей</ListItem>
+              {sections.userRightsAndDuties.duties.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
             </List>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">4. Интеллектуальная собственность</Title>
-            <Paragraph>
-              4.1. Все материалы, размещенные на Сайте, включая тексты, графику, логотипы, дизайн,
-              являются объектами интеллектуальной собственности Администрации.
-            </Paragraph>
-            <Paragraph>
-              4.2. Пользователь не вправе копировать, распространять, модифицировать или использовать
-              материалы Сайта в коммерческих целях без письменного разрешения Администрации.
-            </Paragraph>
+            <Title as="h2" level="h2">{sections.intellectualProperty.title}</Title>
+            {sections.intellectualProperty.clauses.map((clause: string, index: number) => (
+              <Paragraph key={index}>{clause}</Paragraph>
+            ))}
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">5. Ответственность</Title>
-            <Paragraph>
-              5.1. Администрация не несет ответственности за:
-            </Paragraph>
+            <Title as="h2" level="h2">{sections.liability.title}</Title>
+            <Paragraph>{sections.liability.intro}</Paragraph>
             <List>
-              <ListItem>Содержание материалов, размещенных на Сайте третьими лицами</ListItem>
-              <ListItem>Убытки, возникшие в результате использования или невозможности использования Сайта</ListItem>
-              <ListItem>Сбои в работе Сайта, вызванные действиями третьих лиц или форс-мажорными обстоятельствами</ListItem>
-              <ListItem>Достоверность прогнозов и аналитики, представленных на Сайте</ListItem>
+              {sections.liability.items.map((item: string, index: number) => (
+                <ListItem key={index}>{item}</ListItem>
+              ))}
             </List>
-            <Paragraph>
-              5.2. Администрация не гарантирует, что Сайт будет работать без перебоев и ошибок.
-            </Paragraph>
+            <Paragraph>{sections.liability.note}</Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">6. Конфиденциальность</Title>
+            <Title as="h2" level="h2">{sections.confidentiality.title}</Title>
             <Paragraph>
-              6.1. Вопросы обработки персональных данных регулируются
-              <a href="/privacy-policy"> Политикой конфиденциальности</a>.
+              {sections.confidentiality.clauses[0]}
+              <Link href="/privacy-policy">{sections.confidentiality.privacyPolicyLink}</Link>
             </Paragraph>
-            <Paragraph>
-              6.2. Администрация принимает разумные меры для защиты данных Пользователя,
-              но не может гарантировать абсолютную безопасность при передаче информации через интернет.
-            </Paragraph>
+            <Paragraph>{sections.confidentiality.clauses[1]}</Paragraph>
           </SectionBlock>
 
           <SectionBlock>
-            <Title as="h2" level="h2">7. Заключительные положения</Title>
+            <Title as="h2" level="h2">{sections.final.title}</Title>
+            {sections.final.clauses.slice(0, -1).map((clause: string, index: number) => (
+              <Paragraph key={index}>{clause}</Paragraph>
+            ))}
             <Paragraph>
-              7.1. Настоящее Соглашение регулируется законодательством Российской Федерации.
-            </Paragraph>
-            <Paragraph>
-              7.2. Все споры решаются путем переговоров. При недостижении согласия — в судебном порядке
-              по месту нахождения Администрации.
-            </Paragraph>
-            <Paragraph>
-              7.3. Если какое-либо положение Соглашения признается недействительным, остальные положения
-              сохраняют силу.
-            </Paragraph>
-            <Paragraph>
-              7.4. Для связи с Администрацией используйте: <strong>support@stats.net</strong>
+              {sections.final.clauses[sections.final.clauses.length - 1]} <strong>{sections.final.email}</strong>
             </Paragraph>
           </SectionBlock>
         </PolicyWrapper>
