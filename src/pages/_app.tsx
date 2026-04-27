@@ -4,7 +4,8 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "@/application/styles/GlobalStyles";
 import { MainLayout } from "@/application/layouts/MainLayout";
 import { AuthLayout } from "@/application/layouts/AuthLayout";
-import { AuthProvider } from "@/application/providers";
+import { AuthProvider, DictionaryProvider } from "@/application/providers";
+
 
 import { theme } from "@/shared/styles/theme";
 import { NextPageWithLayout } from "@/shared/types";
@@ -13,7 +14,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = () => {
     switch (Component.layout) {
       case 'auth':
@@ -26,11 +27,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AuthProvider>
-        {getLayout()}
-      </AuthProvider>
-    </ThemeProvider>
+    <DictionaryProvider value={pageProps.messages}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AuthProvider>
+          {getLayout()}
+        </AuthProvider>
+      </ThemeProvider>
+    </DictionaryProvider>
   );
 }
+
+export default App;

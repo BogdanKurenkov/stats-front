@@ -10,8 +10,9 @@ const nextConfig: NextConfig = {
     },
   },
   i18n: {
-    defaultLocale: "pt",
     locales: ["pt", "en", "es"],
+    defaultLocale: "pt",
+    localeDetection: false,
   },
 };
 

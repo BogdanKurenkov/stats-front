@@ -1,30 +1,33 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { Container, Section, Title } from '@/shared/ui';
 import { Accordion, AccordionItem } from '@/shared/ui/';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { FAQ_ITEMS } from './FAQ.constants';
 
 import { SectionWrapper, StyledAccordion } from './FAQ.styled';
 
 export const FAQ: FC = () => {
+  const { faq } = useDictionary();
+
   return (
     <Section pt pb>
       <Container>
         <SectionWrapper>
           <Title as="h2" level="h2">
-            Часто задаваемые вопросы
+            {faq.title}
           </Title>
 
           <StyledAccordion>
             <Accordion type="multiple">
-              {FAQ_ITEMS.map(({ answer, id, question }) => (
+              {FAQ_ITEMS.map(({ id }) => (
                 <AccordionItem
                   key={id}
                   value={id}
-                  trigger={question}
+                  trigger={faq[id].question}
                 >
-                  {answer}
+                  {faq[id].answer}
                 </AccordionItem>
               ))}
             </Accordion>
