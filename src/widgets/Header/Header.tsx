@@ -22,6 +22,7 @@ import {
   MobileNavLink,
   Overlay,
 } from './Header.styled';
+import { LanguageSwitcher } from '@/features/langageSwitcher';
 
 // TODO убрать моковые данные и привязаться к реальному юзеру
 const isAuthenticated = false;
@@ -72,6 +73,7 @@ export const Header: FC = () => {
           </NavMenu>
 
           <RightSection>
+
             {isAuthenticated ? (
               <Avatar onClick={handleAvatarClick} aria-label="Профиль пользователя">
                 {userInitials}
@@ -85,6 +87,8 @@ export const Header: FC = () => {
                 Войти
               </AuthButton>
             )}
+
+            <LanguageSwitcher />
 
             <MobileMenuButton
               onClick={openMobileMenu}

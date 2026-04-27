@@ -5,7 +5,7 @@ import { Button, CustomLink } from "@/shared/ui";
 export const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   width: 100%;

@@ -8,4 +8,9 @@ export const LayoutContainer = styled.div`
 
 export const MainContent = styled.main`
   flex: 1;
+  margin-top: 89px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 80px;
+  }
 `;

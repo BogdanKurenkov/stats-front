@@ -30,10 +30,13 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       className,
       name,
       required,
+      renderValue,
     },
     ref
   ) => {
     const hiddenInputId = useId();
+
+    const selectedOption = options.find(opt => opt.value === value);
 
     return (
       <Container className={className}>
@@ -57,7 +60,11 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
             $hasError={!!error}
             aria-labelledby={label ? `${hiddenInputId}-label` : undefined}
           >
-            <SelectPrimitive.Value placeholder={placeholder} />
+            <SelectPrimitive.Value placeholder={placeholder}>
+              {renderValue && value
+                ? renderValue(value, selectedOption)
+                : undefined}
+            </SelectPrimitive.Value>
             <StyledIcon />
           </StyledTrigger>
 
@@ -100,4 +107,5 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     );
   }
 );
+
 Select.displayName = 'Select';
