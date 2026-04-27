@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title } from '@/shared/ui';
 
@@ -25,12 +26,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export const FeaturedMatches: FC = () => {
+  const dict = useDictionary();
+  const data = dict.featuredMatches;
+
   return (
     <Section pt pb>
       <Container>
         <SectionWrapper>
           <Title as="h2" level="h2">
-            В центре внимания
+            {data.title}
           </Title>
 
           <SwiperContainer>

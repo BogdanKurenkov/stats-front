@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Divider, Section } from '@/shared/ui';
-
-import { BONUSES_TYPES } from './BonusesTypes.constants';
 
 import {
   TypesWrapper,
@@ -16,19 +15,22 @@ import {
 } from './BonusesTypes.styled';
 
 export const BonusesTypes: FC = () => {
+  const dict = useDictionary();
+  const data = dict.bonusesTypes;
+
   return (
     <Section pt pb>
       <Container>
         <TypesWrapper>
           <TypeName as="h2" level="h2">
-            {BONUSES_TYPES.title}
+            {data.title}
           </TypeName>
           <TypeDescription size="lg">
-            {BONUSES_TYPES.description}
+            {data.description}
           </TypeDescription>
 
           <TypesGrid>
-            {BONUSES_TYPES.types.map((type, index) => (
+            {data.types.map((type, index) => (
               <TypeCard key={index}>
                 <TypeName as="h3" level="h3">
                   {type.name}
@@ -44,10 +46,10 @@ export const BonusesTypes: FC = () => {
 
           <LoyaltyCard>
             <LoyaltyTitle as="h3" level="h3">
-              Программа лояльности
+              {data.loyaltyTitle}
             </LoyaltyTitle>
             <LoyaltyText size="md">
-              {BONUSES_TYPES.loyaltyNote}
+              {data.loyaltyText}
             </LoyaltyText>
           </LoyaltyCard>
         </TypesWrapper>

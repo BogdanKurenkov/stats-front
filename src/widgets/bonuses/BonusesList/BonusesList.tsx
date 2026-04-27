@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { AccordionItem, Container, Section, Title } from '@/shared/ui';
 
@@ -26,6 +27,9 @@ import {
 } from './BonusesList.styled';
 
 export const BonusesList: FC = () => {
+  const dict = useDictionary();
+  const data = dict.bonusesList;
+
   return (
     <Section pt pb>
       <Container>
@@ -48,15 +52,15 @@ export const BonusesList: FC = () => {
                 <BonusStats>
                   <StatItem>
                     <StatValue>{bonus.bonusAmount}</StatValue>
-                    <StatLabel>Сумма бонуса</StatLabel>
+                    <StatLabel>{data.bonusAmountLabel}</StatLabel>
                   </StatItem>
                   <StatItem>
                     <StatValue>{bonus.minOdds}</StatValue>
-                    <StatLabel>Мин. коэффициент</StatLabel>
+                    <StatLabel>{data.minOddsLabel}</StatLabel>
                   </StatItem>
                   <StatItem>
                     <StatValue>{bonus.wagering}</StatValue>
-                    <StatLabel>Отыгрыш</StatLabel>
+                    <StatLabel>{data.wageringLabel}</StatLabel>
                   </StatItem>
                 </BonusStats>
 
@@ -68,10 +72,10 @@ export const BonusesList: FC = () => {
               </BonusContent>
 
               <StyledAccordion type="single" collapsible>
-                <AccordionItem value="terms" trigger="Условия бонуса">
+                <AccordionItem value="terms" trigger={data.termsButton}>
                   <StyledAccordionCOntent>
-                    <Title as='h6' level='h6'>18+ | Играйте ответственно</Title>
-                    <StyledParagraph>  {bonus.terms}</StyledParagraph>
+                    <Title as='h6' level='h6'>{data.warning}</Title>
+                    <StyledParagraph>{bonus.terms}</StyledParagraph>
                   </StyledAccordionCOntent>
                 </AccordionItem>
               </StyledAccordion>

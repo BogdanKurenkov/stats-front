@@ -1,13 +1,18 @@
 import { z } from "zod";
+import { createPasswordSchema, PasswordMessages } from "./password.schema";
 
-import { passwordSchema } from "./password.schema";
+export const createLoginSchema = (messages: {
+  emailRequired: string;
+  emailInvalid: string;
+  password: PasswordMessages;
+}) => {
+  return z.object({
+    email: z
+      .string()
+      .min(1, messages.emailRequired)
+      .email(messages.emailInvalid),
+    password: createPasswordSchema(messages.password),
+  });
+};
 
-export const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email обязателен")
-    .email("Введите корректный email"),
-  password: passwordSchema,
-});
-
-export type LoginFormData = z.infer<typeof loginSchema>;
+export type LoginFormData = z.infer<ReturnType<typeof createLoginSchema>>;

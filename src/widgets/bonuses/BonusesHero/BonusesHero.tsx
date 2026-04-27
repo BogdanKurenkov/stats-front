@@ -1,19 +1,23 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
 
 import { HeroWrapper } from './BonusesHero.styled';
 
 export const BonusesHero: FC = () => {
+  const dict = useDictionary();
+  const data = dict.bonusesHero;
+
   return (
     <Section pt pb>
       <Container>
         <HeroWrapper>
           <Title as="h1" level="h1">
-            Бонусы букмекерских контор
+            {data.title}
           </Title>
           <Paragraph size="lg">
-            Букмекеры заинтересованы в привлечении как можно большего количества игроков, и поэтому работают над улучшением функционала, запускают масштабные рекламные акции, а также предлагают клиентам интересные бонусы. На нашем портале вы узнаете, какие бывают бонусы букмекерских контор, как их получить, что такое отыгрыш и как выполнить его требования.
+            {data.description}
           </Paragraph>
         </HeroWrapper>
       </Container>

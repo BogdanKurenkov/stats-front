@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import {
   Container,
@@ -8,8 +9,6 @@ import {
   Divider,
   HighlightBox
 } from '@/shared/ui';
-
-import { MAIN_INFO } from './MainInfo.constants';
 
 import {
   MainInfoWrapper,
@@ -22,27 +21,29 @@ import {
 } from './MainInfo.styled';
 
 export const MainInfo: FC = () => {
+  const dict = useDictionary();
+  const mainInfo = dict.mainInfo;
+
   return (
     <Section pt pb>
       <Container>
         <MainInfoWrapper>
-
           <SectionBlock>
             <Title as="h2" level="h2">
-              {MAIN_INFO.trustTitle}
+              {mainInfo.trustTitle}
             </Title>
             <Paragraph size="lg">
-              {MAIN_INFO.trustDescription}
+              {mainInfo.trustDescription}
             </Paragraph>
           </SectionBlock>
 
           <Divider />
 
           <StatGrid>
-            {MAIN_INFO.stats.map(({ label, number }) => (
-              <StatCard key={number}>
-                <StatNumber>{number}</StatNumber>
-                <StatLabel>{label}</StatLabel>
+            {mainInfo.stats.map((stat, index) => (
+              <StatCard key={index}>
+                <StatNumber>{stat.number}</StatNumber>
+                <StatLabel>{stat.label}</StatLabel>
               </StatCard>
             ))}
           </StatGrid>
@@ -51,10 +52,10 @@ export const MainInfo: FC = () => {
 
           <SectionBlock>
             <Title as="h2" level="h2">
-              {MAIN_INFO.evaluationTitle}
+              {mainInfo.evaluationTitle}
             </Title>
             <Paragraph size="lg">
-              {MAIN_INFO.evaluationDescription}
+              {mainInfo.evaluationDescription}
             </Paragraph>
           </SectionBlock>
 
@@ -62,22 +63,22 @@ export const MainInfo: FC = () => {
 
           <SectionBlock>
             <Title as="h2" level="h2">
-              {MAIN_INFO.bookmakerTitle}
+              {mainInfo.bookmakerTitle}
             </Title>
             <Paragraph size="lg">
-              {MAIN_INFO.bookmakerDescription}
+              {mainInfo.bookmakerDescription}
             </Paragraph>
           </SectionBlock>
 
           <HighlightBox>
             <HighlightText size="lg">
-              {MAIN_INFO.highlightText}
+              {mainInfo.highlightText}
             </HighlightText>
           </HighlightBox>
 
           <SectionBlock>
             <Paragraph size="lg">
-              {MAIN_INFO.conclusionText}
+              {mainInfo.conclusionText}
             </Paragraph>
           </SectionBlock>
         </MainInfoWrapper>

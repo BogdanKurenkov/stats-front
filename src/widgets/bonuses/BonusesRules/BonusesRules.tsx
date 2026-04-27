@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title, Paragraph, Divider } from '@/shared/ui';
-
-import { BONUSES_RULES } from './BonusesRules.constants';
 
 import {
   RulesWrapper,
@@ -17,16 +16,19 @@ import {
 } from './BonusesRules.styled';
 
 export const BonusesRules: FC = () => {
+  const dict = useDictionary();
+  const bonuses = dict.bonusesRules;
+
   return (
     <Section pt pb>
       <Container>
         <RulesWrapper>
           <SectionBlock>
             <Title as="h2" level="h2">
-              {BONUSES_RULES.rulesTitle}
+              {bonuses.rulesTitle}
             </Title>
             <Paragraph size="lg">
-              {BONUSES_RULES.rulesDescription}
+              {bonuses.rulesDescription}
             </Paragraph>
           </SectionBlock>
 
@@ -34,10 +36,10 @@ export const BonusesRules: FC = () => {
 
           <SectionBlock>
             <Title as="h2" level="h2">
-              {BONUSES_RULES.howToUseTitle}
+              {bonuses.howToUseTitle}
             </Title>
             <Paragraph>
-              {BONUSES_RULES.howToUseDescription}
+              {bonuses.howToUseDescription}
             </Paragraph>
           </SectionBlock>
 
@@ -45,17 +47,17 @@ export const BonusesRules: FC = () => {
 
           <SectionBlock>
             <Title as="h2" level="h2">
-              {BONUSES_RULES.howToWageringTitle}
+              {bonuses.howToWageringTitle}
             </Title>
             <Paragraph>
-              {BONUSES_RULES.howToWageringDescription}
+              {bonuses.howToWageringDescription}
             </Paragraph>
 
             <Title as="h3" level="h3" style={{ marginTop: '16px' }}>
-              {BONUSES_RULES.wageringStepsTitle}
+              {bonuses.wageringStepsTitle}
             </Title>
             <StepsGrid>
-              {BONUSES_RULES.wageringSteps.map((step, index) => (
+              {bonuses.wageringSteps.map((step: string, index: number) => (
                 <Card key={index}>
                   <CardNumber>{index + 1}</CardNumber>
                   <CardContent>
@@ -64,21 +66,21 @@ export const BonusesRules: FC = () => {
                 </Card>
               ))}
             </StepsGrid>
-            <Note size="sm">{BONUSES_RULES.wageringNote}</Note>
+            <Note size="sm">{bonuses.wageringNote}</Note>
           </SectionBlock>
 
           <Divider />
 
           <SectionBlock>
             <Title as="h2" level="h2">
-              {BONUSES_RULES.refusalReasonsTitle}
+              {bonuses.refusalReasonsTitle}
             </Title>
             <Paragraph>
-              {BONUSES_RULES.refusalReasonsDescription}
+              {bonuses.refusalReasonsDescription}
             </Paragraph>
 
             <ReasonsGrid>
-              {BONUSES_RULES.refusalReasons.map((reason, index) => (
+              {bonuses.refusalReasons.map((reason: string, index: number) => (
                 <Card key={index}>
                   <CardNumber>{index + 1}</CardNumber>
                   <CardContent>
@@ -88,7 +90,7 @@ export const BonusesRules: FC = () => {
               ))}
             </ReasonsGrid>
 
-            <Note size="sm">{BONUSES_RULES.refusalNote}</Note>
+            <Note size="sm">{bonuses.refusalNote}</Note>
           </SectionBlock>
         </RulesWrapper>
       </Container>

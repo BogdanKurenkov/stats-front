@@ -1,21 +1,23 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title, Paragraph } from '@/shared/ui';
-
-import { FORECASTS_HERO } from './ForecastsHero.constants';
 
 import { HeroWrapper } from './ForecastsHero.styled';
 
 export const ForecastsHero: FC = () => {
+  const dict = useDictionary();
+  const data = dict.forecastsHero;
+
   return (
     <Section pt pb>
       <Container>
         <HeroWrapper>
           <Title as="h1" level="h1">
-            {FORECASTS_HERO.title}
+            {data.title}
           </Title>
           <Paragraph size="lg">
-            {FORECASTS_HERO.description}
+            {data.description}
           </Paragraph>
         </HeroWrapper>
       </Container>

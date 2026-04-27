@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { ROUTES } from '@/shared/config';
 import { CustomLink } from '@/shared';
@@ -6,13 +7,16 @@ import { CustomLink } from '@/shared';
 import { ErrorWrapper, ErrorCode, ErrorDescription, ErrorImage, ErrorTitle, HomeButton } from './NotFound.styled';
 
 export const NotFound: NextPage = () => {
+  const dict = useDictionary();
+  const data = dict.notFound;
+
   return (
     <ErrorWrapper>
       <ErrorImage>🕵️‍♂️</ErrorImage>
-      <ErrorCode>404</ErrorCode>
-      <ErrorTitle>Страница не найдена</ErrorTitle>
+      <ErrorCode>{data.errorCode}</ErrorCode>
+      <ErrorTitle>{data.title}</ErrorTitle>
       <ErrorDescription>
-        Возможно, она была перемещена, или вы указали неверный адрес.
+        {data.description}
       </ErrorDescription>
 
       <HomeButton
@@ -21,7 +25,7 @@ export const NotFound: NextPage = () => {
         variant="primary"
         size="large"
       >
-        На главную
+        {data.homeButton}
       </HomeButton>
     </ErrorWrapper>
   );

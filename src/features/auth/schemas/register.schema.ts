@@ -1,23 +1,29 @@
 import { z } from "zod";
+import { createPasswordSchema, PasswordMessages } from "./password.schema";
 
-import { passwordSchema } from "./password.schema";
+export const createRegisterSchema = (messages: {
+  nameRequired: string;
+  nameMin: string;
+  emailRequired: string;
+  emailInvalid: string;
+  password: PasswordMessages;
+  confirmPasswordRequired: string;
+  confirmPasswordMatch: string;
+}) => {
+  return z
+    .object({
+      name: z.string().min(1, messages.nameRequired).min(2, messages.nameMin),
+      email: z
+        .string()
+        .min(1, messages.emailRequired)
+        .email(messages.emailInvalid),
+      password: createPasswordSchema(messages.password),
+      confirmPassword: z.string().min(1, messages.confirmPasswordRequired),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: messages.confirmPasswordMatch,
+      path: ["confirmPassword"],
+    });
+};
 
-export const registerSchema = z
-  .object({
-    name: z
-      .string()
-      .min(1, "Имя обязательно")
-      .min(2, "Имя должно содержать минимум 2 символа"),
-    email: z
-      .string()
-      .min(1, "Email обязателен")
-      .email("Введите корректный email"),
-    password: passwordSchema,
-    confirmPassword: z.string().min(1, "Подтверждение пароля обязательно"),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Пароли не совпадают",
-    path: ["confirmPassword"],
-  });
-
-export type RegisterFormData = z.infer<typeof registerSchema>;
+export type RegisterFormData = z.infer<ReturnType<typeof createRegisterSchema>>;

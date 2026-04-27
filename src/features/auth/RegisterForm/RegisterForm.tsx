@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useDictionary } from '@/shared/lib/localization';
 
-import { registerSchema, RegisterFormData } from '@/features/auth/schemas';
+import { createRegisterSchema, RegisterFormData } from '@/features/auth/schemas';
 
 import { Form, FormField, Input, PasswordInput, Button, CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
@@ -10,6 +11,24 @@ import { ROUTES } from '@/shared/config';
 import { StyledFormWrapper, StyledFormContainer, StyledTitle } from './RegisterForm.styled';
 
 export const RegisterForm: FC = () => {
+  const dict = useDictionary();
+  const data = dict.registerForm;
+  const validation = dict.validation;
+
+  const registerSchema = createRegisterSchema({
+    nameRequired: validation.name.required,
+    nameMin: validation.name.min,
+    emailRequired: validation.email.required,
+    emailInvalid: validation.email.invalid,
+    password: {
+      min: validation.password.min,
+      uppercase: validation.password.uppercase,
+      digit: validation.password.digit,
+    },
+    confirmPasswordRequired: validation.confirmPassword.required,
+    confirmPasswordMatch: validation.confirmPassword.match,
+  });
+
   const {
     register,
     handleSubmit,
@@ -34,38 +53,38 @@ export const RegisterForm: FC = () => {
     <StyledFormWrapper>
       <StyledFormContainer>
         <StyledTitle as="h2" level="h2">
-          Регистрация
+          {data.title}
         </StyledTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FormField label="Имя" error={errors.name?.message} required>
+          <FormField label={data.nameLabel} error={errors.name?.message} required>
             <Input
-              placeholder="Введите имя"
+              placeholder={data.namePlaceholder}
               error={errors.name?.message}
               {...register('name')}
             />
           </FormField>
 
-          <FormField label="Email" error={errors.email?.message} required>
+          <FormField label={data.emailLabel} error={errors.email?.message} required>
             <Input
               type="email"
-              placeholder="example@mail.com"
+              placeholder={data.emailPlaceholder}
               error={errors.email?.message}
               {...register('email')}
             />
           </FormField>
 
-          <FormField label="Пароль" error={errors.password?.message} required>
+          <FormField label={data.passwordLabel} error={errors.password?.message} required>
             <PasswordInput
-              placeholder="Минимум 6 символов"
+              placeholder={data.passwordPlaceholder}
               error={errors.password?.message}
               {...register('password')}
             />
           </FormField>
 
-          <FormField label="Подтверждение пароля" error={errors.confirmPassword?.message} required>
+          <FormField label={data.confirmPasswordLabel} error={errors.confirmPassword?.message} required>
             <PasswordInput
-              placeholder="Повторите пароль"
+              placeholder={data.confirmPasswordPlaceholder}
               error={errors.confirmPassword?.message}
               {...register('confirmPassword')}
             />
@@ -78,12 +97,12 @@ export const RegisterForm: FC = () => {
             disabled={isSubmitting}
             style={{ marginTop: '16px' }}
           >
-            {isSubmitting ? 'Регистрация...' : 'Зарегистрироваться'}
+            {isSubmitting ? data.submittingButton : data.submitButton}
           </Button>
 
           <div style={{ textAlign: 'center', marginTop: '24px' }}>
             <CustomLink href={ROUTES.LOGIN} variant="secondary">
-              Уже есть аккаунт? Войти
+              {data.loginLink}
             </CustomLink>
           </div>
         </Form>

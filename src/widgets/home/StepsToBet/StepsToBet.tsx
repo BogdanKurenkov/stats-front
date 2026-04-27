@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title } from '@/shared/ui';
-
-import { STEPS } from './StepsToBet.constants';
 
 import {
   SectionWrapper,
@@ -15,24 +14,27 @@ import {
 } from './StepsToBet.styled';
 
 export const StepsToBet: FC = () => {
+  const dict = useDictionary();
+  const stepsData = dict.stepsToBet;
+
   return (
     <Section pt pb>
       <Container>
         <SectionWrapper>
           <Title as="h2" level="h2">
-            Как оформить онлайн ставки на спорт у букмекеров
+            {stepsData.title}
           </Title>
 
           <StepsGrid>
-            {STEPS.map(({ description, number, title }) => (
-              <StepCard key={number}>
-                <StepNumber>{number}</StepNumber>
+            {stepsData.steps.map((step) => (
+              <StepCard key={step.number}>
+                <StepNumber>{step.number}</StepNumber>
                 <StepContent>
                   <StepTitle as="h3" level="h3">
-                    {title}
+                    {step.title}
                   </StepTitle>
                   <StepDescription size="md">
-                    {description}
+                    {step.description}
                   </StepDescription>
                 </StepContent>
               </StepCard>

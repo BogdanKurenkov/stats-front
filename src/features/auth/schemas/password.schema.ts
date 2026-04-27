@@ -1,9 +1,17 @@
 import { z } from "zod";
 
-export const passwordSchema = z
-  .string()
-  .min(6, "Пароль должен содержать минимум 6 символов")
-  .regex(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву")
-  .regex(/[0-9]/, "Пароль должен содержать хотя бы одну цифру");
+export interface PasswordMessages {
+  min: string;
+  uppercase: string;
+  digit: string;
+}
 
-export type PasswordSchema = z.infer<typeof passwordSchema>;
+export const createPasswordSchema = (messages: PasswordMessages) => {
+  return z
+    .string()
+    .min(6, messages.min)
+    .regex(/[A-Z]/, messages.uppercase)
+    .regex(/[0-9]/, messages.digit);
+};
+
+export type PasswordSchema = z.infer<ReturnType<typeof createPasswordSchema>>;

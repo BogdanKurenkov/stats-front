@@ -1,5 +1,6 @@
 import { FC, useState, useMemo } from 'react';
 
+import { useDictionary } from '@/shared/lib/localization';
 import { Container, Section, Select } from '@/shared/ui';
 
 import { LEAGUE_OPTIONS } from './MatchesList.constants';
@@ -24,15 +25,19 @@ import {
   EmptyState,
 } from './MatchesList.styled';
 
-
-const getVariantTitle = (variant?: string): string => {
+const getVariantTitle = (
+  variant: string | undefined,
+  upcomingTitle: string,
+  pastTitle: string,
+  defaultTitle: string
+): string => {
   switch (variant) {
     case 'upcoming':
-      return 'Ближайшие матчи';
+      return upcomingTitle;
     case 'past':
-      return 'Прошедшие матчи';
+      return pastTitle;
     default:
-      return 'Матчи';
+      return defaultTitle;
   }
 };
 
@@ -42,9 +47,16 @@ export const MatchesList: FC<MatchesListProps> = ({
   variant,
   className,
 }) => {
+  const dict = useDictionary();
+  const matchesData = dict.matchesList;
   const [selectedLeague, setSelectedLeague] = useState('all');
 
-  const displayTitle = title || getVariantTitle(variant);
+  const displayTitle = title || getVariantTitle(
+    variant,
+    matchesData.upcomingTitle,
+    matchesData.pastTitle,
+    matchesData.defaultTitle
+  );
 
   const filteredByVariant = variant
     ? matches.filter((match) => match.status === variant)
@@ -70,13 +82,13 @@ export const MatchesList: FC<MatchesListProps> = ({
                 options={LEAGUE_OPTIONS}
                 value={selectedLeague}
                 onValueChange={setSelectedLeague}
-                aria-label="Выберите лигу"
+                aria-label={matchesData.selectAriaLabel}
               />
             </SelectWrapper>
           </HeaderRow>
 
           {isEmpty ? (
-            <EmptyState>Матчи не найдены</EmptyState>
+            <EmptyState>{matchesData.emptyState}</EmptyState>
           ) : (
             <MatchesGrid>
               {filteredMatches.map((match) => (

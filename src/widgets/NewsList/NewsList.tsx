@@ -5,6 +5,8 @@ import { MOCK_NEWS } from './NewsList.constants';
 import { NewsListProps } from './NewsList.types';
 
 import { Container, Pagination, Section, Title } from '@/shared/ui';
+import { useDictionary } from '@/shared/lib/localization';
+
 import {
   NewsGrid,
   NewsCard,
@@ -20,6 +22,8 @@ const ITEMS_PER_PAGE = 3;
 
 export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className }) => {
   const [page, setPage] = useState(1);
+
+  const { news } = useDictionary()
 
   const totalPages = Math.ceil(MOCK_NEWS.length / ITEMS_PER_PAGE);
 
@@ -39,7 +43,7 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
     <Section pt pb>
       <Container>
         <Title as="h2" level="h2" style={{ marginBottom: '32px' }}>
-          Спортивные новости
+          {news.title}
         </Title>
         <NewsGrid className={className}>
           {articles.map((item, idx) => (
@@ -58,7 +62,7 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
               <NewsMeta>
                 <NewsSource>{item.source.name}</NewsSource>
                 <NewsDate>{formatDate(item.publishedAt)}</NewsDate>
-                <NewsLink>Ссылка</NewsLink>
+                <NewsLink>{news.title}</NewsLink>
               </NewsMeta>
             </NewsCard>
           ))}

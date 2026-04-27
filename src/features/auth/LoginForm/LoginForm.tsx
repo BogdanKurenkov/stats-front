@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useDictionary } from '@/shared/lib/localization';
 
-import { loginSchema, LoginFormData } from '@/features/auth/schemas';
+import { createLoginSchema, LoginFormData } from '@/features/auth/schemas';
 
 import { Form, FormField, Input, PasswordInput, Button, CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
@@ -10,6 +11,20 @@ import { ROUTES } from '@/shared/config';
 import { StyledFormWrapper, StyledFormContainer, StyledTitle } from './LoginForm.styled';
 
 export const LoginForm: FC = () => {
+  const dict = useDictionary();
+  const data = dict.loginForm;
+  const validation = dict.validation;
+
+  const loginSchema = createLoginSchema({
+    emailRequired: validation.email.required,
+    emailInvalid: validation.email.invalid,
+    password: {
+      min: validation.password.min,
+      uppercase: validation.password.uppercase,
+      digit: validation.password.digit,
+    },
+  });
+
   const {
     register,
     handleSubmit,
@@ -29,22 +44,22 @@ export const LoginForm: FC = () => {
     <StyledFormWrapper>
       <StyledFormContainer>
         <StyledTitle as="h2" level="h2">
-          Вход в аккаунт
+          {data.title}
         </StyledTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-          <FormField label="Email" error={errors.email?.message} required>
+          <FormField label={data.emailLabel} error={errors.email?.message} required>
             <Input
               type="email"
-              placeholder="example@mail.com"
+              placeholder={data.emailPlaceholder}
               error={errors.email?.message}
               {...register('email')}
             />
           </FormField>
 
-          <FormField label="Пароль" error={errors.password?.message} required>
+          <FormField label={data.passwordLabel} error={errors.password?.message} required>
             <PasswordInput
-              placeholder="Пароль"
+              placeholder={data.passwordPlaceholder}
               error={errors.password?.message}
               autoComplete="current-password"
               {...register('password')}
@@ -58,12 +73,12 @@ export const LoginForm: FC = () => {
             disabled={isSubmitting}
             style={{ marginTop: '16px' }}
           >
-            {isSubmitting ? 'Вход...' : 'Войти'}
+            {isSubmitting ? data.submittingButton : data.submitButton}
           </Button>
 
           <div style={{ textAlign: 'center', marginTop: '24px' }}>
             <CustomLink href={ROUTES.REGISTER} variant="secondary">
-              Нет аккаунта? Зарегистрироваться
+              {data.registerLink}
             </CustomLink>
           </div>
         </Form>
