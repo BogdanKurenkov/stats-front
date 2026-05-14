@@ -23,6 +23,7 @@ import {
   Overlay,
 } from './Header.styled';
 import { LanguageSwitcher } from '@/features/langageSwitcher';
+import { ToggleTheme } from '@/shared/ui/ToggleTheme/ToggleTheme';
 
 // TODO убрать моковые данные и привязаться к реальному юзеру
 const isAuthenticated = false;
@@ -73,6 +74,8 @@ export const Header: FC = () => {
           </NavMenu>
 
           <RightSection>
+
+            <ToggleTheme />
 
             {isAuthenticated ? (
               <Avatar onClick={handleAvatarClick} aria-label="Профиль пользователя">

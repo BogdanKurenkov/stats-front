@@ -1,11 +1,16 @@
 import "styled-components";
-
 import type { Colors } from "@/shared/styles/colors";
 import type { Typography } from "@/shared/styles/typography";
 import type { Breakpoints } from "@/shared/styles/breakpoints";
 
 type Theme = {
-  colors: Colors;
+  mode: "light" | "dark";
+  colors: {
+    orange: Colors["orange"];
+    black: Colors["dark"]["black"] | Colors["light"]["black"];
+    gray: Colors["dark"]["gray"] | Colors["light"]["gray"];
+    status: Colors["dark"]["status"] | Colors["light"]["status"];
+  };
   typography: Typography;
   breakpoints: Breakpoints;
 };

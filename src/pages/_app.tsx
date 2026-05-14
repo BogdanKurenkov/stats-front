@@ -1,13 +1,11 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "@/application/styles/GlobalStyles";
 import { MainLayout } from "@/application/layouts/MainLayout";
 import { AuthLayout } from "@/application/layouts/AuthLayout";
 import { AuthProvider, DictionaryProvider } from "@/application/providers";
+import { CustomThemeProvider } from "@/application/providers/ThemeProvider/ThemeProvider";
 
-
-import { theme } from "@/shared/styles/theme";
 import { NextPageWithLayout } from "@/shared/types";
 
 type AppPropsWithLayout = AppProps & {
@@ -28,12 +26,12 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <DictionaryProvider value={pageProps.messages}>
-      <ThemeProvider theme={theme}>
+      <CustomThemeProvider>
         <GlobalStyle />
         <AuthProvider>
           {getLayout()}
         </AuthProvider>
-      </ThemeProvider>
+      </CustomThemeProvider>
     </DictionaryProvider>
   );
 }

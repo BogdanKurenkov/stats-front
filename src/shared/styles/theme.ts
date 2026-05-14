@@ -6,6 +6,4 @@ export const theme = {
   colors,
   typography,
   breakpoints,
-} as const;
-
-export type Theme = typeof theme;
+};
