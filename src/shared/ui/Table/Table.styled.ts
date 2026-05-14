@@ -31,8 +31,10 @@ export const TableRow = styled.tr`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray[800]};
   transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.black.secondary};
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.black.secondary};
+    }
   }
 `;
 

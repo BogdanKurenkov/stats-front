@@ -50,9 +50,11 @@ export const NavLink = styled(CustomLink)<{ $active?: boolean }>`
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
-    text-decoration: none;
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+      text-decoration: none;
+    }
   }
 `;
 
@@ -88,8 +90,10 @@ export const Avatar = styled.div`
   font-weight: 600;
   font-size: 16px;
 
-  &:hover {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 `;
 
@@ -102,8 +106,10 @@ export const MobileMenuButton = styled.button`
   padding: 8px;
   z-index: 101;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -143,9 +149,11 @@ export const MobileNavLink = styled(CustomLink)<{ $active?: boolean }>`
   text-decoration: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray[800]};
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
-    text-decoration: none;
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+      text-decoration: none;
+    }
   }
 `;
 
@@ -160,8 +168,10 @@ export const MobileCloseButton = styled.button`
   cursor: pointer;
   padding: 8px;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 `;
 

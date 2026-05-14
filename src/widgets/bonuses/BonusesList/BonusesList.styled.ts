@@ -16,8 +16,10 @@ export const BonusCard = styled.div`
   overflow: hidden;
   transition: all 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.gray[700]};
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.gray[700]};
+    }
   }
 `;
 

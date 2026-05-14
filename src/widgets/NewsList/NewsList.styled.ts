@@ -26,9 +26,11 @@ export const NewsCard = styled(CustomLink)`
   height: 100%;
   align-items: flex-start;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 `;
 

@@ -62,8 +62,10 @@ export const FooterLink = styled(CustomLink)`
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 `;
 

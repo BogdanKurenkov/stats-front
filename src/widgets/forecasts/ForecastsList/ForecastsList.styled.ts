@@ -27,8 +27,10 @@ export const ForecastCard = styled.div`
   flex-direction: column;
   gap: 14px;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 `;
 
@@ -124,8 +126,10 @@ export const ExpandButton = styled.button`
   padding: 0;
   width: fit-content;
 
-  &:hover {
-    text-decoration: underline;
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 

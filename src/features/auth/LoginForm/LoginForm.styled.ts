@@ -24,9 +24,11 @@ export const StyledFormContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   transition: all 0.3s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.gray[700]};
-    box-shadow: 0 12px 48px rgba(249, 115, 22, 0.15);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.gray[700]};
+      box-shadow: 0 12px 48px rgba(249, 115, 22, 0.15);
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

@@ -43,8 +43,10 @@ export const ApproachCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   transition: all 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 `;
 
@@ -113,9 +115,11 @@ export const AdvantageCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   transition: all 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 `;
 

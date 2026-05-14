@@ -34,9 +34,11 @@ export const TypeCard = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 `;
 

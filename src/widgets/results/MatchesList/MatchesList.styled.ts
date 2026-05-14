@@ -41,9 +41,11 @@ export const MatchCard = styled.div`
   padding: 20px;
   transition: all 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 `;
 

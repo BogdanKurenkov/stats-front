@@ -51,9 +51,11 @@ export const Card = styled.div`
   transition: all 0.2s ease;
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+      transform: translateY(-2px);
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

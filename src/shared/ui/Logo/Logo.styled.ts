@@ -11,8 +11,10 @@ export const LogoLink = styled(CustomLink)<{ $size: number }>`
   height: ${({ $size }) => $size}px;
   flex-shrink: 0;
 
-  &:hover {
-    opacity: 0.8;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &:focus-visible {

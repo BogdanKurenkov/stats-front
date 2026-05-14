@@ -48,10 +48,12 @@ export const ModalCloseButton = styled.button`
   padding: 0;
   z-index: 10;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.orange.primary};
-    color: ${({ theme }) => theme.colors.black.primary};
-    transform: rotate(90deg);
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.orange.primary};
+      color: ${({ theme }) => theme.colors.black.primary};
+      transform: rotate(90deg);
+    }
   }
 
   &:focus-visible {

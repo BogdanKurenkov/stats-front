@@ -16,8 +16,14 @@ export const ToggleButton = styled.button<{ $isDark: boolean }>`
   display: inline-block;
   flex-shrink: 0;
 
-  &:hover {
-    opacity: 0.9;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 `;
 
@@ -28,7 +34,8 @@ export const Knob = styled.div<{ $isDark: boolean }>`
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: ${({ $isDark }) => ($isDark ? "#F97316" : "#FFFFFF")};
+  background: ${({ $isDark, theme }) =>
+    $isDark ? theme.colors.orange.primary : theme.colors.black.primary};
   transition: left 0.3s ease;
   display: flex;
   align-items: center;
