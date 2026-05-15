@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Paragraph } from "@/shared/ui";
+import { Paragraph, Title } from "@/shared/ui";
 
 export const ForecastsGrid = styled.div`
   display: grid;
@@ -174,4 +174,8 @@ export const AuthorName = styled.span`
 export const AuthorTime = styled.span`
   font-size: 10px;
   color: ${({ theme }) => theme.colors.gray[600]};
+`;
+
+export const StyledTitle = styled(Title)`
+  margin-bottom: 32px;
 `;

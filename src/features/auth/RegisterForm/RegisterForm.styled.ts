@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title } from "@/shared/ui";
+import { Button, Title } from "@/shared/ui";
 
 export const StyledFormWrapper = styled.div`
   display: flex;
@@ -52,4 +52,13 @@ export const StyledTitle = styled(Title)`
     margin-bottom: 24px;
     font-size: 24px;
   }
+`;
+
+export const StyledButton = styled(Button)`
+  margin-top: 16px;
+`;
+
+export const StyledWrapper = styled.div`
+  margin-top: 24px;
+  text-align: center;
 `;

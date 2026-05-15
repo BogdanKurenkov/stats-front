@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Paragraph } from "@/shared/ui";
+import { Paragraph, Title } from "@/shared/ui";
 
 export const RulesWrapper = styled.div`
   display: flex;
@@ -99,4 +99,8 @@ export const Note = styled(Paragraph)`
   border-radius: 12px;
   color: ${({ theme }) => theme.colors.gray[400]};
   font-style: italic;
+`;
+
+export const StyledTitle = styled(Title)`
+  margin-top: 16px;
 `;

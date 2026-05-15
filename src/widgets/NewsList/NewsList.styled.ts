@@ -81,3 +81,7 @@ export const NewsLink = styled.span`
     content: "🔗 ";
   }
 `;
+
+export const StyledTitle = styled(Title)`
+  margin-bottom: 32px;
+`;

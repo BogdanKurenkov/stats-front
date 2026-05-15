@@ -13,6 +13,7 @@ import {
   CardContent,
   CardText,
   Note,
+  StyledTitle,
 } from './BonusesRules.styled';
 
 export const BonusesRules: FC = () => {
@@ -53,9 +54,9 @@ export const BonusesRules: FC = () => {
               {bonuses.howToWageringDescription}
             </Paragraph>
 
-            <Title as="h3" level="h3" style={{ marginTop: '16px' }}>
+            <StyledTitle as="h3" level="h3">
               {bonuses.wageringStepsTitle}
-            </Title>
+            </StyledTitle>
             <StepsGrid>
               {bonuses.wageringSteps.map((step: string, index: number) => (
                 <Card key={index}>

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { Container, Section, Title } from '@/shared/ui';
+import { Container, Section } from '@/shared/ui';
 
 import { FORECASTS } from './ForecastsList.constants';
 
@@ -24,6 +24,7 @@ import {
   AuthorInfo,
   AuthorName,
   AuthorTime,
+  StyledTitle,
 } from './ForecastsList.styled';
 
 export const ForecastsList: FC = () => {
@@ -52,9 +53,9 @@ export const ForecastsList: FC = () => {
   return (
     <Section pt pb>
       <Container>
-        <Title as="h2" level="h2" style={{ marginBottom: '32px' }}>
+        <StyledTitle as="h2" level="h2">
           Прогнозы на спорт
-        </Title>
+        </StyledTitle>
 
         <ForecastsGrid>
           {FORECASTS.map((forecast) => (

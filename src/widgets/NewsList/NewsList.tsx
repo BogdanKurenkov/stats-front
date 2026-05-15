@@ -4,7 +4,7 @@ import { MOCK_NEWS } from './NewsList.constants';
 
 import { NewsListProps } from './NewsList.types';
 
-import { Container, Pagination, Section, Title } from '@/shared/ui';
+import { Container, Pagination, Section } from '@/shared/ui';
 import { useDictionary } from '@/shared/lib/localization';
 
 import {
@@ -16,6 +16,7 @@ import {
   NewsSource,
   NewsDate,
   NewsLink,
+  StyledTitle,
 } from './NewsList.styled';
 
 const ITEMS_PER_PAGE = 3;
@@ -42,9 +43,9 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
   return (
     <Section pt pb>
       <Container>
-        <Title as="h2" level="h2" style={{ marginBottom: '32px' }}>
+        <StyledTitle as="h2" level="h2">
           {news.title}
-        </Title>
+        </StyledTitle>
         <NewsGrid className={className}>
           {articles.map((item, idx) => (
             <NewsCard

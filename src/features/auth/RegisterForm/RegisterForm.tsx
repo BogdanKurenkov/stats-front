@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useDictionary } from '@/shared/lib/localization';
 
 import { createRegisterSchema, RegisterFormData } from '@/features/auth/schemas';
 
-import { Form, FormField, Input, PasswordInput, Button, CustomLink } from '@/shared/ui';
+import { useDictionary } from '@/shared/lib/localization';
+import { Form, FormField, Input, PasswordInput, CustomLink } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
 
-import { StyledFormWrapper, StyledFormContainer, StyledTitle } from './RegisterForm.styled';
+import { StyledFormWrapper, StyledFormContainer, StyledTitle, StyledWrapper, StyledButton } from './RegisterForm.styled';
 
 export const RegisterForm: FC = () => {
   const dict = useDictionary();
@@ -90,21 +90,20 @@ export const RegisterForm: FC = () => {
             />
           </FormField>
 
-          <Button
+          <StyledButton
             type="submit"
             variant="primary"
             size="large"
             disabled={isSubmitting}
-            style={{ marginTop: '16px' }}
           >
             {isSubmitting ? data.submittingButton : data.submitButton}
-          </Button>
+          </StyledButton>
 
-          <div style={{ textAlign: 'center', marginTop: '24px' }}>
+          <StyledWrapper>
             <CustomLink href={ROUTES.LOGIN} variant="secondary">
               {data.loginLink}
             </CustomLink>
-          </div>
+          </StyledWrapper>
         </Form>
       </StyledFormContainer>
     </StyledFormWrapper>
