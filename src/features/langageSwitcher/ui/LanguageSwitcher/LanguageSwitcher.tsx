@@ -13,6 +13,7 @@ export const LanguageSwitcher = () => {
       options={LANGUAGES}
       placeholder=""
       renderValue={(value) => value.toUpperCase()}
+      aria-label="Выбор языка"
     />
   );
 };

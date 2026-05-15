@@ -1,6 +1,11 @@
 import { forwardRef, useId } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check } from 'lucide-react';
+
+import { RequiredMark } from '@/shared/ui';
+
+import { SelectProps } from './Select.types';
+
 import {
   StyledLabel,
   Container,
@@ -12,9 +17,8 @@ import {
   StyledItemText,
   StyledTrigger,
   StyledViewport,
+  VisuallyHidden,
 } from './Select.styled';
-import { SelectProps } from './Select.types';
-import { RequiredMark } from '@/shared/ui';
 
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(
   (
@@ -34,14 +38,23 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     },
     ref
   ) => {
-    const hiddenInputId = useId();
+    const labelId = useId();
+    const valueId = useId();
+    const errorId = useId();
 
     const selectedOption = options.find(opt => opt.value === value);
+    const currentValueText = selectedOption?.label ?? placeholder;
+
+    const ariaLabelledBy = label
+      ? `${labelId} ${valueId}`
+      : valueId;
+
+    const ariaDescribedBy = error ? errorId : undefined;
 
     return (
       <Container className={className}>
         {label && (
-          <StyledLabel id={`${hiddenInputId}-label`} $hasError={!!error}>
+          <StyledLabel id={labelId} $hasError={!!error}>
             {label}
             {required && <RequiredMark />}
           </StyledLabel>
@@ -58,8 +71,15 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
           <StyledTrigger
             ref={ref}
             $hasError={!!error}
-            aria-labelledby={label ? `${hiddenInputId}-label` : undefined}
+            aria-labelledby={ariaLabelledBy}
+            aria-describedby={ariaDescribedBy}
           >
+            {/* Скрытый текст для скринридера */}
+            <VisuallyHidden as="span" id={valueId}>
+              {currentValueText}
+            </VisuallyHidden>
+
+            {/* Видимое содержимое */}
             <SelectPrimitive.Value placeholder={placeholder}>
               {renderValue && value
                 ? renderValue(value, selectedOption)
@@ -90,7 +110,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
         </SelectPrimitive.Root>
 
         {error && (
-          <StyledError role="alert" id={`${hiddenInputId}-error`}>
+          <StyledError id={errorId} role="alert">
             {error}
           </StyledError>
         )}
