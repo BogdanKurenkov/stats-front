@@ -9,6 +9,10 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
+  // test
+  console.log = () => { };
+  console.warn = () => { };
+
   return (
     <LayoutContainer>
       <Header />
