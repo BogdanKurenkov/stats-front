@@ -4,14 +4,14 @@ import { AuthContext } from '@/application/contexts';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, /*setIsLoading*/] = useState(false);
 
-  useEffect(() => {
-    authApi.getSession()
-      .then(setUser)
-      .catch(() => setUser(null))
-      .finally(() => setIsLoading(false));
-  }, []);
+  // useEffect(() => {
+  //   authApi.getSession()
+  //     .then(setUser)
+  //     .catch(() => setUser(null))
+  //     .finally(() => setIsLoading(false));
+  // }, []);
 
   const login = async (email: string, password: string) => {
     const userData = await authApi.login({ email, password });

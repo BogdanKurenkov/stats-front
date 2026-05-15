@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 
 import { Header, Footer, CookieConsent } from '@/widgets';
 
@@ -9,21 +9,6 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
-  useEffect(() => {
-    console.log = () => { };
-    console.warn = () => { };
-    console.error = () => { };
-    console.debug = () => { };
-    console.info = () => { };
-
-    window.onerror = () => true;
-    window.onunhandledrejection = () => { };
-
-    if (window.reportError) {
-      window.reportError = () => { };
-    }
-  }, []);
-
   return (
     <LayoutContainer>
       <Header />
