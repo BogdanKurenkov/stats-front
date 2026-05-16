@@ -1,8 +1,14 @@
 import { FC } from 'react';
+import { Icon } from 'lucide-react';
+import { soccerBall } from '@lucide/lab';
+
 import { ROUTES } from '@/shared/config';
-import { LogoLink, LogoImageWrapper, StyledImage } from './Logo.styled';
+
 import { LogoProps } from './Logo.types';
+
 import { LOGO_SIZES } from './Logo.constants';
+
+import { LogoLink, LogoIconWrapper } from './Logo.styled';
 
 const variantToSize = {
   small: LOGO_SIZES.SMALL,
@@ -21,15 +27,14 @@ export const Logo: FC<LogoProps> = ({ variant = 'default', className }) => {
       aria-label="На главную"
       aria-current="home"
     >
-      <LogoImageWrapper>
-        <StyledImage
-          src="/images/logo/logo.png"
-          alt="Логотип Компании"
-          fill
-          priority
-          sizes={`${size}px`}
+      <LogoIconWrapper>
+        <Icon
+          iconNode={soccerBall}
+          size={size}
+          strokeWidth={1.8}
+          color="currentColor"
         />
-      </LogoImageWrapper>
+      </LogoIconWrapper>
     </LogoLink>
   );
 };

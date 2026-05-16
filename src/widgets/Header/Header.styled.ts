@@ -28,6 +28,11 @@ export const HeaderContent = styled.div`
 
 export const LogoWrapper = styled.div`
   flex-shrink: 0;
+  height: max-content;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const NavMenu = styled.nav`
