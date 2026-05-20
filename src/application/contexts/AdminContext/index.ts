@@ -1,2 +1,1 @@
-export { AuthContext } from "./AuthContext";
 export { AdminContext, useAdmin } from "./AdminContext";

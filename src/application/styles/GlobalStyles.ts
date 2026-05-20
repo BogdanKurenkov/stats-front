@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     }, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: ${({ theme }) => theme.colors.black.background}; 
     color: ${({ theme }) => theme.colors.gray[100]}; 
-    line-height: 1.5;
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;

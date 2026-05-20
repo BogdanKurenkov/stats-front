@@ -1,4 +1,3 @@
-// shared/styles/theme.types.ts (новый файл)
 import { colors } from "./colors";
 import { typography } from "./typography";
 import { breakpoints } from "./breakpoints";

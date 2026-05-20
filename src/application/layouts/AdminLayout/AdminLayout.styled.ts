@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const LayoutContainer = styled.div`
+export const AdminContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 `;
 
-export const MainContent = styled.main`
+export const AdminContent = styled.main`
   flex: 1;
   margin-top: 81px;
 

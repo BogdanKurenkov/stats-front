@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { FC } from 'react';
+
 import { SEOProps } from './SEO.types';
 
 export const SEO: FC<SEOProps> = ({

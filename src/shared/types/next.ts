@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import common from "../../../public/locales/pt/common.json";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  layout?: "main" | "auth" | "none";
+  layout?: "main" | "auth" | "admin" | "none";
   layoutProps?: Record<string, unknown>;
 };
 
