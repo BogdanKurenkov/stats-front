@@ -1,8 +1,7 @@
 import { NewsList } from '@/widgets';
 import { MOCK_NEWS } from '@/widgets/NewsList';
 
-import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
+import { SEO, NextPageWithLayout } from '@/shared';
 
 const NewsPage: NextPageWithLayout = () => {
   return <>

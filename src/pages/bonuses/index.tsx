@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
-
 import { BonusesHero, BonusesList } from '@/widgets';
+
+import { SEO, NextPageWithLayout } from '@/shared';
+
 
 const BonusesTypes = dynamic(() => import('@/widgets').then(mod => mod.BonusesTypes));
 const BonusesRules = dynamic(() => import('@/widgets').then(mod => mod.BonusesRules));

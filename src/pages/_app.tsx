@@ -10,7 +10,7 @@ import { CustomThemeProvider } from "@/application/providers/ThemeProvider/Theme
 import { AdminLayout } from "@/application/layouts";
 import { ThemeMode } from "@/application/providers/ThemeProvider/ThemeProvider.types";
 
-import { NextPageWithLayout } from "@/shared/types";
+import { NextPageWithLayout } from "@/shared";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;

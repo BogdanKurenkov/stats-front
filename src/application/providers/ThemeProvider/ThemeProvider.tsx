@@ -1,10 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { setCookie } from 'nookies';
 
-import { colors } from '@/shared/styles/colors';
-import { typography } from '@/shared/styles/typography';
-import { breakpoints } from '@/shared/styles/breakpoints';
+import { colors, typography, breakpoints } from '@/shared';
 
 import { ThemeContextType, ThemeMode } from './ThemeProvider.types';
 

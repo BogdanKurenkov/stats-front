@@ -3,8 +3,7 @@ import dynamic from 'next/dynamic';
 import { MatchesList } from '@/widgets';
 import { MOCK_MATCHES } from '@/widgets/results/MatchesList';
 
-import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
+import { SEO, NextPageWithLayout } from '@/shared';
 
 
 const StandingsTable = dynamic(() => import('@/widgets').then(mod => mod.StandingsTable));
