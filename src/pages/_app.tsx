@@ -21,7 +21,11 @@ function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
   const getLayout = () => {
     switch (Component.layout) {
       case 'auth':
-        return <AuthLayout><Component {...pageProps} /></AuthLayout>;
+        return (
+          <AuthLayout>
+            <Component {...pageProps} />
+          </AuthLayout>
+        )
       case 'admin':
         return (
           <AdminProvider>
@@ -33,7 +37,11 @@ function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
       case 'none':
         return <Component {...pageProps} />;
       default:
-        return <MainLayout><Component {...pageProps} /></MainLayout>;
+        return (
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        )
     }
   };
 
@@ -61,7 +69,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       themeMode = savedTheme;
     }
   } catch (error) {
-    console.error('Failed to parse cookies for theme:', error);
+
   }
 
   return { ...appProps, themeMode };

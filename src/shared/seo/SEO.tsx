@@ -11,8 +11,19 @@ export const SEO: FC<SEOProps> = ({
   ogType = 'website',
   noIndex = false,
   keywords,
+  jsonLd,
 }) => {
   const fullTitle = title === 'Stats' ? title : `${title} | Stats`;
+
+  const defaultJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Stats',
+    url: canonical || 'https://stats.com',
+    description: description,
+  };
+
+  const finalJsonLd = jsonLd || defaultJsonLd;
 
   return (
     <Head>
@@ -43,6 +54,13 @@ export const SEO: FC<SEOProps> = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(finalJsonLd)
+        }}
+      />
     </Head>
   );
 };

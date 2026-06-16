@@ -1,7 +1,7 @@
 export const BONUSES_DATA = [
   {
     id: "1xbet",
-    logo: "/images/bonuses/1xbet-logo.png",
+    logo: "/icons/bookmakers/one-x.svg",
     title: "Бонус 120% до",
     amount: "400 $",
     subtitle: "на первый депозит",
@@ -13,7 +13,7 @@ export const BONUSES_DATA = [
   },
   {
     id: "1xbet",
-    logo: "/images/bonuses/1xbet-logo.png",
+    logo: "/icons/bookmakers/one-x.svg",
     title: "Бонус 120% до",
     amount: "400 $",
     subtitle: "на первый депозит",
@@ -25,7 +25,7 @@ export const BONUSES_DATA = [
   },
   {
     id: "1xbet",
-    logo: "/images/bonuses/1xbet-logo.png",
+    logo: "/icons/bookmakers/one-x.svg",
     title: "Бонус 120% до",
     amount: "400 $",
     subtitle: "на первый депозит",

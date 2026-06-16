@@ -6,4 +6,5 @@ export interface SEOProps {
   ogType?: "website" | "article";
   noIndex?: boolean;
   keywords?: string;
+  jsonLd?: Record<string, string>;
 }

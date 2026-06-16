@@ -45,7 +45,7 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.black.primary};
+  /* background-color: ${({ theme }) => theme.colors.black.primary}; */
   border-radius: 16px;
   padding: 16px;
 
