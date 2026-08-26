@@ -1,15 +1,13 @@
 import { GetServerSideProps } from 'next';
 
-import { Header } from '@/widgets';
-
 import { NextPageWithLayout } from '@/shared/types';
 import { SEO } from '@/shared';
 
-const AdminDashboard: NextPageWithLayout = () => {
+const AdminDashboardPartner: NextPageWithLayout = () => {
   return (
     <>
       <SEO title="Прогнозы" noIndex={true} />
-      <h1>админка</h1>
+      <h1>админка партнеры деталка</h1>
     </>
   );
 };
@@ -22,11 +20,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     });
 
-    console.log(123)
-
     const session = await res.json();
-    // const isAdmin = session.user?.role === 'admin';
-    const isAdmin = true;
+    const isAdmin = session.user?.role === 'admin';
 
     if (!isAdmin) {
       return {
@@ -45,6 +40,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 };
 
-AdminDashboard.layout = "admin"
+AdminDashboardPartner.layout = "admin"
 
-export default AdminDashboard;
+export default AdminDashboardPartner;

@@ -94,6 +94,7 @@ export const Avatar = styled.div`
   color: ${({ theme }) => theme.colors.black.primary};
   font-weight: 600;
   font-size: 16px;
+  flex-shrink: 0;
 
   @media (hover: hover) {
     &:hover {

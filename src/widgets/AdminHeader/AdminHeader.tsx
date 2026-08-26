@@ -2,11 +2,8 @@ import { FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
 
-import { LanguageSwitcher } from '@/features/languageSwitcher';
-
-import { ROUTES } from '@/shared/config';
-import { ToggleTheme } from '@/shared/ui';
 import { Logo } from '@/shared/ui';
+import { ToggleTheme } from '@/shared/ui';
 import {
   HeaderContainer,
   HeaderContent,
@@ -14,8 +11,6 @@ import {
   NavMenu,
   NavLink,
   RightSection,
-  AuthButton,
-  Avatar,
   MobileMenuButton,
   MobileMenu,
   MobileCloseButton,
@@ -23,28 +18,11 @@ import {
   Overlay,
 } from '@/shared';
 
-import { MENU_ITEMS } from './Header.constants';
+import { MENU_ITEMS } from './AdminHeader.constants';
 
-
-// TODO убрать моковые данные и привязаться к реальному юзеру
-const isAuthenticated = false;
-const userInitials = 'JD';
-
-export const Header: FC = () => {
+export const AdminHeader: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleAuth = () => {
-    if (isAuthenticated) {
-      console.log('Logout');
-    } else {
-      router.push(ROUTES.LOGIN);
-    }
-  };
-
-  const handleAvatarClick = () => {
-    router.push('/profile');
-  };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
@@ -77,22 +55,6 @@ export const Header: FC = () => {
           <RightSection>
 
             <ToggleTheme />
-
-            {isAuthenticated ? (
-              <Avatar onClick={handleAvatarClick} aria-label="Профиль пользователя">
-                {userInitials}
-              </Avatar>
-            ) : (
-              <AuthButton
-                variant="primary"
-                size="medium"
-                onClick={handleAuth}
-              >
-                Войти
-              </AuthButton>
-            )}
-
-            <LanguageSwitcher />
 
             <MobileMenuButton
               onClick={openMobileMenu}
@@ -128,18 +90,6 @@ export const Header: FC = () => {
           </MobileNavLink>
         ))}
 
-        {!isAuthenticated && (
-          <AuthButton
-            variant="primary"
-            size="medium"
-            onClick={() => {
-              handleAuth();
-              closeMobileMenu();
-            }}
-          >
-            Войти
-          </AuthButton>
-        )}
       </MobileMenu>
     </>
   );

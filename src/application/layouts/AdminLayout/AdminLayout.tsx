@@ -1,16 +1,17 @@
-import { ReactNode } from 'react';
+import { type FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 import { useAdmin } from '@/application/contexts';
 
-import { Footer, Header } from '@/widgets';
+import { AdminHeader } from '@/widgets';
+
+import { AdminLayoutProps } from './AdminLayout.types';
 
 import { AdminContainer, AdminContent } from './AdminLayout.styled';
 
 // import { GlobalSpinner } from '@/shared/ui/GlobalSpinner/GlobalSpinner';
 
-export const AdminLayout = ({ children }: { children: ReactNode }) => {
+export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
   const router = useRouter();
 
   const { isAdmin, isLoading } = useAdmin();
@@ -30,10 +31,9 @@ export const AdminLayout = ({ children }: { children: ReactNode }) => {
   }
 
   return <AdminContainer>
-    <Header />
+    <AdminHeader />
     <AdminContent>
       {children}
     </AdminContent>
-    <Footer />
   </AdminContainer>;
 };

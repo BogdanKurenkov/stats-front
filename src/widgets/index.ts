@@ -1,4 +1,5 @@
 export { Header } from "./Header";
+export { AdminHeader } from "./AdminHeader";
 export { Footer } from "./Footer";
 export { CookieConsent } from "./CookieConsent";
 export { FeaturedMatches } from "./FeaturedMatches";

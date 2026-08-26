@@ -21,6 +21,7 @@ export { Select } from "./Select/Select";
 export { RequiredMark } from "./RequiredMark/RequiredMark";
 export { Toggle } from "./Toggle/Toggle";
 export { Tabs } from "./Tabs/Tabs";
+export { ToggleTheme } from "./ToggleTheme/ToggleTheme";
 
 export { Form } from "./Form/Form";
 export { FormField } from "./FormField/FormField";
@@ -41,3 +42,5 @@ export type { SelectOption } from "./Select/Select.types";
 export { Pagination } from "./Pagination/Pagination";
 
 export { HighlightBox } from "./HighlightBox";
+
+export * from "./Header.styled";

@@ -28,11 +28,13 @@ function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
         )
       case 'admin':
         return (
-          <AdminProvider>
-            <AdminLayout>
-              <Component {...pageProps} />
-            </AdminLayout>
-          </AdminProvider>
+          <DictionaryProvider value={pageProps.messages}>
+            <AdminProvider>
+              <AdminLayout>
+                <Component {...pageProps} />
+              </AdminLayout>
+            </AdminProvider>
+          </DictionaryProvider>
         );
       case 'none':
         return <Component {...pageProps} />;

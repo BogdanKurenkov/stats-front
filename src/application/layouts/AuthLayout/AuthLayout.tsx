@@ -1,14 +1,12 @@
-import { ReactNode } from 'react';
+import type { FC } from 'react';
 
 import { Container } from '@/shared/ui';
 
+import { AuthLayoutProps } from './AuthLayout.types';
+
 import { AuthWrapper } from './AuthLayout.styled';
 
-interface AuthLayoutProps {
-  children: ReactNode;
-}
-
-export const AuthLayout = ({ children }: AuthLayoutProps) => {
+export const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
   return (
     <AuthWrapper>
       <Container>
