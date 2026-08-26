@@ -1,3 +1,5 @@
+import { AccordionItemProps } from './AccordionItem.types';
+
 import {
   StyledAccordionContent,
   StyledAccordionContentText,
@@ -6,12 +8,15 @@ import {
   StyledAccordionTrigger,
   StyledChevron,
 } from './AccordionItem.styled';
-import { AccordionItemProps } from './AccordionItem.types';
-
 
 export const AccordionItem = ({ value, trigger, children }: AccordionItemProps) => {
   return (
-    <StyledAccordionItem value={value}>
+    <StyledAccordionItem
+      value={value}
+      onClick={(e) => {
+        e.stopPropagation()
+      }}
+    >
       <StyledAccordionHeader>
         <StyledAccordionTrigger>
           {trigger}
