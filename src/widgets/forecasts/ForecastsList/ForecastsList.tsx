@@ -1,8 +1,12 @@
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { Container, Section } from '@/shared/ui';
+import { ROUTES } from '@/shared';
 
-import { FORECASTS } from './ForecastsList.constants';
+import { FORECASTS, TEXT_DEFAULT } from './ForecastsList.constants';
+
+import { ForecastsListProps } from './ForecastsList.types';
 
 import {
   ForecastsGrid,
@@ -27,8 +31,16 @@ import {
   StyledTitle,
 } from './ForecastsList.styled';
 
-export const ForecastsList: FC = () => {
+export const ForecastsList: FC<ForecastsListProps> = ({ isAdmin, text = TEXT_DEFAULT }) => {
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
+
+  const { push } = useRouter()
+
+  const handleNavigate = (id: number) => {
+    if (isAdmin) {
+      push(ROUTES.ADMIN_FORECASTS.DETAILS(id))
+    }
+  }
 
   const toggleExpand = (id: number) => {
     setExpandedIds(prev => {
@@ -54,12 +66,12 @@ export const ForecastsList: FC = () => {
     <Section pt pb>
       <Container>
         <StyledTitle as="h2" level="h2">
-          Прогнозы на спорт
+          {text}
         </StyledTitle>
 
         <ForecastsGrid>
           {FORECASTS.map((forecast) => (
-            <ForecastCard key={forecast.id}>
+            <ForecastCard key={forecast.id} onClick={() => handleNavigate(forecast.id)}>
               <SportBadge>{forecast.sport}</SportBadge>
 
               <MatchDateTime>
@@ -91,7 +103,10 @@ export const ForecastsList: FC = () => {
               </Preview>
 
               {forecast.preview.length > 100 && (
-                <ExpandButton onClick={() => toggleExpand(forecast.id)}>
+                <ExpandButton onClick={(e) => {
+                  e.stopPropagation();
+                  toggleExpand(forecast.id);
+                }}>
                   {isExpanded(forecast.id) ? 'Свернуть' : 'Развернуть'}
                 </ExpandButton>
               )}

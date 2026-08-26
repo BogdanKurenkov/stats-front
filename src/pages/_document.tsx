@@ -1,10 +1,16 @@
 import Document, { DocumentContext, DocumentInitialProps, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class MyDocument extends Document {
+const DEFAULT_LOCALE = "pt"
+
+interface MyDocumentProps extends DocumentInitialProps {
+  locale: string;
+}
+
+export default class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(
     ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
+  ): Promise<MyDocumentProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -17,8 +23,11 @@ export default class MyDocument extends Document {
 
       const initialProps = await Document.getInitialProps(ctx);
 
+      const locale = ctx.locale || DEFAULT_LOCALE;
+
       return {
         ...initialProps,
+        locale,
         styles: (
           <>
             {initialProps.styles}
@@ -32,8 +41,10 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const { locale } = this.props;
+
     return (
-      <Html lang="ru">
+      <Html lang={locale}>
         <Head />
         <body>
           <Main />

@@ -112,3 +112,5 @@ export const FORECASTS = [
     timestamp: "16:50:16",
   },
 ];
+
+export const TEXT_DEFAULT = "Прогнозы на спорт";

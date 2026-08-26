@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps, type NextPage } from 'next';
 import path from 'path';
 import fs from 'fs';
 

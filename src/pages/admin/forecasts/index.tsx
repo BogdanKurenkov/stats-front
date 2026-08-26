@@ -5,11 +5,13 @@ import { ForecastsList } from '@/widgets';
 import { NextPageWithLayout } from '@/shared/types';
 import { SEO } from '@/shared';
 
+const BONUSES_TEXT = "Текущие прогнозы"
+
 const AdminDashboardForecasts: NextPageWithLayout = () => {
   return (
     <>
       <SEO title="Прогнозы" noIndex={true} />
-      <ForecastsList />
+      <ForecastsList text={BONUSES_TEXT} isAdmin />
     </>
   );
 };
