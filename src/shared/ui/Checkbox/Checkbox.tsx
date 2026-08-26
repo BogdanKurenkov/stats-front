@@ -1,4 +1,7 @@
 import { forwardRef, useState } from 'react';
+
+import { CheckboxProps } from './Checkbox.types';
+
 import {
   CheckboxContainer,
   CheckboxWrapper,
@@ -7,7 +10,6 @@ import {
   Label,
   ErrorMessage,
 } from './Checkbox.styled';
-import { CheckboxProps } from './Checkbox.types';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const {

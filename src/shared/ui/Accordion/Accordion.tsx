@@ -1,16 +1,21 @@
-import { StyledAccordionRoot, } from './Accordion.styled';
+import type { FC } from 'react';
+
 import { AccordionProps } from './Accordion.types';
 
-export const Accordion = (props: AccordionProps) => {
-  const { children, className, type } = props;
+import { StyledAccordionRoot } from './Accordion.styled';
 
+export const Accordion: FC<AccordionProps> = ({
+  children,
+  className,
+  type,
+  defaultValue,
+}) => {
   if (type === 'single') {
-    const { defaultValue, collapsible = true } = props;
     return (
       <StyledAccordionRoot
         type="single"
         defaultValue={defaultValue}
-        collapsible={collapsible}
+        collapsible
         className={className}
       >
         {children}
@@ -18,7 +23,6 @@ export const Accordion = (props: AccordionProps) => {
     );
   }
 
-  const { defaultValue } = props;
   return (
     <StyledAccordionRoot
       type="multiple"

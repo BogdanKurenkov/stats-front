@@ -1,15 +1,17 @@
 import { forwardRef } from 'react';
-import { ContainerWrapper } from './Container.styled';
+
 import { ContainerProps } from './Container.types';
 
-export const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
-  const { children, ...rest } = props;
+import { ContainerWrapper } from './Container.styled';
 
-  return (
-    <ContainerWrapper ref={ref} {...rest}>
-      {children}
-    </ContainerWrapper>
-  );
-});
+export const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ children, ...rest }, ref) => {
+    return (
+      <ContainerWrapper ref={ref} {...rest}>
+        {children}
+      </ContainerWrapper>
+    );
+  }
+);
 
 Container.displayName = 'Container';
