@@ -1,4 +1,4 @@
-import { SpinnerProps } from "../Spinner/Spinner.types";
+import type { SpinnerProps } from "../Spinner/Spinner.types";
 
 export interface GlobalSpinnerProps extends SpinnerProps {
   fullScreen?: boolean;

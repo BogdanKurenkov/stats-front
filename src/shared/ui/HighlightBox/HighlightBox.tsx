@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import type { FC } from 'react';
+
+import type { HighlightBoxProps } from './HighlightBox.types';
+
 import { StyledHighlightBox } from './HighlightBox.styled';
-import { HighlightBoxProps } from './HighlightBox.types';
 
 export const HighlightBox: FC<HighlightBoxProps> = ({
   children,

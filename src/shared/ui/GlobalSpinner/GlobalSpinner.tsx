@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { colors } from '@/shared/styles';
 import { Spinner } from '@/shared';
 
-import { GlobalSpinnerProps } from './GlobalSpinner.types';
+import type { GlobalSpinnerProps } from './GlobalSpinner.types';
 
 import { StyledWrapper } from './GlobalSpinner.styled';
 

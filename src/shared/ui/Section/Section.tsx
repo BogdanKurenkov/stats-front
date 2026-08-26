@@ -1,27 +1,32 @@
 import { forwardRef } from 'react';
+
+import type { SectionProps } from './Section.types';
+
 import { SectionWrapper } from './Section.styled';
-import { SectionProps } from './Section.types';
 
-export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
-  const {
-    children,
-    as = 'section',
-    pt = true,
-    pb = true,
-    ...rest
-  } = props;
-
-  return (
-    <SectionWrapper
-      ref={ref}
-      as={as}
-      $pt={pt}
-      $pb={pb}
-      {...rest}
-    >
-      {children}
-    </SectionWrapper>
-  );
-});
+export const Section = forwardRef<HTMLElement, SectionProps>(
+  (
+    {
+      children,
+      as = 'section',
+      pt = true,
+      pb = true,
+      ...rest
+    },
+    ref
+  ) => {
+    return (
+      <SectionWrapper
+        ref={ref}
+        as={as}
+        $pt={pt}
+        $pb={pb}
+        {...rest}
+      >
+        {children}
+      </SectionWrapper>
+    );
+  }
+);
 
 Section.displayName = 'Section';

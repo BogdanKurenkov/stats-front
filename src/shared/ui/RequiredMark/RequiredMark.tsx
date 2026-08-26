@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import type { FC } from 'react';
+
 import { StyledRequiredMark } from './RequiredMark.styled';
 
 export const RequiredMark: FC = () => {

@@ -1,7 +1,8 @@
-import { FC, MouseEvent } from 'react';
+import type { FC, MouseEvent } from 'react';
 import { useScrollLock, useEventListener } from 'usehooks-ts';
 
-import { OverlayProps } from './Overlay.types';
+import type { OverlayProps } from './Overlay.types';
+
 import { OverlayContainer } from './Overlay.styled';
 
 export const Overlay: FC<OverlayProps> = ({

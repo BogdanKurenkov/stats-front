@@ -1,11 +1,13 @@
-import { FC, useState, useEffect } from 'react';
+import { type FC, useState, useEffect } from 'react';
+
+import type { TabsProps } from './Tabs.types';
+
 import {
   TabsContainer,
   TabsList,
   TabButton,
   TabContent,
 } from './Tabs.styled';
-import { TabsProps } from './Tabs.types';
 
 export const Tabs: FC<TabsProps> = ({
   tabs,

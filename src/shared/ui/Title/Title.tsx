@@ -1,5 +1,6 @@
+import type { TitleProps } from "./Title.types";
+
 import { StyledTitle } from "./Title.styled";
-import { TitleProps } from "./Title.types";
 
 export const Title = ({
   as,

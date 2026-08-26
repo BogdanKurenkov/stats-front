@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Icon } from 'lucide-react';
 import { soccerBall } from '@lucide/lab';
 
 import { ROUTES } from '@/shared/config';
 
-import { LogoProps } from './Logo.types';
+import type { LogoProps } from './Logo.types';
 
 import { LOGO_SIZES } from './Logo.constants';
 

@@ -1,46 +1,54 @@
 import { forwardRef, useId } from 'react';
+
+import type { InputProps } from './Input.types';
+
+import { DEFAULT_CLASSNAME, AUTOCOMPLETE } from './Input.constants';
+
 import {
   InputContainer,
   InputLabel,
   StyledInput,
 } from './Input.styled';
-import { InputProps } from './Input.types';
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    label,
-    error,
-    className = '',
-    disabled = false,
-    id,
-    ...rest
-  } = props;
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      label,
+      error,
+      className = DEFAULT_CLASSNAME,
+      disabled = false,
+      id,
+      ...rest
+    },
+    ref
+  ) => {
+    const generatedId = useId();
+    const inputId = id || generatedId;
+    const hasError = !!error;
 
-  const generatedId = useId();
-  const inputId = id || generatedId;
+    return (
+      <InputContainer className={className}>
+        {label && (
+          <InputLabel
+            htmlFor={inputId}
+            $hasError={hasError}
+          >
+            {label}
+          </InputLabel>
+        )}
 
-  return (
-    <InputContainer className={className}>
-      {label && (
-        <InputLabel
-          htmlFor={inputId}
-          $hasError={!!error}
-        >
-          {label}
-        </InputLabel>
-      )}
-
-      <StyledInput
-        ref={ref}
-        id={inputId}
-        $hasError={!!error}
-        disabled={disabled}
-        aria-invalid={!!error}
-        autoComplete="off"
-        {...rest}
-      />
-    </InputContainer>
-  );
-});
+        <StyledInput
+          ref={ref}
+          id={inputId}
+          $hasError={hasError}
+          disabled={disabled}
+          aria-invalid={hasError}
+          autoComplete={AUTOCOMPLETE}
+          {...rest}
+        />
+      </InputContainer>
+    );
+  }
+);
 
 Input.displayName = 'Input';

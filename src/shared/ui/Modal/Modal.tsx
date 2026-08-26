@@ -1,8 +1,8 @@
-import { FC, MouseEvent } from 'react';
+import type { FC, MouseEvent } from 'react';
 
 import { Overlay } from '@/shared/ui';
 
-import { ModalProps } from './Modal.types';
+import type { ModalProps } from './Modal.types';
 
 import { ModalContainer, ModalCloseButton, ModalContent } from './Modal.styled';
 

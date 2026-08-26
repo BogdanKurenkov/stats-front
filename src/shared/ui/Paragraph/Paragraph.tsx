@@ -1,5 +1,6 @@
+import type { ParagraphProps } from "./Paragraph.types";
+
 import { StyledParagraph } from "./Paragraph.styled";
-import { ParagraphProps } from "./Paragraph.types";
 
 export const Paragraph = ({
   as = 'p',

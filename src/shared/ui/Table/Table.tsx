@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { TableProps } from './Table.types';
+import type { TableProps } from './Table.types';
 
 import {
   TableWrapper,

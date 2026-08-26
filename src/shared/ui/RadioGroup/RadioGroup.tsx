@@ -1,7 +1,10 @@
-import { FC, Children, cloneElement, isValidElement } from 'react';
-import { RadioProps } from '../Radio/Radio.types';
+import { type FC, Children, cloneElement, isValidElement } from 'react';
+
+import type { RadioProps } from '../Radio/Radio.types';
+
+import type { RadioGroupProps } from './RadioGroup.types';
+
 import { GroupContainer, GroupError } from './RadioGroup.styled';
-import { RadioGroupProps } from './RadioGroup.types';
 
 export const RadioGroup: FC<RadioGroupProps> = ({
   name,

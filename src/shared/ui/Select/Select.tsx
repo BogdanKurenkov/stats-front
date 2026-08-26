@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 
 import { RequiredMark } from '@/shared/ui';
 
-import { SelectProps } from './Select.types';
+import type { SelectProps } from './Select.types';
 
 import {
   StyledLabel,
