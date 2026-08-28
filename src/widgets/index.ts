@@ -5,6 +5,7 @@ export { CookieConsent } from "./CookieConsent";
 export { FeaturedMatches } from "./FeaturedMatches";
 export { StandingsTable } from "./StandingsTable";
 export { NewsList } from "./NewsList";
+export { PartnersForm } from "./PartnersForm";
 
 export * from "./home";
 
