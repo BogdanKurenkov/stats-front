@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Button, Title } from "@/shared/ui";
+import { Button, Title } from "@/shared";
 
 export const StyledFormWrapper = styled.div`
   display: flex;

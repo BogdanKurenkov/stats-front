@@ -1,8 +1,8 @@
 import { type FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { Container, Section } from '@/shared/ui';
-import { ROUTES } from '@/shared';
+import { Container, Section } from '@/shared';
+import { ROUTES } from '@/shared/config';
 
 import { FORECASTS, TEXT_DEFAULT } from './ForecastsList.constants';
 

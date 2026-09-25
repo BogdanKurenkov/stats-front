@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Paragraph, Title } from "@/shared/ui";
+import { Paragraph, Title } from "@/shared";
 
 export const ForecastsGrid = styled.div`
   display: grid;

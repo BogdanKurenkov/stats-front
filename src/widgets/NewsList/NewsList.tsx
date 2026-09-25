@@ -4,7 +4,7 @@ import { MOCK_NEWS } from './NewsList.constants';
 
 import { NewsListProps } from './NewsList.types';
 
-import { Container, Pagination, Section } from '@/shared/ui';
+import { Container, Pagination, Section } from '@/shared';
 import { useDictionary } from '@/shared/lib/localization';
 
 import {

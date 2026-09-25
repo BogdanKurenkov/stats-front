@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Button, CustomLink } from "@/shared/ui";
+import { Button, CustomLink } from "@/shared";
 
 export const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.black.secondary};

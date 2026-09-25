@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title, Paragraph } from "@/shared/ui";
+import { Title, Paragraph } from "@/shared";
 
 export const SectionWrapper = styled.div`
   display: flex;

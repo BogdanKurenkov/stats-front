@@ -1,4 +1,4 @@
-import { SelectOption } from "@/shared/ui";
+import { SelectOption } from "@/shared";
 import { TableColumn } from "@/shared/ui/Table";
 
 import { StandingsRow } from "./StandingsTable.types";

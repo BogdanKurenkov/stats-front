@@ -1,34 +1,57 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { setCookie, parseCookies } from "nookies";
 
-import {
-  COOKIE_CONSENT_KEY,
-  COOKIE_CONSENT_VALUES,
-} from "./CookieConsent.constants";
+import { COOKIE_EXPIRY_DAYS, COOKIE_NAME } from "./CookieConsent.constants";
+
+interface CookieConsentReturn {
+  showConsent: boolean;
+  isLoading: boolean;
+  hasConsent: boolean;
+  acceptCookies: () => void;
+  onConsentAccepted?: () => void;
+}
 
 export const useCookieConsent = (
-  onAccept?: () => void,
-  onReject?: () => void
-) => {
-  const [isVisible, setIsVisible] = useState(false);
+  onConsentAccepted?: () => void
+): CookieConsentReturn => {
+  const [showConsent, setShowConsent] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!consent) {
-      setIsVisible(true);
+    const cookies = parseCookies();
+    const consent = cookies[COOKIE_NAME];
+
+    if (consent === "accepted") {
+      setHasConsent(true);
+      setShowConsent(false);
+    } else {
+      setHasConsent(false);
+      setShowConsent(true);
     }
+
+    setIsLoading(false);
   }, []);
 
-  const accept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES.ACCEPTED);
-    setIsVisible(false);
-    onAccept?.();
+  const acceptCookies = () => {
+    setCookie(null, COOKIE_NAME, "accepted", {
+      maxAge: COOKIE_EXPIRY_DAYS * 24 * 60 * 60,
+      path: "/",
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+    setHasConsent(true);
+    setShowConsent(false);
+
+    if (onConsentAccepted) {
+      onConsentAccepted();
+    }
   };
 
-  const reject = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, COOKIE_CONSENT_VALUES.REJECTED);
-    setIsVisible(false);
-    onReject?.();
+  return {
+    showConsent,
+    isLoading,
+    hasConsent,
+    acceptCookies,
   };
-
-  return { isVisible, accept, reject };
 };

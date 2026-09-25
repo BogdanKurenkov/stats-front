@@ -1,4 +1,7 @@
 export interface CookieConsentProps {
-  onAccept?: () => void;
-  onReject?: () => void;
+  showConsent: boolean;
+  isLoading: boolean;
+  hasConsent: boolean;
+  acceptCookies: () => void;
+  onConsentAccepted?: () => void;
 }

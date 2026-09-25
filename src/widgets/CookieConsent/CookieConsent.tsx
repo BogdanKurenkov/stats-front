@@ -5,8 +5,6 @@ import { ROUTES } from '@/shared/config';
 
 import { useCookieConsent } from './useCookieConsent';
 
-import { CookieConsentProps } from './CookieConsent.types';
-
 import {
   Overlay,
   Container,
@@ -17,13 +15,10 @@ import {
   ActionButton,
 } from './CookieConsent.styled';
 
-export const CookieConsent: FC<CookieConsentProps> = ({
-  onAccept,
-  onReject,
-}) => {
-  const { isVisible, accept, reject } = useCookieConsent(onAccept, onReject);
+export const CookieConsent: FC = () => {
+  const { showConsent, isLoading, acceptCookies } = useCookieConsent();
 
-  if (!isVisible) return null;
+  if (isLoading || !showConsent) return null;
 
   return (
     <Overlay>
@@ -43,10 +38,10 @@ export const CookieConsent: FC<CookieConsentProps> = ({
         </Content>
 
         <ButtonsContainer>
-          <ActionButton variant="primary" size="medium" onClick={accept}>
+          <ActionButton variant="primary" size="medium" onClick={acceptCookies}>
             Принять все
           </ActionButton>
-          <ActionButton variant="outline" size="medium" onClick={reject}>
+          <ActionButton variant="outline" size="medium" onClick={acceptCookies}>
             Только необходимые
           </ActionButton>
         </ButtonsContainer>

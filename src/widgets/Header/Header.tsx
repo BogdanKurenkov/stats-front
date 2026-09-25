@@ -5,8 +5,6 @@ import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from '@/features/languageSwitcher';
 
 import { ROUTES } from '@/shared/config';
-import { ToggleTheme } from '@/shared/ui';
-import { Logo } from '@/shared/ui';
 import {
   HeaderContainer,
   HeaderContent,
@@ -21,6 +19,8 @@ import {
   MobileCloseButton,
   MobileNavLink,
   Overlay,
+  Logo,
+  ToggleTheme
 } from '@/shared';
 
 import { MENU_ITEMS } from './Header.constants';

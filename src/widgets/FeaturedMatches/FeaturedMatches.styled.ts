@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Paragraph } from "@/shared/ui";
+import { Paragraph } from "@/shared";
 
 import "swiper/css";
 

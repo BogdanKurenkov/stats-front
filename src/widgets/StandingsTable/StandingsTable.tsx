@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
-import { Container, Section, Select, Table } from '@/shared/ui';
-import { useDictionary } from '@/shared/lib/localization';
+import { Container, Section, Select, Table } from '@/shared';
+import { useDictionary } from '@/shared';
 
 import {
   LEAGUE_OPTIONS,

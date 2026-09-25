@@ -1,6 +1,2 @@
-export const COOKIE_CONSENT_KEY = "cookie-consent";
-
-export const COOKIE_CONSENT_VALUES = {
-  ACCEPTED: "accepted",
-  REJECTED: "rejected",
-} as const;
+export const COOKIE_NAME = "cookie_consent";
+export const COOKIE_EXPIRY_DAYS = 365;

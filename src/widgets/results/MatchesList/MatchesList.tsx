@@ -1,7 +1,7 @@
 import { FC, useState, useMemo } from 'react';
 
 import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Select } from '@/shared/ui';
+import { Container, Section, Select } from '@/shared';
 
 import { LEAGUE_OPTIONS } from './MatchesList.constants';
 

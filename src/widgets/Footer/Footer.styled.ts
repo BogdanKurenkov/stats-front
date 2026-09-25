@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title, Paragraph, CustomLink } from "@/shared/ui";
+import { Title, Paragraph, CustomLink } from "@/shared";
 
 export const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.colors.black.primary};

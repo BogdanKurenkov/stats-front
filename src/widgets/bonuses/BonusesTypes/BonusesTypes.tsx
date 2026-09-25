@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from 'react';
 
-import { Container, Divider, Section } from '@/shared/ui';
+import { useDictionary } from '@/shared/lib/localization';
+import { Container, Divider, Section } from '@/shared';
 
 import {
   TypesWrapper,

@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { Logo } from '@/shared/ui';
+import { Logo } from '@/shared';
 
 import { FOOTER_SECTIONS } from './Footer.constants';
 

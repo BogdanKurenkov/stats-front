@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
 
-import { Container, Section, Title } from '@/shared/ui';
+import { useDictionary } from '@/shared/lib/localization';
+import { Container, Section, Title } from '@/shared';
 
 import {
   SectionWrapper,

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDictionary } from '@/shared/lib/localization';
 
-import { Container, Section, Title, Paragraph, Divider } from '@/shared/ui';
+import { Container, Section, Title, Paragraph, Divider } from '@/shared';
 
 import {
   RulesWrapper,

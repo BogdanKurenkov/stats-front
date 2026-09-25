@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title } from "@/shared/ui";
+import { Title } from "@/shared";
 
 export const MatchesWrapper = styled.div`
   display: flex;
