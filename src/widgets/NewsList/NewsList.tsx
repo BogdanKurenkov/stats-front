@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
+import type { FC } from 'react';
 
-import { MOCK_NEWS } from './NewsList.constants';
+import { Container, Pagination, Section } from '@/shared';
+import { usePagination, useDictionary, formatDate } from '@/shared/lib';
 
 import { NewsListProps } from './NewsList.types';
 
-import { Container, Pagination, Section } from '@/shared';
-import { useDictionary } from '@/shared/lib/localization';
+import { ITEMS_PER_PAGE, MOCK_NEWS } from './NewsList.constants';
 
 import {
   NewsGrid,
@@ -19,26 +19,21 @@ import {
   StyledTitle,
 } from './NewsList.styled';
 
-const ITEMS_PER_PAGE = 3;
+export const NewsList: FC<NewsListProps> = ({
+  articles = MOCK_NEWS,
+  className,
+}) => {
+  const { news } = useDictionary();
 
-export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className }) => {
-  const [page, setPage] = useState(1);
+  const { page, totalPages, setPage } = usePagination({
+    totalItems: articles.length,
+    itemsPerPage: ITEMS_PER_PAGE,
+  });
 
-  const { news } = useDictionary()
-
-  const totalPages = Math.ceil(MOCK_NEWS.length / ITEMS_PER_PAGE);
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleString('ru-RU', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    });
-  };
+  const visibleArticles = articles.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE,
+  );
 
   return (
     <Section pt pb>
@@ -46,8 +41,9 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
         <StyledTitle as="h2" level="h2">
           {news.title}
         </StyledTitle>
+
         <NewsGrid className={className}>
-          {articles.map((item, idx) => (
+          {visibleArticles.map((item, idx) => (
             <NewsCard
               key={idx}
               href={item.url}
@@ -68,6 +64,7 @@ export const NewsList: FC<NewsListProps> = ({ articles = MOCK_NEWS, className })
             </NewsCard>
           ))}
         </NewsGrid>
+
         <Pagination
           currentPage={page}
           totalPages={totalPages}

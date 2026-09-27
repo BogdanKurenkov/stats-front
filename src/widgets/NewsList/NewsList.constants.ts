@@ -1,5 +1,7 @@
 import { NewsArticle } from "./NewsList.types";
 
+export const ITEMS_PER_PAGE = 3;
+
 export const MOCK_NEWS: NewsArticle[] = [
   {
     title:
