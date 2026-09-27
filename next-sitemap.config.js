@@ -35,12 +35,18 @@ const withLocale = (path, locale) => {
   return `/${locale}${clean}`;
 };
 
-const buildAlternates = (cleanPath) =>
-  LOCALES.map((locale) => ({
+const buildAlternates = (cleanPath) => [
+  ...LOCALES.map((locale) => ({
     href: `${SITE_URL}${withLocale(cleanPath, locale)}`,
     hreflang: locale,
     hrefIsAbsolute: true,
-  }));
+  })),
+  {
+    href: `${SITE_URL}${withLocale(cleanPath, DEFAULT_LOCALE)}`,
+    hreflang: "x-default",
+    hrefIsAbsolute: true,
+  },
+];
 
 module.exports = {
   siteUrl: SITE_URL,

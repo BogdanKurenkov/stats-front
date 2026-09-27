@@ -46,7 +46,6 @@ export default class MyDocument extends Document<MyDocumentProps> {
     return (
       <Html lang={locale}>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
