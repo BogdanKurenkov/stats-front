@@ -43,4 +43,6 @@ export { Pagination } from "./Pagination/Pagination";
 
 export { HighlightBox } from "./HighlightBox";
 
+export { Seo } from "./Seo";
+
 export * from "./Header.styled";

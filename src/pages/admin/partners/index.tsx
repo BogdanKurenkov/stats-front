@@ -3,12 +3,12 @@ import { GetServerSideProps } from 'next';
 import { BonusesList } from '@/widgets';
 
 import { NextPageWithLayout } from '@/shared/types';
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 
 const AdminDashboardPartners: NextPageWithLayout = () => {
   return (
     <>
-      <SEO title="Прогнозы" noIndex={true} />
+      <Seo title="Прогнозы" noIndex={true} />
       <BonusesList isAdmin />
     </>
   );

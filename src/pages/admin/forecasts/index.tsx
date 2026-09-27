@@ -3,14 +3,14 @@ import { GetServerSideProps } from 'next';
 import { ForecastsList } from '@/widgets';
 
 import { NextPageWithLayout } from '@/shared/types';
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 
 const BONUSES_TEXT = "Текущие прогнозы"
 
 const AdminDashboardForecasts: NextPageWithLayout = () => {
   return (
     <>
-      <SEO title="Прогнозы" noIndex={true} />
+      <Seo title="Прогнозы" noIndex={true} />
       <ForecastsList text={BONUSES_TEXT} isAdmin />
     </>
   );

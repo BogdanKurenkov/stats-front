@@ -4,12 +4,12 @@ import fs from 'fs';
 
 import { TermsOfUse } from '@/widgets';
 
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 
 const TermsOfUsePage: NextPage = () => {
   return (
     <>
-      <SEO
+      <Seo
         title="Пользовательское соглашение"
         description="Условия использования сайта Stats.net"
       />

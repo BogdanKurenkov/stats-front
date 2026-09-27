@@ -1,13 +1,14 @@
 import { GetServerSideProps } from 'next';
 
-import { SEO } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
 import { PartnersForm } from '@/widgets';
+
+import { Seo } from '@/shared';
+import { NextPageWithLayout } from '@/shared/types';
 
 const AdminDashboardPartner: NextPageWithLayout = () => {
   return (
     <>
-      <SEO title={'Редактирование партнера'} noIndex={true} />
+      <Seo title={'Редактирование партнера'} noIndex={true} />
       <PartnersForm />
     </>
   );

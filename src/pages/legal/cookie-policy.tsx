@@ -4,12 +4,12 @@ import fs from 'fs';
 
 import { CookiePolicy } from '@/widgets';
 
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 
 const CookiePolicyPage: NextPage = () => {
   return (
     <>
-      <SEO
+      <Seo
         title="Политика использования cookies"
         description="Информация о cookies на сайте Stats.net"
       />

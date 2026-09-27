@@ -1,6 +1,9 @@
+import dynamic from 'next/dynamic';
 import type { FC } from 'react';
 
-import { Header, Footer, CookieConsent } from '@/widgets';
+import { Header, Footer } from '@/widgets';
+
+const CookieConsent = dynamic(() => import("@/widgets").then(mod => mod.CookieConsent));
 
 import { YandexMetrika } from '@/shared';
 

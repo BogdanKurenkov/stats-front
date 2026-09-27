@@ -1,10 +1,10 @@
 import { LoginForm } from '@/features/auth/LoginForm';
 
-import { SEO, NextPageWithLayout } from '@/shared';
+import { Seo, NextPageWithLayout } from '@/shared';
 
 const LoginPage: NextPageWithLayout = () => {
   return <>
-    <SEO title="Авторизация" />
+    <Seo title="Авторизация" />
     <LoginForm />;
   </>
 };

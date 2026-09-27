@@ -9,7 +9,7 @@ import { z } from 'zod';
 import { FORECASTS } from '@/widgets/forecasts/ForecastsList/ForecastsList.constants';
 
 import type { NextPageWithLayout } from '@/shared/types';
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 import { Form, FormField, Input, Textarea } from '@/shared';
 
 import styled from "styled-components";
@@ -489,7 +489,7 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
 
   return (
     <>
-      <SEO title={isEditMode ? 'Редактирование прогноза' : 'Создание прогноза'} noIndex={true} />
+      <Seo title={isEditMode ? 'Редактирование прогноза' : 'Создание прогноза'} noIndex={true} />
       <PageContainer>
         <Header>
           <HeaderLeft>

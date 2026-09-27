@@ -1,10 +1,10 @@
 import { RegisterForm } from '@/features/auth/RegisterForm';
 
-import { SEO, NextPageWithLayout } from '@/shared';
+import { Seo, NextPageWithLayout } from '@/shared';
 
 const RegisterPage: NextPageWithLayout = () => {
   return <>
-    <SEO title="Регистрация" />
+    <Seo title="Регистрация" />
     <RegisterForm />
   </>
 };

@@ -3,10 +3,9 @@ import dynamic from 'next/dynamic';
 import { MatchesList } from '@/widgets';
 import { MOCK_MATCHES } from '@/widgets/results/MatchesList';
 
-import { SEO, NextPageWithLayout } from '@/shared';
-
-
 const StandingsTable = dynamic(() => import('@/widgets').then(mod => mod.StandingsTable));
+
+import { NextPageWithLayout, Seo } from '@/shared';
 
 const ResultsPage: NextPageWithLayout = () => {
   const upcomingMatches = MOCK_MATCHES.filter(m => m.status === 'upcoming');
@@ -14,7 +13,7 @@ const ResultsPage: NextPageWithLayout = () => {
 
   return (
     <>
-      <SEO title="Результаты" />
+      <Seo title="Результаты" />
       <MatchesList matches={upcomingMatches} variant="upcoming" />
       <MatchesList matches={pastMatches} variant="past" />
       <StandingsTable />

@@ -4,13 +4,13 @@ import fs from 'fs';
 
 import { PrivacyPolicy } from '@/widgets';
 
-import { SEO } from '@/shared';
+import { Seo } from '@/shared';
 
 const PrivacyPolicyPage: NextPage = () => {
 
   return (
     <>
-      <SEO
+      <Seo
         title="Политика конфиденциальности"
         description="Политика обработки персональных данных на сайте Stats.net"
       />
