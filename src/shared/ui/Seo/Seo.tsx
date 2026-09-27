@@ -34,6 +34,7 @@ export const Seo: FC<SeoProps> = ({
       {keywords && <meta name="keywords" content={keywords} />}
 
       {canonical && <link rel="canonical" href={canonical} />}
+
       {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
       <meta property="og:title" content={fullTitle} />
