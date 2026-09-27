@@ -1,8 +1,15 @@
+# *
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /admin/
-Disallow: /auth/
-Disallow: /api/
 
+# *
+User-agent: *
+Disallow: /admin
+Disallow: /auth
+Disallow: /404
+
+# Host
+Host: https://stats.net
+
+# Sitemaps
 Sitemap: https://stats.net/sitemap.xml
