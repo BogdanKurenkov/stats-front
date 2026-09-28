@@ -6,4 +6,5 @@ export const MENU_ITEMS = [
   { href: ROUTES.FORECASTS, label: "Прогнозы" },
   { href: ROUTES.RESULTS, label: "Результаты" },
   { href: ROUTES.BONUSES, label: "Бонусы" },
+  { href: ROUTES.REVIEWS, label: "Отзывы" },
 ] as const;

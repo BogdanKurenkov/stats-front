@@ -21,6 +21,7 @@ const PRIORITY = {
   "/news": { priority: 0.8, changefreq: "daily" },
   "/forecasts": { priority: 0.8, changefreq: "daily" },
   "/results": { priority: 0.8, changefreq: "daily" },
+  "/reviews": { priority: 0.8, changefreq: "daily" },
   "/bonuses": { priority: 0.7, changefreq: "weekly" },
   "/legal/privacy-policy": { priority: 0.3, changefreq: "yearly" },
   "/legal/cookie-policy": { priority: 0.3, changefreq: "yearly" },

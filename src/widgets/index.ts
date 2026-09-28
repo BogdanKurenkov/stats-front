@@ -9,6 +9,10 @@ export { PartnersForm } from "./PartnersForm";
 export { ForecastsForm } from "./ForecastsForm";
 export { NotFound } from "./NotFound";
 export { ReviewsHero } from "./reviewsHero";
+export { ReviewsMethodology } from "./ReviewsMethodology";
+export { ReviewsRating } from "./ReviewsRating";
+export { ReviewsList } from "./ReviewsList";
+export { ReviewsLeaveForm } from "./ReviewsLeaveForm";
 
 export * from "./home";
 

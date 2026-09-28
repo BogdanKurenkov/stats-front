@@ -1,4 +1,5 @@
-import { FAQ, ReviewsHero } from '@/widgets';
+import { FAQ, ReviewsHero, ReviewsMethodology, ReviewsRating, ReviewsList, ReviewsLeaveForm } from '@/widgets';
+
 import { Seo } from '@/shared';
 
 export default function Reviews() {
@@ -6,6 +7,10 @@ export default function Reviews() {
     <>
       <Seo title="Отзывы" />
       <ReviewsHero />
+      <ReviewsMethodology />
+      <ReviewsRating />
+      <ReviewsList />
+      <ReviewsLeaveForm />
       <FAQ />
     </>
   );

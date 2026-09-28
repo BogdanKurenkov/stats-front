@@ -1,0 +1,1 @@
+export { ReviewsMethodology } from "./ReviewsMethodology";

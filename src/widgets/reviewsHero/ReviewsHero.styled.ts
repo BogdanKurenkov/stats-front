@@ -30,6 +30,10 @@ export const HeroBadge = styled.span`
   border: 1px solid ${({ theme }) => theme.colors.orange.primary};
 `;
 
+export const HeroCta = styled.div`
+  margin-top: 8px;
+`;
+
 export const StatGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,12 +1,22 @@
 import type { FC } from 'react';
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Title, Paragraph, Divider, } from '@/shared/ui';
+import { useDictionary, scrollToSection } from '@/shared/lib';
+import {
+  Container,
+  Section,
+  Title,
+  Paragraph,
+  Divider,
+  Button
+} from '@/shared/ui';
+
+import { REVIEW_FORM_ID } from '../ReviewsLeaveForm/ReviewsLeaveForm.constants';
 
 import {
   HeroWrapper,
   HeroHeader,
-  HeroBadge,
+  // HeroBadge,
+  HeroCta,
   StatGrid,
   StatCard,
   StatNumber,
@@ -19,20 +29,28 @@ import {
 
 export const ReviewsHero: FC = () => {
   const dict = useDictionary();
-  const { title, description, badge, stats, highlights } = dict.reviewsHero;
+  const { title, description, /*badge,*/ ctaLabel, stats, highlights } = dict.reviewsHero;
 
   return (
     <Section pt pb>
       <Container>
         <HeroWrapper>
           <HeroHeader>
-            <HeroBadge>{badge}</HeroBadge>
+            {/* <HeroBadge>{badge}</HeroBadge> */}
             <Title as="h1" level="h1">
               {title}
             </Title>
-            <Paragraph size="lg">
-              {description}
-            </Paragraph>
+
+            <Paragraph size="lg">{description}</Paragraph>
+
+            <HeroCta>
+              <Button
+                variant="primary"
+                onClick={() => scrollToSection(REVIEW_FORM_ID)}
+              >
+                {ctaLabel}
+              </Button>
+            </HeroCta>
           </HeroHeader>
 
           <StatGrid>

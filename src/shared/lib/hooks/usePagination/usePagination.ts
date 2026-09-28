@@ -17,7 +17,7 @@ export const usePagination = ({
   const setPage = (next: number) => {
     const params = new URLSearchParams(searchParams);
     params.set(paramName, String(next));
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return { page, totalPages, setPage };
