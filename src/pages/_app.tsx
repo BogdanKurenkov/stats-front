@@ -3,12 +3,9 @@ import App from 'next/app';
 import { parseCookies } from 'nookies';
 
 import GlobalStyle from "@/application/styles/GlobalStyles";
-import { MainLayout } from "@/application/layouts/MainLayout";
-import { AuthLayout } from "@/application/layouts/AuthLayout";
-import { AdminProvider, AuthProvider, DictionaryProvider } from "@/application/providers";
-import { CustomThemeProvider } from "@/application/providers/ThemeProvider/ThemeProvider";
-import { AdminLayout } from "@/application/layouts";
-import { ThemeMode } from "@/application/providers/ThemeProvider/ThemeProvider.types";
+import { MainLayout, AuthLayout, AdminLayout } from "@/application/layouts";
+import { AdminProvider, AuthProvider, DictionaryProvider, CustomThemeProvider } from "@/application/providers";
+import type { ThemeMode } from "@/application/providers/ThemeProvider/";
 
 import type { NextPageWithLayout } from "@/shared";
 
@@ -28,13 +25,11 @@ function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
         )
       case 'admin':
         return (
-          <DictionaryProvider value={pageProps.messages}>
-            <AdminProvider>
-              <AdminLayout>
-                <Component {...pageProps} />
-              </AdminLayout>
-            </AdminProvider>
-          </DictionaryProvider>
+          <AdminProvider>
+            <AdminLayout>
+              <Component {...pageProps} />
+            </AdminLayout>
+          </AdminProvider>
         );
       case 'none':
         return <Component {...pageProps} />;

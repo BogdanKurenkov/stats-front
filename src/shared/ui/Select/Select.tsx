@@ -2,7 +2,7 @@ import { forwardRef, useId } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check } from 'lucide-react';
 
-import { RequiredMark } from '@/shared/ui';
+import { RequiredMark } from '@/shared';
 
 import type { SelectProps } from './Select.types';
 

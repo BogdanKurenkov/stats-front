@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from 'react';
 
+import { useDictionary } from '@/shared/lib/localization';
 import { ROUTES } from '@/shared/config';
 import { CustomLink } from '@/shared';
 
 import { ErrorWrapper, ErrorCode, ErrorDescription, ErrorImage, ErrorTitle, HomeButton } from './NotFound.styled';
 
-export const NotFound: NextPage = () => {
+export const NotFound: FC = () => {
   const dict = useDictionary();
   const data = dict.notFound;
 
@@ -18,7 +18,6 @@ export const NotFound: NextPage = () => {
       <ErrorDescription>
         {data.description}
       </ErrorDescription>
-
       <HomeButton
         as={CustomLink}
         href={ROUTES.HOME}

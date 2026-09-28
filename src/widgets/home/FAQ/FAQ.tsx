@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 
-import { Container, Section, Title } from '@/shared/ui';
-import { Accordion, AccordionItem } from '@/shared/ui/';
+import { Container, Section, Title, Accordion, AccordionItem } from '@/shared/ui';
 import { useDictionary } from '@/shared/lib/localization';
 
 import { FAQ_ITEMS } from './FAQ.constants';

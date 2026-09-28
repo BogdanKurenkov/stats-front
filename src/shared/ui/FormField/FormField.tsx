@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { RequiredMark } from '@/shared/ui';
+import { RequiredMark } from '@/shared';
 
 import type { FormFieldProps } from './FormField.types';
 

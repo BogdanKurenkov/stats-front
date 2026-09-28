@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { ParagraphProps } from "./Paragraph.types";
 
 export const StyledParagraph = styled.p<ParagraphProps>`

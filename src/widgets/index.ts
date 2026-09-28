@@ -7,6 +7,7 @@ export { StandingsTable } from "./StandingsTable";
 export { NewsList } from "./NewsList";
 export { PartnersForm } from "./PartnersForm";
 export { ForecastsForm } from "./ForecastsForm";
+export { NotFound } from "./NotFound";
 
 export * from "./home";
 

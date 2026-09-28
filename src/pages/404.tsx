@@ -2,9 +2,9 @@ import { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 import fs from 'fs';
 
-import { NotFound } from '@/widgets/NotFound';
+import { NotFound } from '@/widgets';
 
-import { Container } from '@/shared/ui';
+import { Container } from '@/shared';
 
 const Custom404: NextPage = () => {
   return (

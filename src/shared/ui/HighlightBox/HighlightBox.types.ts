@@ -5,3 +5,8 @@ export interface HighlightBoxProps {
   variant?: "default" | "compact";
   className?: string;
 }
+
+export interface StyledHighlightBoxProps {
+  $variant?: "default" | "compact";
+  className?: string;
+}

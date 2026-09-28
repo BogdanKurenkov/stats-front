@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StyledHighlightBox = styled.div<{
-  $variant?: "default" | "compact";
-}>`
+import { StyledHighlightBoxProps } from "./HighlightBox.types";
+
+export const StyledHighlightBox = styled.div<StyledHighlightBoxProps>`
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.black.secondary} 0%,
