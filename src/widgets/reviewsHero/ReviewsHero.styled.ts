@@ -1,33 +1,24 @@
 import styled from "styled-components";
 
+import { revealStyles } from "@/shared/lib/styles/reveal";
+
 export const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  overflow: clip;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     gap: 40px;
   }
 `;
 
-export const HeroHeader = styled.div`
+export const HeroHeader = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-width: 820px;
-`;
-
-export const HeroBadge = styled.span`
-  display: inline-flex;
-  align-self: flex-start;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: ${({ theme }) => theme.colors.orange.primary};
-  background-color: ${({ theme }) => theme.colors.orange.muted};
-  border: 1px solid ${({ theme }) => theme.colors.orange.primary};
 `;
 
 export const HeroCta = styled.div`
@@ -49,13 +40,14 @@ export const StatGrid = styled.div`
   }
 `;
 
-export const StatCard = styled.div`
+export const StatCard = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-radius: 16px;
   padding: 24px;
   text-align: center;
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  transition: all 0.2s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.2s ease;
 
   @media (hover: hover) {
     &:hover {
@@ -92,7 +84,8 @@ export const HighlightGrid = styled.div`
   }
 `;
 
-export const HighlightCard = styled.div`
+export const HighlightCard = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -100,7 +93,7 @@ export const HighlightCard = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  transition: all 0.2s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.2s ease;
 
   @media (hover: hover) {
     &:hover {

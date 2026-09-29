@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, type FC, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { setCookie } from 'nookies';
 
-import { colors, typography, breakpoints } from '@/shared';
+import { colors, typography, breakpoints, ThemeMode } from '@/shared';
 
-import { ThemeContextType, ThemeMode } from './ThemeProvider.types';
+import { CustomThemeProviderProps, ThemeContextType } from './ThemeProvider.types';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
@@ -16,12 +16,7 @@ export const useTheme = () => {
   return context;
 };
 
-interface CustomThemeProviderProps {
-  children: React.ReactNode;
-  initialMode?: ThemeMode;
-}
-
-export const CustomThemeProvider: React.FC<CustomThemeProviderProps> = ({
+export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({
   children,
   initialMode
 }) => {

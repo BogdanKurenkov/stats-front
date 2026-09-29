@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useDictionary } from '@/shared/lib/localization';
 
+import { useDictionary } from '@/shared/lib/localization';
 import {
   Container,
   Section,
@@ -22,7 +22,9 @@ import {
   BOOKMAKER_OPTIONS,
   DEFAULT_VALUES,
 } from './ReviewsLeaveForm.constants';
+
 import { reviewFormSchema } from './ReviewsLeaveForm.schema';
+
 import type { ReviewFormValues } from './ReviewsLeaveForm.types';
 
 import {

@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
 import { Paragraph } from "@/shared/ui";
+import { revealStyles } from "@/shared/lib/styles/reveal";
 
 export const MethodologyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  overflow: clip;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     gap: 32px;
   }
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -30,7 +33,8 @@ export const StepsGrid = styled.div`
   }
 `;
 
-export const StepCard = styled.div`
+export const StepCard = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -38,7 +42,7 @@ export const StepCard = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  transition: all 0.2s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.2s ease;
 
   @media (hover: hover) {
     &:hover {
@@ -67,6 +71,10 @@ export const StepDescription = styled.p`
   font-size: 15px;
   line-height: 1.6;
   color: ${({ theme }) => theme.colors.gray[400]};
+`;
+
+export const NoteReveal = styled.div<{ $visible?: boolean }>`
+  ${revealStyles}
 `;
 
 export const NoteText = styled(Paragraph)`

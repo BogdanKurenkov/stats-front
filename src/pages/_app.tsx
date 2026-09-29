@@ -1,18 +1,13 @@
-import type { AppContext, AppProps } from "next/app";
+import type { AppContext } from "next/app";
 import App from 'next/app';
 import { parseCookies } from 'nookies';
 
 import GlobalStyle from "@/application/styles/GlobalStyles";
 import { MainLayout, AuthLayout, AdminLayout } from "@/application/layouts";
 import { AdminProvider, AuthProvider, DictionaryProvider, CustomThemeProvider } from "@/application/providers";
-import type { ThemeMode } from "@/application/providers/ThemeProvider/";
 
-import type { NextPageWithLayout } from "@/shared";
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-  themeMode: ThemeMode;
-};
+import type { AppPropsWithLayout } from "@/shared/types";
+import { ThemeMode } from "@/shared/styles";
 
 function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
   const getLayout = () => {

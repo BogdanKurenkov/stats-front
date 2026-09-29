@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Form } from "@/shared/ui";
 
 export const FormWrapper = styled.div`

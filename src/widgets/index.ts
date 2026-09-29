@@ -8,6 +8,7 @@ export { NewsList } from "./NewsList";
 export { PartnersForm } from "./PartnersForm";
 export { ForecastsForm } from "./ForecastsForm";
 export { NotFound } from "./NotFound";
+
 export { ReviewsHero } from "./reviewsHero";
 export { ReviewsMethodology } from "./ReviewsMethodology";
 export { ReviewsRating } from "./ReviewsRating";

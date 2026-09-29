@@ -1,2 +1,2 @@
 export { CustomThemeProvider, useTheme } from "./ThemeProvider";
-export type { ThemeMode, ThemeContextType } from "./ThemeProvider.types";
+export type { ThemeContextType } from "./ThemeProvider.types";
