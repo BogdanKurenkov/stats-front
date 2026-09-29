@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { TitleProps } from "./Title.types";
+import type { TitleProps } from "./Title.types";
 
 export const StyledTitle = styled.h1<TitleProps>`
   line-height: 1.2;

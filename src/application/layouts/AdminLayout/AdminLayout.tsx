@@ -5,7 +5,7 @@ import { useAdmin } from '@/application/contexts';
 
 import { AdminHeader } from '@/widgets';
 
-import { AdminLayoutProps } from './AdminLayout.types';
+import type { AdminLayoutProps } from './AdminLayout.types';
 
 import { AdminContainer, AdminContent } from './AdminLayout.styled';
 

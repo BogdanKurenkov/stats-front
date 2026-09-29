@@ -1,8 +1,8 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
 import { ForecastsList } from '@/widgets';
 
-import { NextPageWithLayout } from '@/shared/types';
+import type { NextPageWithLayout } from '@/shared/types';
 import { Seo } from '@/shared';
 
 const BONUSES_TEXT = "Текущие прогнозы"
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {},
     };
-  } catch (error) {
+  } catch {
     return {
       props: {},
       // notFound: true,

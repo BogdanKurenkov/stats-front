@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { createRegisterSchema, RegisterFormData } from '@/features/auth/schemas';
+import { createRegisterSchema, type RegisterFormData } from '@/features/auth/schemas';
 
 import { useDictionary } from '@/shared/lib/localization';
 import { Form, FormField, Input, PasswordInput, CustomLink } from '@/shared/ui';
@@ -45,9 +45,7 @@ export const RegisterForm: FC = () => {
     },
   });
 
-  const onSubmit = async (data: RegisterFormData) => {
-    console.log('Register data:', data);
-  };
+  const onSubmit = async (/*data: RegisterFormData*/) => { };
 
   return (
     <StyledFormWrapper>

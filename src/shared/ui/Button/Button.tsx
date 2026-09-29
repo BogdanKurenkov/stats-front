@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { ButtonProps } from './Button.types';
+import type { ButtonProps } from './Button.types';
 
 import { StyledButton } from './Button.styled';
 

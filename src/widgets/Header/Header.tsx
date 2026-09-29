@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
 
@@ -36,7 +36,6 @@ export const Header: FC = () => {
 
   const handleAuth = () => {
     if (isAuthenticated) {
-      console.log('Logout');
     } else {
       router.push(ROUTES.LOGIN);
     }

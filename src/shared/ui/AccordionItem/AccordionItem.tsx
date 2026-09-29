@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { AccordionItemProps } from './AccordionItem.types';
+import type { AccordionItemProps } from './AccordionItem.types';
 
 import {
   StyledAccordionContent,

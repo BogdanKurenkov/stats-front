@@ -1,6 +1,6 @@
 import { colors } from "@/shared/styles";
 
-import { SpinnerType } from "./Spinner.types";
+import type { SpinnerType } from "./Spinner.types";
 
 export const DEFAULT_PARAMS = {
   size: 35,

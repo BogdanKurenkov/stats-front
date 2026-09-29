@@ -1,11 +1,11 @@
-import { FC, useState, useMemo } from 'react';
+import { type FC, useState, useMemo } from 'react';
 
 import { useDictionary } from '@/shared/lib/localization';
 import { Container, Section, Select } from '@/shared';
 
 import { LEAGUE_OPTIONS } from './MatchesList.constants';
 
-import { MatchesListProps } from './MatchesList.types';
+import type { MatchesListProps } from './MatchesList.types';
 
 import {
   MatchesWrapper,

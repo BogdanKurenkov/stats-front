@@ -1,6 +1,6 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
-import { NextPageWithLayout } from '@/shared/types';
+import type { NextPageWithLayout } from '@/shared/types';
 import { Seo } from '@/shared';
 
 const AdminDashboard: NextPageWithLayout = () => {
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {},
     };
-  } catch (error) {
+  } catch {
     return {
       props: {},
       // notFound: true,

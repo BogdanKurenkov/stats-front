@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-import { Dictionary } from "@/shared";
+import type { Dictionary } from "@/shared";
 
 export const DictionaryContext = createContext<Dictionary | null>(null);

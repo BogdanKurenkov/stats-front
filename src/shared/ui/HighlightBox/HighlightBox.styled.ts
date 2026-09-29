@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { StyledHighlightBoxProps } from "./HighlightBox.types";
+import type { StyledHighlightBoxProps } from "./HighlightBox.types";
 
 export const StyledHighlightBox = styled.div<StyledHighlightBoxProps>`
   background: linear-gradient(

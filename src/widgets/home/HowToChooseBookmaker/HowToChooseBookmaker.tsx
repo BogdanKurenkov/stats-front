@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { useDictionary } from '@/shared/lib/localization';
 
 import { Container, Section, Title } from '@/shared';

@@ -1,4 +1,4 @@
-import { NewsArticle } from "./NewsList.types";
+import type { NewsArticle } from "./NewsList.types";
 
 export const ITEMS_PER_PAGE = 3;
 

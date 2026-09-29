@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
 
-import { LinkVariant } from "./CustomLink.types";
+import type { LinkVariant } from "./CustomLink.types";
 
 const variantStyles = {
   default: css`

@@ -7,7 +7,7 @@ const CookieConsent = dynamic(() => import("@/widgets").then(mod => mod.CookieCo
 
 import { YandexMetrika } from '@/shared';
 
-import { MainLayoutProps } from './MainLayout.types';
+import type { MainLayoutProps } from './MainLayout.types';
 
 import { LayoutContainer, MainContent } from './MainLayout.styled';
 

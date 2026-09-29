@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect } from 'react';
+import { type ReactNode, useState, useEffect } from 'react';
 
 import { AdminContext } from '@/application/contexts';
 
@@ -12,7 +12,7 @@ export const AdminProvider = ({ children }: { children: ReactNode }) => {
         const res = await fetch('/api/auth/session');
         const data = await res.json();
         setIsAdmin(data.user?.role === 'admin');
-      } catch (error) {
+      } catch {
         setIsAdmin(false);
       } finally {
         setIsLoading(false);

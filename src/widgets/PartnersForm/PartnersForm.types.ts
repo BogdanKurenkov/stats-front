@@ -1,6 +1,6 @@
-import z from "zod";
+import type z from "zod";
 
-import { partnerFormSchema } from "./PartnersForm.schema";
+import type { partnerFormSchema } from "./PartnersForm.schema";
 
 export interface PartnerFormData {
   id: string;

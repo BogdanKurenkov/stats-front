@@ -1,6 +1,6 @@
 import { RegisterForm } from '@/features/auth/RegisterForm';
 
-import { Seo, NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
 
 const RegisterPage: NextPageWithLayout = () => {
   return <>

@@ -10,7 +10,7 @@ import {
 
 import { DEFAULT_PARAMS } from './Spinner.contants';
 
-import { SpinnerProps, SpinnerType } from './Spinner.types';
+import type { SpinnerProps, SpinnerType } from './Spinner.types';
 
 const loaderMap: Record<SpinnerType, ElementType> = {
   spinner: ClipLoader,

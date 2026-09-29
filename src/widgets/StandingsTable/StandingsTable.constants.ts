@@ -1,7 +1,7 @@
-import { SelectOption } from "@/shared";
-import { TableColumn } from "@/shared/ui/Table";
+import type { SelectOption } from "@/shared";
+import type { TableColumn } from "@/shared/ui/Table";
 
-import { StandingsRow } from "./StandingsTable.types";
+import type { StandingsRow } from "./StandingsTable.types";
 
 export const LEAGUE_OPTIONS: SelectOption[] = [
   { value: "rpl", label: "Российская Премьер-лига" },

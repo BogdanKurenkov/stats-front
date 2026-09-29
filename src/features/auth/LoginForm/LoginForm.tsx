@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { createLoginSchema, LoginFormData } from '@/features/auth/schemas';
+import { createLoginSchema, type LoginFormData } from '@/features/auth/schemas';
 
 import { useDictionary } from '@/shared';
 import { Form, FormField, Input, PasswordInput, CustomLink } from '@/shared';
@@ -36,9 +36,7 @@ export const LoginForm: FC = () => {
     defaultValues: { email: '', password: '' },
   });
 
-  const onSubmit = async (data: LoginFormData) => {
-    console.log('Login data:', data);
-  };
+  const onSubmit = async (/*data: LoginFormData*/) => { };
 
   return (
     <StyledFormWrapper>

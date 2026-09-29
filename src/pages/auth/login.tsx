@@ -1,6 +1,6 @@
 import { LoginForm } from '@/features/auth/LoginForm';
 
-import { Seo, NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
 
 const LoginPage: NextPageWithLayout = () => {
   return <>

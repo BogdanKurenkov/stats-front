@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/config';
 
 import { FORECASTS, TEXT_DEFAULT } from './ForecastsList.constants';
 
-import { ForecastsListProps } from './ForecastsList.types';
+import type { ForecastsListProps } from './ForecastsList.types';
 
 import {
   ForecastsGrid,

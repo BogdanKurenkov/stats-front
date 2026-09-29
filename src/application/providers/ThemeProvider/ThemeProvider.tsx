@@ -2,9 +2,9 @@ import { type FC, createContext, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { setCookie } from 'nookies';
 
-import { colors, typography, breakpoints, ThemeMode } from '@/shared';
+import { colors, typography, breakpoints, type ThemeMode } from '@/shared/styles';
 
-import { CustomThemeProviderProps, ThemeContextType } from './ThemeProvider.types';
+import type { CustomThemeProviderProps, ThemeContextType } from './ThemeProvider.types';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 

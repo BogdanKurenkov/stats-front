@@ -1,4 +1,4 @@
-import { InternalAxiosRequestConfig } from "axios";
+import type { InternalAxiosRequestConfig } from "axios";
 
 export interface ApiError {
   message: string;

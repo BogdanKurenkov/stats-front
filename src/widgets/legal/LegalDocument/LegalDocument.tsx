@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { Container, Section, Title, Paragraph, CustomLink } from '@/shared/ui';
 
-import { LegalBlock, LegalDocumentProps } from './LegalDocument.types';
+import type { LegalBlock, LegalDocumentProps } from './LegalDocument.types';
 
 import {
   PolicyWrapper,

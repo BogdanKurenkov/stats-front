@@ -1,6 +1,6 @@
 import { axiosInstance } from "../axiosInstance";
 import { API_CONFIG } from "../api.constants";
-import { User, LoginRequest, RegisterRequest } from "../api.types";
+import type { User, LoginRequest, RegisterRequest } from "../api.types";
 
 export const authApi = {
   login: async (data: LoginRequest): Promise<User> => {

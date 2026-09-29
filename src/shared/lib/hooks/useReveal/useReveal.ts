@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { UseRevealOptions } from "./useReveal.types";
+import type { UseRevealOptions } from "./useReveal.types";
 
 export const useReveal = ({
   delay = 0,

@@ -6,7 +6,7 @@ const FeaturedMatches = dynamic(() => import('@/widgets').then(mod => mod.Featur
 const ForecastsList = dynamic(() => import('@/widgets').then(mod => mod.ForecastsList));
 const ForecastsAbout = dynamic(() => import('@/widgets').then(mod => mod.ForecastsAbout));
 
-import { Seo, NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
 
 const ForecastsPage: NextPageWithLayout = () => {
   return <>

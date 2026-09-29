@@ -1,18 +1,16 @@
 import { type FC, useState } from 'react';
 import { Star } from 'lucide-react';
 
-import { RatingInputProps } from './RatingInput.types';
+import type { RatingInputProps } from './RatingInput.types';
 
 import {
   RatingWrapper,
   StarButton,
 } from './RatingInput.styled';
 
-
 export const RatingInput: FC<RatingInputProps> = ({
   value,
   onChange,
-  error,
 }) => {
   const [hovered, setHovered] = useState(0);
   const displayValue = hovered || value;

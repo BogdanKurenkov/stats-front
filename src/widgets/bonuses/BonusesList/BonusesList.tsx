@@ -8,7 +8,7 @@ import { ROUTES } from '@/shared';
 
 import { BONUSES_DATA } from './BonusesList.constants';
 
-import { BonusesListProps } from './BonusesList.types';
+import type { BonusesListProps } from './BonusesList.types';
 
 import {
   BonusesWrapper,

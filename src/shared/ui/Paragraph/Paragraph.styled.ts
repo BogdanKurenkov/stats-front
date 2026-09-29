@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ParagraphProps } from "./Paragraph.types";
+import type { ParagraphProps } from "./Paragraph.types";
 
 export const StyledParagraph = styled.p<ParagraphProps>`
   font-size: ${({ theme, size = "md" }) =>

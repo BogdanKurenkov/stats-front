@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { AccordionProps } from './Accordion.types';
+import type { AccordionProps } from './Accordion.types';
 
 import { StyledAccordionRoot } from './Accordion.styled';
 

@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { useDictionary } from '@/shared/lib/localization';
 
-import { LegalDocument, LegalDocumentData } from '../LegalDocument';
+import { LegalDocument, type LegalDocumentData } from '../LegalDocument';
 
 export const TermsOfUse: FC = () => {
   const { termsOfUse } = useDictionary();

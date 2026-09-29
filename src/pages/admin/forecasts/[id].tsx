@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -444,15 +444,13 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
     }
   }, [isEditMode, id, reset]);
 
-  const onSubmit = async (data: ForecastFormValues) => {
-    console.log('Сохранение прогноза:', data);
+  const onSubmit = async (/*data: ForecastFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push('/admin/forecasts');
   };
 
   const handleDelete = () => {
     if (window.confirm('Вы уверены, что хотите удалить этот прогноз?')) {
-      console.log('Удаление прогноза:', id);
       setTimeout(() => {
         router.push('/admin/forecasts');
       }, 1000);
@@ -657,7 +655,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {},
     };
-  } catch (error) {
+  } catch {
     return {
       props: {},
     };

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -70,8 +70,7 @@ export const ReviewsLeaveForm: FC = () => {
   const bookmakerValue = watch('bookmaker');
   const showOtherBookmaker = bookmakerValue === 'other';
 
-  const onSubmit = (data: ReviewFormValues) => {
-    console.log('Review form submitted:', data);
+  const onSubmit = (/*data: ReviewFormValues*/) => {
     setIsSubmitted(true);
   };
 

@@ -5,7 +5,7 @@ import { MOCK_MATCHES } from '@/widgets/results/MatchesList';
 
 const StandingsTable = dynamic(() => import('@/widgets').then(mod => mod.StandingsTable));
 
-import { loadMessages, NextPageWithLayout, Seo } from '@/shared';
+import { loadMessages, type NextPageWithLayout, Seo } from '@/shared';
 
 const ResultsPage: NextPageWithLayout = () => {
   const upcomingMatches = MOCK_MATCHES.filter(m => m.status === 'upcoming');

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { ThemeMode } from "@/shared/styles/theme.types";
+import type { ThemeMode } from "@/shared/styles/theme.types";
 
 export interface ThemeContextType {
   mode: ThemeMode;

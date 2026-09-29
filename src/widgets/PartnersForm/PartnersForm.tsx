@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Form, FormField, Input, Textarea } from '@/shared';
 
-import { PartnerFormValues } from './PartnersForm.types';
+import type { PartnerFormValues } from './PartnersForm.types';
 
 import { partnerFormSchema } from './PartnersForm.schema';
 
@@ -66,15 +66,13 @@ export const PartnersForm: FC = () => {
     }
   }, [isEditMode, id, reset]);
 
-  const onSubmit = async (data: PartnerFormValues) => {
-    console.log('Сохранение данных:', data);
+  const onSubmit = async (/*data: PartnerFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push('/admin/partners');
   };
 
   const handleDelete = () => {
     if (window.confirm('Вы уверены, что хотите удалить этого партнера?')) {
-      console.log('Удаление партнера:', id);
       setTimeout(() => {
         router.push('/admin/partners');
       }, 1000);

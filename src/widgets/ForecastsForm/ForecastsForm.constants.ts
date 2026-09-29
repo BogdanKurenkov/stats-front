@@ -1,4 +1,4 @@
-import { ForecastFormValues } from "./ForecastsForm.types";
+import type { ForecastFormValues } from "./ForecastsForm.types";
 
 export const PLACEHOLDERS = {
   SPORT: "Например: Футбол",

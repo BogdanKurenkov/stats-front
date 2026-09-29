@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { Container, Pagination, Section } from '@/shared';
 import { usePagination, useDictionary, formatDate } from '@/shared/lib';
 
-import { NewsListProps } from './NewsList.types';
+import type { NewsListProps } from './NewsList.types';
 
 import { ITEMS_PER_PAGE, MOCK_NEWS } from './NewsList.constants';
 

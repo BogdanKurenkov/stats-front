@@ -1,4 +1,4 @@
-import { User } from "@/shared";
+import type { User } from "@/shared";
 
 export interface AuthContextValue {
   user: User | null;

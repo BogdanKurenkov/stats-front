@@ -7,7 +7,7 @@ import { MainLayout, AuthLayout, AdminLayout } from "@/application/layouts";
 import { AdminProvider, AuthProvider, DictionaryProvider, CustomThemeProvider } from "@/application/providers";
 
 import type { AppPropsWithLayout } from "@/shared/types";
-import { ThemeMode } from "@/shared/styles";
+import { type ThemeMode } from "@/shared/styles";
 
 function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
   const getLayout = () => {
@@ -60,9 +60,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     if (savedTheme === 'light' || savedTheme === 'dark') {
       themeMode = savedTheme;
     }
-  } catch (error) {
-
-  }
+  } catch { }
 
   return { ...appProps, themeMode };
 };

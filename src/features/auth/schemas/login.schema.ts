@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createPasswordSchema, PasswordMessages } from "./password.schema";
+import { createPasswordSchema, type PasswordMessages } from "./password.schema";
 
 export const createLoginSchema = (messages: {
   emailRequired: string;

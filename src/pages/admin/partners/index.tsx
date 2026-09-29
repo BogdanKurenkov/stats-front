@@ -1,8 +1,8 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
 import { BonusesList } from '@/widgets';
 
-import { NextPageWithLayout } from '@/shared/types';
+import type { NextPageWithLayout } from '@/shared/types';
 import { Seo } from '@/shared';
 
 const AdminDashboardPartners: NextPageWithLayout = () => {
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         messages: messages.default,
       },
     };
-  } catch (error) {
+  } catch {
     // TODO убрать временный костыль
     const { locale } = ctx;
     const messages = await import(`@public/locales/${locale}/common.json`);

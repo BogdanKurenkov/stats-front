@@ -1,4 +1,4 @@
-import { PartnerFormValues } from "./PartnersForm.types";
+import type { PartnerFormValues } from "./PartnersForm.types";
 
 export const PLACEHOLDERS = {
   TITLE: "Например: Бонус 120% до",

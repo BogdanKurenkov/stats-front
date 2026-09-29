@@ -1,4 +1,4 @@
-import { Match } from "./MatchesList.types";
+import type { Match } from "./MatchesList.types";
 
 export const LEAGUE_OPTIONS = [
   { value: "all", label: "Все лиги" },

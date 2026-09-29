@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { ContainerProps } from './Container.types';
+import type { ContainerProps } from './Container.types';
 
 import { ContainerWrapper } from './Container.styled';
 

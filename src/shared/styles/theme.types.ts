@@ -1,6 +1,6 @@
-import { colors } from "./colors";
-import { typography } from "./typography";
-import { breakpoints } from "./breakpoints";
+import type { colors } from "./colors";
+import type { typography } from "./typography";
+import type { breakpoints } from "./breakpoints";
 
 export type ThemeMode = "light" | "dark";
 

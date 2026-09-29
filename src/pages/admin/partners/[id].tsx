@@ -1,9 +1,9 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
 import { PartnersForm } from '@/widgets';
 
 import { Seo } from '@/shared';
-import { NextPageWithLayout } from '@/shared/types';
+import type { NextPageWithLayout } from '@/shared/types';
 
 const AdminDashboardPartner: NextPageWithLayout = () => {
   return (
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {},
     };
-  } catch (error) {
+  } catch {
     return {
       props: {},
     };

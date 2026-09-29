@@ -7,7 +7,7 @@ import { FormField, Input, Textarea } from "@/shared";
 
 import { FORECASTS } from "../forecasts/ForecastsList/ForecastsList.constants";
 
-import { ForecastFormValues } from "./ForecastsForm.types";
+import type { ForecastFormValues } from "./ForecastsForm.types";
 
 import { DEFAULT_VALUES, FIELD_LABELS, PLACEHOLDERS } from "./ForecastsForm.constants";
 
@@ -77,15 +77,13 @@ export const ForecastsForm: FC = () => {
     }
   }, [isEditMode, id, reset]);
 
-  const onSubmit = async (data: ForecastFormValues) => {
-    console.log('Сохранение прогноза:', data);
+  const onSubmit = async (/*data: ForecastFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push('/admin/forecasts');
   };
 
   const handleDelete = () => {
     if (window.confirm('Вы уверены, что хотите удалить этот прогноз?')) {
-      console.log('Удаление прогноза:', id);
       setTimeout(() => {
         router.push('/admin/forecasts');
       }, 1000);

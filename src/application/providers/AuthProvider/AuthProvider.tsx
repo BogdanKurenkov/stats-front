@@ -1,5 +1,5 @@
-import { ReactNode, useState, useEffect } from 'react';
-import { authApi, User } from '@/shared';
+import { type ReactNode, useState } from 'react';
+import { authApi, type User } from '@/shared';
 import { AuthContext } from '@/application/contexts';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { StyledWrapperProps } from "./GlobalSpinner.types";
+import type { StyledWrapperProps } from "./GlobalSpinner.types";
 
 export const StyledWrapper = styled.div<StyledWrapperProps>`
   position: ${({ $fullScreen }) => ($fullScreen ? "fixed" : "absolute")};

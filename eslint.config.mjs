@@ -4,16 +4,19 @@ import typescriptParser from '@typescript-eslint/parser'
 
 export default [
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
-    ignores: ['node_modules/**', '.next/**', 'out/**'],
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'next-env.d.ts'],
+  },
+
+  {
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
         ecmaVersion: 2024,
         sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
+        ecmaFeatures: { jsx: true },
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
@@ -23,9 +26,20 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@typescript-eslint/no-unused-vars': 'warn',
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+
       '@typescript-eslint/no-explicit-any': 'error',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+
+      '@typescript-eslint/consistent-type-imports': [
+        'warn',
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
+      ],
     },
   },
 ]

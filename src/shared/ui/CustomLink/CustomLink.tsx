@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { CustomLinkProps } from './CustomLink.types';
+import type { CustomLinkProps } from './CustomLink.types';
 
 import { DEFAULT_VARIANT, BLANK_TARGET, DEFAULT_REL_ATTRIBUTE } from './CustomLink.constants';
 

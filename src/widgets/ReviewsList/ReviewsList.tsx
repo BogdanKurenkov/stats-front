@@ -46,7 +46,7 @@ const getInitials = (name: string) =>
 
 export const ReviewsList: FC = () => {
   const dict = useDictionary();
-  const { title, description, verifiedLabel, emptyState } = dict.reviewsList;
+  const { title, description, emptyState } = dict.reviewsList;
 
   const { page, totalPages, setPage } = usePagination({
     totalItems: MOCK_REVIEWS.length,

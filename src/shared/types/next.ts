@@ -1,11 +1,10 @@
 import type { AppProps } from "next/app";
-import type { DocumentInitialProps } from "next/document";
 import type { NextPage } from "next";
 import type { ReactNode } from "react";
 
-import common from "../../../public/locales/pt/common.json";
+import type common from "@public/locales/pt/common.json";
 
-import { ThemeMode } from "../styles/theme.types";
+import type { ThemeMode } from "../styles/theme.types";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   layout?: "main" | "auth" | "admin" | "none";
@@ -20,9 +19,5 @@ export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
   themeMode: ThemeMode;
 };
-
-export interface MyDocumentProps extends DocumentInitialProps {
-  locale: string;
-}
 
 export type Dictionary = typeof common;
