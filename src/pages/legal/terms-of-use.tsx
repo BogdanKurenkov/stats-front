@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from "next";
 
 import { TermsOfUse } from "@/widgets";
 
-import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
+import { loadLegalMessages } from "@/shared/lib/localization";
 import { Seo } from "@/shared";
 
 const TermsOfUsePage: NextPage = () => {

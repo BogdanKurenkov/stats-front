@@ -1,10 +1,8 @@
 import { GetStaticProps, type NextPage } from "next";
-import path from "path";
-import fs from "fs";
 
 import { PrivacyPolicy } from "@/widgets";
 
-import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
+import { loadLegalMessages } from "@/shared/lib/localization";
 import { Seo } from "@/shared";
 
 const PrivacyPolicyPage: NextPage = () => {

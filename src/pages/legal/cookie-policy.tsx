@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from "next";
 import { CookiePolicy } from "@/widgets";
 
 import { Seo } from "@/shared";
-import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
+import { loadLegalMessages } from "@/shared/lib/localization";
 
 const CookiePolicyPage: NextPage = () => {
   return (
