@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { type NextPage } from "next";
 
 import { TermsOfUse } from "@/widgets";
 
@@ -19,10 +19,10 @@ const TermsOfUsePage: NextPage = () => {
 
 export default TermsOfUsePage;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const messages = loadLegalMessages(locale);
+export async function getServerSideProps({ locale }: { locale: string }) {
+  const messages = await loadLegalMessages(locale);
 
   return {
     props: { messages },
   };
-};
+}

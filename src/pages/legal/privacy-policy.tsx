@@ -1,4 +1,4 @@
-import { GetStaticProps, type NextPage } from "next";
+import { type NextPage } from "next";
 
 import { PrivacyPolicy } from "@/widgets";
 
@@ -19,10 +19,10 @@ const PrivacyPolicyPage: NextPage = () => {
 
 export default PrivacyPolicyPage;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const messages = loadLegalMessages(locale);
+export async function getServerSideProps({ locale }: { locale: string }) {
+  const messages = await loadLegalMessages(locale);
 
   return {
     props: { messages },
   };
-};
+}
