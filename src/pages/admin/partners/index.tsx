@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       };
     }
 
-    const messages = await import(`../../../../public/locales/${locale}/common.json`);
+    const messages = await import(`@public/locales/${locale}/common.json`);
 
     return {
       props: {
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   } catch (error) {
     // TODO убрать временный костыль
     const { locale } = ctx;
-    const messages = await import(`../../../../public/locales/${locale}/common.json`);
+    const messages = await import(`@public/locales/${locale}/common.json`);
 
     return {
       props: {

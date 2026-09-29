@@ -1,7 +1,7 @@
 import { NewsList } from '@/widgets';
 import { MOCK_NEWS } from '@/widgets/NewsList';
 
-import { Seo, NextPageWithLayout } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
 
 const NewsPage: NextPageWithLayout = () => {
   return <>
@@ -15,11 +15,11 @@ NewsPage.layout = 'main';
 export default NewsPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

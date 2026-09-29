@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 
 import { NotFound } from '@/widgets';
 
-import { Container } from '@/shared';
+import { Container, loadMessages } from '@/shared';
 
 const Custom404: NextPage = () => {
   return (
@@ -15,11 +15,11 @@ const Custom404: NextPage = () => {
 export default Custom404;
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const messages = await import(`../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

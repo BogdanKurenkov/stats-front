@@ -6,7 +6,7 @@ const FeaturedMatches = dynamic(() => import('@/widgets').then(mod => mod.Featur
 const ForecastsList = dynamic(() => import('@/widgets').then(mod => mod.ForecastsList));
 const ForecastsAbout = dynamic(() => import('@/widgets').then(mod => mod.ForecastsAbout));
 
-import { Seo, NextPageWithLayout } from '@/shared';
+import { Seo, NextPageWithLayout, loadMessages } from '@/shared';
 
 const ForecastsPage: NextPageWithLayout = () => {
   return <>
@@ -23,11 +23,11 @@ ForecastsPage.layout = 'main';
 export default ForecastsPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 
 import { TermsOfUse } from "@/widgets";
 
-import { loadLegalMessages } from "@/shared/lib/localization";
+import { loadMessages } from "@/shared/lib/localization";
 import { Seo } from "@/shared";
 
 const TermsOfUsePage: NextPage = () => {
@@ -20,7 +20,7 @@ const TermsOfUsePage: NextPage = () => {
 export default TermsOfUsePage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await loadLegalMessages(locale);
+  const messages = await loadMessages(locale);
 
   return {
     props: { messages },

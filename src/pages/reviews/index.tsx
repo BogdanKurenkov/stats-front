@@ -1,6 +1,6 @@
 import { FAQ, ReviewsHero, ReviewsMethodology, ReviewsRating, ReviewsList, ReviewsLeaveForm } from '@/widgets';
 
-import { Seo } from '@/shared';
+import { loadMessages, Seo } from '@/shared';
 
 export default function Reviews() {
   return (
@@ -17,11 +17,11 @@ export default function Reviews() {
 }
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

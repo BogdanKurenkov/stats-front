@@ -6,7 +6,7 @@ const HowToChooseBookmaker = dynamic(() => import("@/widgets").then(mod => mod.H
 const StepsToBet = dynamic(() => import("@/widgets").then(mod => mod.StepsToBet));
 const FAQ = dynamic(() => import("@/widgets").then(mod => mod.FAQ));
 
-import { Seo } from '@/shared';
+import { loadMessages, Seo } from '@/shared';
 
 export default function Home() {
   return (
@@ -22,11 +22,11 @@ export default function Home() {
 }
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

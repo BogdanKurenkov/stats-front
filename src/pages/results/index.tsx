@@ -5,7 +5,7 @@ import { MOCK_MATCHES } from '@/widgets/results/MatchesList';
 
 const StandingsTable = dynamic(() => import('@/widgets').then(mod => mod.StandingsTable));
 
-import { NextPageWithLayout, Seo } from '@/shared';
+import { loadMessages, NextPageWithLayout, Seo } from '@/shared';
 
 const ResultsPage: NextPageWithLayout = () => {
   const upcomingMatches = MOCK_MATCHES.filter(m => m.status === 'upcoming');
@@ -26,11 +26,11 @@ ResultsPage.layout = 'main';
 export default ResultsPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

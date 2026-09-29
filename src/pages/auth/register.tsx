@@ -1,6 +1,6 @@
 import { RegisterForm } from '@/features/auth/RegisterForm';
 
-import { Seo, NextPageWithLayout } from '@/shared';
+import { Seo, NextPageWithLayout, loadMessages } from '@/shared';
 
 const RegisterPage: NextPageWithLayout = () => {
   return <>
@@ -14,11 +14,11 @@ RegisterPage.layout = 'auth';
 export default RegisterPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await import(`../../../public/locales/${locale}/common.json`);
+  const messages = await loadMessages(locale);
 
   return {
     props: {
-      messages: messages.default,
+      messages,
     },
   };
 }

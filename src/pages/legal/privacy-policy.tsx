@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 
 import { PrivacyPolicy } from "@/widgets";
 
-import { loadLegalMessages } from "@/shared/lib/localization";
+import { loadMessages } from "@/shared/lib/localization";
 import { Seo } from "@/shared";
 
 const PrivacyPolicyPage: NextPage = () => {
@@ -20,7 +20,7 @@ const PrivacyPolicyPage: NextPage = () => {
 export default PrivacyPolicyPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await loadLegalMessages(locale);
+  const messages = await loadMessages(locale);
 
   return {
     props: { messages },

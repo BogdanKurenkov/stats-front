@@ -3,7 +3,7 @@ import { type NextPage } from "next";
 import { CookiePolicy } from "@/widgets";
 
 import { Seo } from "@/shared";
-import { loadLegalMessages } from "@/shared/lib/localization";
+import { loadMessages } from "@/shared/lib/localization";
 
 const CookiePolicyPage: NextPage = () => {
   return (
@@ -20,7 +20,7 @@ const CookiePolicyPage: NextPage = () => {
 export default CookiePolicyPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const messages = await loadLegalMessages(locale);
+  const messages = await loadMessages(locale);
 
   return {
     props: { messages },
