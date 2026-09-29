@@ -6,6 +6,7 @@
     "start": "next start",
     "predev": "start http://localhost:3000",
     "dev": "next dev -p 3000",
+    "lint:styles": "stylelint \"src/**/*.{ts,tsx,css}\"",
     "prebuild": "npm run lint",
     "build": "next build",
     "postbuild": "next-sitemap",
@@ -37,6 +38,9 @@
     "@types/styled-components": "^5.1.36",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "postcss-styled-syntax": "^0.7.3",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0",
     "typescript": "^5"
   }
 }
