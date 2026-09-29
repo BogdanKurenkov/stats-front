@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import type { FC } from "react";
 
-import { CustomLink } from '@/shared/ui';
-import { ROUTES } from '@/shared/config';
+import { useDictionary } from "@/shared/lib/localization";
+import { CustomLink } from "@/shared/ui";
+import { ROUTES } from "@/shared/config";
 
-import { useCookieConsent } from './useCookieConsent';
+import { useCookieConsent } from "./useCookieConsent";
 
 import {
   Overlay,
@@ -13,9 +14,10 @@ import {
   Description,
   ButtonsContainer,
   ActionButton,
-} from './CookieConsent.styled';
+} from "./CookieConsent.styled";
 
 export const CookieConsent: FC = () => {
+  const { cookieConsent: consent } = useDictionary();
   const { showConsent, isLoading, acceptCookies } = useCookieConsent();
 
   if (isLoading || !showConsent) return null;
@@ -25,13 +27,12 @@ export const CookieConsent: FC = () => {
       <Container>
         <Content>
           <StyledTitle as="h3" level="h3">
-            🍪 Мы используем куки
+            {consent.title}
           </StyledTitle>
           <Description>
-            Мы используем файлы cookie для улучшения работы сайта, анализа трафика и персонализации контента.
-            Продолжая использовать наш сайт, вы соглашаетесь с{' '}
-            <CustomLink href={ROUTES.PRIVACY_POLICY} variant="underline">
-              политикой конфиденциальности
+            {consent.description}
+            <CustomLink href={ROUTES.COOKIE_POLICY} variant="underline">
+              {consent.privacyPolicyLink}
             </CustomLink>
             .
           </Description>
@@ -39,10 +40,10 @@ export const CookieConsent: FC = () => {
 
         <ButtonsContainer>
           <ActionButton variant="primary" size="medium" onClick={acceptCookies}>
-            Принять все
+            {consent.acceptButton}
           </ActionButton>
           <ActionButton variant="outline" size="medium" onClick={acceptCookies}>
-            Только необходимые
+            {consent.rejectButton}
           </ActionButton>
         </ButtonsContainer>
       </Container>

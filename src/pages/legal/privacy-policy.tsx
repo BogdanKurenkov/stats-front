@@ -1,13 +1,13 @@
-import { GetStaticProps, type NextPage } from 'next';
-import path from 'path';
-import fs from 'fs';
+import { GetStaticProps, type NextPage } from "next";
+import path from "path";
+import fs from "fs";
 
-import { PrivacyPolicy } from '@/widgets';
+import { PrivacyPolicy } from "@/widgets";
 
-import { Seo } from '@/shared';
+import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
+import { Seo } from "@/shared";
 
 const PrivacyPolicyPage: NextPage = () => {
-
   return (
     <>
       <Seo
@@ -22,9 +22,7 @@ const PrivacyPolicyPage: NextPage = () => {
 export default PrivacyPolicyPage;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const filePath = path.join(process.cwd(), 'public', 'locales', locale || 'pt', 'common.json');
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const messages = JSON.parse(fileContents);
+  const messages = loadLegalMessages(locale);
 
   return {
     props: { messages },

@@ -1,10 +1,9 @@
-import { GetStaticProps, NextPage } from 'next';
-import path from 'path';
-import fs from 'fs';
+import { GetStaticProps, NextPage } from "next";
 
-import { TermsOfUse } from '@/widgets';
+import { TermsOfUse } from "@/widgets";
 
-import { Seo } from '@/shared';
+import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
+import { Seo } from "@/shared";
 
 const TermsOfUsePage: NextPage = () => {
   return (
@@ -21,9 +20,7 @@ const TermsOfUsePage: NextPage = () => {
 export default TermsOfUsePage;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const filePath = path.join(process.cwd(), 'public', 'locales', locale || 'pt', 'common.json');
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const messages = JSON.parse(fileContents);
+  const messages = loadLegalMessages(locale);
 
   return {
     props: { messages },

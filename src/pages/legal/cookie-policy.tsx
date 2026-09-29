@@ -1,10 +1,9 @@
-import { GetStaticProps, NextPage } from 'next';
-import path from 'path';
-import fs from 'fs';
+import { GetStaticProps, NextPage } from "next";
 
-import { CookiePolicy } from '@/widgets';
+import { CookiePolicy } from "@/widgets";
 
-import { Seo } from '@/shared';
+import { Seo } from "@/shared";
+import { loadLegalMessages } from "@/shared/lib/localization/loadLegalMessages";
 
 const CookiePolicyPage: NextPage = () => {
   return (
@@ -21,9 +20,7 @@ const CookiePolicyPage: NextPage = () => {
 export default CookiePolicyPage;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const filePath = path.join(process.cwd(), 'public', 'locales', locale || 'pt', 'common.json');
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const messages = JSON.parse(fileContents);
+  const messages = loadLegalMessages(locale);
 
   return {
     props: { messages },
