@@ -1,11 +1,8 @@
-import Document, { DocumentContext, DocumentInitialProps, Html, Head, Main, NextScript } from 'next/document';
+import Document, { type DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-const DEFAULT_LOCALE = "pt"
-
-interface MyDocumentProps extends DocumentInitialProps {
-  locale: string;
-}
+import { MyDocumentProps } from '@/shared/types';
+import { DEFAULT_LOCALE } from '@/shared/lib/localization';
 
 export default class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(

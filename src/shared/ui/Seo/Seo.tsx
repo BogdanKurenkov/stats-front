@@ -3,11 +3,9 @@ import { useRouter } from 'next/router';
 import type { FC } from 'react';
 
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, DEFAULT_OG_IMAGE } from '@/shared/config';
+import { DEFAULT_LOCALE, LOCALES } from '@/shared/lib/localization';
 
 import type { SeoProps } from './Seo.types';
-
-const LOCALES = ['pt', 'en', 'es', 'ru'] as const;
-const DEFAULT_LOCALE = 'pt';
 
 const withLocale = (cleanPath: string, locale: string) => {
   const clean = cleanPath === '/' ? '' : cleanPath;

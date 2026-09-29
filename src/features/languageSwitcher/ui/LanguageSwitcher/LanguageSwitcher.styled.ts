@@ -1,5 +1,6 @@
-import { Select } from "@/shared";
 import styled from "styled-components";
+
+import { Select } from "@/shared";
 
 export const StyledSelect = styled(Select)`
   & button {

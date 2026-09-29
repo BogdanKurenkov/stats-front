@@ -1,3 +1,7 @@
+export const LOCALES = ["pt", "en", "es", "ru"] as const;
+
+export const DEFAULT_LOCALE = "pt";
+
 export const LANGUAGES = [
   { value: "pt", label: "Português" },
   { value: "en", label: "English" },

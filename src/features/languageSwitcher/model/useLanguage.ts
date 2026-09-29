@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect } from "react";
 import { parseCookies, setCookie } from "nookies";
 
-import type { Locale } from "./constants";
+import type { Locale } from "@/shared";
 
 export const useLanguage = () => {
   const router = useRouter();

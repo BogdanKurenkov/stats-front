@@ -1,4 +1,4 @@
-import { createContext, type FC, useContext, useState } from 'react';
+import { type FC, createContext, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { setCookie } from 'nookies';
 

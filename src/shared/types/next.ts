@@ -1,4 +1,5 @@
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
+import type { DocumentInitialProps } from "next/document";
 import type { NextPage } from "next";
 import type { ReactNode } from "react";
 
@@ -19,5 +20,9 @@ export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
   themeMode: ThemeMode;
 };
+
+export interface MyDocumentProps extends DocumentInitialProps {
+  locale: string;
+}
 
 export type Dictionary = typeof common;

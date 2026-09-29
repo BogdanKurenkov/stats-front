@@ -1,5 +1,6 @@
-import { LANGUAGES, useLanguage } from '../../model';
-import { Locale } from '../../model/constants';
+import { useLanguage } from '../../model';
+
+import { LANGUAGES, type Locale, } from '@/shared/lib/localization';
 
 import { StyledSelect } from './LanguageSwitcher.styled';
 

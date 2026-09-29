@@ -1,6 +1,6 @@
 import "styled-components";
 
-import type { Colors, Typography, Breakpoints } from "@/shared";
+import type { Colors, Typography, Breakpoints } from "@/shared/styles";
 
 type Theme = {
   mode: "light" | "dark";

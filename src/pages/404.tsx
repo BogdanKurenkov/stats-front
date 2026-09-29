@@ -1,6 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
-import path from 'path';
-import fs from 'fs';
+import type { NextPage } from 'next';
 
 import { NotFound } from '@/widgets';
 
@@ -16,12 +14,12 @@ const Custom404: NextPage = () => {
 
 export default Custom404;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const filePath = path.join(process.cwd(), 'public', 'locales', locale || 'pt', 'common.json');
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const messages = JSON.parse(fileContents);
+export async function getStaticProps({ locale }: { locale: string }) {
+  const messages = await import(`../../public/locales/${locale}/common.json`);
 
   return {
-    props: { messages },
+    props: {
+      messages: messages.default,
+    },
   };
-};
+}
