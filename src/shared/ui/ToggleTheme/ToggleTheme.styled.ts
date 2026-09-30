@@ -40,7 +40,7 @@ export const Knob = styled.div<{ $isDark: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
 `;
 
 export const Icon = styled.span`

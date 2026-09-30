@@ -51,7 +51,7 @@ export const ApproachCard = styled.div`
 `;
 
 export const ApproachTitle = styled(Title)`
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
   font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.orange.primary};
@@ -131,7 +131,7 @@ export const AdvantageNumber = styled.div`
 `;
 
 export const AdvantageTitle = styled(Title)`
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
   font-size: 16px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray[100]};
@@ -162,7 +162,7 @@ export const FeatureCard = styled.div`
 `;
 
 export const FeatureTitle = styled(Title)`
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
   font-size: 16px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.orange.primary};

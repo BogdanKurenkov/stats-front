@@ -79,7 +79,7 @@ export const ToggleTrack = styled.span<{
       $disabled ? theme.colors.gray[400] : "#ffffff"};
     border-radius: 50%;
     transition: left 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
   }
 
   ${HiddenToggle}:focus-visible + & {
@@ -88,7 +88,7 @@ export const ToggleTrack = styled.span<{
 
   @media (hover: hover) {
     ${HiddenToggle}:hover:not(:disabled) + &::after {
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
     }
   }
 `;

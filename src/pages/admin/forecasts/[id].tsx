@@ -230,13 +230,13 @@ export const LoadingWrapper = styled.div`
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
   }
 `;
 
-// Стили для коэффициентов
 export const OddsSection = styled.div`
   display: flex;
   flex-direction: column;

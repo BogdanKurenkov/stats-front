@@ -21,14 +21,14 @@ export const StyledFormContainer = styled.div`
   padding: 40px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 40%);
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   transition: all 0.3s ease;
 
   @media (hover: hover) {
     &:hover {
       border-color: ${({ theme }) => theme.colors.gray[700]};
-      box-shadow: 0 12px 48px rgba(249, 115, 22, 0.15);
+      box-shadow: 0 12px 48px rgb(249 115 22 / 15%);
     }
   }
 

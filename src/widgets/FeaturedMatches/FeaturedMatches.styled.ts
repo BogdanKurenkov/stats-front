@@ -40,11 +40,10 @@ export const SwiperContainer = styled.div`
   .swiper-button-next {
     width: 44px;
     height: 44px;
-    background-color: ${({ theme }) => theme.colors.black.secondary};
     border: 2px solid ${({ theme }) => theme.colors.gray[700]};
     border-radius: 50%;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.gray[800]};
 

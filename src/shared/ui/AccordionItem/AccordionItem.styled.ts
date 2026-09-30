@@ -71,6 +71,7 @@ export const StyledAccordionContent = styled(AccordionPrimitive.Content)`
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
@@ -80,6 +81,7 @@ export const StyledAccordionContent = styled(AccordionPrimitive.Content)`
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }

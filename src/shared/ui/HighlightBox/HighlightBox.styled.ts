@@ -11,7 +11,7 @@ export const StyledHighlightBox = styled.div<StyledHighlightBoxProps>`
   border-left: 4px solid ${({ theme }) => theme.colors.orange.primary};
   border-radius: 16px;
   margin: 8px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   padding: 28px 32px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

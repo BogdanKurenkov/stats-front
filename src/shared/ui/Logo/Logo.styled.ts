@@ -32,9 +32,6 @@ export const LogoIconWrapper = styled.div`
   justify-content: center;
   width: max-content;
   height: max-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   svg {
     width: 100%;

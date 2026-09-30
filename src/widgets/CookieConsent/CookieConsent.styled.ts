@@ -32,7 +32,7 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 40%);
   animation: ${slideUp} 0.3s ease-out;
   pointer-events: auto;
   display: flex;

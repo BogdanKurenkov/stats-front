@@ -14,7 +14,7 @@ const slideIn = keyframes`
 export const ModalContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
   width: 800px;
   max-height: 90vh;
   overflow-y: auto;
@@ -22,7 +22,7 @@ export const ModalContainer = styled.div`
   animation: ${slideIn} 0.3s ease-out;
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     width: 95%;
     border-radius: 8px;
   }
@@ -61,7 +61,7 @@ export const ModalCloseButton = styled.button`
     outline-offset: 2px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     top: 8px;
     right: 8px;
     width: 28px;
@@ -74,7 +74,7 @@ export const ModalContent = styled.div`
   padding: 24px;
   color: ${({ theme }) => theme.colors.gray[100]};
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     padding: 20px;
   }
 `;

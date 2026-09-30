@@ -38,7 +38,7 @@ export const StepCard = styled.div`
   @media (hover: hover) {
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 24px rgb(0 0 0 / 30%);
     }
   }
 

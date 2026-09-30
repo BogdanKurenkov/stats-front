@@ -72,7 +72,7 @@ export const LoyaltyCard = styled.div`
 `;
 
 export const LoyaltyTitle = styled(Title)`
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
   font-size: 20px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.orange.primary};

@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.colors.gray[600]} ${({ theme }) =>
+  theme.colors.gray[800]};
   }
 
   html, body {
@@ -45,12 +48,6 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.orange.primary};
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: ${({ theme }) => theme.colors.gray[600]} ${({ theme }) =>
-  theme.colors.gray[800]};
   }
 
   a {

@@ -6,8 +6,14 @@ export default {
     'property-no-unknown': true,
     'declaration-block-no-duplicate-properties': true,
     'no-empty-source': null,
-
+    'no-descending-specificity': null,
+    'keyframes-name-pattern': null,
     'media-query-no-invalid': null,
+    'property-no-vendor-prefix': null,
+    'length-zero-no-unit': null,
+    'value-keyword-case': ['lower', {
+      ignoreKeywords: ['currentColor'],
+    }],
     'function-no-unknown': [
       true,
       { ignoreFunctions: ['theme', 'css', 'styled', 'props'] },

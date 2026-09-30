@@ -6,11 +6,12 @@
     "start": "next start",
     "predev": "start http://localhost:3000",
     "dev": "next dev -p 3000",
+    "lint": "eslint .",
     "lint:styles": "stylelint \"src/**/*.{ts,tsx,css}\"",
-    "prebuild": "npm run lint",
+    "prebuild": "npm run lint && npm run lint:styles",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "lint": "eslint"
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -38,9 +39,19 @@
     "@types/styled-components": "^5.1.36",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "postcss-styled-syntax": "^0.7.3",
     "stylelint": "^17.15.0",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{css,ts,tsx}": [
+      "stylelint --fix"
+    ]
   }
 }

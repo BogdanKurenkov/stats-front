@@ -57,7 +57,7 @@ export const StyledContent = styled(SelectPrimitive.Content)`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 1px solid ${({ theme }) => theme.colors.gray[700]};
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
   z-index: 1000;
 `;
 
@@ -133,7 +133,7 @@ export const VisuallyHidden = styled.span`
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border-width: 0;
 `;
