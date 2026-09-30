@@ -1,8 +1,13 @@
-export { colors } from "./colors";
+export { colors, type Colors } from "./colors";
 
-export { typography } from "./typography";
+export { typography, type Typography } from "./typography";
 
-export { breakpoints, devices } from "./breakpoints";
+export {
+  breakpoints,
+  devices,
+  type Breakpoints,
+  type Devices,
+} from "./breakpoints";
 
 export { spacing } from "./spacing";
 
