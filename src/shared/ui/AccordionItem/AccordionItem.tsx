@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import type { AccordionItemProps } from './AccordionItem.types';
+import type { AccordionItemProps } from "./AccordionItem.types";
 
 import {
   StyledAccordionContent,
@@ -9,14 +9,18 @@ import {
   StyledAccordionItem,
   StyledAccordionTrigger,
   StyledChevron,
-} from './AccordionItem.styled';
+} from "./AccordionItem.styled";
 
-export const AccordionItem: FC<AccordionItemProps> = ({ value, trigger, children }) => {
+export const AccordionItem: FC<AccordionItemProps> = ({
+  value,
+  trigger,
+  children,
+}) => {
   return (
     <StyledAccordionItem
       value={value}
       onClick={(e) => {
-        e.stopPropagation()
+        e.stopPropagation();
       }}
     >
       <StyledAccordionHeader>
@@ -26,9 +30,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({ value, trigger, children
         </StyledAccordionTrigger>
       </StyledAccordionHeader>
       <StyledAccordionContent>
-        <StyledAccordionContentText>
-          {children}
-        </StyledAccordionContentText>
+        <StyledAccordionContentText>{children}</StyledAccordionContentText>
       </StyledAccordionContent>
     </StyledAccordionItem>
   );

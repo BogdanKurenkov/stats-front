@@ -1,36 +1,24 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import type { TextareaProps } from './Textarea.types';
+import type { TextareaProps } from "./Textarea.types";
 
 import {
   TextareaContainer,
   TextareaLabel,
   StyledTextarea,
-  ErrorMessage
-} from './Textarea.styled';
+  ErrorMessage,
+} from "./Textarea.styled";
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      label,
-      error,
-      className = '',
-      disabled = false,
-      id,
-      ...rest
-    },
-    ref
-  ) => {
-    const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+  ({ label, error, className = "", disabled = false, id, ...rest }, ref) => {
+    const textareaId =
+      id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
     const hasError = !!error;
 
     return (
       <TextareaContainer className={className}>
         {label && (
-          <TextareaLabel
-            htmlFor={textareaId}
-            $hasError={hasError}
-          >
+          <TextareaLabel htmlFor={textareaId} $hasError={hasError}>
             {label}
           </TextareaLabel>
         )}
@@ -52,7 +40,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
       </TextareaContainer>
     );
-  }
+  },
 );
 
-Textarea.displayName = 'Textarea';
+Textarea.displayName = "Textarea";

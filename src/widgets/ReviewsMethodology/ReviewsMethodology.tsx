@@ -1,8 +1,14 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { useReveal } from '@/shared/lib/hooks';
-import { Container, Section, Title, Paragraph, HighlightBox, } from '@/shared/ui';
+import { useDictionary } from "@/shared/lib/localization";
+import { useReveal } from "@/shared/lib/hooks";
+import {
+  Container,
+  Section,
+  Title,
+  Paragraph,
+  HighlightBox,
+} from "@/shared/ui";
 
 import {
   MethodologyWrapper,
@@ -14,7 +20,7 @@ import {
   StepDescription,
   NoteText,
   NoteReveal,
-} from './ReviewsMethodology.styled';
+} from "./ReviewsMethodology.styled";
 
 export const ReviewsMethodology: FC = () => {
   const dict = useDictionary();
@@ -58,10 +64,7 @@ export const ReviewsMethodology: FC = () => {
             })}
           </StepsGrid>
 
-          <NoteReveal
-            ref={noteReveal.ref}
-            $visible={noteReveal.isVisible}
-          >
+          <NoteReveal ref={noteReveal.ref} $visible={noteReveal.isVisible}>
             <HighlightBox>
               <NoteText size="lg">{note}</NoteText>
             </HighlightBox>

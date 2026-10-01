@@ -1,15 +1,9 @@
-import { type FC, useMemo } from 'react';
+import { type FC, useMemo } from "react";
 
-import { useDictionary, usePagination } from '@/shared/lib';
-import {
-  Container,
-  Section,
-  Title,
-  Paragraph,
-  Pagination
-} from '@/shared/ui';
+import { useDictionary, usePagination } from "@/shared/lib";
+import { Container, Section, Title, Paragraph, Pagination } from "@/shared/ui";
 
-import { MOCK_REVIEWS, ITEMS_PER_PAGE } from './ReviewsList.constants';
+import { MOCK_REVIEWS, ITEMS_PER_PAGE } from "./ReviewsList.constants";
 
 import {
   ReviewsWrapper,
@@ -28,20 +22,20 @@ import {
   ReviewText,
   EmptyState,
   PaginationWrapper,
-} from './ReviewsList.styled';
+} from "./ReviewsList.styled";
 
 const renderStars = (rating: number) => {
-  const full = '★'.repeat(rating);
-  const empty = '☆'.repeat(5 - rating);
+  const full = "★".repeat(rating);
+  const empty = "☆".repeat(5 - rating);
   return full + empty;
 };
 
 const getInitials = (name: string) =>
   name
-    .split(' ')
+    .split(" ")
     .map((part) => part[0])
     .slice(0, 2)
-    .join('')
+    .join("")
     .toUpperCase();
 
 export const ReviewsList: FC = () => {
@@ -81,7 +75,10 @@ export const ReviewsList: FC = () => {
                       <AuthorName>
                         {review.author}
                         {review.verified && (
-                          <VerifiedBadge title="Проверенный отзыв" aria-label="Проверенный отзыв">
+                          <VerifiedBadge
+                            title="Проверенный отзыв"
+                            aria-label="Проверенный отзыв"
+                          >
                             ✓
                           </VerifiedBadge>
                         )}

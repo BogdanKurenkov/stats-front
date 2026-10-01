@@ -1,38 +1,46 @@
-import { type FC, createContext, useContext, useState } from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { setCookie } from 'nookies';
+import { type FC, createContext, useContext, useState } from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { setCookie } from "nookies";
 
-import { colors, typography, breakpoints, type ThemeMode } from '@/shared/styles';
+import {
+  colors,
+  typography,
+  breakpoints,
+  type ThemeMode,
+} from "@/shared/styles";
 
-import type { CustomThemeProviderProps, ThemeContextType } from './ThemeProvider.types';
+import type {
+  CustomThemeProviderProps,
+  ThemeContextType,
+} from "./ThemeProvider.types";
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
+    throw new Error("useTheme must be used within ThemeProvider");
   }
   return context;
 };
 
 export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({
   children,
-  initialMode
+  initialMode,
 }) => {
-  const [mode, setMode] = useState<ThemeMode>(initialMode || 'dark');
+  const [mode, setMode] = useState<ThemeMode>(initialMode || "dark");
 
   const toggleTheme = () => {
-    const newMode = mode === 'dark' ? 'light' : 'dark';
+    const newMode = mode === "dark" ? "light" : "dark";
     setMode(newMode);
-    setCookie(null, 'theme-mode', newMode, {
+    setCookie(null, "theme-mode", newMode, {
       maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'strict',
+      path: "/",
+      sameSite: "strict",
     });
   };
 
-  const currentColors = mode === 'dark' ? colors.dark : colors.light;
+  const currentColors = mode === "dark" ? colors.dark : colors.light;
 
   const theme = {
     mode,
@@ -48,9 +56,7 @@ export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>
-      <StyledThemeProvider theme={theme}>
-        {children}
-      </StyledThemeProvider>
+      <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };

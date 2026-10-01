@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { StyledRequiredMark } from './RequiredMark.styled';
+import { StyledRequiredMark } from "./RequiredMark.styled";
 
 export const RequiredMark: FC = () => {
   return <StyledRequiredMark>*</StyledRequiredMark>;

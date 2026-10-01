@@ -1,22 +1,22 @@
-import dynamic from 'next/dynamic';
-import type { FC } from 'react';
+import dynamic from "next/dynamic";
+import type { FC } from "react";
 
-const CookieConsent = dynamic(() => import("@/widgets").then(mod => mod.CookieConsent));
+const CookieConsent = dynamic(() =>
+  import("@/widgets").then((mod) => mod.CookieConsent),
+);
 
-import { YandexMetrika } from '@/shared';
-import { Container } from '@/shared';
+import { YandexMetrika } from "@/shared";
+import { Container } from "@/shared";
 
-import type { AuthLayoutProps } from './AuthLayout.types';
+import type { AuthLayoutProps } from "./AuthLayout.types";
 
-import { AuthWrapper } from './AuthLayout.styled';
+import { AuthWrapper } from "./AuthLayout.styled";
 
 export const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
   return (
     <AuthWrapper>
       <YandexMetrika />
-      <Container>
-        {children}
-      </Container>
+      <Container>{children}</Container>
       <CookieConsent />
     </AuthWrapper>
   );

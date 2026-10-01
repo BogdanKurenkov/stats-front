@@ -1,6 +1,13 @@
-import { FAQ, ReviewsHero, ReviewsMethodology, ReviewsRating, ReviewsList, ReviewsLeaveForm } from '@/widgets';
+import {
+  FAQ,
+  ReviewsHero,
+  ReviewsMethodology,
+  ReviewsRating,
+  ReviewsList,
+  ReviewsLeaveForm,
+} from "@/widgets";
 
-import { loadMessages, Seo } from '@/shared';
+import { loadMessages, Seo } from "@/shared";
 
 export default function Reviews() {
   return (

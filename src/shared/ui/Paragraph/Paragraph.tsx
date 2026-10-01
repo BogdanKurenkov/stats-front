@@ -3,8 +3,8 @@ import type { ParagraphProps } from "./Paragraph.types";
 import { StyledParagraph } from "./Paragraph.styled";
 
 export const Paragraph = ({
-  as = 'p',
-  size = 'md',
+  as = "p",
+  size = "md",
   children,
   ...rest
 }: ParagraphProps) => {
@@ -15,4 +15,4 @@ export const Paragraph = ({
   );
 };
 
-Paragraph.displayName = 'Paragraph';
+Paragraph.displayName = "Paragraph";

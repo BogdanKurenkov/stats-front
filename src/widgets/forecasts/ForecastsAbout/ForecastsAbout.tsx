@@ -1,7 +1,7 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Title, Paragraph, HighlightBox } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { Container, Section, Title, Paragraph, HighlightBox } from "@/shared";
 
 import {
   AboutWrapper,
@@ -24,7 +24,7 @@ import {
   FeatureDescription,
   DisclaimerBox,
   DisclaimerText,
-} from './ForecastsAbout.styled';
+} from "./ForecastsAbout.styled";
 
 export const ForecastsAbout: FC = () => {
   const dict = useDictionary();
@@ -46,18 +46,14 @@ export const ForecastsAbout: FC = () => {
           ))}
 
           <HighlightBox>
-            <HighlightText size="lg">
-              {data.highlightText}
-            </HighlightText>
+            <HighlightText size="lg">{data.highlightText}</HighlightText>
           </HighlightBox>
 
           <SectionBlock>
             <Title as="h2" level="h2">
               {data.approachTitle}
             </Title>
-            <Paragraph size="lg">
-              {data.approachDescription}
-            </Paragraph>
+            <Paragraph size="lg">{data.approachDescription}</Paragraph>
           </SectionBlock>
 
           <ApproachGrid>
@@ -115,9 +111,7 @@ export const ForecastsAbout: FC = () => {
             <Title as="h2" level="h2">
               {data.footballFeaturesTitle}
             </Title>
-            <Paragraph size="lg">
-              {data.footballFeaturesDescription}
-            </Paragraph>
+            <Paragraph size="lg">{data.footballFeaturesDescription}</Paragraph>
           </SectionBlock>
 
           <FeaturesGrid>

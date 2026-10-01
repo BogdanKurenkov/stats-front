@@ -1,10 +1,10 @@
-import { forwardRef, useId } from 'react';
-import * as SelectPrimitive from '@radix-ui/react-select';
-import { Check } from 'lucide-react';
+import { forwardRef, useId } from "react";
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { Check } from "lucide-react";
 
-import { RequiredMark } from '@/shared';
+import { RequiredMark } from "@/shared";
 
-import type { SelectProps } from './Select.types';
+import type { SelectProps } from "./Select.types";
 
 import {
   StyledLabel,
@@ -18,7 +18,7 @@ import {
   StyledTrigger,
   StyledViewport,
   VisuallyHidden,
-} from './Select.styled';
+} from "./Select.styled";
 
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(
   (
@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       defaultValue,
       onValueChange,
       options,
-      placeholder = 'Выберите...',
+      placeholder = "Выберите...",
       label,
       error,
       disabled,
@@ -36,18 +36,16 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       required,
       renderValue,
     },
-    ref
+    ref,
   ) => {
     const labelId = useId();
     const valueId = useId();
     const errorId = useId();
 
-    const selectedOption = options.find(opt => opt.value === value);
+    const selectedOption = options.find((opt) => opt.value === value);
     const currentValueText = selectedOption?.label ?? placeholder;
 
-    const ariaLabelledBy = label
-      ? `${labelId} ${valueId}`
-      : valueId;
+    const ariaLabelledBy = label ? `${labelId} ${valueId}` : valueId;
 
     const ariaDescribedBy = error ? errorId : undefined;
 
@@ -119,13 +117,13 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
           <input
             type="hidden"
             name={name}
-            value={value || ''}
+            value={value || ""}
             disabled={disabled}
           />
         )}
       </Container>
     );
-  }
+  },
 );
 
-Select.displayName = 'Select';
+Select.displayName = "Select";

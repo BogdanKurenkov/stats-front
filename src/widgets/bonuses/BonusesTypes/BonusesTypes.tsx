@@ -1,7 +1,7 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Divider, Section } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { Container, Divider, Section } from "@/shared";
 
 import {
   TypesWrapper,
@@ -12,7 +12,7 @@ import {
   LoyaltyCard,
   LoyaltyTitle,
   LoyaltyText,
-} from './BonusesTypes.styled';
+} from "./BonusesTypes.styled";
 
 export const BonusesTypes: FC = () => {
   const dict = useDictionary();
@@ -25,9 +25,7 @@ export const BonusesTypes: FC = () => {
           <TypeName as="h2" level="h2">
             {data.title}
           </TypeName>
-          <TypeDescription size="lg">
-            {data.description}
-          </TypeDescription>
+          <TypeDescription size="lg">{data.description}</TypeDescription>
 
           <TypesGrid>
             {data.types.map((type, index) => (
@@ -35,9 +33,7 @@ export const BonusesTypes: FC = () => {
                 <TypeName as="h3" level="h3">
                   {type.name}
                 </TypeName>
-                <TypeDescription size="md">
-                  {type.description}
-                </TypeDescription>
+                <TypeDescription size="md">{type.description}</TypeDescription>
               </TypeCard>
             ))}
           </TypesGrid>
@@ -48,9 +44,7 @@ export const BonusesTypes: FC = () => {
             <LoyaltyTitle as="h3" level="h3">
               {data.loyaltyTitle}
             </LoyaltyTitle>
-            <LoyaltyText size="md">
-              {data.loyaltyText}
-            </LoyaltyText>
+            <LoyaltyText size="md">{data.loyaltyText}</LoyaltyText>
           </LoyaltyCard>
         </TypesWrapper>
       </Container>

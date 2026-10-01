@@ -1,8 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import type { ContainerProps } from './Container.types';
+import type { ContainerProps } from "./Container.types";
 
-import { ContainerWrapper } from './Container.styled';
+import { ContainerWrapper } from "./Container.styled";
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, ...rest }, ref) => {
@@ -11,7 +11,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         {children}
       </ContainerWrapper>
     );
-  }
+  },
 );
 
-Container.displayName = 'Container';
+Container.displayName = "Container";

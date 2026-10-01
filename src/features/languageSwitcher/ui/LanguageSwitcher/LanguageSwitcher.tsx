@@ -1,8 +1,8 @@
-import { useLanguage } from '../../model';
+import { useLanguage } from "../../model";
 
-import { LANGUAGES, type Locale, } from '@/shared/lib/localization';
+import { LANGUAGES, type Locale } from "@/shared/lib/localization";
 
-import { StyledSelect } from './LanguageSwitcher.styled';
+import { StyledSelect } from "./LanguageSwitcher.styled";
 
 export const LanguageSwitcher = () => {
   const { currentLocale, switchLanguage } = useLanguage();

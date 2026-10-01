@@ -1,15 +1,17 @@
-import { LoginForm } from '@/features/auth/LoginForm';
+import { LoginForm } from "@/features/auth/LoginForm";
 
-import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
 
 const LoginPage: NextPageWithLayout = () => {
-  return <>
-    <Seo title="Авторизация" />
-    <LoginForm />;
-  </>
+  return (
+    <>
+      <Seo title="Авторизация" />
+      <LoginForm />;
+    </>
+  );
 };
 
-LoginPage.layout = 'auth';
+LoginPage.layout = "auth";
 
 export default LoginPage;
 

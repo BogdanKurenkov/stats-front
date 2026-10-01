@@ -1,7 +1,7 @@
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from "next";
 
-import type { NextPageWithLayout } from '@/shared/types';
-import { Seo } from '@/shared';
+import type { NextPageWithLayout } from "@/shared/types";
+import { Seo } from "@/shared";
 
 const AdminDashboard: NextPageWithLayout = () => {
   return (
@@ -16,12 +16,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
       headers: {
-        cookie: ctx.req.headers.cookie || '',
+        cookie: ctx.req.headers.cookie || "",
       },
     });
 
     const session = await res.json();
-    const isAdmin = session.user?.role === 'admin';
+    const isAdmin = session.user?.role === "admin";
 
     if (!isAdmin) {
       return {
@@ -40,6 +40,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 };
 
-AdminDashboard.layout = "admin"
+AdminDashboard.layout = "admin";
 
 export default AdminDashboard;

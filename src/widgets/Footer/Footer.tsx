@@ -1,8 +1,8 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { Logo } from '@/shared';
+import { Logo } from "@/shared";
 
-import { FOOTER_SECTIONS } from './Footer.constants';
+import { FOOTER_SECTIONS } from "./Footer.constants";
 
 import {
   FooterContainer,
@@ -14,7 +14,7 @@ import {
   FooterLink,
   FooterBottom,
   Copyright,
-} from './Footer.styled';
+} from "./Footer.styled";
 
 export const Footer: FC = () => {
   const currentYear = new Date().getFullYear();

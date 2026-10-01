@@ -1,5 +1,13 @@
 import { useEffect, type FC } from "react";
-import { ChevronLeft, Form, Loader2, Plus, Save, Trash2, X } from "lucide-react";
+import {
+  ChevronLeft,
+  Form,
+  Loader2,
+  Plus,
+  Save,
+  Trash2,
+  X,
+} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -9,7 +17,11 @@ import { FORECASTS } from "../forecasts/ForecastsList/ForecastsList.constants";
 
 import type { ForecastFormValues } from "./ForecastsForm.types";
 
-import { DEFAULT_VALUES, FIELD_LABELS, PLACEHOLDERS } from "./ForecastsForm.constants";
+import {
+  DEFAULT_VALUES,
+  FIELD_LABELS,
+  PLACEHOLDERS,
+} from "./ForecastsForm.constants";
 
 import { forecastFormSchema } from "./ForecastsForm.schema";
 
@@ -50,12 +62,12 @@ export const ForecastsForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<ForecastFormValues>({
     resolver: zodResolver(forecastFormSchema),
-    mode: 'onTouched',
-    reValidateMode: 'onChange',
+    mode: "onTouched",
+    reValidateMode: "onChange",
     defaultValues: DEFAULT_VALUES,
   });
 
-  const odds = watch('odds');
+  const odds = watch("odds");
 
   useEffect(() => {
     if (isEditMode && id) {
@@ -79,30 +91,33 @@ export const ForecastsForm: FC = () => {
 
   const onSubmit = async (/*data: ForecastFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    router.push('/admin/forecasts');
+    router.push("/admin/forecasts");
   };
 
   const handleDelete = () => {
-    if (window.confirm('Вы уверены, что хотите удалить этот прогноз?')) {
+    if (window.confirm("Вы уверены, что хотите удалить этот прогноз?")) {
       setTimeout(() => {
-        router.push('/admin/forecasts');
+        router.push("/admin/forecasts");
       }, 1000);
     }
   };
 
   const handleCancel = () => {
-    router.push('/admin/forecasts');
+    router.push("/admin/forecasts");
   };
 
   const addOdd = () => {
-    const currentOdds = watch('odds') || [];
-    setValue('odds', [...currentOdds, { label: '', value: '' }]);
+    const currentOdds = watch("odds") || [];
+    setValue("odds", [...currentOdds, { label: "", value: "" }]);
   };
 
   const removeOdd = (index: number) => {
-    const currentOdds = watch('odds') || [];
+    const currentOdds = watch("odds") || [];
     if (currentOdds.length > 1) {
-      setValue('odds', currentOdds.filter((_, i) => i !== index));
+      setValue(
+        "odds",
+        currentOdds.filter((_, i) => i !== index),
+      );
     }
   };
 
@@ -123,7 +138,9 @@ export const ForecastsForm: FC = () => {
           <BackButton onClick={handleCancel} aria-label="Назад">
             <ChevronLeft />
           </BackButton>
-          <Title>{isEditMode ? 'Редактирование прогноза' : 'Создание прогноза'}</Title>
+          <Title>
+            {isEditMode ? "Редактирование прогноза" : "Создание прогноза"}
+          </Title>
         </HeaderLeft>
         <Actions>
           {isEditMode && (
@@ -137,50 +154,76 @@ export const ForecastsForm: FC = () => {
 
       <FormWrapper>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FormField label={FIELD_LABELS.SPORT} required error={errors.sport?.message}>
+          <FormField
+            label={FIELD_LABELS.SPORT}
+            required
+            error={errors.sport?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.SPORT}
               error={errors.sport?.message}
-              {...register('sport')}
+              {...register("sport")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.DATE} required error={errors.date?.message}>
+          <FormField
+            label={FIELD_LABELS.DATE}
+            required
+            error={errors.date?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.DATE}
               error={errors.date?.message}
-              {...register('date')}
+              {...register("date")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.TIME} required error={errors.time?.message}>
+          <FormField
+            label={FIELD_LABELS.TIME}
+            required
+            error={errors.time?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.TIME}
               error={errors.time?.message}
-              {...register('time')}
+              {...register("time")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.HOME_TEAM} required error={errors.homeTeam?.message}>
+          <FormField
+            label={FIELD_LABELS.HOME_TEAM}
+            required
+            error={errors.homeTeam?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.HOME_TEAM}
               error={errors.homeTeam?.message}
-              {...register('homeTeam')}
+              {...register("homeTeam")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.AWAY_TEAM} required error={errors.awayTeam?.message}>
+          <FormField
+            label={FIELD_LABELS.AWAY_TEAM}
+            required
+            error={errors.awayTeam?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.AWAY_TEAM}
               error={errors.awayTeam?.message}
-              {...register('awayTeam')}
+              {...register("awayTeam")}
             />
           </FormField>
 
           <OddsSection>
             <OddsTitle>{FIELD_LABELS.ODDS}</OddsTitle>
             {errors.odds?.message && (
-              <div style={{ color: '#F44336', fontSize: '12px', marginBottom: '8px' }}>
+              <div
+                style={{
+                  color: "#F44336",
+                  fontSize: "12px",
+                  marginBottom: "8px",
+                }}
+              >
                 {errors.odds.message}
               </div>
             )}
@@ -188,14 +231,20 @@ export const ForecastsForm: FC = () => {
               {odds?.map((_, index) => (
                 <OddsRow key={index}>
                   <OddsFieldGroup>
-                    <FormField label="Название" error={errors.odds?.[index]?.label?.message}>
+                    <FormField
+                      label="Название"
+                      error={errors.odds?.[index]?.label?.message}
+                    >
                       <Input
                         placeholder={PLACEHOLDERS.ODD_LABEL}
                         error={errors.odds?.[index]?.label?.message}
                         {...register(`odds.${index}.label`)}
                       />
                     </FormField>
-                    <FormField label="Значение" error={errors.odds?.[index]?.value?.message}>
+                    <FormField
+                      label="Значение"
+                      error={errors.odds?.[index]?.value?.message}
+                    >
                       <Input
                         placeholder={PLACEHOLDERS.ODD_VALUE}
                         error={errors.odds?.[index]?.value?.message}
@@ -221,28 +270,44 @@ export const ForecastsForm: FC = () => {
             </AddOddButton>
           </OddsSection>
 
-          <FormField label={FIELD_LABELS.AUTHOR} required error={errors.author?.message}>
+          <FormField
+            label={FIELD_LABELS.AUTHOR}
+            required
+            error={errors.author?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.AUTHOR}
               error={errors.author?.message}
-              {...register('author')}
+              {...register("author")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.PREVIEW} required error={errors.preview?.message}>
+          <FormField
+            label={FIELD_LABELS.PREVIEW}
+            required
+            error={errors.preview?.message}
+          >
             <Textarea
               placeholder={PLACEHOLDERS.PREVIEW}
               error={errors.preview?.message}
               rows={6}
-              {...register('preview')}
+              {...register("preview")}
             />
           </FormField>
 
           <FormActions>
-            <CancelButton type="button" onClick={handleCancel} disabled={isSubmitting}>
+            <CancelButton
+              type="button"
+              onClick={handleCancel}
+              disabled={isSubmitting}
+            >
               Отмена
             </CancelButton>
-            <SaveButton type="submit" $isLoading={isSubmitting} disabled={isSubmitting}>
+            <SaveButton
+              type="submit"
+              $isLoading={isSubmitting}
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
                 <>
                   <Loader2 size={18} />

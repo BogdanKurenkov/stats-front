@@ -1,12 +1,12 @@
-import { type FC, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { type FC, useState } from "react";
+import { useRouter } from "next/navigation";
 
-import { Container, Section } from '@/shared';
-import { ROUTES } from '@/shared/config';
+import { Container, Section } from "@/shared";
+import { ROUTES } from "@/shared/config";
 
-import { FORECASTS, TEXT_DEFAULT } from './ForecastsList.constants';
+import { FORECASTS, TEXT_DEFAULT } from "./ForecastsList.constants";
 
-import type { ForecastsListProps } from './ForecastsList.types';
+import type { ForecastsListProps } from "./ForecastsList.types";
 
 import {
   ForecastsGrid,
@@ -29,21 +29,24 @@ import {
   AuthorName,
   AuthorTime,
   StyledTitle,
-} from './ForecastsList.styled';
+} from "./ForecastsList.styled";
 
-export const ForecastsList: FC<ForecastsListProps> = ({ isAdmin, text = TEXT_DEFAULT }) => {
+export const ForecastsList: FC<ForecastsListProps> = ({
+  isAdmin,
+  text = TEXT_DEFAULT,
+}) => {
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
 
-  const { push } = useRouter()
+  const { push } = useRouter();
 
   const handleNavigate = (id: number) => {
     if (isAdmin) {
-      push(ROUTES.ADMIN_FORECASTS.DETAILS(id))
+      push(ROUTES.ADMIN_FORECASTS.DETAILS(id));
     }
-  }
+  };
 
   const toggleExpand = (id: number) => {
-    setExpandedIds(prev => {
+    setExpandedIds((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
         newSet.delete(id);
@@ -58,7 +61,7 @@ export const ForecastsList: FC<ForecastsListProps> = ({ isAdmin, text = TEXT_DEF
 
   const getPreviewText = (preview: string, id: number) => {
     if (isExpanded(id)) return preview;
-    if (preview.length > 100) return preview.slice(0, 100) + '...';
+    if (preview.length > 100) return preview.slice(0, 100) + "...";
     return preview;
   };
 
@@ -71,7 +74,10 @@ export const ForecastsList: FC<ForecastsListProps> = ({ isAdmin, text = TEXT_DEF
 
         <ForecastsGrid>
           {FORECASTS.map((forecast) => (
-            <ForecastCard key={forecast.id} onClick={() => handleNavigate(forecast.id)}>
+            <ForecastCard
+              key={forecast.id}
+              onClick={() => handleNavigate(forecast.id)}
+            >
               <SportBadge>{forecast.sport}</SportBadge>
 
               <MatchDateTime>
@@ -103,18 +109,18 @@ export const ForecastsList: FC<ForecastsListProps> = ({ isAdmin, text = TEXT_DEF
               </Preview>
 
               {forecast.preview.length > 100 && (
-                <ExpandButton onClick={(e) => {
-                  e.stopPropagation();
-                  toggleExpand(forecast.id);
-                }}>
-                  {isExpanded(forecast.id) ? 'Свернуть' : 'Развернуть'}
+                <ExpandButton
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleExpand(forecast.id);
+                  }}
+                >
+                  {isExpanded(forecast.id) ? "Свернуть" : "Развернуть"}
                 </ExpandButton>
               )}
 
               <AuthorRow>
-                <AuthorAvatar>
-                  {forecast.author.charAt(0)}
-                </AuthorAvatar>
+                <AuthorAvatar>{forecast.author.charAt(0)}</AuthorAvatar>
                 <AuthorInfo>
                   <AuthorName>{forecast.author}</AuthorName>
                   <AuthorTime>{forecast.timestamp}</AuthorTime>

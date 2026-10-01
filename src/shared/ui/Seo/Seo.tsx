@@ -1,15 +1,20 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import type { FC } from 'react';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import type { FC } from "react";
 
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, DEFAULT_OG_IMAGE } from '@/shared/config';
-import { DEFAULT_LOCALE, LOCALES } from '@/shared/lib/localization';
+import {
+  SITE_NAME,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+} from "@/shared/config";
+import { DEFAULT_LOCALE, LOCALES } from "@/shared/lib/localization";
 
-import type { SeoProps } from './Seo.types';
+import type { SeoProps } from "./Seo.types";
 
 const withLocale = (cleanPath: string, locale: string) => {
-  const clean = cleanPath === '/' ? '' : cleanPath;
-  if (locale === DEFAULT_LOCALE) return clean || '';
+  const clean = cleanPath === "/" ? "" : cleanPath;
+  if (locale === DEFAULT_LOCALE) return clean || "";
   return `/${locale}${clean}`;
 };
 
@@ -19,19 +24,22 @@ const toCleanPath = (input: string): string => {
   if (/^https?:\/\//i.test(path)) {
     try {
       path = new URL(path).pathname;
-    } catch {
-    }
+    } catch {}
   }
 
-  path = path.split('?')[0].split('#')[0];
+  path = path.split("?")[0].split("#")[0];
 
-  const parts = path.split('/').filter(Boolean);
-  if (parts.length && (LOCALES as readonly string[]).includes(parts[0]) && parts[0] !== DEFAULT_LOCALE) {
+  const parts = path.split("/").filter(Boolean);
+  if (
+    parts.length &&
+    (LOCALES as readonly string[]).includes(parts[0]) &&
+    parts[0] !== DEFAULT_LOCALE
+  ) {
     parts.shift();
   }
 
-  const joined = '/' + parts.join('/');
-  return joined === '/' ? '/' : joined.replace(/\/$/, '');
+  const joined = "/" + parts.join("/");
+  return joined === "/" ? "/" : joined.replace(/\/$/, "");
 };
 
 export const Seo: FC<SeoProps> = ({
@@ -39,7 +47,7 @@ export const Seo: FC<SeoProps> = ({
   description = SITE_DESCRIPTION,
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
-  ogType = 'website',
+  ogType = "website",
   noIndex = false,
   keywords,
   jsonLd,
@@ -49,8 +57,8 @@ export const Seo: FC<SeoProps> = ({
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
 
   const defaultJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
     name: fullTitle,
     url: canonical || SITE_URL,
     description,

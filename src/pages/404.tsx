@@ -1,8 +1,8 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
-import { NotFound } from '@/widgets';
+import { NotFound } from "@/widgets";
 
-import { Container, loadMessages } from '@/shared';
+import { Container, loadMessages } from "@/shared";
 
 const Custom404: NextPage = () => {
   return (

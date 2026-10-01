@@ -1,8 +1,8 @@
-import { forwardRef, type SyntheticEvent } from 'react';
+import { forwardRef, type SyntheticEvent } from "react";
 
-import type { FormProps } from './Form.types';
+import type { FormProps } from "./Form.types";
 
-import { StyledForm } from './Form.styled';
+import { StyledForm } from "./Form.styled";
 
 export const Form = forwardRef<HTMLFormElement, FormProps>(
   ({ children, onSubmit, ...rest }, ref) => {
@@ -12,11 +12,16 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     };
 
     return (
-      <StyledForm ref={ref} onSubmit={handleSubmit} {...rest} autoComplete="off">
+      <StyledForm
+        ref={ref}
+        onSubmit={handleSubmit}
+        {...rest}
+        autoComplete="off"
+      >
         {children}
       </StyledForm>
     );
-  }
+  },
 );
 
-Form.displayName = 'Form';
+Form.displayName = "Form";

@@ -1,7 +1,7 @@
-import type { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from "react";
+import { useDictionary } from "@/shared/lib/localization";
 
-import { Container, Section, Title } from '@/shared';
+import { Container, Section, Title } from "@/shared";
 
 import {
   SectionWrapper,
@@ -11,7 +11,7 @@ import {
   ContentWrapper,
   CriteriaTitle,
   CriteriaDescription,
-} from './HowToChooseBookmaker.styled';
+} from "./HowToChooseBookmaker.styled";
 
 import {
   Shield,
@@ -26,15 +26,15 @@ import {
 } from "lucide-react";
 
 const iconMap = {
-  "Лицензия": Shield,
+  Лицензия: Shield,
   "Виды спорта": Trophy,
   "Live ставки": Activity,
-  "Коэффициенты": BarChart3,
+  Коэффициенты: BarChart3,
   "Трансляции матчей": Video,
   "Размер ставок": Coins,
   "Платежные системы": CreditCard,
   "Горячая линия": Headphones,
-  "Бонусы": Gift,
+  Бонусы: Gift,
 };
 
 export const HowToChooseBookmaker: FC = () => {

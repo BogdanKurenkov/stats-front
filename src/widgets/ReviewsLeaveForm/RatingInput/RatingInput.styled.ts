@@ -16,7 +16,9 @@ export const StarButton = styled.button<{ $filled: boolean }>`
   cursor: pointer;
   color: ${({ theme, $filled }) =>
     $filled ? theme.colors.orange.primary : theme.colors.gray[600]};
-  transition: color 0.15s ease, transform 0.15s ease;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 
   @media (hover: hover) {
     &:hover {

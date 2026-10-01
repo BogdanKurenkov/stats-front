@@ -1,17 +1,17 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary, scrollToSection } from '@/shared/lib';
-import { useReveal } from '@/shared/lib/hooks';
+import { useDictionary, scrollToSection } from "@/shared/lib";
+import { useReveal } from "@/shared/lib/hooks";
 import {
   Container,
   Section,
   Title,
   Paragraph,
   Divider,
-  Button
-} from '@/shared/ui';
+  Button,
+} from "@/shared/ui";
 
-import { REVIEW_FORM_ID } from '../ReviewsLeaveForm/ReviewsLeaveForm.constants';
+import { REVIEW_FORM_ID } from "../ReviewsLeaveForm/ReviewsLeaveForm.constants";
 
 import {
   HeroWrapper,
@@ -25,7 +25,7 @@ import {
   HighlightCard,
   HighlightTitle,
   HighlightDescription,
-} from './ReviewsHero.styled';
+} from "./ReviewsHero.styled";
 
 export const ReviewsHero: FC = () => {
   const dict = useDictionary();
@@ -92,7 +92,9 @@ export const ReviewsHero: FC = () => {
                   $visible={reveal.isVisible}
                 >
                   <HighlightTitle>{item.title}</HighlightTitle>
-                  <HighlightDescription>{item.description}</HighlightDescription>
+                  <HighlightDescription>
+                    {item.description}
+                  </HighlightDescription>
                 </HighlightCard>
               );
             })}

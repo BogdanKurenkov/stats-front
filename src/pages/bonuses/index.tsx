@@ -1,23 +1,29 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-import { BonusesHero, BonusesList } from '@/widgets';
+import { BonusesHero, BonusesList } from "@/widgets";
 
-const BonusesTypes = dynamic(() => import('@/widgets').then(mod => mod.BonusesTypes));
-const BonusesRules = dynamic(() => import('@/widgets').then(mod => mod.BonusesRules));
+const BonusesTypes = dynamic(() =>
+  import("@/widgets").then((mod) => mod.BonusesTypes),
+);
+const BonusesRules = dynamic(() =>
+  import("@/widgets").then((mod) => mod.BonusesRules),
+);
 
-import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
 
 const BonusesPage: NextPageWithLayout = () => {
-  return <>
-    <Seo title="Бонусы" />
-    <BonusesHero />
-    <BonusesList />
-    <BonusesTypes />
-    <BonusesRules />
-  </>;
+  return (
+    <>
+      <Seo title="Бонусы" />
+      <BonusesHero />
+      <BonusesList />
+      <BonusesTypes />
+      <BonusesRules />
+    </>
+  );
 };
 
-BonusesPage.layout = 'main';
+BonusesPage.layout = "main";
 
 export default BonusesPage;
 

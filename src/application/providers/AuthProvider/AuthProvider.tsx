@@ -1,10 +1,10 @@
-import { type ReactNode, useState } from 'react';
-import { authApi, type User } from '@/shared';
-import { AuthContext } from '@/application/contexts';
+import { type ReactNode, useState } from "react";
+import { authApi, type User } from "@/shared";
+import { AuthContext } from "@/application/contexts";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, /*setIsLoading*/] = useState(false);
+  const [isLoading /*setIsLoading*/] = useState(false);
 
   // useEffect(() => {
   //   authApi.getSession()
@@ -28,16 +28,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
-  const hasRole = (roles: User['role'] | User['role'][]) => {
+  const hasRole = (roles: User["role"] | User["role"][]) => {
     if (!user) return false;
-    if (user.role === 'admin') return true;
+    if (user.role === "admin") return true;
 
     const rolesArray = Array.isArray(roles) ? roles : [roles];
     return rolesArray.includes(user.role);
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, register, logout, hasRole }}>
+    <AuthContext.Provider
+      value={{ user, isLoading, login, register, logout, hasRole }}
+    >
       {children}
     </AuthContext.Provider>
   );

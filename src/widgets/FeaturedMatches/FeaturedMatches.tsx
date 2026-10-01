@@ -1,11 +1,11 @@
-import type { FC } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import type { FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Title } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { Container, Section, Title } from "@/shared";
 
-import { FEATURED_MATCHES } from './FeaturedMatches.constants';
+import { FEATURED_MATCHES } from "./FeaturedMatches.constants";
 
 import {
   SectionWrapper,
@@ -20,10 +20,10 @@ import {
   MatchTime,
   MatchDate,
   Tournament,
-} from './FeaturedMatches.styled';
+} from "./FeaturedMatches.styled";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
 
 export const FeaturedMatches: FC = () => {
   const dict = useDictionary();

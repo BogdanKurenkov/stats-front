@@ -1,10 +1,10 @@
-import { type FC, useState } from 'react';
-import { useRouter } from 'next/router';
-import { Menu, X } from 'lucide-react';
+import { type FC, useState } from "react";
+import { useRouter } from "next/router";
+import { Menu, X } from "lucide-react";
 
-import { LanguageSwitcher } from '@/features/languageSwitcher';
+import { LanguageSwitcher } from "@/features/languageSwitcher";
 
-import { ROUTES } from '@/shared/config';
+import { ROUTES } from "@/shared/config";
 import {
   HeaderContainer,
   HeaderContent,
@@ -20,15 +20,14 @@ import {
   MobileNavLink,
   Overlay,
   Logo,
-  ToggleTheme
-} from '@/shared';
+  ToggleTheme,
+} from "@/shared";
 
-import { MENU_ITEMS } from './Header.constants';
-
+import { MENU_ITEMS } from "./Header.constants";
 
 // TODO убрать моковые данные и привязаться к реальному юзеру
 const isAuthenticated = false;
-const userInitials = 'JD';
+const userInitials = "JD";
 
 export const Header: FC = () => {
   const router = useRouter();
@@ -42,7 +41,7 @@ export const Header: FC = () => {
   };
 
   const handleAvatarClick = () => {
-    router.push('/profile');
+    router.push("/profile");
   };
 
   const closeMobileMenu = () => {
@@ -74,19 +73,17 @@ export const Header: FC = () => {
           </NavMenu>
 
           <RightSection>
-
             <ToggleTheme />
 
             {isAuthenticated ? (
-              <Avatar onClick={handleAvatarClick} aria-label="Профиль пользователя">
+              <Avatar
+                onClick={handleAvatarClick}
+                aria-label="Профиль пользователя"
+              >
                 {userInitials}
               </Avatar>
             ) : (
-              <AuthButton
-                variant="primary"
-                size="medium"
-                onClick={handleAuth}
-              >
+              <AuthButton variant="primary" size="medium" onClick={handleAuth}>
                 Войти
               </AuthButton>
             )}
@@ -103,16 +100,10 @@ export const Header: FC = () => {
         </HeaderContent>
       </HeaderContainer>
 
-      <Overlay
-        isOpen={isMobileMenuOpen}
-        onClose={closeMobileMenu}
-      />
+      <Overlay isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
       <MobileMenu $isOpen={isMobileMenuOpen}>
-        <MobileCloseButton
-          onClick={closeMobileMenu}
-          aria-label="Закрыть меню"
-        >
+        <MobileCloseButton onClick={closeMobileMenu} aria-label="Закрыть меню">
           <X size={24} />
         </MobileCloseButton>
 

@@ -1,14 +1,10 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { RequiredMark } from '@/shared';
+import { RequiredMark } from "@/shared";
 
-import type { FormFieldProps } from './FormField.types';
+import type { FormFieldProps } from "./FormField.types";
 
-import {
-  FieldContainer,
-  FieldLabel,
-  FieldError,
-} from './FormField.styled';
+import { FieldContainer, FieldLabel, FieldError } from "./FormField.styled";
 
 export const FormField: FC<FormFieldProps> = ({
   label,

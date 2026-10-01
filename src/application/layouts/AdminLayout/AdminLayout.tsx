@@ -1,13 +1,13 @@
-import { type FC, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { type FC, useEffect } from "react";
+import { useRouter } from "next/router";
 
-import { useAdmin } from '@/application/contexts';
+import { useAdmin } from "@/application/contexts";
 
-import { AdminHeader } from '@/widgets';
+import { AdminHeader } from "@/widgets";
 
-import type { AdminLayoutProps } from './AdminLayout.types';
+import type { AdminLayoutProps } from "./AdminLayout.types";
 
-import { AdminContainer, AdminContent } from './AdminLayout.styled';
+import { AdminContainer, AdminContent } from "./AdminLayout.styled";
 
 // import { GlobalSpinner } from '@/shared/ui/GlobalSpinner/GlobalSpinner';
 
@@ -30,10 +30,10 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
     // return null;
   }
 
-  return <AdminContainer>
-    <AdminHeader />
-    <AdminContent>
-      {children}
-    </AdminContent>
-  </AdminContainer>;
+  return (
+    <AdminContainer>
+      <AdminHeader />
+      <AdminContent>{children}</AdminContent>
+    </AdminContainer>
+  );
 };

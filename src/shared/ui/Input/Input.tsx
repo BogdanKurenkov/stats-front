@@ -1,14 +1,10 @@
-import { forwardRef, useId } from 'react';
+import { forwardRef, useId } from "react";
 
-import type { InputProps } from './Input.types';
+import type { InputProps } from "./Input.types";
 
-import { DEFAULT_CLASSNAME, AUTOCOMPLETE } from './Input.constants';
+import { DEFAULT_CLASSNAME, AUTOCOMPLETE } from "./Input.constants";
 
-import {
-  InputContainer,
-  InputLabel,
-  StyledInput,
-} from './Input.styled';
+import { InputContainer, InputLabel, StyledInput } from "./Input.styled";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -20,7 +16,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       id,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const generatedId = useId();
     const inputId = id || generatedId;
@@ -29,10 +25,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <InputContainer className={className}>
         {label && (
-          <InputLabel
-            htmlFor={inputId}
-            $hasError={hasError}
-          >
+          <InputLabel htmlFor={inputId} $hasError={hasError}>
             {label}
           </InputLabel>
         )}
@@ -48,7 +41,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
       </InputContainer>
     );
-  }
+  },
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";

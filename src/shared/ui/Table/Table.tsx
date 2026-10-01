@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import type { TableProps } from './Table.types';
+import type { TableProps } from "./Table.types";
 
 import {
   TableWrapper,
@@ -10,8 +10,7 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-} from './Table.styled';
-
+} from "./Table.styled";
 
 export const Table: FC<TableProps> = ({ columns, data, className }) => {
   return (

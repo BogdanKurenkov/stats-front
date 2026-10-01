@@ -1,14 +1,14 @@
-import type { FC } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import type { FC } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import type { PaginationProps } from './Pagination.types';
+import type { PaginationProps } from "./Pagination.types";
 
 import {
   PaginationContainer,
   PaginationButton,
   PaginationInfo,
   PaginationCurrent,
-} from './Pagination.styled';
+} from "./Pagination.styled";
 
 export const Pagination: FC<PaginationProps> = ({
   currentPage,

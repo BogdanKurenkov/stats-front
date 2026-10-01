@@ -1,15 +1,15 @@
-import type { FC, MouseEvent } from 'react';
+import type { FC, MouseEvent } from "react";
 
-import { Overlay } from '@/shared/ui';
+import { Overlay } from "@/shared/ui";
 
-import type { ModalProps } from './Modal.types';
+import type { ModalProps } from "./Modal.types";
 
-import { ModalContainer, ModalCloseButton, ModalContent } from './Modal.styled';
+import { ModalContainer, ModalCloseButton, ModalContent } from "./Modal.styled";
 
 export const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
-  className = '',
+  className = "",
   children,
   withCloseButton = false,
 }) => {
@@ -26,10 +26,7 @@ export const Modal: FC<ModalProps> = ({
         aria-modal="true"
       >
         {withCloseButton && (
-          <ModalCloseButton
-            onClick={onClose}
-            aria-label="Close modal"
-          >
+          <ModalCloseButton onClick={onClose} aria-label="Close modal">
             ×
           </ModalCloseButton>
         )}
@@ -40,4 +37,4 @@ export const Modal: FC<ModalProps> = ({
   );
 };
 
-Modal.displayName = 'Modal';
+Modal.displayName = "Modal";

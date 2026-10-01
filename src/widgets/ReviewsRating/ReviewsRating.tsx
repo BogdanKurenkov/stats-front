@@ -1,12 +1,7 @@
-import type { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from "react";
+import { useDictionary } from "@/shared/lib/localization";
 
-import {
-  Container,
-  Section,
-  Title,
-  Paragraph,
-} from '@/shared/ui';
+import { Container, Section, Title, Paragraph } from "@/shared/ui";
 
 import {
   RatingWrapper,
@@ -20,7 +15,7 @@ import {
   BookmakerStats,
   RatingValue,
   ReviewsCount,
-} from './ReviewsRating.styled';
+} from "./ReviewsRating.styled";
 
 export const ReviewsRating: FC = () => {
   const dict = useDictionary();
@@ -53,7 +48,7 @@ export const ReviewsRating: FC = () => {
                     {ratingLabel}: {bk.rating.toFixed(1)}
                   </RatingValue>
                   <ReviewsCount>
-                    {bk.reviewsCount.toLocaleString('ru-RU')} {reviewsLabel}
+                    {bk.reviewsCount.toLocaleString("ru-RU")} {reviewsLabel}
                   </ReviewsCount>
                 </BookmakerStats>
               </RatingRow>

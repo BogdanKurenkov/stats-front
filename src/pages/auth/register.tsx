@@ -1,15 +1,17 @@
-import { RegisterForm } from '@/features/auth/RegisterForm';
+import { RegisterForm } from "@/features/auth/RegisterForm";
 
-import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
 
 const RegisterPage: NextPageWithLayout = () => {
-  return <>
-    <Seo title="Регистрация" />
-    <RegisterForm />
-  </>
+  return (
+    <>
+      <Seo title="Регистрация" />
+      <RegisterForm />
+    </>
+  );
 };
 
-RegisterPage.layout = 'auth';
+RegisterPage.layout = "auth";
 
 export default RegisterPage;
 

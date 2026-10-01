@@ -1,9 +1,9 @@
-import type { FC, MouseEvent } from 'react';
-import { useScrollLock, useEventListener } from 'usehooks-ts';
+import type { FC, MouseEvent } from "react";
+import { useScrollLock, useEventListener } from "usehooks-ts";
 
-import type { OverlayProps } from './Overlay.types';
+import type { OverlayProps } from "./Overlay.types";
 
-import { OverlayContainer } from './Overlay.styled';
+import { OverlayContainer } from "./Overlay.styled";
 
 export const Overlay: FC<OverlayProps> = ({
   isOpen,
@@ -13,8 +13,8 @@ export const Overlay: FC<OverlayProps> = ({
 }) => {
   useScrollLock({ autoLock: isOpen });
 
-  useEventListener('keydown', (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && onClose && isOpen) {
+  useEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape" && onClose && isOpen) {
       onClose();
     }
   });
@@ -39,4 +39,4 @@ export const Overlay: FC<OverlayProps> = ({
   );
 };
 
-Overlay.displayName = 'Overlay';
+Overlay.displayName = "Overlay";

@@ -1,7 +1,8 @@
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  }
-}
+node_modules
+.next
+out
+build
+public
+*.md
+*.json
+package-lock.json

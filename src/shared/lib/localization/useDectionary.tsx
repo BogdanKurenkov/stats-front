@@ -6,8 +6,8 @@ export const useDictionary = () => {
   const dictionary = useContext(DictionaryContext);
 
   if (!dictionary) {
-    throw new Error('useDictionary must be used within DictionaryProvider')
-  };
+    throw new Error("useDictionary must be used within DictionaryProvider");
+  }
 
   return dictionary;
 };

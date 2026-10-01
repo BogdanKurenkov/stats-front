@@ -1,8 +1,8 @@
-import Script from 'next/script';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Script from "next/script";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
-import { useCookieConsent } from '@/widgets/CookieConsent';
+import { useCookieConsent } from "@/widgets/CookieConsent";
 
 const YM_COUNTER_ID = Number(process.env.NEXT_PUBLIC_YANDEX_METRICA_ID);
 
@@ -18,15 +18,15 @@ export const YandexMetrika = () => {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (typeof window !== 'undefined' && window.ym && hasConsent) {
-        window.ym(YM_COUNTER_ID, 'hit', url);
+      if (typeof window !== "undefined" && window.ym && hasConsent) {
+        window.ym(YM_COUNTER_ID, "hit", url);
       }
     };
 
-    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events, hasConsent]);
 
@@ -65,7 +65,7 @@ export const YandexMetrika = () => {
         <div>
           <img
             src={`https://mc.yandex.ru/watch/${YM_COUNTER_ID}`}
-            style={{ position: 'absolute', left: '-9999px' }}
+            style={{ position: "absolute", left: "-9999px" }}
             alt=""
           />
         </div>

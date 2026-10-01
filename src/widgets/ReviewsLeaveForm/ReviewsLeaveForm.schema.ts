@@ -26,5 +26,5 @@ export const reviewFormSchema = z
     {
       message: "Укажите название букмекера",
       path: ["otherBookmaker"],
-    }
+    },
   );

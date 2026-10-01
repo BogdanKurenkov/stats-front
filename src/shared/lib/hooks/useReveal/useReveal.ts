@@ -35,7 +35,7 @@ export const useReveal = ({
           setIsVisible(false);
         }
       },
-      { threshold }
+      { threshold },
     );
 
     observer.observe(el);

@@ -30,7 +30,7 @@ export const useLanguage = () => {
       });
       router.push({ pathname, query }, asPath, { locale: newLocale });
     },
-    [pathname, query, asPath, router]
+    [pathname, query, asPath, router],
   );
 
   return {

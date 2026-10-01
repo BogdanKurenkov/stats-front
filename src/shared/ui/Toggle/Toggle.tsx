@@ -1,6 +1,6 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState } from "react";
 
-import type { ToggleProps } from './Toggle.types';
+import type { ToggleProps } from "./Toggle.types";
 
 import {
   ToggleContainer,
@@ -11,7 +11,7 @@ import {
   Label,
   Description,
   ErrorMessage,
-} from './Toggle.styled';
+} from "./Toggle.styled";
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
   (
@@ -19,7 +19,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
       label,
       description,
       error,
-      className = '',
+      className = "",
       disabled = false,
       checked: controlledChecked,
       defaultChecked,
@@ -27,9 +27,11 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
       id,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const [internalChecked, setInternalChecked] = useState(defaultChecked || false);
+    const [internalChecked, setInternalChecked] = useState(
+      defaultChecked || false,
+    );
     const isControlled = controlledChecked !== undefined;
     const checked = isControlled ? controlledChecked : internalChecked;
     const hasError = !!error;
@@ -70,9 +72,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
                 </Label>
               )}
               {description && (
-                <Description $disabled={disabled}>
-                  {description}
-                </Description>
+                <Description $disabled={disabled}>{description}</Description>
               )}
             </LabelsContainer>
           )}
@@ -80,7 +80,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
         {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
       </ToggleContainer>
     );
-  }
+  },
 );
 
-Toggle.displayName = 'Toggle';
+Toggle.displayName = "Toggle";

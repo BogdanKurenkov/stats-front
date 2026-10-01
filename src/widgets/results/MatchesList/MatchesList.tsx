@@ -1,11 +1,11 @@
-import { type FC, useState, useMemo } from 'react';
+import { type FC, useState, useMemo } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Select } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { Container, Section, Select } from "@/shared";
 
-import { LEAGUE_OPTIONS } from './MatchesList.constants';
+import { LEAGUE_OPTIONS } from "./MatchesList.constants";
 
-import type { MatchesListProps } from './MatchesList.types';
+import type { MatchesListProps } from "./MatchesList.types";
 
 import {
   MatchesWrapper,
@@ -23,18 +23,18 @@ import {
   MatchDateTime,
   Tournament,
   EmptyState,
-} from './MatchesList.styled';
+} from "./MatchesList.styled";
 
 const getVariantTitle = (
   variant: string | undefined,
   upcomingTitle: string,
   pastTitle: string,
-  defaultTitle: string
+  defaultTitle: string,
 ): string => {
   switch (variant) {
-    case 'upcoming':
+    case "upcoming":
       return upcomingTitle;
-    case 'past':
+    case "past":
       return pastTitle;
     default:
       return defaultTitle;
@@ -49,22 +49,26 @@ export const MatchesList: FC<MatchesListProps> = ({
 }) => {
   const dict = useDictionary();
   const matchesData = dict.matchesList;
-  const [selectedLeague, setSelectedLeague] = useState('all');
+  const [selectedLeague, setSelectedLeague] = useState("all");
 
-  const displayTitle = title || getVariantTitle(
-    variant,
-    matchesData.upcomingTitle,
-    matchesData.pastTitle,
-    matchesData.defaultTitle
-  );
+  const displayTitle =
+    title ||
+    getVariantTitle(
+      variant,
+      matchesData.upcomingTitle,
+      matchesData.pastTitle,
+      matchesData.defaultTitle,
+    );
 
   const filteredByVariant = variant
     ? matches.filter((match) => match.status === variant)
     : matches;
 
   const filteredMatches = useMemo(() => {
-    if (selectedLeague === 'all') return filteredByVariant;
-    return filteredByVariant.filter((match) => match.leagueId === selectedLeague);
+    if (selectedLeague === "all") return filteredByVariant;
+    return filteredByVariant.filter(
+      (match) => match.leagueId === selectedLeague,
+    );
   }, [filteredByVariant, selectedLeague]);
 
   const isEmpty = filteredMatches.length === 0;

@@ -19,5 +19,7 @@ export const revealStyles = css<RevealProps>`
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transform: ${({ $visible = false, $animation = "fadeUp" }) =>
     transitions[$animation]($visible)};
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 `;

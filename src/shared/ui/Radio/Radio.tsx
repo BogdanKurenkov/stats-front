@@ -1,6 +1,6 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import type { RadioProps } from './Radio.types';
+import type { RadioProps } from "./Radio.types";
 
 import {
   RadioContainer,
@@ -9,20 +9,12 @@ import {
   StyledRadio,
   Label,
   ErrorMessage,
-} from './Radio.styled';
+} from "./Radio.styled";
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (
-    {
-      label,
-      error,
-      className = '',
-      disabled = false,
-      checked,
-      id,
-      ...rest
-    },
-    ref
+    { label, error, className = "", disabled = false, checked, id, ...rest },
+    ref,
   ) => {
     const radioId = id || `radio-${Math.random().toString(36).substr(2, 9)}`;
     const hasError = !!error;
@@ -55,7 +47,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
       </RadioContainer>
     );
-  }
+  },
 );
 
-Radio.displayName = 'Radio';
+Radio.displayName = "Radio";

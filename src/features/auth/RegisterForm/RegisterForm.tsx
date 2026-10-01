@@ -1,14 +1,23 @@
-import type { FC } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import type { FC } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { createRegisterSchema, type RegisterFormData } from '@/features/auth/schemas';
+import {
+  createRegisterSchema,
+  type RegisterFormData,
+} from "@/features/auth/schemas";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Form, FormField, Input, PasswordInput, CustomLink } from '@/shared/ui';
-import { ROUTES } from '@/shared/config';
+import { useDictionary } from "@/shared/lib/localization";
+import { Form, FormField, Input, PasswordInput, CustomLink } from "@/shared/ui";
+import { ROUTES } from "@/shared/config";
 
-import { StyledFormWrapper, StyledFormContainer, StyledTitle, StyledWrapper, StyledButton } from './RegisterForm.styled';
+import {
+  StyledFormWrapper,
+  StyledFormContainer,
+  StyledTitle,
+  StyledWrapper,
+  StyledButton,
+} from "./RegisterForm.styled";
 
 export const RegisterForm: FC = () => {
   const dict = useDictionary();
@@ -35,17 +44,17 @@ export const RegisterForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: 'onTouched',
-    reValidateMode: 'onChange',
+    mode: "onTouched",
+    reValidateMode: "onChange",
     defaultValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
   });
 
-  const onSubmit = async (/*data: RegisterFormData*/) => { };
+  const onSubmit = async (/*data: RegisterFormData*/) => {};
 
   return (
     <StyledFormWrapper>
@@ -55,36 +64,52 @@ export const RegisterForm: FC = () => {
         </StyledTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FormField label={data.nameLabel} error={errors.name?.message} required>
+          <FormField
+            label={data.nameLabel}
+            error={errors.name?.message}
+            required
+          >
             <Input
               placeholder={data.namePlaceholder}
               error={errors.name?.message}
-              {...register('name')}
+              {...register("name")}
             />
           </FormField>
 
-          <FormField label={data.emailLabel} error={errors.email?.message} required>
+          <FormField
+            label={data.emailLabel}
+            error={errors.email?.message}
+            required
+          >
             <Input
               type="email"
               placeholder={data.emailPlaceholder}
               error={errors.email?.message}
-              {...register('email')}
+              {...register("email")}
             />
           </FormField>
 
-          <FormField label={data.passwordLabel} error={errors.password?.message} required>
+          <FormField
+            label={data.passwordLabel}
+            error={errors.password?.message}
+            required
+          >
             <PasswordInput
               placeholder={data.passwordPlaceholder}
               error={errors.password?.message}
-              {...register('password')}
+              {...register("password")}
             />
           </FormField>
 
-          <FormField label={data.confirmPasswordLabel} error={errors.confirmPassword?.message} required>
+          <FormField
+            label={data.confirmPasswordLabel}
+            error={errors.confirmPassword?.message}
+            required
+          >
             <PasswordInput
               placeholder={data.confirmPasswordPlaceholder}
               error={errors.confirmPassword?.message}
-              {...register('confirmPassword')}
+              {...register("confirmPassword")}
             />
           </FormField>
 

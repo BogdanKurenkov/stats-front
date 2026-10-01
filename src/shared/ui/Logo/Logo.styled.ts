@@ -6,7 +6,9 @@ export const LogoLink = styled(CustomLink)<{ $size: number }>`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   width: ${({ $size }) => $size}px;
   height: ${({ $size }) => $size}px;
   flex-shrink: 0;

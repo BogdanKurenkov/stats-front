@@ -1,19 +1,19 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import type { ButtonProps } from './Button.types';
+import type { ButtonProps } from "./Button.types";
 
-import { StyledButton } from './Button.styled';
+import { StyledButton } from "./Button.styled";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      variant = 'primary',
-      size = 'medium',
-      type = 'button',
+      variant = "primary",
+      size = "medium",
+      type = "button",
       ...rest
     },
-    ref
+    ref,
   ) => {
     return (
       <StyledButton
@@ -26,7 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {children}
       </StyledButton>
     );
-  }
+  },
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";

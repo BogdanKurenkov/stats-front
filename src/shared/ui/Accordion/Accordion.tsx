@@ -1,8 +1,8 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import type { AccordionProps } from './Accordion.types';
+import type { AccordionProps } from "./Accordion.types";
 
-import { StyledAccordionRoot } from './Accordion.styled';
+import { StyledAccordionRoot } from "./Accordion.styled";
 
 export const Accordion: FC<AccordionProps> = ({
   children,
@@ -10,7 +10,7 @@ export const Accordion: FC<AccordionProps> = ({
   type,
   defaultValue,
 }) => {
-  if (type === 'single') {
+  if (type === "single") {
     return (
       <StyledAccordionRoot
         type="single"

@@ -1,11 +1,11 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { Container, Pagination, Section } from '@/shared';
-import { usePagination, useDictionary, formatDate } from '@/shared/lib';
+import { Container, Pagination, Section } from "@/shared";
+import { usePagination, useDictionary, formatDate } from "@/shared/lib";
 
-import type { NewsListProps } from './NewsList.types';
+import type { NewsListProps } from "./NewsList.types";
 
-import { ITEMS_PER_PAGE, MOCK_NEWS } from './NewsList.constants';
+import { ITEMS_PER_PAGE, MOCK_NEWS } from "./NewsList.constants";
 
 import {
   NewsGrid,
@@ -17,7 +17,7 @@ import {
   NewsDate,
   NewsLink,
   StyledTitle,
-} from './NewsList.styled';
+} from "./NewsList.styled";
 
 export const NewsList: FC<NewsListProps> = ({
   articles = MOCK_NEWS,
@@ -53,9 +53,7 @@ export const NewsList: FC<NewsListProps> = ({
               <NewsTitle as="h3" level="h3">
                 📰 {item.title}
               </NewsTitle>
-              <NewsDescription size="md">
-                {item.description}
-              </NewsDescription>
+              <NewsDescription size="md">{item.description}</NewsDescription>
               <NewsMeta>
                 <NewsSource>{item.source.name}</NewsSource>
                 <NewsDate>{formatDate(item.publishedAt)}</NewsDate>

@@ -1,23 +1,20 @@
-import { type FC, useState, useEffect } from 'react';
+import { type FC, useState, useEffect } from "react";
 
-import type { TabsProps } from './Tabs.types';
+import type { TabsProps } from "./Tabs.types";
 
-import {
-  TabsContainer,
-  TabsList,
-  TabButton,
-  TabContent,
-} from './Tabs.styled';
+import { TabsContainer, TabsList, TabButton, TabContent } from "./Tabs.styled";
 
 export const Tabs: FC<TabsProps> = ({
   tabs,
   activeTab: controlledActiveTab,
   defaultTab,
   onChange,
-  variant = 'underline',
+  variant = "underline",
   className,
 }) => {
-  const [internalActiveTab, setInternalActiveTab] = useState(defaultTab || tabs[0]?.id);
+  const [internalActiveTab, setInternalActiveTab] = useState(
+    defaultTab || tabs[0]?.id,
+  );
 
   const activeTab = controlledActiveTab ?? internalActiveTab;
 
@@ -34,12 +31,12 @@ export const Tabs: FC<TabsProps> = ({
     onChange?.(tabId);
   };
 
-  const activeContent = tabs.find(tab => tab.id === activeTab)?.content;
+  const activeContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   return (
     <TabsContainer className={className}>
       <TabsList>
-        {tabs.map(tab => (
+        {tabs.map((tab) => (
           <TabButton
             key={tab.id}
             $active={activeTab === tab.id}
@@ -54,9 +51,7 @@ export const Tabs: FC<TabsProps> = ({
           </TabButton>
         ))}
       </TabsList>
-      <TabContent role="tabpanel">
-        {activeContent}
-      </TabContent>
+      <TabContent role="tabpanel">{activeContent}</TabContent>
     </TabsContainer>
   );
 };

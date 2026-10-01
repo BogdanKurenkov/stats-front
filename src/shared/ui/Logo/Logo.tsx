@@ -1,14 +1,14 @@
-import type { FC } from 'react';
-import { Icon } from 'lucide-react';
-import { soccerBall } from '@lucide/lab';
+import type { FC } from "react";
+import { Icon } from "lucide-react";
+import { soccerBall } from "@lucide/lab";
 
-import { ROUTES } from '@/shared/config';
+import { ROUTES } from "@/shared/config";
 
-import type { LogoProps } from './Logo.types';
+import type { LogoProps } from "./Logo.types";
 
-import { LOGO_SIZES } from './Logo.constants';
+import { LOGO_SIZES } from "./Logo.constants";
 
-import { LogoLink, LogoIconWrapper } from './Logo.styled';
+import { LogoLink, LogoIconWrapper } from "./Logo.styled";
 
 const variantToSize = {
   small: LOGO_SIZES.SMALL,
@@ -16,7 +16,7 @@ const variantToSize = {
   large: LOGO_SIZES.LARGE,
 };
 
-export const Logo: FC<LogoProps> = ({ variant = 'default', className }) => {
+export const Logo: FC<LogoProps> = ({ variant = "default", className }) => {
   const size = variantToSize[variant];
 
   return (

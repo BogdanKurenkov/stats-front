@@ -11,7 +11,7 @@ export const authApi = {
   register: async (data: RegisterRequest): Promise<User> => {
     const response = await axiosInstance.post(
       API_CONFIG.REGISTER_ENDPOINT,
-      data
+      data,
     );
     return response.data.user;
   },

@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: ${({ theme }) => theme.colors.gray[600]} ${({ theme }) =>
-  theme.colors.gray[800]};
+      theme.colors.gray[800]};
   }
 
   html, body {

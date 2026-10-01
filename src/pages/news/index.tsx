@@ -1,16 +1,18 @@
-import { NewsList } from '@/widgets';
-import { MOCK_NEWS } from '@/widgets/NewsList';
+import { NewsList } from "@/widgets";
+import { MOCK_NEWS } from "@/widgets/NewsList";
 
-import { Seo, type NextPageWithLayout, loadMessages } from '@/shared';
+import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
 
 const NewsPage: NextPageWithLayout = () => {
-  return <>
-    <Seo title="Новости" />
-    <NewsList articles={MOCK_NEWS} />
-  </>;
+  return (
+    <>
+      <Seo title="Новости" />
+      <NewsList articles={MOCK_NEWS} />
+    </>
+  );
 };
 
-NewsPage.layout = 'main';
+NewsPage.layout = "main";
 
 export default NewsPage;
 

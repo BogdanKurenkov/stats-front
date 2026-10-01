@@ -12,7 +12,7 @@ interface CookieConsentReturn {
 }
 
 export const useCookieConsent = (
-  onConsentAccepted?: () => void
+  onConsentAccepted?: () => void,
 ): CookieConsentReturn => {
   const [showConsent, setShowConsent] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

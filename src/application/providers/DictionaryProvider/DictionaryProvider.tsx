@@ -1,4 +1,3 @@
-import { DictionaryContext } from '@/shared';
+import { DictionaryContext } from "@/shared";
 
 export const DictionaryProvider = DictionaryContext.Provider;
-

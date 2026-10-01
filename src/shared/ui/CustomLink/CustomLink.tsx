@@ -1,10 +1,14 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import type { CustomLinkProps } from './CustomLink.types';
+import type { CustomLinkProps } from "./CustomLink.types";
 
-import { DEFAULT_VARIANT, BLANK_TARGET, DEFAULT_REL_ATTRIBUTE } from './CustomLink.constants';
+import {
+  DEFAULT_VARIANT,
+  BLANK_TARGET,
+  DEFAULT_REL_ATTRIBUTE,
+} from "./CustomLink.constants";
 
-import { StyledLink } from './CustomLink.styled';
+import { StyledLink } from "./CustomLink.styled";
 
 export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
   (
@@ -17,11 +21,10 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
       className,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const linkRel = target === BLANK_TARGET
-      ? rel || DEFAULT_REL_ATTRIBUTE
-      : rel;
+    const linkRel =
+      target === BLANK_TARGET ? rel || DEFAULT_REL_ATTRIBUTE : rel;
 
     return (
       <StyledLink
@@ -36,7 +39,7 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
         {children}
       </StyledLink>
     );
-  }
+  },
 );
 
-CustomLink.displayName = 'CustomLink';
+CustomLink.displayName = "CustomLink";

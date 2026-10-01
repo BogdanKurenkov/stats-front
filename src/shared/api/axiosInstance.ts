@@ -65,5 +65,5 @@ axiosInstance.interceptors.response.use(
     } finally {
       isRefreshing = false;
     }
-  }
+  },
 );

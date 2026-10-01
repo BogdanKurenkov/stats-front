@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { StyledDivider } from './Divider.styled';
+import { StyledDivider } from "./Divider.styled";
 
 export const Divider: FC = () => {
   return <StyledDivider />;

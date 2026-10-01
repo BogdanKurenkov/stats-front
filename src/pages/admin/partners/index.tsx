@@ -1,9 +1,9 @@
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from "next";
 
-import { BonusesList } from '@/widgets';
+import { BonusesList } from "@/widgets";
 
-import type { NextPageWithLayout } from '@/shared/types';
-import { Seo } from '@/shared';
+import type { NextPageWithLayout } from "@/shared/types";
+import { Seo } from "@/shared";
 
 const AdminDashboardPartners: NextPageWithLayout = () => {
   return (
@@ -14,19 +14,18 @@ const AdminDashboardPartners: NextPageWithLayout = () => {
   );
 };
 
-
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const { locale } = ctx;
 
     const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
       headers: {
-        cookie: ctx.req.headers.cookie || '',
+        cookie: ctx.req.headers.cookie || "",
       },
     });
 
     const session = await res.json();
-    const isAdmin = session.user?.role === 'admin';
+    const isAdmin = session.user?.role === "admin";
 
     if (!isAdmin) {
       return {
@@ -55,6 +54,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 };
 
-AdminDashboardPartners.layout = "admin"
+AdminDashboardPartners.layout = "admin";
 
-export default AdminDashboardPartners
+export default AdminDashboardPartners;

@@ -33,7 +33,9 @@ export const StepCard = styled.div`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-radius: 16px;
   padding: 24px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   @media (hover: hover) {
     &:hover {

@@ -1,26 +1,25 @@
-import { type FC, useState } from 'react';
+import { type FC, useState } from "react";
 
-import { Container, Section, Select, Table } from '@/shared';
-import { useDictionary } from '@/shared';
+import { Container, Section, Select, Table } from "@/shared";
+import { useDictionary } from "@/shared";
 
 import {
   LEAGUE_OPTIONS,
   STANDINGS_DATA_BY_LEAGUE,
   STANDINGS_COLUMNS,
-} from './StandingsTable.constants';
-
+} from "./StandingsTable.constants";
 
 import {
   StandingsWrapper,
   HeaderRow,
   StandingsTitle,
   SelectWrapper,
-} from './StandingsTable.styled';
+} from "./StandingsTable.styled";
 
 export const StandingsTable: FC = () => {
-  const [selectedLeague, setSelectedLeague] = useState('rpl');
+  const [selectedLeague, setSelectedLeague] = useState("rpl");
 
-  const { standingsTable } = useDictionary()
+  const { standingsTable } = useDictionary();
 
   const currentData = STANDINGS_DATA_BY_LEAGUE[selectedLeague] || [];
 

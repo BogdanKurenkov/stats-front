@@ -1,14 +1,20 @@
-import type { FC } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import type { FC } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { createLoginSchema, type LoginFormData } from '@/features/auth/schemas';
+import { createLoginSchema, type LoginFormData } from "@/features/auth/schemas";
 
-import { useDictionary } from '@/shared';
-import { Form, FormField, Input, PasswordInput, CustomLink } from '@/shared';
-import { ROUTES } from '@/shared/config';
+import { useDictionary } from "@/shared";
+import { Form, FormField, Input, PasswordInput, CustomLink } from "@/shared";
+import { ROUTES } from "@/shared/config";
 
-import { StyledFormWrapper, StyledFormContainer, StyledTitle, StyledButton, StyledWrapper } from './LoginForm.styled';
+import {
+  StyledFormWrapper,
+  StyledFormContainer,
+  StyledTitle,
+  StyledButton,
+  StyledWrapper,
+} from "./LoginForm.styled";
 
 export const LoginForm: FC = () => {
   const dict = useDictionary();
@@ -31,12 +37,12 @@ export const LoginForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
-    mode: 'onTouched',
-    reValidateMode: 'onChange',
-    defaultValues: { email: '', password: '' },
+    mode: "onTouched",
+    reValidateMode: "onChange",
+    defaultValues: { email: "", password: "" },
   });
 
-  const onSubmit = async (/*data: LoginFormData*/) => { };
+  const onSubmit = async (/*data: LoginFormData*/) => {};
 
   return (
     <StyledFormWrapper>
@@ -46,21 +52,29 @@ export const LoginForm: FC = () => {
         </StyledTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-          <FormField label={data.emailLabel} error={errors.email?.message} required>
+          <FormField
+            label={data.emailLabel}
+            error={errors.email?.message}
+            required
+          >
             <Input
               type="email"
               placeholder={data.emailPlaceholder}
               error={errors.email?.message}
-              {...register('email')}
+              {...register("email")}
             />
           </FormField>
 
-          <FormField label={data.passwordLabel} error={errors.password?.message} required>
+          <FormField
+            label={data.passwordLabel}
+            error={errors.password?.message}
+            required
+          >
             <PasswordInput
               placeholder={data.passwordPlaceholder}
               error={errors.password?.message}
               autoComplete="current-password"
-              {...register('password')}
+              {...register("password")}
             />
           </FormField>
 

@@ -1,16 +1,16 @@
-import type { ElementType } from 'react';
+import type { ElementType } from "react";
 import {
   ClipLoader,
   PulseLoader,
   BeatLoader,
   RingLoader,
   ScaleLoader,
-  MoonLoader
-} from 'react-spinners';
+  MoonLoader,
+} from "react-spinners";
 
-import { DEFAULT_PARAMS } from './Spinner.contants';
+import { DEFAULT_PARAMS } from "./Spinner.contants";
 
-import type { SpinnerProps, SpinnerType } from './Spinner.types';
+import type { SpinnerProps, SpinnerType } from "./Spinner.types";
 
 const loaderMap: Record<SpinnerType, ElementType> = {
   spinner: ClipLoader,
@@ -31,13 +31,8 @@ export const Spinner = ({
   const LoaderComponent = loaderMap[type] || ClipLoader;
 
   return (
-    <LoaderComponent
-      size={size}
-      color={color}
-      loading={loading}
-      {...rest}
-    />
+    <LoaderComponent size={size} color={color} loading={loading} {...rest} />
   );
 };
 
-Spinner.displayName = 'Spinner';
+Spinner.displayName = "Spinner";

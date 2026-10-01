@@ -1,6 +1,6 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState } from "react";
 
-import type { CheckboxProps } from './Checkbox.types';
+import type { CheckboxProps } from "./Checkbox.types";
 
 import {
   CheckboxContainer,
@@ -9,14 +9,14 @@ import {
   StyledCheckbox,
   Label,
   ErrorMessage,
-} from './Checkbox.styled';
+} from "./Checkbox.styled";
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       label,
       error,
-      className = '',
+      className = "",
       disabled = false,
       checked: controlledChecked,
       defaultChecked,
@@ -24,9 +24,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const [internalChecked, setInternalChecked] = useState(defaultChecked || false);
+    const [internalChecked, setInternalChecked] = useState(
+      defaultChecked || false,
+    );
     const isControlled = controlledChecked !== undefined;
     const checked = isControlled ? controlledChecked : internalChecked;
     const hasError = !!error;
@@ -38,7 +40,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       onChange?.(e);
     };
 
-    const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+    const checkboxId =
+      id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
 
     return (
       <CheckboxContainer className={className}>
@@ -58,7 +61,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             $disabled={disabled}
             aria-hidden="true"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+            >
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </StyledCheckbox>
@@ -71,7 +79,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
       </CheckboxContainer>
     );
-  }
+  },
 );
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox";

@@ -1,8 +1,8 @@
-import { type FC, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { type FC, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useDictionary } from '@/shared/lib/localization';
+import { useDictionary } from "@/shared/lib/localization";
 import {
   Container,
   Section,
@@ -13,19 +13,19 @@ import {
   Textarea,
   Select,
   Button,
-} from '@/shared/ui';
+} from "@/shared/ui";
 
-import { RatingInput } from './RatingInput';
+import { RatingInput } from "./RatingInput";
 
 import {
   REVIEW_FORM_ID,
   BOOKMAKER_OPTIONS,
   DEFAULT_VALUES,
-} from './ReviewsLeaveForm.constants';
+} from "./ReviewsLeaveForm.constants";
 
-import { reviewFormSchema } from './ReviewsLeaveForm.schema';
+import { reviewFormSchema } from "./ReviewsLeaveForm.schema";
 
-import type { ReviewFormValues } from './ReviewsLeaveForm.types';
+import type { ReviewFormValues } from "./ReviewsLeaveForm.types";
 
 import {
   FormWrapper,
@@ -33,7 +33,7 @@ import {
   FormContainer,
   StyledReviewForm,
   Disclaimer,
-} from './ReviewsLeaveForm.styled';
+} from "./ReviewsLeaveForm.styled";
 
 export const ReviewsLeaveForm: FC = () => {
   const dict = useDictionary();
@@ -64,11 +64,11 @@ export const ReviewsLeaveForm: FC = () => {
   } = useForm<ReviewFormValues>({
     resolver: zodResolver(reviewFormSchema),
     defaultValues: DEFAULT_VALUES,
-    mode: 'onBlur',
+    mode: "onBlur",
   });
 
-  const bookmakerValue = watch('bookmaker');
-  const showOtherBookmaker = bookmakerValue === 'other';
+  const bookmakerValue = watch("bookmaker");
+  const showOtherBookmaker = bookmakerValue === "other";
 
   const onSubmit = (/*data: ReviewFormValues*/) => {
     setIsSubmitted(true);
@@ -92,11 +92,12 @@ export const ReviewsLeaveForm: FC = () => {
               </Paragraph>
             ) : (
               <StyledReviewForm onSubmit={handleSubmit(onSubmit)}>
-                <FormField label={nameLabel} error={errors.name?.message} required>
-                  <Input
-                    {...register('name')}
-                    placeholder={namePlaceholder}
-                  />
+                <FormField
+                  label={nameLabel}
+                  error={errors.name?.message}
+                  required
+                >
+                  <Input {...register("name")} placeholder={namePlaceholder} />
                 </FormField>
 
                 <FormField
@@ -125,7 +126,7 @@ export const ReviewsLeaveForm: FC = () => {
                     required
                   >
                     <Input
-                      {...register('otherBookmaker')}
+                      {...register("otherBookmaker")}
                       placeholder={otherBookmakerPlaceholder}
                     />
                   </FormField>
@@ -154,7 +155,7 @@ export const ReviewsLeaveForm: FC = () => {
                   required
                 >
                   <Textarea
-                    {...register('text')}
+                    {...register("text")}
                     placeholder={textPlaceholder}
                     rows={6}
                   />

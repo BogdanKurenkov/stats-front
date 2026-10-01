@@ -1,9 +1,9 @@
-import { type FC, useState } from 'react';
-import { useRouter } from 'next/router';
-import { Menu, X } from 'lucide-react';
+import { type FC, useState } from "react";
+import { useRouter } from "next/router";
+import { Menu, X } from "lucide-react";
 
-import { Logo } from '@/shared/ui';
-import { ToggleTheme } from '@/shared/ui';
+import { Logo } from "@/shared/ui";
+import { ToggleTheme } from "@/shared/ui";
 import {
   HeaderContainer,
   HeaderContent,
@@ -16,9 +16,9 @@ import {
   MobileCloseButton,
   MobileNavLink,
   Overlay,
-} from '@/shared';
+} from "@/shared";
 
-import { MENU_ITEMS } from './AdminHeader.constants';
+import { MENU_ITEMS } from "./AdminHeader.constants";
 
 export const AdminHeader: FC = () => {
   const router = useRouter();
@@ -53,7 +53,6 @@ export const AdminHeader: FC = () => {
           </NavMenu>
 
           <RightSection>
-
             <ToggleTheme />
 
             <MobileMenuButton
@@ -66,16 +65,10 @@ export const AdminHeader: FC = () => {
         </HeaderContent>
       </HeaderContainer>
 
-      <Overlay
-        isOpen={isMobileMenuOpen}
-        onClose={closeMobileMenu}
-      />
+      <Overlay isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
       <MobileMenu $isOpen={isMobileMenuOpen}>
-        <MobileCloseButton
-          onClick={closeMobileMenu}
-          aria-label="Закрыть меню"
-        >
+        <MobileCloseButton onClick={closeMobileMenu} aria-label="Закрыть меню">
           <X size={24} />
         </MobileCloseButton>
 
@@ -89,7 +82,6 @@ export const AdminHeader: FC = () => {
             {item.label}
           </MobileNavLink>
         ))}
-
       </MobileMenu>
     </>
   );

@@ -1,14 +1,14 @@
-import type { FC } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import type { FC } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { AccordionItem, Container, Section, Title } from '@/shared';
-import { ROUTES } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { AccordionItem, Container, Section, Title } from "@/shared";
+import { ROUTES } from "@/shared";
 
-import { BONUSES_DATA } from './BonusesList.constants';
+import { BONUSES_DATA } from "./BonusesList.constants";
 
-import type { BonusesListProps } from './BonusesList.types';
+import type { BonusesListProps } from "./BonusesList.types";
 
 import {
   BonusesWrapper,
@@ -28,34 +28,39 @@ import {
   StyledAccordion,
   StyledAccordionCOntent,
   StyledParagraph,
-} from './BonusesList.styled';
+} from "./BonusesList.styled";
 
 export const BonusesList: FC<BonusesListProps> = ({ isAdmin }) => {
-  const { push } = useRouter()
+  const { push } = useRouter();
 
   const dict = useDictionary();
   const data = dict.bonusesList;
 
   const handleNavigate = (id: string) => {
     if (isAdmin) {
-      push(ROUTES.ADMIN_PARTNERS.DETAILS(id))
+      push(ROUTES.ADMIN_PARTNERS.DETAILS(id));
     }
-  }
+  };
 
   return (
     <Section pt pb>
       <Container>
         <BonusesWrapper>
           {BONUSES_DATA.map((bonus) => (
-            <BonusCard key={bonus.id} onClick={() => handleNavigate(bonus.id)} >
+            <BonusCard key={bonus.id} onClick={() => handleNavigate(bonus.id)}>
               <BonusContent>
                 <LogoWrapper>
-                  <Image src={bonus.logo} alt={`${bonus.id} logo`} width={100} height={40} />
+                  <Image
+                    src={bonus.logo}
+                    alt={`${bonus.id} logo`}
+                    width={100}
+                    height={40}
+                  />
                 </LogoWrapper>
 
                 <BonusInfo>
                   <BonusTitle>
-                    {bonus.title}{' '}
+                    {bonus.title}{" "}
                     <BonusHighlight>{bonus.amount}</BonusHighlight>
                   </BonusTitle>
                   <BonusSubtitle>{bonus.subtitle}</BonusSubtitle>
@@ -86,7 +91,9 @@ export const BonusesList: FC<BonusesListProps> = ({ isAdmin }) => {
               <StyledAccordion type="single" collapsible>
                 <AccordionItem value="terms" trigger={data.termsButton}>
                   <StyledAccordionCOntent>
-                    <Title as='h6' level='h6'>{data.warning}</Title>
+                    <Title as="h6" level="h6">
+                      {data.warning}
+                    </Title>
                     <StyledParagraph>{bonus.terms}</StyledParagraph>
                   </StyledAccordionCOntent>
                 </AccordionItem>

@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from "react";
+import { useDictionary } from "@/shared/lib/localization";
 
 import {
   Container,
@@ -7,8 +7,8 @@ import {
   Title,
   Paragraph,
   Divider,
-  HighlightBox
-} from '@/shared/ui';
+  HighlightBox,
+} from "@/shared/ui";
 
 import {
   MainInfoWrapper,
@@ -18,7 +18,7 @@ import {
   StatCard,
   StatNumber,
   StatLabel,
-} from './MainInfo.styled';
+} from "./MainInfo.styled";
 
 export const MainInfo: FC = () => {
   const dict = useDictionary();
@@ -32,9 +32,7 @@ export const MainInfo: FC = () => {
             <Title as="h2" level="h2">
               {mainInfo.trustTitle}
             </Title>
-            <Paragraph size="lg">
-              {mainInfo.trustDescription}
-            </Paragraph>
+            <Paragraph size="lg">{mainInfo.trustDescription}</Paragraph>
           </SectionBlock>
 
           <Divider />
@@ -54,9 +52,7 @@ export const MainInfo: FC = () => {
             <Title as="h2" level="h2">
               {mainInfo.evaluationTitle}
             </Title>
-            <Paragraph size="lg">
-              {mainInfo.evaluationDescription}
-            </Paragraph>
+            <Paragraph size="lg">{mainInfo.evaluationDescription}</Paragraph>
           </SectionBlock>
 
           <Divider />
@@ -65,21 +61,15 @@ export const MainInfo: FC = () => {
             <Title as="h2" level="h2">
               {mainInfo.bookmakerTitle}
             </Title>
-            <Paragraph size="lg">
-              {mainInfo.bookmakerDescription}
-            </Paragraph>
+            <Paragraph size="lg">{mainInfo.bookmakerDescription}</Paragraph>
           </SectionBlock>
 
           <HighlightBox>
-            <HighlightText size="lg">
-              {mainInfo.highlightText}
-            </HighlightText>
+            <HighlightText size="lg">{mainInfo.highlightText}</HighlightText>
           </HighlightBox>
 
           <SectionBlock>
-            <Paragraph size="lg">
-              {mainInfo.conclusionText}
-            </Paragraph>
+            <Paragraph size="lg">{mainInfo.conclusionText}</Paragraph>
           </SectionBlock>
         </MainInfoWrapper>
       </Container>

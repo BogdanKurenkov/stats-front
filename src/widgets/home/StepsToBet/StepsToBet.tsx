@@ -1,7 +1,7 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { Container, Section, Title } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { Container, Section, Title } from "@/shared";
 
 import {
   SectionWrapper,
@@ -11,7 +11,7 @@ import {
   StepContent,
   StepTitle,
   StepDescription,
-} from './StepsToBet.styled';
+} from "./StepsToBet.styled";
 
 export const StepsToBet: FC = () => {
   const dict = useDictionary();

@@ -40,9 +40,9 @@ export const TabButton = styled.button<{
       case "pills":
         return css`
           border-radius: 20px;
-          background: ${$active
-            ? theme.colors.orange.primary + "20"
-            : "transparent"};
+          background: ${
+            $active ? theme.colors.orange.primary + "20" : "transparent"
+          };
 
           @media (hover: hover) {
             &:hover:not(:disabled) {
@@ -54,18 +54,18 @@ export const TabButton = styled.button<{
       case "buttons":
         return css`
           border-radius: 6px;
-          background: ${$active
-            ? theme.colors.orange.primary
-            : theme.colors.gray[800]};
-          color: ${$active
-            ? theme.colors.black.primary
-            : theme.colors.gray[300]};
+          background: ${
+            $active ? theme.colors.orange.primary : theme.colors.gray[800]
+          };
+          color: ${
+            $active ? theme.colors.black.primary : theme.colors.gray[300]
+          };
 
           @media (hover: hover) {
             &:hover:not(:disabled) {
-              background: ${$active
-                ? theme.colors.orange.dark
-                : theme.colors.gray[700]};
+              background: ${
+                $active ? theme.colors.orange.dark : theme.colors.gray[700]
+              };
             }
           }
         `;

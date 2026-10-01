@@ -1,17 +1,11 @@
-import { type FC, useState } from 'react';
-import { Star } from 'lucide-react';
+import { type FC, useState } from "react";
+import { Star } from "lucide-react";
 
-import type { RatingInputProps } from './RatingInput.types';
+import type { RatingInputProps } from "./RatingInput.types";
 
-import {
-  RatingWrapper,
-  StarButton,
-} from './RatingInput.styled';
+import { RatingWrapper, StarButton } from "./RatingInput.styled";
 
-export const RatingInput: FC<RatingInputProps> = ({
-  value,
-  onChange,
-}) => {
+export const RatingInput: FC<RatingInputProps> = ({ value, onChange }) => {
   const [hovered, setHovered] = useState(0);
   const displayValue = hovered || value;
 
@@ -31,7 +25,7 @@ export const RatingInput: FC<RatingInputProps> = ({
         >
           <Star
             size={28}
-            fill={star <= displayValue ? 'currentColor' : 'none'}
+            fill={star <= displayValue ? "currentColor" : "none"}
           />
         </StarButton>
       ))}

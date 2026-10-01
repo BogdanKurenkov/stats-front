@@ -1,18 +1,22 @@
-import { useEffect, type FC } from 'react';
-import { ChevronLeft, Loader2, Save, Trash2 } from 'lucide-react';
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, type FC } from "react";
+import { ChevronLeft, Loader2, Save, Trash2 } from "lucide-react";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Form, FormField, Input, Textarea } from '@/shared';
+import { Form, FormField, Input, Textarea } from "@/shared";
 
-import type { PartnerFormValues } from './PartnersForm.types';
+import type { PartnerFormValues } from "./PartnersForm.types";
 
-import { partnerFormSchema } from './PartnersForm.schema';
+import { partnerFormSchema } from "./PartnersForm.schema";
 
-import { BONUSES_DATA } from '../bonuses/BonusesList/BonusesList.constants';
+import { BONUSES_DATA } from "../bonuses/BonusesList/BonusesList.constants";
 
-import { DEFAULT_VALUES, FIELD_LABELS, PLACEHOLDERS } from './PartnersForm.constants';
+import {
+  DEFAULT_VALUES,
+  FIELD_LABELS,
+  PLACEHOLDERS,
+} from "./PartnersForm.constants";
 
 import {
   PageContainer,
@@ -25,8 +29,8 @@ import {
   Header,
   HeaderLeft,
   SaveButton,
-  Title
-} from './PartnersForm.styles';
+  Title,
+} from "./PartnersForm.styles";
 
 export const PartnersForm: FC = () => {
   const router = useRouter();
@@ -42,8 +46,8 @@ export const PartnersForm: FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<PartnerFormValues>({
     resolver: zodResolver(partnerFormSchema),
-    mode: 'onTouched',
-    reValidateMode: 'onChange',
+    mode: "onTouched",
+    reValidateMode: "onChange",
     defaultValues: DEFAULT_VALUES,
   });
 
@@ -68,19 +72,19 @@ export const PartnersForm: FC = () => {
 
   const onSubmit = async (/*data: PartnerFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    router.push('/admin/partners');
+    router.push("/admin/partners");
   };
 
   const handleDelete = () => {
-    if (window.confirm('Вы уверены, что хотите удалить этого партнера?')) {
+    if (window.confirm("Вы уверены, что хотите удалить этого партнера?")) {
       setTimeout(() => {
-        router.push('/admin/partners');
+        router.push("/admin/partners");
       }, 1000);
     }
   };
 
   const handleCancel = () => {
-    router.push('/admin/partners');
+    router.push("/admin/partners");
   };
 
   return (
@@ -90,7 +94,9 @@ export const PartnersForm: FC = () => {
           <BackButton onClick={handleCancel} aria-label="Назад">
             <ChevronLeft />
           </BackButton>
-          <Title>{isEditMode ? 'Редактирование партнера' : 'Создание партнера'}</Title>
+          <Title>
+            {isEditMode ? "Редактирование партнера" : "Создание партнера"}
+          </Title>
         </HeaderLeft>
         <Actions>
           {isEditMode && (
@@ -104,76 +110,116 @@ export const PartnersForm: FC = () => {
 
       <FormWrapper>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FormField label={FIELD_LABELS.TITLE} required error={errors.title?.message}>
+          <FormField
+            label={FIELD_LABELS.TITLE}
+            required
+            error={errors.title?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.TITLE}
               error={errors.title?.message}
-              {...register('title')}
+              {...register("title")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.AMOUNT} required error={errors.amount?.message}>
+          <FormField
+            label={FIELD_LABELS.AMOUNT}
+            required
+            error={errors.amount?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.AMOUNT}
               error={errors.amount?.message}
-              {...register('amount')}
+              {...register("amount")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.SUBTITLE} required error={errors.subtitle?.message}>
+          <FormField
+            label={FIELD_LABELS.SUBTITLE}
+            required
+            error={errors.subtitle?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.SUBTITLE}
               error={errors.subtitle?.message}
-              {...register('subtitle')}
+              {...register("subtitle")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.BONUS_AMOUNT} required error={errors.bonusAmount?.message}>
+          <FormField
+            label={FIELD_LABELS.BONUS_AMOUNT}
+            required
+            error={errors.bonusAmount?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.BONUS_AMOUNT}
               error={errors.bonusAmount?.message}
-              {...register('bonusAmount')}
+              {...register("bonusAmount")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.MIN_ODDS} required error={errors.minOdds?.message}>
+          <FormField
+            label={FIELD_LABELS.MIN_ODDS}
+            required
+            error={errors.minOdds?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.MIN_ODDS}
               error={errors.minOdds?.message}
-              {...register('minOdds')}
+              {...register("minOdds")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.WAGERING} required error={errors.wagering?.message}>
+          <FormField
+            label={FIELD_LABELS.WAGERING}
+            required
+            error={errors.wagering?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.WAGERING}
               error={errors.wagering?.message}
-              {...register('wagering')}
+              {...register("wagering")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.BUTTON_TEXT} required error={errors.buttonText?.message}>
+          <FormField
+            label={FIELD_LABELS.BUTTON_TEXT}
+            required
+            error={errors.buttonText?.message}
+          >
             <Input
               placeholder={PLACEHOLDERS.BUTTON_TEXT}
               error={errors.buttonText?.message}
-              {...register('buttonText')}
+              {...register("buttonText")}
             />
           </FormField>
 
-          <FormField label={FIELD_LABELS.TERMS} required error={errors.terms?.message}>
+          <FormField
+            label={FIELD_LABELS.TERMS}
+            required
+            error={errors.terms?.message}
+          >
             <Textarea
               placeholder={PLACEHOLDERS.TERMS}
               error={errors.terms?.message}
               rows={6}
-              {...register('terms')}
+              {...register("terms")}
             />
           </FormField>
 
           <FormActions>
-            <CancelButton type="button" onClick={handleCancel} disabled={isSubmitting}>
+            <CancelButton
+              type="button"
+              onClick={handleCancel}
+              disabled={isSubmitting}
+            >
               Отмена
             </CancelButton>
-            <SaveButton type="submit" $isLoading={isSubmitting} disabled={isSubmitting}>
+            <SaveButton
+              type="submit"
+              $isLoading={isSubmitting}
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
                 <>
                   <Loader2 size={18} />

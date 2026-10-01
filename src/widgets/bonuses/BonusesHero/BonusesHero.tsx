@@ -1,9 +1,9 @@
-import type { FC } from 'react';
-import { useDictionary } from '@/shared/lib/localization';
+import type { FC } from "react";
+import { useDictionary } from "@/shared/lib/localization";
 
-import { Container, Section, Title, Paragraph } from '@/shared';
+import { Container, Section, Title, Paragraph } from "@/shared";
 
-import { HeroWrapper } from './BonusesHero.styled';
+import { HeroWrapper } from "./BonusesHero.styled";
 
 export const BonusesHero: FC = () => {
   const dict = useDictionary();
@@ -16,9 +16,7 @@ export const BonusesHero: FC = () => {
           <Title as="h1" level="h1">
             {data.title}
           </Title>
-          <Paragraph size="lg">
-            {data.description}
-          </Paragraph>
+          <Paragraph size="lg">{data.description}</Paragraph>
         </HeroWrapper>
       </Container>
     </Section>

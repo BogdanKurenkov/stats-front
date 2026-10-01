@@ -42,7 +42,10 @@ export const StepCard = styled.div<{ $visible?: boolean }>`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.2s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    border-color 0.2s ease;
 
   @media (hover: hover) {
     &:hover {

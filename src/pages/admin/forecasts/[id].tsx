@@ -1,16 +1,16 @@
-import type { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { ChevronLeft, Trash2, Save, Loader2, Plus, X } from 'lucide-react';
-import { z } from 'zod';
+import type { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ChevronLeft, Trash2, Save, Loader2, Plus, X } from "lucide-react";
+import { z } from "zod";
 
-import { FORECASTS } from '@/widgets/forecasts/ForecastsList/ForecastsList.constants';
+import { FORECASTS } from "@/widgets/forecasts/ForecastsList/ForecastsList.constants";
 
-import type { NextPageWithLayout } from '@/shared/types';
-import { Seo } from '@/shared';
-import { Form, FormField, Input, Textarea } from '@/shared';
+import type { NextPageWithLayout } from "@/shared/types";
+import { Seo } from "@/shared";
+import { Form, FormField, Input, Textarea } from "@/shared";
 
 import styled from "styled-components";
 
@@ -344,21 +344,21 @@ export const AddOddButton = styled.button`
 `;
 
 const oddSchema = z.object({
-  label: z.string().min(1, 'Название обязательно'),
-  value: z.string().min(1, 'Значение обязательно'),
+  label: z.string().min(1, "Название обязательно"),
+  value: z.string().min(1, "Значение обязательно"),
 });
 
 // Схема для всего прогноза
 const forecastFormSchema = z.object({
   id: z.number(),
-  sport: z.string().min(1, 'Вид спорта обязателен'),
-  date: z.string().min(1, 'Дата обязательна'),
-  time: z.string().min(1, 'Время обязательно'),
-  homeTeam: z.string().min(1, 'Название команды обязательно'),
-  awayTeam: z.string().min(1, 'Название команды обязательно'),
-  odds: z.array(oddSchema).min(1, 'Добавьте хотя бы один коэффициент'),
-  author: z.string().min(1, 'Имя автора обязательно'),
-  preview: z.string().min(1, 'Текст прогноза обязателен'),
+  sport: z.string().min(1, "Вид спорта обязателен"),
+  date: z.string().min(1, "Дата обязательна"),
+  time: z.string().min(1, "Время обязательно"),
+  homeTeam: z.string().min(1, "Название команды обязательно"),
+  awayTeam: z.string().min(1, "Название команды обязательно"),
+  odds: z.array(oddSchema).min(1, "Добавьте хотя бы один коэффициент"),
+  author: z.string().min(1, "Имя автора обязательно"),
+  preview: z.string().min(1, "Текст прогноза обязателен"),
   timestamp: z.string().optional(),
 });
 
@@ -366,39 +366,39 @@ type ForecastFormValues = z.infer<typeof forecastFormSchema>;
 
 // Константы для полей
 const PLACEHOLDERS = {
-  SPORT: 'Например: Футбол',
-  DATE: 'Например: 22.03.2026',
-  TIME: 'Например: 19:00',
-  HOME_TEAM: 'Например: Локомотив М',
-  AWAY_TEAM: 'Например: Акрон Тольятти',
-  AUTHOR: 'Например: Иван Беленцов',
-  PREVIEW: 'Текст прогноза...',
-  ODD_LABEL: 'Например: П1',
-  ODD_VALUE: 'Например: 1.5',
+  SPORT: "Например: Футбол",
+  DATE: "Например: 22.03.2026",
+  TIME: "Например: 19:00",
+  HOME_TEAM: "Например: Локомотив М",
+  AWAY_TEAM: "Например: Акрон Тольятти",
+  AUTHOR: "Например: Иван Беленцов",
+  PREVIEW: "Текст прогноза...",
+  ODD_LABEL: "Например: П1",
+  ODD_VALUE: "Например: 1.5",
 };
 
 const FIELD_LABELS = {
-  SPORT: 'Вид спорта',
-  DATE: 'Дата',
-  TIME: 'Время',
-  HOME_TEAM: 'Команда хозяев',
-  AWAY_TEAM: 'Команда гостей',
-  AUTHOR: 'Автор',
-  PREVIEW: 'Текст прогноза',
-  ODDS: 'Коэффициенты',
+  SPORT: "Вид спорта",
+  DATE: "Дата",
+  TIME: "Время",
+  HOME_TEAM: "Команда хозяев",
+  AWAY_TEAM: "Команда гостей",
+  AUTHOR: "Автор",
+  PREVIEW: "Текст прогноза",
+  ODDS: "Коэффициенты",
 };
 
 const DEFAULT_VALUES: ForecastFormValues = {
   id: 0,
-  sport: '',
-  date: '',
-  time: '',
-  homeTeam: '',
-  awayTeam: '',
-  odds: [{ label: '', value: '' }],
-  author: '',
-  preview: '',
-  timestamp: '',
+  sport: "",
+  date: "",
+  time: "",
+  homeTeam: "",
+  awayTeam: "",
+  odds: [{ label: "", value: "" }],
+  author: "",
+  preview: "",
+  timestamp: "",
 };
 
 const AdminDashboardForecast: NextPageWithLayout = () => {
@@ -415,13 +415,13 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
     formState: { errors, isSubmitting },
   } = useForm<ForecastFormValues>({
     resolver: zodResolver(forecastFormSchema),
-    mode: 'onTouched',
-    reValidateMode: 'onChange',
+    mode: "onTouched",
+    reValidateMode: "onChange",
     defaultValues: DEFAULT_VALUES,
   });
 
   // Следим за массивом коэффициентов
-  const odds = watch('odds');
+  const odds = watch("odds");
 
   // Загружаем данные для редактирования
   useEffect(() => {
@@ -446,32 +446,35 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
 
   const onSubmit = async (/*data: ForecastFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    router.push('/admin/forecasts');
+    router.push("/admin/forecasts");
   };
 
   const handleDelete = () => {
-    if (window.confirm('Вы уверены, что хотите удалить этот прогноз?')) {
+    if (window.confirm("Вы уверены, что хотите удалить этот прогноз?")) {
       setTimeout(() => {
-        router.push('/admin/forecasts');
+        router.push("/admin/forecasts");
       }, 1000);
     }
   };
 
   const handleCancel = () => {
-    router.push('/admin/forecasts');
+    router.push("/admin/forecasts");
   };
 
   // Добавление коэффициента
   const addOdd = () => {
-    const currentOdds = watch('odds') || [];
-    setValue('odds', [...currentOdds, { label: '', value: '' }]);
+    const currentOdds = watch("odds") || [];
+    setValue("odds", [...currentOdds, { label: "", value: "" }]);
   };
 
   // Удаление коэффициента
   const removeOdd = (index: number) => {
-    const currentOdds = watch('odds') || [];
+    const currentOdds = watch("odds") || [];
     if (currentOdds.length > 1) {
-      setValue('odds', currentOdds.filter((_, i) => i !== index));
+      setValue(
+        "odds",
+        currentOdds.filter((_, i) => i !== index),
+      );
     }
   };
 
@@ -487,14 +490,19 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
 
   return (
     <>
-      <Seo title={isEditMode ? 'Редактирование прогноза' : 'Создание прогноза'} noIndex={true} />
+      <Seo
+        title={isEditMode ? "Редактирование прогноза" : "Создание прогноза"}
+        noIndex={true}
+      />
       <PageContainer>
         <Header>
           <HeaderLeft>
             <BackButton onClick={handleCancel} aria-label="Назад">
               <ChevronLeft />
             </BackButton>
-            <Title>{isEditMode ? 'Редактирование прогноза' : 'Создание прогноза'}</Title>
+            <Title>
+              {isEditMode ? "Редактирование прогноза" : "Создание прогноза"}
+            </Title>
           </HeaderLeft>
           <Actions>
             {isEditMode && (
@@ -508,43 +516,63 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
 
         <FormWrapper>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormField label={FIELD_LABELS.SPORT} required error={errors.sport?.message}>
+            <FormField
+              label={FIELD_LABELS.SPORT}
+              required
+              error={errors.sport?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.SPORT}
                 error={errors.sport?.message}
-                {...register('sport')}
+                {...register("sport")}
               />
             </FormField>
 
-            <FormField label={FIELD_LABELS.DATE} required error={errors.date?.message}>
+            <FormField
+              label={FIELD_LABELS.DATE}
+              required
+              error={errors.date?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.DATE}
                 error={errors.date?.message}
-                {...register('date')}
+                {...register("date")}
               />
             </FormField>
 
-            <FormField label={FIELD_LABELS.TIME} required error={errors.time?.message}>
+            <FormField
+              label={FIELD_LABELS.TIME}
+              required
+              error={errors.time?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.TIME}
                 error={errors.time?.message}
-                {...register('time')}
+                {...register("time")}
               />
             </FormField>
 
-            <FormField label={FIELD_LABELS.HOME_TEAM} required error={errors.homeTeam?.message}>
+            <FormField
+              label={FIELD_LABELS.HOME_TEAM}
+              required
+              error={errors.homeTeam?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.HOME_TEAM}
                 error={errors.homeTeam?.message}
-                {...register('homeTeam')}
+                {...register("homeTeam")}
               />
             </FormField>
 
-            <FormField label={FIELD_LABELS.AWAY_TEAM} required error={errors.awayTeam?.message}>
+            <FormField
+              label={FIELD_LABELS.AWAY_TEAM}
+              required
+              error={errors.awayTeam?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.AWAY_TEAM}
                 error={errors.awayTeam?.message}
-                {...register('awayTeam')}
+                {...register("awayTeam")}
               />
             </FormField>
 
@@ -552,7 +580,13 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
             <OddsSection>
               <OddsTitle>{FIELD_LABELS.ODDS}</OddsTitle>
               {errors.odds?.message && (
-                <div style={{ color: '#F44336', fontSize: '12px', marginBottom: '8px' }}>
+                <div
+                  style={{
+                    color: "#F44336",
+                    fontSize: "12px",
+                    marginBottom: "8px",
+                  }}
+                >
                   {errors.odds.message}
                 </div>
               )}
@@ -560,14 +594,20 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
                 {odds?.map((_, index) => (
                   <OddsRow key={index}>
                     <OddsFieldGroup>
-                      <FormField label="Название" error={errors.odds?.[index]?.label?.message}>
+                      <FormField
+                        label="Название"
+                        error={errors.odds?.[index]?.label?.message}
+                      >
                         <Input
                           placeholder={PLACEHOLDERS.ODD_LABEL}
                           error={errors.odds?.[index]?.label?.message}
                           {...register(`odds.${index}.label`)}
                         />
                       </FormField>
-                      <FormField label="Значение" error={errors.odds?.[index]?.value?.message}>
+                      <FormField
+                        label="Значение"
+                        error={errors.odds?.[index]?.value?.message}
+                      >
                         <Input
                           placeholder={PLACEHOLDERS.ODD_VALUE}
                           error={errors.odds?.[index]?.value?.message}
@@ -593,28 +633,44 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
               </AddOddButton>
             </OddsSection>
 
-            <FormField label={FIELD_LABELS.AUTHOR} required error={errors.author?.message}>
+            <FormField
+              label={FIELD_LABELS.AUTHOR}
+              required
+              error={errors.author?.message}
+            >
               <Input
                 placeholder={PLACEHOLDERS.AUTHOR}
                 error={errors.author?.message}
-                {...register('author')}
+                {...register("author")}
               />
             </FormField>
 
-            <FormField label={FIELD_LABELS.PREVIEW} required error={errors.preview?.message}>
+            <FormField
+              label={FIELD_LABELS.PREVIEW}
+              required
+              error={errors.preview?.message}
+            >
               <Textarea
                 placeholder={PLACEHOLDERS.PREVIEW}
                 error={errors.preview?.message}
                 rows={6}
-                {...register('preview')}
+                {...register("preview")}
               />
             </FormField>
 
             <FormActions>
-              <CancelButton type="button" onClick={handleCancel} disabled={isSubmitting}>
+              <CancelButton
+                type="button"
+                onClick={handleCancel}
+                disabled={isSubmitting}
+              >
                 Отмена
               </CancelButton>
-              <SaveButton type="submit" $isLoading={isSubmitting} disabled={isSubmitting}>
+              <SaveButton
+                type="submit"
+                $isLoading={isSubmitting}
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? (
                   <>
                     <Loader2 size={18} />
@@ -639,12 +695,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
       headers: {
-        cookie: ctx.req.headers.cookie || '',
+        cookie: ctx.req.headers.cookie || "",
       },
     });
 
     const session = await res.json();
-    const isAdmin = session.user?.role === 'admin';
+    const isAdmin = session.user?.role === "admin";
 
     if (!isAdmin) {
       return {

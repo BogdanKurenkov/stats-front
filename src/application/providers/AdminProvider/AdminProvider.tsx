@@ -1,6 +1,6 @@
-import { type ReactNode, useState, useEffect } from 'react';
+import { type ReactNode, useState, useEffect } from "react";
 
-import { AdminContext } from '@/application/contexts';
+import { AdminContext } from "@/application/contexts";
 
 export const AdminProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -9,9 +9,9 @@ export const AdminProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const res = await fetch('/api/auth/session');
+        const res = await fetch("/api/auth/session");
         const data = await res.json();
-        setIsAdmin(data.user?.role === 'admin');
+        setIsAdmin(data.user?.role === "admin");
       } catch {
         setIsAdmin(false);
       } finally {

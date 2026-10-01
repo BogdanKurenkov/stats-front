@@ -1,6 +1,6 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState } from "react";
 
-import type { PasswordInputProps } from './PasswordInput.types';
+import type { PasswordInputProps } from "./PasswordInput.types";
 
 import {
   PasswordInputContainer,
@@ -10,20 +10,10 @@ import {
   EyeIcon,
   EyeOffIcon,
   PasswordLabel,
-} from './PasswordInput.styled';
+} from "./PasswordInput.styled";
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-  (
-    {
-      label,
-      error,
-      className = '',
-      disabled = false,
-      id,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ label, error, className = "", disabled = false, id, ...rest }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const inputId = id || `password-${Math.random().toString(36).substr(2, 9)}`;
@@ -34,10 +24,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     return (
       <PasswordInputContainer className={className}>
         {label && (
-          <PasswordLabel
-            htmlFor={inputId}
-            $hasError={hasError}
-          >
+          <PasswordLabel htmlFor={inputId} $hasError={hasError}>
             {label}
           </PasswordLabel>
         )}
@@ -46,7 +33,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           <StyledInput
             ref={ref}
             id={inputId}
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             $hasError={hasError}
             disabled={disabled}
             aria-invalid={hasError}
@@ -58,14 +45,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             type="button"
             onClick={handleTogglePassword}
             disabled={disabled}
-            aria-label={showPassword ? 'Скрыть пароль' : 'Показать пароль'}
+            aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
           >
             {showPassword ? <EyeOffIcon /> : <EyeIcon />}
           </ToggleButton>
         </PasswordInputWrapper>
       </PasswordInputContainer>
     );
-  }
+  },
 );
 
-PasswordInput.displayName = 'PasswordInput';
+PasswordInput.displayName = "PasswordInput";

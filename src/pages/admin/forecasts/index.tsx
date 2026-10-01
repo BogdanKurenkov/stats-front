@@ -1,11 +1,11 @@
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from "next";
 
-import { ForecastsList } from '@/widgets';
+import { ForecastsList } from "@/widgets";
 
-import type { NextPageWithLayout } from '@/shared/types';
-import { Seo } from '@/shared';
+import type { NextPageWithLayout } from "@/shared/types";
+import { Seo } from "@/shared";
 
-const BONUSES_TEXT = "Текущие прогнозы"
+const BONUSES_TEXT = "Текущие прогнозы";
 
 const AdminDashboardForecasts: NextPageWithLayout = () => {
   return (
@@ -20,12 +20,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
       headers: {
-        cookie: ctx.req.headers.cookie || '',
+        cookie: ctx.req.headers.cookie || "",
       },
     });
 
     const session = await res.json();
-    const isAdmin = session.user?.role === 'admin';
+    const isAdmin = session.user?.role === "admin";
 
     if (!isAdmin) {
       return {
@@ -44,6 +44,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 };
 
-AdminDashboardForecasts.layout = "admin"
+AdminDashboardForecasts.layout = "admin";
 
 export default AdminDashboardForecasts;

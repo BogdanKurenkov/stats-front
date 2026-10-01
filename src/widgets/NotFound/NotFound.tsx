@@ -1,10 +1,17 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
-import { useDictionary } from '@/shared/lib/localization';
-import { ROUTES } from '@/shared/config';
-import { CustomLink } from '@/shared';
+import { useDictionary } from "@/shared/lib/localization";
+import { ROUTES } from "@/shared/config";
+import { CustomLink } from "@/shared";
 
-import { ErrorWrapper, ErrorCode, ErrorDescription, ErrorImage, ErrorTitle, HomeButton } from './NotFound.styled';
+import {
+  ErrorWrapper,
+  ErrorCode,
+  ErrorDescription,
+  ErrorImage,
+  ErrorTitle,
+  HomeButton,
+} from "./NotFound.styled";
 
 export const NotFound: FC = () => {
   const dict = useDictionary();
@@ -15,9 +22,7 @@ export const NotFound: FC = () => {
       <ErrorImage>🕵️‍♂️</ErrorImage>
       <ErrorCode>{data.errorCode}</ErrorCode>
       <ErrorTitle>{data.title}</ErrorTitle>
-      <ErrorDescription>
-        {data.description}
-      </ErrorDescription>
+      <ErrorDescription>{data.description}</ErrorDescription>
       <HomeButton
         as={CustomLink}
         href={ROUTES.HOME}
