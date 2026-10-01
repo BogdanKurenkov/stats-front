@@ -1,6 +1,7 @@
 import nextPlugin from '@next/eslint-plugin-next'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
+import prettierConfig from 'eslint-config-prettier';
 
 export default [
   {
@@ -42,4 +43,5 @@ export default [
       ],
     },
   },
+  prettierConfig
 ]

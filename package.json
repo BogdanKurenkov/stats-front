@@ -11,7 +11,9 @@
     "prebuild": "npm run lint && npm run lint:styles",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,json}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -39,9 +41,11 @@
     "@types/styled-components": "^5.1.36",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "postcss-styled-syntax": "^0.7.3",
+    "prettier": "^3.9.9",
     "stylelint": "^17.15.0",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^5"
