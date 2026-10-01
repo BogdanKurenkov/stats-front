@@ -2,8 +2,6 @@ import { type FC, useState } from "react";
 import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
 
-import { Logo } from "@/shared/ui";
-import { ToggleTheme } from "@/shared/ui";
 import {
   HeaderContainer,
   HeaderContent,
@@ -16,6 +14,8 @@ import {
   MobileCloseButton,
   MobileNavLink,
   Overlay,
+  ToggleTheme,
+  Logo,
 } from "@/shared";
 
 import { MENU_ITEMS } from "./AdminHeader.constants";

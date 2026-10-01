@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { useDictionary } from "@/shared/lib/localization";
 import { AccordionItem, Container, Section, Title } from "@/shared";
-import { ROUTES } from "@/shared";
+import { ROUTES } from "@/shared/config";
 
 import { BONUSES_DATA } from "./BonusesList.constants";
 

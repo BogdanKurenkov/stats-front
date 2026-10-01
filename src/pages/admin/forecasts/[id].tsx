@@ -9,8 +9,7 @@ import { z } from "zod";
 import { FORECASTS } from "@/widgets/forecasts/ForecastsList/ForecastsList.constants";
 
 import type { NextPageWithLayout } from "@/shared/types";
-import { Seo } from "@/shared";
-import { Form, FormField, Input, Textarea } from "@/shared";
+import { Form, FormField, Input, Textarea, Seo } from "@/shared/ui";
 
 import styled from "styled-components";
 

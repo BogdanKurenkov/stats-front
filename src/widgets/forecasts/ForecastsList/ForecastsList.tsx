@@ -61,7 +61,7 @@ export const ForecastsList: FC<ForecastsListProps> = ({
 
   const getPreviewText = (preview: string, id: number) => {
     if (isExpanded(id)) return preview;
-    if (preview.length > 100) return preview.slice(0, 100) + "...";
+    if (preview.length > 100) return `${preview.slice(0, 100)}...`;
     return preview;
   };
 

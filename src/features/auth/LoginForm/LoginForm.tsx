@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { createLoginSchema, type LoginFormData } from "@/features/auth/schemas";
 
-import { useDictionary } from "@/shared";
-import { Form, FormField, Input, PasswordInput, CustomLink } from "@/shared";
+import { useDictionary } from "@/shared/lib/localization";
+import { Form, FormField, Input, PasswordInput, CustomLink } from "@/shared/ui";
 import { ROUTES } from "@/shared/config";
 
 import {
