@@ -1,3 +1,5 @@
+import { Mail, Send, Phone, MapPin } from "lucide-react";
+
 import { ROUTES } from "@/shared/config";
 
 export const FOOTER_SECTIONS = [
@@ -20,3 +22,26 @@ export const FOOTER_SECTIONS = [
     ],
   },
 ];
+
+export const FOOTER_CONTACTS = [
+  {
+    icon: Mail,
+    label: "support@footballstats.com",
+    href: "mailto:support@footballstats.com",
+  },
+  {
+    icon: Send,
+    label: "@footballstats",
+    href: "https://t.me/footballstats",
+  },
+  {
+    icon: Phone,
+    label: "+7 (999) 123-45-67",
+    href: "tel:+79991234567",
+  },
+  {
+    icon: MapPin,
+    label: "Москва, ул. Пример, 1",
+    href: null,
+  },
+] as const;

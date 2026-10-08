@@ -2,18 +2,22 @@ import type { FC } from "react";
 
 import { Logo } from "@/shared";
 
-import { FOOTER_SECTIONS } from "./Footer.constants";
+import { FOOTER_CONTACTS, FOOTER_SECTIONS } from "./Footer.constants";
 
 import {
+  ContactItem,
+  ContactLink,
+  ContactsList,
+  ContactText,
+  Copyright,
+  FooterBottom,
   FooterContainer,
   FooterContent,
-  FooterSection,
-  SectionTitle,
-  LinksList,
-  LinkItem,
   FooterLink,
-  FooterBottom,
-  Copyright,
+  FooterSection,
+  LinkItem,
+  LinksList,
+  SectionTitle,
 } from "./Footer.styled";
 
 export const Footer: FC = () => {
@@ -42,6 +46,42 @@ export const Footer: FC = () => {
             </LinksList>
           </FooterSection>
         ))}
+
+        <FooterSection>
+          <SectionTitle as="h3" level="h3">
+            Контакты
+          </SectionTitle>
+          <ContactsList>
+            {FOOTER_CONTACTS.map((contact) => {
+              const Icon = contact.icon;
+              return (
+                <ContactItem key={contact.label}>
+                  {contact.href ? (
+                    <ContactLink
+                      href={contact.href}
+                      target={
+                        contact.href.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        contact.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                    >
+                      <Icon size={16} />
+                      {contact.label}
+                    </ContactLink>
+                  ) : (
+                    <ContactText>
+                      <Icon size={16} />
+                      {contact.label}
+                    </ContactText>
+                  )}
+                </ContactItem>
+              );
+            })}
+          </ContactsList>
+        </FooterSection>
       </FooterContent>
 
       <FooterBottom>

@@ -6,8 +6,14 @@ export const colors = {
     light: "#FED7AA",
     vibrant: "#FF8A00",
     muted: "#F9731680",
+    glow: "#F9731640",
+    glowStrong: "#F9731666",
+    tint: "#F9731614",
+    tintStrong: "#F9731626",
+    border: "#F9731699",
+    gradientFrom: "#F97316",
+    gradientTo: "#FF8A00",
   },
-
   dark: {
     black: {
       primary: "#0A0A0A",

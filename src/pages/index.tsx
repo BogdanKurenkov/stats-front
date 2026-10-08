@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import { MainInfo, FeaturedMatches } from "@/widgets";
+import { Hero as MainHero, FeaturedMatches } from "@/widgets";
 
 const HowToChooseBookmaker = dynamic(() =>
   import("@/widgets").then((mod) => mod.HowToChooseBookmaker),
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Seo title="Главная" />
-      <MainInfo />
+      <MainHero />
       <FeaturedMatches />
       <HowToChooseBookmaker />
       <StepsToBet />

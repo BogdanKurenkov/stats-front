@@ -80,3 +80,51 @@ export const Copyright = styled(Paragraph)`
   color: ${({ theme }) => theme.colors.gray[500]};
   margin: 0;
 `;
+
+export const ContactsList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const ContactItem = styled.li`
+  margin: 0;
+  padding: 0;
+`;
+
+export const ContactLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray[400]};
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  svg {
+    flex-shrink: 0;
+    color: ${({ theme }) => theme.colors.orange.primary};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
+  }
+`;
+
+export const ContactText = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray[400]};
+
+  svg {
+    flex-shrink: 0;
+    color: ${({ theme }) => theme.colors.orange.primary};
+  }
+`;
