@@ -4,11 +4,11 @@ import { Paragraph, Section } from "@/shared/ui";
 
 export const HeroSection = styled(Section)`
   position: relative;
+  background-color: ${({ theme }) => theme.colors.black.primary};
   background-image: url("/images/hero/main-hero-bg.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-color: ${({ theme }) => theme.colors.black.primary};
   overflow: hidden;
 
   &::before {
@@ -43,20 +43,31 @@ export const HeroSection = styled(Section)`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    background-position: 70% center;
+    background-image: none;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 `;
 
 export const HeroTop = styled.div`
   display: grid;
   grid-template-columns: 1fr minmax(320px, 400px);
-  gap: 48px;
+  gap: 32px 48px;
   align-items: start;
   margin-bottom: 48px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
-    gap: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-bottom: 0;
+    row-gap: 0;
   }
 `;
 
@@ -64,39 +75,52 @@ export const HeroLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-`;
-
-export const HeroTitle = styled.h1`
-  margin: 0;
-  font-size: 56px;
-  line-height: 1.1;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray[100]};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    font-size: 40px;
-  }
+  grid-column: 1;
+  grid-row: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: 32px;
+    position: relative;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 64px 16px 40px;
+    background-image: url("/images/hero/main-hero-bg-mobile.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: ${({ theme }) => theme.colors.black.primary};
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0.55) 55%,
+        rgba(0, 0, 0, 0.95) 100%
+      );
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 60% 30%,
+        rgba(249, 115, 22, 0.22),
+        transparent 55%
+      );
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
   }
-`;
-
-export const Accent = styled.span`
-  color: ${({ theme }) => theme.colors.orange.primary};
-`;
-
-export const HeroDescription = styled(Paragraph)`
-  margin: 0;
-  max-width: 520px;
-  color: ${({ theme }) => theme.colors.gray[200]};
-`;
-
-export const ActionsRow = styled.div`
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 8px;
 `;
 
 export const FeaturesRow = styled.ul`
@@ -106,6 +130,15 @@ export const FeaturesRow = styled.ul`
   list-style: none;
   margin: 16px 0 0;
   padding: 0;
+  grid-column: 1;
+  grid-row: 2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 24px 0 8px;
+  }
 `;
 
 export const FeatureItem = styled.li`
@@ -134,6 +167,17 @@ export const MatchCard = styled.aside`
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.orange.tint},
     0 20px 60px -20px ${({ theme }) => theme.colors.orange.glow};
+  grid-column: 2;
+  grid-row: 1 / span 2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
 `;
 
 export const MatchCardHeader = styled.div`
@@ -180,7 +224,8 @@ export const TeamsRow = styled.div`
 export const Team = styled.div<{ $align: "left" | "right" }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ $align }) => ($align === "left" ? "flex-start" : "flex-end")};
+  align-items: ${({ $align }) =>
+    $align === "left" ? "flex-start" : "flex-end"};
   gap: 8px;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.gray[100]};
@@ -251,6 +296,39 @@ export const MatchCardFooter = styled.div`
   justify-content: flex-end;
 `;
 
+export const HeroTitle = styled.h1`
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.gray[100]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 32px;
+  }
+`;
+
+export const Accent = styled.span`
+  color: ${({ theme }) => theme.colors.orange.primary};
+`;
+
+export const HeroDescription = styled(Paragraph)`
+  margin: 0;
+  max-width: 520px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+`;
+
+export const ActionsRow = styled.div`
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+`;
+
 export const BottomStatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -262,7 +340,9 @@ export const BottomStatsGrid = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 32px;
   }
 `;
 
@@ -285,6 +365,11 @@ export const BottomStatCard = styled.div`
       box-shadow: 0 0 24px ${({ theme }) => theme.colors.orange.glow};
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 16px;
+    gap: 12px;
+  }
 `;
 
 export const BottomStatIcon = styled.div`
@@ -297,6 +382,11 @@ export const BottomStatIcon = styled.div`
   background-color: ${({ theme }) => theme.colors.orange.tint};
   color: ${({ theme }) => theme.colors.orange.secondary};
   box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.orange.tintStrong};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const BottomStatContent = styled.div`
@@ -311,10 +401,18 @@ export const BottomStatNumber = styled.span`
   font-weight: 700;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.gray[100]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 20px;
+  }
 `;
 
 export const BottomStatLabel = styled.span`
   font-size: 13px;
   line-height: 1.3;
   color: ${({ theme }) => theme.colors.gray[400]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 12px;
+  }
 `;

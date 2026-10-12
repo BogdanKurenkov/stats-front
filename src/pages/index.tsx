@@ -2,11 +2,9 @@ import dynamic from "next/dynamic";
 
 import { Hero as MainHero, FeaturedMatches } from "@/widgets";
 
-const HowToChooseBookmaker = dynamic(() =>
-  import("@/widgets").then((mod) => mod.HowToChooseBookmaker),
-);
-const StepsToBet = dynamic(() =>
-  import("@/widgets").then((mod) => mod.StepsToBet),
+const OurTeam = dynamic(() => import("@/widgets").then((mod) => mod.OurTeam));
+const ForecastsCreationSteps = dynamic(() =>
+  import("@/widgets").then((mod) => mod.ForecastsCreationSteps),
 );
 const FAQ = dynamic(() => import("@/widgets").then((mod) => mod.FAQ));
 
@@ -18,8 +16,8 @@ export default function Home() {
       <Seo title="Главная" />
       <MainHero />
       <FeaturedMatches />
-      <HowToChooseBookmaker />
-      <StepsToBet />
+      <OurTeam />
+      <ForecastsCreationSteps />
       <FAQ />
     </>
   );

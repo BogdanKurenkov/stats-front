@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 import { Title, Paragraph, CustomLink } from "@/shared";
 
-export const FooterContainer = styled.footer`
-  background-color: ${({ theme }) => theme.colors.black.primary};
+export const FooterContainer = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.gray[800]};
   margin-top: auto;
   width: 100%;
@@ -70,14 +69,18 @@ export const FooterLink = styled(CustomLink)`
 `;
 
 export const FooterBottom = styled.div`
-  border-top: 1px solid ${({ theme }) => theme.colors.gray[800]};
+  /* border-top: 1px solid ${({ theme }) => theme.colors.gray[400]}; */
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   text-align: center;
 `;
 
 export const Copyright = styled(Paragraph)`
   font-size: 12px;
-  color: ${({ theme }) => theme.colors.gray[500]};
+  color: ${({ theme }) => theme.colors.gray[400]};
   margin: 0;
 `;
 
@@ -127,4 +130,18 @@ export const ContactText = styled.span`
     flex-shrink: 0;
     color: ${({ theme }) => theme.colors.orange.primary};
   }
+`;
+
+export const SectionWrapper = styled.footer`
+  position: relative;
+  width: 100%;
+  background-image: url("/images/footer/footer-bg@2x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+export const Disclaimer = styled(Paragraph)`
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.gray[400]};
+  margin: 0;
 `;

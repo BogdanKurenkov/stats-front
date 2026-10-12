@@ -1,4 +1,4 @@
 export { Hero } from "./Hero";
-export { HowToChooseBookmaker } from "./HowToChooseBookmaker";
-export { StepsToBet } from "./StepsToBet";
+export { OurTeam } from "./OurTeam";
+export { ForecastsCreationSteps } from "./ForecastsCreationSteps";
 export { FAQ } from "./FAQ";

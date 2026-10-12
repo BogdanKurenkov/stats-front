@@ -69,19 +69,6 @@ export const Hero: FC = () => {
                 {hero.secondaryCta}
               </Button>
             </ActionsRow>
-
-            <FeaturesRow>
-              {hero.features.map((feature) => {
-                const Icon =
-                  FEATURE_ICONS[feature.icon as keyof typeof FEATURE_ICONS];
-                return (
-                  <FeatureItem key={feature.label}>
-                    <Icon size={18} />
-                    {feature.label}
-                  </FeatureItem>
-                );
-              })}
-            </FeaturesRow>
           </HeroLeft>
 
           <MatchCard>
@@ -123,7 +110,23 @@ export const Hero: FC = () => {
               </Button>
             </MatchCardFooter>
           </MatchCard>
+
+          <FeaturesRow>
+            {hero.features.map((feature) => {
+              const Icon =
+                FEATURE_ICONS[feature.icon as keyof typeof FEATURE_ICONS];
+              return (
+                <FeatureItem key={feature.label}>
+                  <Icon size={18} />
+                  {feature.label}
+                </FeatureItem>
+              );
+            })}
+          </FeaturesRow>
         </HeroTop>
+      </Container>
+
+      <Container>
         <BottomStatsGrid>
           {hero.bottomStats.map((stat) => {
             const Icon =
