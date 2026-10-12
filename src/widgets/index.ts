@@ -14,6 +14,7 @@ export { ReviewsMethodology } from "./ReviewsMethodology";
 export { ReviewsRating } from "./ReviewsRating";
 export { ReviewsList } from "./ReviewsList";
 export { ReviewsLeaveForm } from "./ReviewsLeaveForm";
+export { BestOdds } from "./BestOdds";
 
 export * from "./home";
 

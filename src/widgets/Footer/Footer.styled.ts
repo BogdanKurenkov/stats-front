@@ -2,12 +2,6 @@ import styled from "styled-components";
 
 import { Title, Paragraph, CustomLink } from "@/shared";
 
-export const FooterContainer = styled.div`
-  border-top: 1px solid ${({ theme }) => theme.colors.gray[800]};
-  margin-top: auto;
-  width: 100%;
-`;
-
 export const FooterContent = styled.div`
   max-width: 1440px;
   margin: 0 auto;
@@ -69,13 +63,18 @@ export const FooterLink = styled(CustomLink)`
 `;
 
 export const FooterBottom = styled.div`
-  /* border-top: 1px solid ${({ theme }) => theme.colors.gray[400]}; */
-  padding: 24px;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray[400]};
+  padding: 24px 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
   gap: 8px;
   text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 `;
 
 export const Copyright = styled(Paragraph)`
@@ -144,4 +143,54 @@ export const Disclaimer = styled(Paragraph)`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.gray[400]};
   margin: 0;
+`;
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const Description = styled(Paragraph)`
+  font-size: 14px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.gray[400]};
+  margin: 0;
+  max-width: 280px;
+`;
+
+export const SocialList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`;
+
+export const SocialIconLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: ${({ theme }) => theme.colors.gray[400]};
+  background-color: ${({ theme }) => theme.colors.gray[800] ?? "rgba(255,255,255,0.05)"};
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+      background-color: ${({ theme }) => theme.colors.gray[700] ?? "rgba(255,255,255,0.1)"};
+      transform: translateY(-2px);
+    }
+  }
 `;

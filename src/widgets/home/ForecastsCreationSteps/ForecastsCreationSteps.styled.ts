@@ -47,8 +47,10 @@ export const StepCard = styled.div`
   padding: 20px;
   transition: border-color 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.orange.primary};
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.orange.primary};
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
