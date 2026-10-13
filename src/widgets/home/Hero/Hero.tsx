@@ -1,5 +1,10 @@
 import type { FC } from "react";
-import { Flame } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const HeroMatchCard = dynamic(
+  () => import("@/features/heroMatchCard").then((mod) => mod.HeroMatchCard),
+  { ssr: false },
+);
 
 import { useDictionary } from "@/shared/lib/localization";
 import { scrollToSection } from "@/shared/lib/scroll";
@@ -17,21 +22,6 @@ import {
   HeroSection,
   HeroTitle,
   HeroTop,
-  MatchCard,
-  MatchCardFooter,
-  MatchCardHeader,
-  MatchCardLabel,
-  MatchCardMeta,
-  Odds,
-  PredictionBox,
-  PredictionLabel,
-  PredictionNote,
-  PredictionRow,
-  PredictionText,
-  Team,
-  TeamLogo,
-  TeamsRow,
-  Versus,
   BottomStatCard,
   BottomStatContent,
   BottomStatIcon,
@@ -43,7 +33,6 @@ import {
 export const Hero: FC = () => {
   const dict = useDictionary();
   const hero = dict.hero;
-  const match = hero.matchCard;
 
   return (
     <HeroSection pt pb id={SECTION_ID}>
@@ -71,45 +60,7 @@ export const Hero: FC = () => {
             </ActionsRow>
           </HeroLeft>
 
-          <MatchCard>
-            <MatchCardHeader>
-              <MatchCardLabel>
-                <Flame size={16} />
-                {match.label}
-              </MatchCardLabel>
-              <MatchCardMeta>
-                <span>{match.date}</span>
-                <span>{match.league}</span>
-              </MatchCardMeta>
-            </MatchCardHeader>
-
-            <TeamsRow>
-              <Team $align="left">
-                <TeamLogo />
-                <span>{match.homeTeam}</span>
-              </Team>
-              <Versus>vs</Versus>
-              <Team $align="right">
-                <TeamLogo />
-                <span>{match.awayTeam}</span>
-              </Team>
-            </TeamsRow>
-
-            <PredictionBox>
-              <PredictionLabel>{match.predictionLabel}</PredictionLabel>
-              <PredictionRow>
-                <PredictionText>{match.predictionText}</PredictionText>
-                <Odds>{match.odds}</Odds>
-              </PredictionRow>
-              <PredictionNote>{match.note}</PredictionNote>
-            </PredictionBox>
-
-            <MatchCardFooter>
-              <Button variant="primary" size="medium">
-                {match.cta}
-              </Button>
-            </MatchCardFooter>
-          </MatchCard>
+          <HeroMatchCard />
 
           <FeaturesRow>
             {hero.features.map((feature) => {

@@ -20,7 +20,7 @@ import {
   MobileNavLink,
   Overlay,
   Logo,
-  ToggleTheme,
+  // ToggleTheme,
 } from "@/shared";
 
 import { MENU_ITEMS } from "./Header.constants";
@@ -73,7 +73,7 @@ export const Header: FC = () => {
           </NavMenu>
 
           <RightSection>
-            <ToggleTheme />
+            {/* <ToggleTheme /> */}
 
             {isAuthenticated ? (
               <Avatar

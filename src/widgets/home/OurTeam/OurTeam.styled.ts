@@ -6,7 +6,6 @@ export const SectionWrapper = styled.section`
   position: relative;
   width: 100%;
   background-image: url("/images/team/team-main@2x.png");
-  background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
 
@@ -33,6 +32,14 @@ export const SectionWrapper = styled.section`
         ${({ theme }) => theme.colors.black.primary} 55%,
         transparent 100%
       );
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    background-image: none;
+
+    &::before {
+      display: none;
     }
   }
 `;

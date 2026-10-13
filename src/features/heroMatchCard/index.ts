@@ -1,0 +1,1 @@
+export { HeroMatchCard } from "./HeroMatchCard";
