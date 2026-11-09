@@ -1,6 +1,6 @@
 import { Flame } from "lucide-react";
 
-import { Button, useDictionary } from "@/shared";
+import { useDictionary } from "@/shared";
 
 import {
   MatchCard,
@@ -8,7 +8,6 @@ import {
   MatchCardLabel,
   MatchCardMeta,
   Odds,
-  MatchCardFooter,
   PredictionBox,
   PredictionLabel,
   PredictionNote,
@@ -57,12 +56,6 @@ export const HeroMatchCard = () => {
         </PredictionRow>
         <PredictionNote>{match.note}</PredictionNote>
       </PredictionBox>
-
-      <MatchCardFooter>
-        <Button variant="primary" size="medium">
-          {match.cta}
-        </Button>
-      </MatchCardFooter>
     </MatchCard>
   );
 };

@@ -135,8 +135,3 @@ export const PredictionNote = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.gray[400]};
 `;
-
-export const MatchCardFooter = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
