@@ -21,6 +21,7 @@ export const colors = {
       light: "#2D2D2D",
       background: "#000000",
       overlay: "#000000CC",
+      card: "#0C171C",
     },
     gray: {
       100: "#F5F5F5",
@@ -48,6 +49,7 @@ export const colors = {
       light: "#E9ECEF",
       background: "#FFFFFF",
       overlay: "#0000000D",
+      card: "#0C171C",
     },
     gray: {
       100: "#212529",

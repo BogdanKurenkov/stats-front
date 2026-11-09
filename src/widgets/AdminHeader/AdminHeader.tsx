@@ -37,7 +37,7 @@ export const AdminHeader: FC = () => {
       <HeaderContainer>
         <HeaderContent>
           <LogoWrapper>
-            <Logo variant="default" />
+            <Logo />
           </LogoWrapper>
 
           <NavMenu>

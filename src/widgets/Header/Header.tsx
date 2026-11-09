@@ -8,7 +8,7 @@ import { ROUTES } from "@/shared/config";
 import {
   HeaderContainer,
   HeaderContent,
-  LogoWrapper,
+
   NavMenu,
   NavLink,
   RightSection,
@@ -56,9 +56,9 @@ export const Header: FC = () => {
     <>
       <HeaderContainer>
         <HeaderContent>
-          <LogoWrapper>
-            <Logo variant="default" />
-          </LogoWrapper>
+         
+            <Logo  />
+        
 
           <NavMenu>
             {MENU_ITEMS.map((item) => (

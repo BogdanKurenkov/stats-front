@@ -2,25 +2,18 @@ import type { FC } from "react";
 import Image from "next/image";
 
 import { useDictionary } from "@/shared/lib/localization";
-import { Container } from "@/shared/ui";
+import { Section } from "@/shared/ui";
+
+import { BOOKMAKERS, SECTION_ID } from "./BestOdds.constants";
 
 import {
-  BOOKMAKER_LOGOS,
-  SECTION_ID,
-  type BookmakerId,
-} from "./BestOdds.constants";
-
-import {
-  BestOddsSection,
   BestOddsHeader,
   BestOddsTitle,
   BestOddsSubtitle,
-  BestOddsGrid,
   BookmakerCard,
   BookmakerLogo,
-  BookmakerOddsRow,
-  TrophyIcon,
-  BookmakerOdds,
+  BookmakerCards,
+  BookmakersContainer,
 } from "./BestOdds.styled";
 
 export const BestOdds: FC = () => {
@@ -28,36 +21,22 @@ export const BestOdds: FC = () => {
   const section = dict.bestOdds;
 
   return (
-    <BestOddsSection id={SECTION_ID}>
-      <Container>
+    <Section id={SECTION_ID}>
+      <BookmakersContainer>
         <BestOddsHeader>
           <BestOddsTitle>{section.title}</BestOddsTitle>
           <BestOddsSubtitle>{section.subtitle}</BestOddsSubtitle>
         </BestOddsHeader>
-
-        <BestOddsGrid>
-          {section.items.map((item) => {
-            const logo = BOOKMAKER_LOGOS[item.id as BookmakerId];
-            return (
-              <BookmakerCard key={item.id}>
-                <BookmakerLogo>
-                  <Image
-                    src={logo.src}
-                    alt={item.name}
-                    width={logo.width}
-                    height={logo.height}
-                  />
-                </BookmakerLogo>
-
-                <BookmakerOddsRow>
-                  <TrophyIcon size={16} />
-                  <BookmakerOdds>{item.odds}</BookmakerOdds>
-                </BookmakerOddsRow>
-              </BookmakerCard>
-            );
-          })}
-        </BestOddsGrid>
-      </Container>
-    </BestOddsSection>
+        <BookmakerCards>
+          {BOOKMAKERS.map(({ height, name, src, width, href }) => (
+            <BookmakerCard key={name} href={href}>
+              <BookmakerLogo>
+                <Image src={src} alt={name} width={width} height={height} />
+              </BookmakerLogo>
+            </BookmakerCard>
+          ))}
+        </BookmakerCards>
+      </BookmakersContainer>
+    </Section>
   );
 };

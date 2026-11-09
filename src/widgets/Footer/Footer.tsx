@@ -70,7 +70,7 @@ export const Footer: FC = () => {
       <FooterContent>
         <FooterSection>
           <LogoWrapper>
-            <Logo variant="large" />
+            <Logo />
             <Description>
               Профессиональная аналитика спортивных событий, точные прогнозы и
               актуальная статистика для универсальных решений.

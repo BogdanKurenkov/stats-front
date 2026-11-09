@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title as BaseTitle, Paragraph as BaseParagraph } from "@/shared";
+import { Title, Paragraph as BaseParagraph } from "@/shared";
 
 export const SectionWrapper = styled.section`
   position: relative;
@@ -129,7 +129,7 @@ export const ItemContent = styled.div`
   gap: 6px;
 `;
 
-export const ItemTitle = styled(BaseTitle)`
+export const ItemTitle = styled(Title)`
   margin: 0;
   font-size: 14px;
   font-weight: 600;

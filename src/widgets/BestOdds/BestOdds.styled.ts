@@ -1,22 +1,23 @@
+import Link from "next/link";
 import styled from "styled-components";
-import { Trophy } from "lucide-react";
 
-import { Section } from "@/shared/ui";
+import { Container } from "@/shared";
 
-export const BestOddsSection = styled(Section)`
-  position: relative;
-  background-color: ${({ theme }) => theme.colors.black.primary};
+export const BookmakersContainer = styled(Container)`
+  display: flex;
+  gap: 28px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+  }
 `;
 
 export const BestOddsHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 32px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin-bottom: 24px;
-  }
+  width: 100%;
+  max-width: 448px;
 `;
 
 export const BestOddsTitle = styled.h2`
@@ -43,27 +44,24 @@ export const BestOddsSubtitle = styled.p`
   color: ${({ theme }) => theme.colors.gray[400]};
 `;
 
-export const BestOddsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+export const BookmakerCards = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    flex-wrap: wrap;
   }
 `;
 
-export const BookmakerCard = styled.div`
+export const BookmakerCard = styled(Link)`
+  width: calc(25% - 9px);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
-  padding: 16px 20px;
+  padding: 36px 20px;
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border: 1px solid ${({ theme }) => theme.colors.gray[800]};
   border-radius: 12px;
@@ -79,8 +77,8 @@ export const BookmakerCard = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    gap: 12px;
-    padding: 14px 16px;
+    width: calc(50% - 6px);
+    padding: 24px 12px;
   }
 `;
 
@@ -100,32 +98,5 @@ export const BookmakerLogo = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     height: 22px;
-  }
-`;
-
-export const BookmakerOddsRow = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    gap: 8px;
-  }
-`;
-
-export const TrophyIcon = styled(Trophy)`
-  color: ${({ theme }) => theme.colors.orange.primary};
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 6px ${({ theme }) => theme.colors.orange.glow});
-`;
-
-export const BookmakerOdds = styled.span`
-  font-size: 18px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray[100]};
-  white-space: nowrap;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    font-size: 16px;
   }
 `;
