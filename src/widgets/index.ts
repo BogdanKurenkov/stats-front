@@ -15,6 +15,12 @@ export { ReviewsRating } from "./ReviewsRating";
 export { ReviewsList } from "./ReviewsList";
 export { ReviewsLeaveForm } from "./ReviewsLeaveForm";
 export { BestOdds } from "./BestOdds";
+export { AboutHero } from "./AboutHero";
+export { AboutMission } from "./AboutMission";
+export { AboutWhatWeDo } from "./AboutWhatWeDo";
+export { AboutPrinciples } from "./AboutPrinciples";
+export { AboutVerifiability } from "./AboutVerifiability";
+export { AboutCta } from "./AboutCta";
 
 export * from "./home";
 

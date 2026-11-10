@@ -1,10 +1,9 @@
-import { useState } from "react";
-import type { FC } from "react";
-
+import { useState, type FC } from "react";
 import { ArrowRight, X } from "lucide-react";
 
 import { useDictionary } from "@/shared/lib/localization";
-import { Section, Title } from "@/shared";
+import { ROUTES, Section, Title } from "@/shared";
+
 import { OUR_TEAM_ICONS } from "./OurTeam.constants";
 
 import {
@@ -56,7 +55,7 @@ export const OurTeam: FC = () => {
 
       <Section pt pb>
         <OurTeamContainer>
-          <AboutLink href="/about">
+          <AboutLink href={ROUTES.ABOUT}>
             {section.aboutLink ?? "О нашей команде"}
             <ArrowRight size={16} />
           </AboutLink>

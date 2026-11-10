@@ -1,0 +1,1 @@
+export { AboutPrinciples } from "./AboutPrinciples";

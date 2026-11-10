@@ -10,6 +10,7 @@ export const PUBLIC_ROUTES = {
   COOKIE_POLICY: "/legal/cookie-policy",
   TERMS_OF_USE: "/legal/terms-of-use",
   REVIEWS: "/reviews",
+  ABOUT: "/about",
 } as const;
 
 export type PublicRoute = (typeof PUBLIC_ROUTES)[keyof typeof PUBLIC_ROUTES];
