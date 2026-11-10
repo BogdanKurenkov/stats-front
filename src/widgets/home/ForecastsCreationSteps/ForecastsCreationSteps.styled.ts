@@ -308,3 +308,36 @@ export const ProgressFill = styled.div<{ $width: string }>`
   border-radius: 2px;
   transition: width 0.3s ease;
 `;
+
+export const StepMoreLink = styled.span<{ $isActive?: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.colors.orange.primary : theme.colors.gray[300]};
+  transition: color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.orange.primary};
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 12px;
+  }
+`;
+
+export const StepMoreArrow = styled.span`
+  display: inline-flex;
+  transition: transform 0.2s ease;
+
+  ${StepMoreLink}:hover & {
+    transform: translateX(2px);
+  }
+`;

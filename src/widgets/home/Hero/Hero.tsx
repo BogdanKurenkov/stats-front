@@ -43,7 +43,7 @@ export const Hero: FC = () => {
               <Button
                 variant="outline"
                 size="large"
-                onClick={() => scrollToSection("")}
+                onClick={() => scrollToSection("creation-steps")}
               >
                 {hero.secondaryCta}
               </Button>

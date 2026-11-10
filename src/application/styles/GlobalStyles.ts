@@ -13,6 +13,14 @@ const GlobalStyle = createGlobalStyle`
       theme.colors.gray[800]};
   }
 
+  html {
+    scroll-padding-top: 72px; 
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      scroll-padding-top: 60px;
+    } 
+  }
+
   html, body {
     font-family: ${
       inter.style.fontFamily

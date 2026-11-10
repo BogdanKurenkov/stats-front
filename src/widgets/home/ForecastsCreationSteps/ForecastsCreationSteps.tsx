@@ -32,6 +32,8 @@ import {
   ProgressText,
   ProgressBar,
   ProgressFill,
+  StepMoreLink,
+  StepMoreArrow,
 } from "./ForecastsCreationSteps.styled";
 
 export const ForecastsCreationSteps: FC = () => {
@@ -99,6 +101,11 @@ export const ForecastsCreationSteps: FC = () => {
                     <StepDescription size="md">
                       {step.description}
                     </StepDescription>
+
+                    <StepMoreLink $isActive={isActive}>
+                      {stepsData.moreLabel ?? "Подробнее об этапе"}
+                      <StepMoreArrow>→</StepMoreArrow>
+                    </StepMoreLink>
                   </StepContent>
                 </StepCard>
               );

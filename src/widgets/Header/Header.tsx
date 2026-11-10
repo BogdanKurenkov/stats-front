@@ -8,7 +8,6 @@ import { ROUTES } from "@/shared/config";
 import {
   HeaderContainer,
   HeaderContent,
-
   NavMenu,
   NavLink,
   RightSection,
@@ -20,7 +19,6 @@ import {
   MobileNavLink,
   Overlay,
   Logo,
-  // ToggleTheme,
 } from "@/shared";
 
 import { MENU_ITEMS } from "./Header.constants";
@@ -56,10 +54,7 @@ export const Header: FC = () => {
     <>
       <HeaderContainer>
         <HeaderContent>
-         
-            <Logo  />
-        
-
+          <Logo />
           <NavMenu>
             {MENU_ITEMS.map((item) => (
               <NavLink
@@ -73,8 +68,6 @@ export const Header: FC = () => {
           </NavMenu>
 
           <RightSection>
-            {/* <ToggleTheme /> */}
-
             {isAuthenticated ? (
               <Avatar
                 onClick={handleAvatarClick}
