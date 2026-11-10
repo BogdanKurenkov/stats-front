@@ -20,6 +20,7 @@ export { AboutWhatWeDo } from "./AboutWhatWeDo";
 export { AboutPrinciples } from "./AboutPrinciples";
 export { AboutVerifiability } from "./AboutVerifiability";
 export { AboutCta } from "./AboutCta";
+export { Forecast } from "./Forecast";
 
 export * from "./home";
 

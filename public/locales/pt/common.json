@@ -1,4 +1,39 @@
 {
+  "forecasts": {
+    "title": "Свежие прогнозы",
+    "subtitle": "Примеры прогнозов с объяснением выбранного направления. Полный архив — в «Прогнозах».",
+    "viewAll": "Все прогнозы",
+    "expertAnalysis": "Экспертный разбор",
+    "readMore": "Читать прогноз",
+    "data": [
+      {
+        "id": "1",
+        "countryFlag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "league": "Англия, Премьер-лига",
+        "date": "11 ноя. 2024",
+        "time": "22:00",
+        "teamHome": { "name": "Манчестер Сити", "logo": "/logos/mc.png" },
+        "teamAway": { "name": "Арсенал", "logo": "/logos/arsenal.png" },
+        "predictionTitle": "Обе забьют — Да",
+        "coefficient": 1.72,
+        "description": "Обе команды забивают в 6 из последних 10 домашних встреч. Учитывай форму.",
+        "expertRating": 4
+      },
+      {
+        "id": "2",
+        "countryFlag": "🇪🇸",
+        "league": "Испания, Ла Лига",
+        "date": "13 ноя. 2024",
+        "time": "23:15",
+        "teamHome": { "name": "Реал Мадрид", "logo": "/logos/real.png" },
+        "teamAway": { "name": "Барселона", "logo": "/logos/barca.png" },
+        "predictionTitle": "Тотал больше 2.5",
+        "coefficient": 1.85,
+        "description": "Классическое противостояние с высоким атакующим потенциалом.",
+        "expertRating": 5
+      }
+    ]
+  },
   "about": {
     "hero": {
       "kicker": "PREDICTIQ / О ПЛАТФОРМЕ",

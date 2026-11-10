@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import { Hero as MainHero } from "@/widgets";
+import { Forecast, Hero as MainHero } from "@/widgets";
 
 const OurTeam = dynamic(() => import("@/widgets").then((mod) => mod.OurTeam));
 const ForecastsCreationSteps = dynamic(() =>
@@ -17,6 +17,7 @@ export default function Home() {
       <Seo title="Главная" />
       <MainHero />
       {/* <FeaturedMatches /> */}
+      <Forecast />
       <OurTeam />
       <ForecastsCreationSteps />
       <BestOdds />
