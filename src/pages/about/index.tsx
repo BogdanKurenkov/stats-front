@@ -1,5 +1,3 @@
-import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
-
 import {
   AboutCta,
   AboutHero,
@@ -8,6 +6,8 @@ import {
   AboutVerifiability,
   AboutWhatWeDo,
 } from "@/widgets";
+
+import { Seo, type NextPageWithLayout, loadMessages } from "@/shared";
 
 const AboutPage: NextPageWithLayout = () => {
   return (

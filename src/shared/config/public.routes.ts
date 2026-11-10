@@ -11,6 +11,9 @@ export const PUBLIC_ROUTES = {
   TERMS_OF_USE: "/legal/terms-of-use",
   REVIEWS: "/reviews",
   ABOUT: "/about",
+  STATISTICS: "/statistics",
+  BROADCASTS: "/broadcasts",
+  PARTNERS: "/partners",
 } as const;
 
 export type PublicRoute = (typeof PUBLIC_ROUTES)[keyof typeof PUBLIC_ROUTES];

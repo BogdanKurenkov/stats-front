@@ -4,13 +4,15 @@ import { ROUTES } from "@/shared/config";
 
 export const FOOTER_SECTIONS = [
   {
-    title: "Навигация",
+    title: "Разделы",
     links: [
       { href: ROUTES.HOME, label: "Главная" },
-      { href: ROUTES.NEWS, label: "Новости" },
       { href: ROUTES.FORECASTS, label: "Прогнозы" },
-      { href: ROUTES.RESULTS, label: "Результаты" },
-      { href: ROUTES.BONUSES, label: "Бонусы" },
+      { href: ROUTES.RESULTS, label: "Статистика" },
+      { href: ROUTES.BROADCASTS, label: "Трансляции" },
+      { href: ROUTES.PARTNERS, label: "Партнёры" },
+      { href: ROUTES.ABOUT, label: "О нас" },
+      { href: ROUTES.NEWS, label: "Блог" },
     ],
   },
   {

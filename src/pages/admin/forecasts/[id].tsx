@@ -1,12 +1,9 @@
 import type { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChevronLeft, Trash2, Save, Loader2, Plus, X } from "lucide-react";
 import { z } from "zod";
-
-import { FORECASTS } from "@/widgets/forecasts/ForecastsList/ForecastsList.constants";
 
 import type { NextPageWithLayout } from "@/shared/types";
 import { Form, FormField, Input, Textarea, Seo } from "@/shared/ui";
@@ -408,7 +405,6 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
   const {
     register,
     handleSubmit,
-    reset,
     watch,
     setValue,
     formState: { errors, isSubmitting },
@@ -421,27 +417,6 @@ const AdminDashboardForecast: NextPageWithLayout = () => {
 
   // Следим за массивом коэффициентов
   const odds = watch("odds");
-
-  // Загружаем данные для редактирования
-  useEffect(() => {
-    if (isEditMode && id) {
-      const forecast = FORECASTS.find((item) => item.id === Number(id));
-      if (forecast) {
-        reset({
-          id: forecast.id,
-          sport: forecast.sport,
-          date: forecast.date,
-          time: forecast.time,
-          homeTeam: forecast.homeTeam,
-          awayTeam: forecast.awayTeam,
-          odds: forecast.odds,
-          author: forecast.author,
-          preview: forecast.preview,
-          timestamp: forecast.timestamp,
-        });
-      }
-    }
-  }, [isEditMode, id, reset]);
 
   const onSubmit = async (/*data: ForecastFormValues*/) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));

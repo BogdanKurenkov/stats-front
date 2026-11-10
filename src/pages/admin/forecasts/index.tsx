@@ -1,17 +1,12 @@
 import type { GetServerSideProps } from "next";
 
-import { ForecastsList } from "@/widgets";
-
 import type { NextPageWithLayout } from "@/shared/types";
 import { Seo } from "@/shared";
-
-const BONUSES_TEXT = "Текущие прогнозы";
 
 const AdminDashboardForecasts: NextPageWithLayout = () => {
   return (
     <>
       <Seo title="Прогнозы" noIndex={true} />
-      <ForecastsList text={BONUSES_TEXT} isAdmin />
     </>
   );
 };

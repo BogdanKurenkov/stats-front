@@ -1,1 +1,0 @@
-export { ForecastsHero } from "./ForecastsHero";
