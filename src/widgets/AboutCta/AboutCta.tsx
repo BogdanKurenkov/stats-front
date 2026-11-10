@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import { ArrowRight } from "lucide-react";
+
 import { useDictionary } from "@/shared/lib/localization";
-import { Container } from "@/shared";
+import { Container, ROUTES } from "@/shared";
 
 import {
   SectionWrapper,
@@ -32,12 +33,12 @@ export const AboutCta: FC = () => {
           </ContentBox>
 
           <Actions>
-            <PrimaryButton href={section.primaryAction.href}>
+            <PrimaryButton href={ROUTES.FORECASTS}>
               {section.primaryAction.label}
               <ArrowRight size={16} />
             </PrimaryButton>
 
-            <SecondaryButton href={section.secondaryAction.href}>
+            <SecondaryButton href={ROUTES.STATISTICS}>
               {section.secondaryAction.label}
               <ArrowRight size={16} />
             </SecondaryButton>

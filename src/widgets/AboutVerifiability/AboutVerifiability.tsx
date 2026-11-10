@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import { ShieldCheck, ArrowRight } from "lucide-react";
+
 import { useDictionary } from "@/shared/lib/localization";
-import { Container } from "@/shared";
+import { Container, ROUTES } from "@/shared";
 
 import {
   SectionWrapper,
@@ -34,7 +35,7 @@ export const AboutVerifiability: FC = () => {
             <Description size="md">{section.description}</Description>
           </ContentBox>
 
-          <ButtonLink href={section.button.href}>
+          <ButtonLink href={ROUTES.FORECASTS}>
             {section.button.label}
             <ArrowRight size={16} />
           </ButtonLink>

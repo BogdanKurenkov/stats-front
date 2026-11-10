@@ -25,7 +25,7 @@ export const AboutPrinciples: FC = () => {
   const section = dict.about.principles;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="principles">
       <Container>
         <Header>
           <TitleGroup>

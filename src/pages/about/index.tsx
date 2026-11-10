@@ -1,6 +1,7 @@
 import {
   AboutCta,
   AboutHero,
+  AboutHowForecastIsBorn,
   AboutMission,
   AboutPrinciples,
   AboutVerifiability,
@@ -16,6 +17,7 @@ const AboutPage: NextPageWithLayout = () => {
       <AboutHero />
       <AboutMission />
       <AboutWhatWeDo />
+      <AboutHowForecastIsBorn />
       <AboutPrinciples />
       <AboutVerifiability />
       <AboutCta />

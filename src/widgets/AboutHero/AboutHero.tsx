@@ -45,7 +45,7 @@ export const AboutHero: FC = () => {
           />
 
           <Actions>
-            <PrimaryButton href={hero.primaryAction.href}>
+            <PrimaryButton href="#principles">
               {hero.primaryAction.label}
               <ArrowRight size={16} />
             </PrimaryButton>
