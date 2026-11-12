@@ -1,6 +1,8 @@
 import type { AppContext } from "next/app";
 import App from "next/app";
 import { parseCookies } from "nookies";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import GlobalStyle from "@/application/styles/GlobalStyles";
 import { MainLayout, AuthLayout, AdminLayout } from "@/application/layouts";
@@ -47,6 +49,11 @@ function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
       <CustomThemeProvider initialMode={themeMode}>
         <GlobalStyle />
         <AuthProvider>{getLayout()}</AuthProvider>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          theme={themeMode}
+        />
       </CustomThemeProvider>
     </DictionaryProvider>
   );
