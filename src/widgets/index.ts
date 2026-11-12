@@ -22,6 +22,8 @@ export { AboutVerifiability } from "./AboutVerifiability";
 export { AboutCta } from "./AboutCta";
 export { Forecast } from "./Forecast";
 export { AboutHowForecastIsBorn } from "./AboutHowForecastIsBorn";
+export { ForecastHistory } from "./ForecastHistory";
+export { MatchResults } from "./MatchResults";
 
 export * from "./home";
 

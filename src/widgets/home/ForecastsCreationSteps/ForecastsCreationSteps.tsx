@@ -60,7 +60,7 @@ export const ForecastsCreationSteps: FC = () => {
     totalSteps > 0 ? (currentStepIndex / totalSteps) * 100 : 0;
 
   return (
-    <Section pt pb>
+    <Section pt pb id="creation-steps">
       <Container>
         <SectionWrapper>
           <SectionHeading>

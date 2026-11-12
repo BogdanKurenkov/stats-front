@@ -1,6 +1,11 @@
 import dynamic from "next/dynamic";
 
-import { Forecast, Hero as MainHero } from "@/widgets";
+import {
+  Forecast,
+  ForecastHistory,
+  Hero as MainHero,
+  MatchResults,
+} from "@/widgets";
 
 const OurTeam = dynamic(() => import("@/widgets").then((mod) => mod.OurTeam));
 const ForecastsCreationSteps = dynamic(() =>
@@ -18,6 +23,8 @@ export default function Home() {
       <MainHero />
       {/* <FeaturedMatches /> */}
       <Forecast />
+      <MatchResults />
+      <ForecastHistory />
       <OurTeam />
       <ForecastsCreationSteps />
       <BestOdds />

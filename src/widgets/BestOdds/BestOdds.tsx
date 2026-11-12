@@ -1,7 +1,9 @@
 import type { FC } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { useDictionary } from "@/shared/lib/localization";
+import { ROUTES } from "@/shared/config";
 import { Section } from "@/shared/ui";
 
 import { BOOKMAKERS, SECTION_ID } from "./BestOdds.constants";
@@ -20,6 +22,8 @@ export const BestOdds: FC = () => {
   const dict = useDictionary();
   const section = dict.bestOdds;
 
+  const { push } = useRouter();
+
   return (
     <Section id={SECTION_ID}>
       <BookmakersContainer>
@@ -30,7 +34,7 @@ export const BestOdds: FC = () => {
         <BookmakerCards>
           {BOOKMAKERS.map(({ height, name, src, width, href }) => (
             <BookmakerCard key={name} href={href}>
-              <BookmakerLogo>
+              <BookmakerLogo onClick={() => push(ROUTES.PARTNERS)}>
                 <Image src={src} alt={name} width={width} height={height} />
               </BookmakerLogo>
             </BookmakerCard>
