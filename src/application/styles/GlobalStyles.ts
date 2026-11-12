@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -81,5 +81,3 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 `;
-
-export default GlobalStyle;

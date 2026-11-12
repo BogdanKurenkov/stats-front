@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import GlobalStyle from "@/application/styles/GlobalStyles";
+import { GlobalStyle } from "@/application/styles";
 import { MainLayout, AuthLayout, AdminLayout } from "@/application/layouts";
 import {
   AdminProvider,
