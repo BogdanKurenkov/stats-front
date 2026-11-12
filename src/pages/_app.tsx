@@ -14,41 +14,46 @@ import {
 } from "@/application/providers";
 
 import type { AppPropsWithLayout } from "@/shared/types";
-import { type ThemeMode } from "@/shared/styles";
+import type { ThemeMode } from "@/shared/styles";
+
+type LayoutProps = {
+  Component: AppPropsWithLayout["Component"];
+  pageProps: AppPropsWithLayout["pageProps"];
+};
+
+function getLayout({ Component, pageProps }: LayoutProps) {
+  switch (Component.layout) {
+    case "auth":
+      return (
+        <AuthLayout>
+          <Component {...pageProps} />
+        </AuthLayout>
+      );
+    case "admin":
+      return (
+        <AdminProvider>
+          <AdminLayout>
+            <Component {...pageProps} />
+          </AdminLayout>
+        </AdminProvider>
+      );
+    case "none":
+      return <Component {...pageProps} />;
+    default:
+      return (
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      );
+  }
+}
 
 function MyApp({ Component, pageProps, themeMode }: AppPropsWithLayout) {
-  const getLayout = () => {
-    switch (Component.layout) {
-      case "auth":
-        return (
-          <AuthLayout>
-            <Component {...pageProps} />
-          </AuthLayout>
-        );
-      case "admin":
-        return (
-          <AdminProvider>
-            <AdminLayout>
-              <Component {...pageProps} />
-            </AdminLayout>
-          </AdminProvider>
-        );
-      case "none":
-        return <Component {...pageProps} />;
-      default:
-        return (
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
-        );
-    }
-  };
-
   return (
     <DictionaryProvider value={pageProps.messages}>
       <CustomThemeProvider initialMode={themeMode}>
         <GlobalStyle />
-        <AuthProvider>{getLayout()}</AuthProvider>
+        <AuthProvider>{getLayout({ Component, pageProps })}</AuthProvider>
         <ToastContainer
           position="bottom-right"
           autoClose={3000}
