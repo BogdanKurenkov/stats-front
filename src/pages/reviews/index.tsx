@@ -18,7 +18,7 @@ export default function Reviews() {
       <ReviewsRating />
       <ReviewsList />
       <ReviewsLeaveForm />
-      <FAQ />
+      <FAQ variant="main" />
     </>
   );
 }

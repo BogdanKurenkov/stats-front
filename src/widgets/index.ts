@@ -24,6 +24,7 @@ export { Forecast } from "./Forecast";
 export { AboutHowForecastIsBorn } from "./AboutHowForecastIsBorn";
 export { ForecastHistory } from "./ForecastHistory";
 export { MatchResults } from "./MatchResults";
+export { PartnersApproach } from "./PartnersApproach";
 
 export * from "./home";
 

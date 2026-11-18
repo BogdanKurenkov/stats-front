@@ -1,0 +1,1 @@
+export { PartnersApproach } from "./PartnersApproach";

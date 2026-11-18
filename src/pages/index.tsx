@@ -28,7 +28,7 @@ export default function Home() {
       <OurTeam />
       <ForecastsCreationSteps />
       <BestOdds />
-      <FAQ />
+      <FAQ variant="main" />
     </>
   );
 }

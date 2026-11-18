@@ -4,6 +4,7 @@ import { ArrowUpDown, ListFilter, ArrowUp } from "lucide-react";
 
 import { useDictionary } from "@/shared/lib";
 import { Button } from "@/shared/ui";
+import { ROUTES } from "@/shared/config";
 
 import {
   SectionWrapper,
@@ -377,7 +378,7 @@ export const ForecastHistory: FC = () => {
         <BannerAction>
           <Button
             variant="primary"
-            onClick={() => router.push("/forecasts/stats")}
+            onClick={() => router.push(ROUTES.FORECASTS)}
           >
             {dict.historyBannerBtn || "К статистике прогнозов"}
           </Button>

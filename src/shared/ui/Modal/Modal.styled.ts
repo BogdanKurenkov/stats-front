@@ -15,7 +15,7 @@ export const ModalContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.black.secondary};
   border-radius: 12px;
   box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
-  width: 800px;
+  width: max-content;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;

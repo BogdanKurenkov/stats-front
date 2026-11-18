@@ -4,6 +4,7 @@ import { ArrowUpDown, ListFilter } from "lucide-react";
 
 import { useDictionary } from "@/shared/lib";
 import { Select } from "@/shared/ui";
+import { ROUTES } from "@/shared/config";
 
 import {
   SectionWrapper,
@@ -192,7 +193,7 @@ export const MatchResults: FC = () => {
               "Краткое превью завершённых матчей. Все результаты, таблицы и xG — в «Статистике»."}
           </Subtitle>
         </TitleWrapper>
-        <ViewAllButton onClick={() => router.push("/match-center")}>
+        <ViewAllButton onClick={() => router.push(ROUTES.STATISTICS)}>
           {dict.matchCenter || "В матч-центр"}
         </ViewAllButton>
       </Header>
