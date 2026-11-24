@@ -17,6 +17,7 @@ import {
   NewsDate,
   NewsLink,
   StyledTitle,
+  PaginationContainer,
 } from "./NewsList.styled";
 
 export const NewsList: FC<NewsListProps> = ({
@@ -63,11 +64,13 @@ export const NewsList: FC<NewsListProps> = ({
           ))}
         </NewsGrid>
 
-        <Pagination
-          currentPage={page}
-          totalPages={totalPages}
-          onPageChange={setPage}
-        />
+        <PaginationContainer>
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
+        </PaginationContainer>
       </Container>
     </Section>
   );

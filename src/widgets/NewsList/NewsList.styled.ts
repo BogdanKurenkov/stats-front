@@ -85,3 +85,8 @@ export const NewsLink = styled.span`
 export const StyledTitle = styled(Title)`
   margin-bottom: 32px;
 `;
+
+export const PaginationContainer = styled.div`
+  padding: 20px 0;
+  margin-top: 20px;
+`;

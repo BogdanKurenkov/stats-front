@@ -5,8 +5,6 @@ export const PaginationContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 20px 0;
-  margin-top: 20px;
 `;
 
 export const PaginationButton = styled.button`
